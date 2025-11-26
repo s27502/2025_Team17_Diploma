@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
@@ -17,7 +18,7 @@ public class PlayerInput : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         _moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         _movement.Move(_moveInput);
@@ -26,7 +27,10 @@ public class PlayerInput : MonoBehaviour
         _animator.SetBool("isWalking", isWalking);
 
         _spriteFlipper.Flip(_moveInput);
-        
+    }
+
+    void Update()
+    {
         if (Input.GetKeyDown(KeyCode.E))
         {
             _interactions.Interact();
