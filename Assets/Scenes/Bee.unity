@@ -122,6 +122,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &1132504294 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1163773912930802346, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+  m_PrefabInstance: {fileID: 2286634389095591295}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1132504298 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7817061768605420129, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+  m_PrefabInstance: {fileID: 2286634389095591295}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2054770212
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,13 +232,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 220589415235629733, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: sr
+      value: 
+      objectReference: {fileID: 1132504298}
+    - target: {fileID: 220589415235629733, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1132504294}
+    - target: {fileID: 654635978329448260, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 654635978329448260, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_Size.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 654635978329448260, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 654635978329448260, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 654635978329448260, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 654635978329448260, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828529381762116686, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828529381762116686, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828529381762116686, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1828529381762116686, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3457005
+      value: 1.9748
       objectReference: {fileID: 0}
     - target: {fileID: 1828529381762116686, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.4555106
+      value: 5.0846
       objectReference: {fileID: 0}
     - target: {fileID: 1828529381762116686, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -266,6 +320,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7817061768605420129, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817061768605420129, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_Size.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817061768605420129, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 348007474, guid: 59dd739e5d8c7264689a39e9ae171b52, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
