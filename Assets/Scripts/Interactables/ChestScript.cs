@@ -23,7 +23,7 @@ public class ChestScript : MonoBehaviour, IInteractable
             return;
         }
         opened = true;
-        _coinFactory.SpawnCoins(transform.position, CoinAmount);
+        _coinFactory.SpawnCoins(transform.position, CoinAmount, gameObject.transform.parent.gameObject);
         Destroy(gameObject);
     }
 }
