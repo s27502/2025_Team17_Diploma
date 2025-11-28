@@ -7,6 +7,15 @@ public class Coin : MonoBehaviour
     [SerializeField] private int value;
     [SerializeField] private float despawnTime;
     
+    public float initialUpVelocity = 1.2f;   // how strongly it pops up
+    public float gravity = 10f;           // how fast it falls
+    public float maxHeightOffset = 0.15f;  // how high in world units the sprite moves
+
+    private float height = 0f;            // simulated Z height
+    private float verticalVelocity;
+    
+    public Transform sprite;  
+    
     private SpriteRenderer _renderer;
 
     void Awake()
@@ -16,8 +25,27 @@ public class Coin : MonoBehaviour
     void Start()
     {
         StartCoroutine(Despawn(despawnTime));
+        
+        verticalVelocity = initialUpVelocity;
     }
+    
+    void Update()
+    {
+        // height physics
+        verticalVelocity -= gravity * Time.deltaTime;
+        height += verticalVelocity * Time.deltaTime;
 
+        // stop on ground
+        if (height < 0)
+        {
+            height = 0;
+            verticalVelocity = 0;
+        }
+
+        // move the sprite upward based on height
+        sprite.localPosition = new Vector3(0, height * maxHeightOffset, 0);
+    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

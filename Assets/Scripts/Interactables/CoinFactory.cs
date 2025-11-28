@@ -7,8 +7,7 @@ public class CoinFactory : MonoBehaviour
     public GameObject smallCoinPrefab;
         public GameObject bigCoinPrefab;
 
-        public float launchForce = 5f;
-        public float upwardBias = 0.5f;
+        
         
         public void SpawnCoins(Vector3 pos, int totalValue)
         {
@@ -46,9 +45,14 @@ public class CoinFactory : MonoBehaviour
 
             Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
             rb.gravityScale = 0f; 
-           // float angle = Random.Range(0f, 2f * Mathf.PI);
-            //Vector2 randomDir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
-                
-            //rb.AddForce(randomDir * launchForce, ForceMode2D.Impulse);
+            rb.drag = 3f;
+
+            float angle = Random.Range(0f, 2f * Mathf.PI);
+            Vector2 randomDir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+
+            
+            float force = Random.Range(0.0002f, 0.0008f);
+
+            rb.AddForce(randomDir * force, ForceMode2D.Impulse);
         }
 }
