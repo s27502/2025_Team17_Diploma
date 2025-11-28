@@ -24,5 +24,6 @@ public class ChestScript : MonoBehaviour, IInteractable
         }
         opened = true;
         _coinFactory.SpawnCoins(transform.position, CoinAmount);
+        Destroy(gameObject);
     }
 }

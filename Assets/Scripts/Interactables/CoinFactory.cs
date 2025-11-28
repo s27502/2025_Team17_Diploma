@@ -45,12 +45,10 @@ public class CoinFactory : MonoBehaviour
             GameObject coin = Instantiate(prefab, pos, Quaternion.identity);
 
             Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
+            rb.gravityScale = 0f; 
+           // float angle = Random.Range(0f, 2f * Mathf.PI);
+            //Vector2 randomDir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
                 
-            Vector2 randomDir = new Vector2(
-                Random.Range(-1f, 1f),
-                Random.Range(0f, 1f) + upwardBias
-            ).normalized;
-                
-            rb.AddForce(randomDir * launchForce, ForceMode2D.Impulse);
+            //rb.AddForce(randomDir * launchForce, ForceMode2D.Impulse);
         }
 }
