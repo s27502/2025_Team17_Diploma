@@ -15,7 +15,7 @@ MonoBehaviour:
   floorName: Floor1
   possibleRooms:
   - {fileID: 2005126786876904744, guid: 69e811fb50b20dc439eedd6b93785700, type: 3}
-  - {fileID: 5167917212770003283, guid: 315892c03f0f74a4a99b4f66371644bf, type: 3}
-  startRoom: {fileID: 5853630744308183460, guid: d4a0e00bcec10b546af18bec9629ce1d, type: 3}
+  - {fileID: 2005126786876904744, guid: 87ae97c7ad4aef0489d2a7a64cf849af, type: 3}
+  startRoom: {fileID: 2005126786876904744, guid: 4f9d711f3728cf54eb996ae7e9328f33, type: 3}
   bossRoom: {fileID: 0}
   roomsToGenerate: 8
