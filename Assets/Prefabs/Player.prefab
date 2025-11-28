@@ -17,9 +17,12 @@ GameObject:
   - component: {fileID: 6680564350508708747}
   - component: {fileID: 8897864883774425281}
   - component: {fileID: 6450290854481000439}
-  m_Layer: 0
+  - component: {fileID: 306556040188712002}
+  - component: {fileID: 5372722575000309435}
+  - component: {fileID: 7839067856128871869}
+  m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,6 +237,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131aba11d1a11c14992e77ba34f1e881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &306556040188712002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2230101389136409127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f0cef433fc5264e837807204ec4d5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 4
+  maxHp: 4
+  strength: 1
+  agility: 1
+  coins: 0
+--- !u!114 &5372722575000309435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2230101389136409127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5faffe8a24040104a95a411729ac3f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7839067856128871869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2230101389136409127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e49644491a3c5f44ae5403f652555aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5612368169346099847
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +289,7 @@ GameObject:
   - component: {fileID: 2828809347817452949}
   - component: {fileID: 7879472498800663555}
   - component: {fileID: 2632582174487780499}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InteractionRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
