@@ -22,7 +22,7 @@ public class PlayerStats : MonoBehaviour
     }
     
     //negative values to subtract
-    void ModifyHp(int value)
+    public void ModifyHp(int value)
     {
         hp += value;
         if (hp < 0)
@@ -32,7 +32,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
     
-    void ModifyMaxHp(int value)
+    public void ModifyMaxHp(int value)
     {
         if (maxHp + value > 0)
         {
@@ -40,42 +40,42 @@ public class PlayerStats : MonoBehaviour
         }
     }
     
-    void ModifyStrength(int value)
+    public void ModifyStrength(int value)
     {
         strength += value;
     }
     
-    void ModifyAgility(int value)
+    public void ModifyAgility(int value)
     {
         agility += value;
     }
     
-    void ModifyCoins(int value)
+    public void ModifyCoins(int value)
     {
         coins += value;
     }
 
-    int GetHp()
+    public int GetHp()
     {
         return hp;
     }
 
-    int GetMaxHp()
+    public int GetMaxHp()
     {
         return maxHp;
     }
 
-    int GetStrength()
+    public int GetStrength()
     {
         return strength;
     }
 
-    int GetAgility()
+    public int GetAgility()
     {
         return agility;
     }
 
-    int GetCoins()
+    public int GetCoins()
     {
         return coins;
     }
