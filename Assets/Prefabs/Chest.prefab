@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca13a67f4bfe2b48b4e001016ec7ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoinAmount: 5
+  CoinAmount: 23
 --- !u!114 &5294324626686061485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,5 +159,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smallCoinPrefab: {fileID: 5549636133503170048, guid: 94f41ca95d1dd9c448bf663f053d3e62, type: 3}
   bigCoinPrefab: {fileID: 816253187377281856, guid: 53fa5ae091ce8454ea42fe26d34c68c3, type: 3}
-  launchForce: 5
-  upwardBias: 0.5

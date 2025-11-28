@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    [SerializeField] private int value;
     [SerializeField] private float despawnTime;
     
-    public float initialUpVelocity = 1.2f;   // how strongly it pops up
-    public float gravity = 10f;           // how fast it falls
-    public float maxHeightOffset = 0.15f;  // how high in world units the sprite moves
+    public float initialUpVelocity = 1.2f;   
+    public float gravity = 10f;          
+    public float maxHeightOffset = 0.15f;  
 
-    private float height = 0f;            // simulated Z height
+    private float height = 0f;            
     private float verticalVelocity;
     
     public Transform sprite;  
     
-    private SpriteRenderer _renderer;
+    public SpriteRenderer _renderer;
 
     void Awake()
     {
-        _renderer = GetComponent<SpriteRenderer>();
+        
     }
     void Start()
     {
@@ -50,7 +49,7 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponentInParent<PlayerStats>().ModifyCoins(value);
+            //other.GetComponentInParent<PlayerStats>().ModifyCoins(value);
             Destroy(gameObject);
             // GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             // GetComponentInChildren<BoxCollider2D>().enabled = false;
