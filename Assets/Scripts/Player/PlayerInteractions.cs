@@ -17,11 +17,17 @@ public class PlayerInteractions : MonoBehaviour
 
     public void OnRangeEnter(Collider2D other)
     {
-        _interactable = other.GetComponent<IInteractable>();
+        var interactable = other.GetComponent<IInteractable>();
+        if (interactable != null)
+            _interactable = interactable;
     }
+
 
     public void OnRangeExit(Collider2D other)
     {
-        _interactable = null;
+        var interactable = other.GetComponent<IInteractable>();
+        if (interactable != null && _interactable == interactable)
+            _interactable = null;
     }
+
 }

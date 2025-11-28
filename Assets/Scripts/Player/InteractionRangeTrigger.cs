@@ -14,7 +14,6 @@ public class InteractionRangeTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         _playerInteractions?.OnRangeEnter(other);
-        Debug.Log(other.tag);
     }
 
     private void OnTriggerExit2D(Collider2D other)
