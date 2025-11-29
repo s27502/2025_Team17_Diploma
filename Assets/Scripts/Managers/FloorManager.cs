@@ -58,4 +58,9 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
             Random.Range(0, _currentFloorData.possibleRooms.Count)
         ];
     }
+
+    public GameObject GetCurrentRoom()
+    {
+        return _currentRoom;
+    }
 }

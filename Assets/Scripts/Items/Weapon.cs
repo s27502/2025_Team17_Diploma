@@ -29,6 +29,7 @@ namespace Items
                 if (toDrop)
                 {
                     DeEquipStatChanges(toDrop);
+                    ItemManager.PutInRoom(toDrop, gameObject.transform.position);
                     Debug.Log("Dropped " + toDrop.name);
                 }
 
@@ -40,10 +41,11 @@ namespace Items
             if (toDrop)
             {
                 DeEquipStatChanges(toDrop);
+                ItemManager.PutInRoom(toDrop, gameObject.transform.position);
                 Debug.Log("Dropped " + toDrop.name);
             }
             ApplyStatChanges(this);
-            ServiceLocator.Instance.GetService<ItemManager>().PutInStorage(this);
+            ItemManager.PutInStorage(this);
         }
 
         private void ApplyStatChanges(Item item)

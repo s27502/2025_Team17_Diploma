@@ -7,6 +7,7 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     private InventoryManager _inventoryManager;
+    private FloorManager _floorManager;
     void Awake()
     {
         ServiceLocator.Instance.Register(this);
@@ -15,6 +16,7 @@ public class ItemManager : MonoBehaviour
     void Start()
     {
         _inventoryManager = ServiceLocator.Instance.GetService<InventoryManager>();
+        _floorManager = ServiceLocator.Instance.GetService<FloorManager>();
         Debug.Log(_inventoryManager);
     }
 
@@ -23,5 +25,11 @@ public class ItemManager : MonoBehaviour
         item.transform.SetParent(_inventoryManager.GetItemStorage().transform);
         item.gameObject.SetActive(false);
     }
-    
+
+    public void PutInRoom(Item item, Vector3 position)
+    {
+        item.transform.SetParent(_floorManager.GetCurrentRoom().transform);
+        item.transform.position = position;
+        item.gameObject.SetActive(true);
+    }
 }
