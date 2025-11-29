@@ -1,18 +1,51 @@
-using System.Collections;
-using System.Collections.Generic;
+using Items;
 using UnityEngine;
 
-public class Equipment : MonoBehaviour
+namespace Player
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Equipment : MonoBehaviour
     {
-        
-    }
+        private Item _weapon;
+        private Item _armor;
+        private Item _helmet;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public Item GetWeapon()
+        {
+            return _weapon;
+        }
+
+        public Item GetArmor()
+        {
+            return _armor;
+        }
+
+        public Item GetHelmet()
+        {
+            return _helmet;
+        }
+
+        public Item Equip(Item item)
+        {
+            Item toDrop = null;
+            if (item.GetType() == typeof(Weapon))
+            {
+                if (_weapon)
+                {
+                    toDrop = Unequip(_weapon);
+                }
+                _weapon = item;
+            }
+
+            return toDrop;
+        }
+
+        public Item Unequip(Item item)
+        {
+            if (item.GetType() == typeof(Weapon))
+            {
+                _weapon = null;
+            }
+            return item;
+        }
     }
 }
