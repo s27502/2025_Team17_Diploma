@@ -101,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   damage: 1
+  damageTextPrefab: {fileID: 774244208891461880, guid: 0f26b6719cff7a240b36207a029fee92, type: 3}
+  damageTextRange: 0.5
 --- !u!50 &5662330439796338021
 Rigidbody2D:
   serializedVersion: 4
