@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    private string _itemName;
-    private int _itemPrice;
+    [SerializeField] private string itemName;
+    [SerializeField] private int itemPrice;
     private Sprite _sprite;
     //Stats should be in order: HP, MAX HP, DMG, ATTACK SPEED, LUCK, PROJECTILE COUNT;
     [SerializeField] private List<float> stats;
@@ -23,12 +23,12 @@ public class Item : MonoBehaviour
 
     public string GetItemName()
     {
-        return _itemName;
+        return itemName;
     }
 
     public int GetItemPrice()
     {
-        return _itemPrice;
+        return itemPrice;
     }
 
     public Sprite GetSprite()
