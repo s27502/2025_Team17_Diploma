@@ -11,5 +11,10 @@ namespace Managers
             _inventory = GetComponent<Inventory>();
             ServiceLocator.Instance.Register(this);
         }
+
+        public Inventory GetInventory()
+        {
+            return _inventory;
+        }
     }
 }

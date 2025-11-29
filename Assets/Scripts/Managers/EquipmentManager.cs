@@ -12,5 +12,10 @@ namespace Managers
             _equipment = GetComponent<Equipment>();
             ServiceLocator.Instance.Register(this);
         }
+
+        public Equipment GetEquipment()
+        {
+            return _equipment;
+        }
     }
 }
