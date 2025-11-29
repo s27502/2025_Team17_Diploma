@@ -35,7 +35,7 @@ namespace Player
                 }
                 _weapon = item;
             }
-
+            Debug.Log("Equipped " + item.name);
             return toDrop;
         }
 

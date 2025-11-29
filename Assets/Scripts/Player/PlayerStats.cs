@@ -8,7 +8,7 @@ namespace Player
         [SerializeField] private int hp;
         [SerializeField] private int maxHp;
         [SerializeField] private int dmg;
-        [SerializeField] private int atkSpeed;
+        [SerializeField] private float atkSpeed;
         [SerializeField] private int luck;
         [SerializeField] private int projectileCount;
         [SerializeField] private int coins;
@@ -74,6 +74,11 @@ namespace Player
         {
             luck += value;
         }
+        
+        public void ModifyAttackSpeed(float value)
+        {
+            atkSpeed += value;
+        }
     
         public int GetProjectileCount()
         {
@@ -100,7 +105,7 @@ namespace Player
             return dmg;
         }
 
-        public int GetAtkSpeed()
+        public float GetAtkSpeed()
         {
             return atkSpeed;
         }

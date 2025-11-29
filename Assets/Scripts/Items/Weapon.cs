@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DefaultNamespace;
 using Managers;
 using Player;
@@ -8,35 +9,71 @@ namespace Items
     public class Weapon : Item , IInteractable
     {
         [SerializeField] private GameObject _projectile;
+        private PlayerStats _stats;
+        private Equipment _equipment;
         private bool _isShop;
         
         public void OnInteract()
         {
-            PlayerStats stats = ServiceLocator.Instance.GetService<PlayerStatManager>().GetPlayerStats();
-            Equipment equipment = ServiceLocator.Instance.GetService<EquipmentManager>().GetEquipment();
+            _stats = ServiceLocator.Instance.GetService<PlayerStatManager>().GetPlayerStats();
+            _equipment = ServiceLocator.Instance.GetService<EquipmentManager>().GetEquipment();
             Item toDrop;
             if (_isShop)
             {
                 //Buy
-                if (stats.GetCoins() > GetItemPrice())
+                if (_stats.GetCoins() > GetItemPrice())
                 {
-                    stats.ModifyCoins(-GetItemPrice());
+                    _stats.ModifyCoins(-GetItemPrice());
                 }
-                toDrop = equipment.Equip(this);
+                toDrop = _equipment.Equip(this);
                 if (toDrop)
                 {
+                    DeEquipStatChanges(toDrop);
                     Debug.Log("Dropped " + toDrop.name);
                 }
+
+                ApplyStatChanges(this);
                 return;
             }
             //Pick up
-            toDrop = equipment.Equip(this);
+            toDrop = _equipment.Equip(this);
             if (toDrop)
             {
+                DeEquipStatChanges(toDrop);
                 Debug.Log("Dropped " + toDrop.name);
             }
+            ApplyStatChanges(this);
         }
-        
+
+        private void ApplyStatChanges(Item item)
+        {
+            List<float> stats = item.GetStats();
+            
+            if (stats[2] != 0)
+            {
+                _stats.ModifyDmg((int)stats[2]);
+            }
+
+            if (stats[3] != 0)
+            {
+                _stats.ModifyAttackSpeed(stats[3]);
+            }
+        }
+
+        private void DeEquipStatChanges(Item item)
+        {
+            List<float> stats = item.GetStats();
+            
+            if (stats[2] != 0)
+            {
+                _stats.ModifyDmg(-(int)stats[2]);
+            }
+
+            if (stats[3] != 0)
+            {
+                _stats.ModifyAttackSpeed(-stats[3]);
+            }
+        }
         public GameObject GetProjectile()
         {
             return _projectile;
