@@ -9,6 +9,7 @@ namespace Items
         [SerializeField] private int itemPrice;
         private Sprite _sprite;
         protected ItemManager ItemManager;
+        [SerializeField] protected bool IsShop;
         //Stats should be in order: HP, MAX HP, DMG, ATTACK SPEED, LUCK, PROJECTILE COUNT;
         [SerializeField] private List<float> stats;
 
