@@ -17,7 +17,6 @@ public class ItemManager : MonoBehaviour
     {
         _inventoryManager = ServiceLocator.Instance.GetService<InventoryManager>();
         _floorManager = ServiceLocator.Instance.GetService<FloorManager>();
-        Debug.Log(_inventoryManager);
     }
 
     public void PutInStorage(Item item)

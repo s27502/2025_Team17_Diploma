@@ -30,7 +30,6 @@ namespace Items
                 {
                     DeEquipStatChanges(toDrop);
                     ItemManager.PutInRoom(toDrop, gameObject.transform.position);
-                    Debug.Log("Dropped " + toDrop.name);
                 }
 
                 ApplyStatChanges(this);
@@ -42,7 +41,6 @@ namespace Items
             {
                 DeEquipStatChanges(toDrop);
                 ItemManager.PutInRoom(toDrop, gameObject.transform.position);
-                Debug.Log("Dropped " + toDrop.name);
             }
             ApplyStatChanges(this);
             ItemManager.PutInStorage(this);
@@ -52,14 +50,14 @@ namespace Items
         {
             List<float> stats = item.GetStats();
             
-            if (stats[2] != 0)
+            if (stats[0] != 0)
             {
-                _stats.ModifyDmg((int)stats[2]);
+                _stats.ModifyDmg((int)stats[0]);
             }
 
-            if (stats[3] != 0)
+            if (stats[1] != 0)
             {
-                _stats.ModifyAttackSpeed(stats[3]);
+                _stats.ModifyAttackSpeed(stats[1]);
             }
         }
 
@@ -67,14 +65,14 @@ namespace Items
         {
             List<float> stats = item.GetStats();
             
-            if (stats[2] != 0)
+            if (stats[0] != 0)
             {
-                _stats.ModifyDmg(-(int)stats[2]);
+                _stats.ModifyDmg(-(int)stats[0]);
             }
 
-            if (stats[3] != 0)
+            if (stats[1] != 0)
             {
-                _stats.ModifyAttackSpeed(-stats[3]);
+                _stats.ModifyAttackSpeed(-stats[1]);
             }
         }
         public GameObject GetProjectile()

@@ -101,8 +101,6 @@ MonoBehaviour:
   itemName: Short Bow
   itemPrice: 0
   stats:
-  - 0
-  - 0
   - 1
   - 1.8
   _projectile: {fileID: 0}

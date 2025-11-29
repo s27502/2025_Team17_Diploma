@@ -10,7 +10,6 @@ namespace Managers
         void Awake()
         {
             _equipment = GetComponent<Equipment>();
-            Debug.Log(_equipment);
             ServiceLocator.Instance.Register(this);
         }
 
