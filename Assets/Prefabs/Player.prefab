@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 7839067856128871869}
   - component: {fileID: 2898640903758995795}
   - component: {fileID: 6244004483546145208}
+  - component: {fileID: 2934615792645559845}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -253,10 +254,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 4
   maxHp: 4
-  dmg: 0
-  atkSpeed: 0
+  dmg: 1
+  atkSpeed: 1
   luck: 0
-  projectileCount: 0
+  projectileCount: 1
   coins: 0
 --- !u!114 &5372722575000309435
 MonoBehaviour:
@@ -304,6 +305,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1575e837a27034c48b91963c494e4724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2934615792645559845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2230101389136409127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab524d2db6cfed74f967e948afe2b731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5612368169346099847

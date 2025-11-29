@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private Inventory _inventory;
 
-    // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        
+        _inventory = GetComponent<Inventory>();
+        ServiceLocator.Instance.Register(this);
     }
 }
