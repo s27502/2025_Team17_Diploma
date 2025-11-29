@@ -5,6 +5,7 @@ namespace Player
 {
     public class PlayerStats : MonoBehaviour
     {
+        [Header("Stats")]
         [SerializeField] private int hp;
         [SerializeField] private int maxHp;
         [SerializeField] private int dmg;
@@ -14,6 +15,8 @@ namespace Player
         [SerializeField] private int coins;
         [SerializeField] private int armorMax;
         [SerializeField] private int armor;
+
+        public UnityEvent<int, int> OnHpChanged = new UnityEvent<int, int>();
         private UnityEvent _dead;
 
         void Start()
@@ -23,16 +26,18 @@ namespace Player
 
             _dead.AddListener(OnEventTriggered);
         }
-    
-        //negative values to subtract
+
         public void ModifyHp(int value)
         {
             hp += value;
-            if (hp < 0)
-            {
-                hp = 0;
+
+            if (hp > maxHp) hp = maxHp;
+            if (hp < 0) hp = 0;
+
+            OnHpChanged.Invoke(hp, maxHp);
+
+            if (hp <= 0)
                 _dead.Invoke();
-            }
         }
 
         public void ModifyArmor(int value)
@@ -44,81 +49,59 @@ namespace Player
         {
             return armorMax;
         }
-        
+
         public void SetArmor(int value)
         {
             armor = GetMaxArmor();
         }
-        
+
         public void ModifyMaxHp(int value)
         {
-            //Max Hp capped
-            if (maxHp + value > 6)
-            {
-                maxHp = 6;
-            }
-            else if (maxHp + value > 0)
-            {
-                maxHp += value;
-            }
+            maxHp = Mathf.Clamp(maxHp + value, 1, 6);
+            hp = Mathf.Clamp(hp, 0, maxHp);
+            OnHpChanged.Invoke(hp, maxHp);
         }
-    
+
         public void ModifyDmg(int value)
         {
             dmg += value;
         }
-    
+
         public void ModifyAtkSpeed(int value)
         {
-            //Attack Speed capped
-            if (atkSpeed + value > 10)
-            {
-                atkSpeed = 10;
-            }
-            else
-            {
-                atkSpeed += value;
-            }
+            atkSpeed = Mathf.Clamp(atkSpeed + value, 0, 10);
         }
-    
-        public void ModifyCoins(int value)
-        {
-            coins += value;
-        }
-    
-        public void ModifyProjectileCount(int value)
-        {
-            //Projectile Count capped
-            if (projectileCount + value > 5)
-            {
-                projectileCount = 5;
-            }
-            else
-            {
-                projectileCount += value;
-            }
-        }
-    
-        public void ModifyLuck(int value)
-        {
-            luck += value;
-        }
-        
+
         public void ModifyAttackSpeed(float value)
         {
             atkSpeed += value;
         }
-    
+
+        public void ModifyCoins(int value)
+        {
+            coins += value;
+        }
+
+        public void ModifyProjectileCount(int value)
+        {
+            projectileCount = Mathf.Clamp(projectileCount + value, 1, 5);
+        }
+
+        public void ModifyLuck(int value)
+        {
+            luck += value;
+        }
+
         public int GetProjectileCount()
         {
             return projectileCount;
         }
-    
+
         public int GetLuck()
         {
             return luck;
         }
-    
+
         public int GetHp()
         {
             return hp;
@@ -143,7 +126,7 @@ namespace Player
         {
             return coins;
         }
-    
+
         void OnEventTriggered()
         {
             Debug.Log("Player Died");

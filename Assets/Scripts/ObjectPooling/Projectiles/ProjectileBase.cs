@@ -6,6 +6,7 @@ public abstract class ProjectileBase : MonoBehaviour, IPoolableObject
     protected IObjectPool _pool;
     protected Rigidbody2D _rb;
     protected Vector2 _dir;
+    [SerializeField] protected int damage = 1;
 
     protected virtual void Awake()
     {

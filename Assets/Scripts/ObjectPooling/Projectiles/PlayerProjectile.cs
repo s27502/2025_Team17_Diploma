@@ -1,9 +1,14 @@
-﻿using UnityEngine;
+﻿using Managers;
+using UnityEngine;
 using Player;
 
 public class PlayerProjectile : ProjectileBase
 {
-    [SerializeField] private int damage = 1;
+    protected override void Awake()
+    {
+        base.Awake();
+        damage = ServiceLocator.Instance.GetService<PlayerStatManager>().GetPlayerStats().GetDmg();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -11,7 +16,7 @@ public class PlayerProjectile : ProjectileBase
             return;
 
 
-        if (other.CompareTag("Enemy") || other.CompareTag("EnemyHitbox"))
+        if (other.CompareTag("Enemy"))
         {
             //var enemyStats = other.GetComponent<EnemyStats>();
             //enemyStats?.ModifyHp(-damage);
