@@ -1,87 +1,152 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerStats : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private int hp;
-    [SerializeField] private int maxHp;
-    [SerializeField] private int strength;
-    [SerializeField] private int agility;
-    [SerializeField] private int coins;
-
-    private UnityEvent _dead;
-
-    void Start()
+    public class PlayerStats : MonoBehaviour
     {
-        if (_dead == null)
-            _dead = new UnityEvent();
+        [SerializeField] private int hp;
+        [SerializeField] private int maxHp;
+        [SerializeField] private int dmg;
+        [SerializeField] private float atkSpeed;
+        [SerializeField] private int luck;
+        [SerializeField] private int projectileCount;
+        [SerializeField] private int coins;
+        [SerializeField] private int armorMax;
+        [SerializeField] private int armor;
+        private UnityEvent _dead;
 
-        _dead.AddListener(OnEventTriggered);
-    }
-    
-    //negative values to subtract
-    public void ModifyHp(int value)
-    {
-        hp += value;
-        if (hp < 0)
+        void Start()
         {
-            hp = 0;
-            _dead.Invoke();
+            if (_dead == null)
+                _dead = new UnityEvent();
+
+            _dead.AddListener(OnEventTriggered);
         }
-    }
     
-    public void ModifyMaxHp(int value)
-    {
-        if (maxHp + value > 0)
+        //negative values to subtract
+        public void ModifyHp(int value)
         {
-            maxHp += value;
+            hp += value;
+            if (hp < 0)
+            {
+                hp = 0;
+                _dead.Invoke();
+            }
         }
-    }
+
+        public void ModifyArmor(int value)
+        {
+            armor += value;
+        }
+
+        private int GetMaxArmor()
+        {
+            return armorMax;
+        }
+        
+        public void SetArmor(int value)
+        {
+            armor = GetMaxArmor();
+        }
+        
+        public void ModifyMaxHp(int value)
+        {
+            //Max Hp capped
+            if (maxHp + value > 6)
+            {
+                maxHp = 6;
+            }
+            else if (maxHp + value > 0)
+            {
+                maxHp += value;
+            }
+        }
     
-    public void ModifyStrength(int value)
-    {
-        strength += value;
-    }
+        public void ModifyDmg(int value)
+        {
+            dmg += value;
+        }
     
-    public void ModifyAgility(int value)
-    {
-        agility += value;
-    }
+        public void ModifyAtkSpeed(int value)
+        {
+            //Attack Speed capped
+            if (atkSpeed + value > 10)
+            {
+                atkSpeed = 10;
+            }
+            else
+            {
+                atkSpeed += value;
+            }
+        }
     
-    public void ModifyCoins(int value)
-    {
-        coins += value;
-    }
-
-    public int GetHp()
-    {
-        return hp;
-    }
-
-    public int GetMaxHp()
-    {
-        return maxHp;
-    }
-
-    public int GetStrength()
-    {
-        return strength;
-    }
-
-    public int GetAgility()
-    {
-        return agility;
-    }
-
-    public int GetCoins()
-    {
-        return coins;
-    }
+        public void ModifyCoins(int value)
+        {
+            coins += value;
+        }
     
-    void OnEventTriggered()
-    {
-        Debug.Log("Player Died");
+        public void ModifyProjectileCount(int value)
+        {
+            //Projectile Count capped
+            if (projectileCount + value > 5)
+            {
+                projectileCount = 5;
+            }
+            else
+            {
+                projectileCount += value;
+            }
+        }
+    
+        public void ModifyLuck(int value)
+        {
+            luck += value;
+        }
+        
+        public void ModifyAttackSpeed(float value)
+        {
+            atkSpeed += value;
+        }
+    
+        public int GetProjectileCount()
+        {
+            return projectileCount;
+        }
+    
+        public int GetLuck()
+        {
+            return luck;
+        }
+    
+        public int GetHp()
+        {
+            return hp;
+        }
+
+        public int GetMaxHp()
+        {
+            return maxHp;
+        }
+
+        public int GetDmg()
+        {
+            return dmg;
+        }
+
+        public float GetAtkSpeed()
+        {
+            return atkSpeed;
+        }
+
+        public int GetCoins()
+        {
+            return coins;
+        }
+    
+        void OnEventTriggered()
+        {
+            Debug.Log("Player Died");
+        }
     }
 }

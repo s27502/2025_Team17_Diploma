@@ -174,7 +174,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.237, y: 2.299, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2883114908525927782}
@@ -289,12 +289,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53292ddc50eb4d4bb90b5cad64da780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0
   despawnTime: 10
   initialUpVelocity: 4
   gravity: 12
   maxHeightOffset: 0.5
   sprite: {fileID: 2883114908525927782}
+  _renderer: {fileID: 0}
 --- !u!50 &6280298629509665476
 Rigidbody2D:
   serializedVersion: 4

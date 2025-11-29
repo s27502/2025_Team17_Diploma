@@ -1,29 +1,29 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 
-public class ChestScript : MonoBehaviour, IInteractable
+namespace Interactables
 {
-    [SerializeField] private int CoinAmount;
-    
-    private bool opened = false;
-    private CoinFactory _coinFactory;
-    
-    private void Awake()
+    public class ChestScript : MonoBehaviour, IInteractable
     {
-        _coinFactory = GetComponent<CoinFactory>();
-    }
-
-    public void OnInteract()
-    {
-        if (opened)
+        [SerializeField] private int CoinAmount;
+    
+        private bool opened = false;
+        private CoinFactory _coinFactory;
+    
+        private void Awake()
         {
-            return;
+            _coinFactory = GetComponent<CoinFactory>();
         }
-        opened = true;
-        _coinFactory.SpawnCoins(transform.position, CoinAmount, gameObject.transform.parent.gameObject);
-        Destroy(gameObject);
+
+        public void OnInteract()
+        {
+            if (opened)
+            {
+                return;
+            }
+            opened = true;
+            _coinFactory.SpawnCoins(transform.position, CoinAmount, gameObject.transform.parent.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

@@ -1,19 +1,22 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+namespace Player
 {
-    public float speed = 10f;
-
-    private Rigidbody2D _rb;
-
-    void Awake()
+    public class PlayerMovement : MonoBehaviour
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _rb.drag = 0;
-    }
+        public float speed = 10f;
 
-    public void Move(Vector2 movement)
-    {
-        _rb.velocity = movement * speed;
+        private Rigidbody2D _rb;
+
+        void Awake()
+        {
+            _rb = GetComponent<Rigidbody2D>();
+            _rb.drag = 0;
+        }
+
+        public void Move(Vector2 movement)
+        {
+            _rb.velocity = movement * speed;
+        }
     }
 }
