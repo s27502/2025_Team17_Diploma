@@ -38,7 +38,7 @@ namespace Player
             return toDrop;
         }
 
-        public Item Unequip(Item item)
+        private Item Unequip(Item item)
         {
             if (item.GetType() == typeof(Weapon))
             {
