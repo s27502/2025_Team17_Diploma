@@ -1,4 +1,5 @@
-﻿using Managers;
+﻿using Enemies;
+using Managers;
 using UnityEngine;
 using Player;
 
@@ -18,8 +19,8 @@ public class PlayerProjectile : ProjectileBase
 
         if (other.CompareTag("Enemy"))
         {
-            //var enemyStats = other.GetComponent<EnemyStats>();
-            //enemyStats?.ModifyHp(-damage);
+            var enemyStats = other.GetComponent<EnemyStats>();
+            enemyStats?.ModifyHp(-damage);
             _pool?.ReleaseObject(this);
             return;
         }

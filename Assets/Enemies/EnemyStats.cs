@@ -46,15 +46,17 @@ namespace Enemies
             get => _movementSpeed;
             set => _movementSpeed = value;
         }
-        
+
         public void SetHp(int newHp)
         {
             Hp = Mathf.Clamp(newHp, 0, MaxHp);
+            CheckDeath();
         }
 
         public void ModifyHp(int amount)
         {
             Hp = Mathf.Clamp(Hp + amount, 0, MaxHp);
+            CheckDeath();
         }
 
         public void ModifyMaxHp(int amount)
@@ -75,6 +77,15 @@ namespace Enemies
         public void ModifyAtkSpd(float amount)
         {
             AtkSpd += amount;
+        }
+
+        private void CheckDeath()
+        {
+            if (Hp <= 0)
+            {
+                Debug.Log($"{gameObject.name} died");
+                Destroy(gameObject);
+            }
         }
     }
 }
