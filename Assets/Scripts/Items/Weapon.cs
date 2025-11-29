@@ -30,7 +30,6 @@ namespace Items
                 {
                     DeEquipStatChanges(toDrop);
                     ItemManager.PutInRoom(toDrop, gameObject.transform.position);
-                    Debug.Log("Dropped " + toDrop.name);
                 }
 
                 ApplyStatChanges(this);
@@ -42,7 +41,6 @@ namespace Items
             {
                 DeEquipStatChanges(toDrop);
                 ItemManager.PutInRoom(toDrop, gameObject.transform.position);
-                Debug.Log("Dropped " + toDrop.name);
             }
             ApplyStatChanges(this);
             ItemManager.PutInStorage(this);
