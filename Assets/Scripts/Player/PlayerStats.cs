@@ -26,19 +26,32 @@ namespace Player
 
             _dead.AddListener(OnEventTriggered);
         }
-
+        
         public void ModifyHp(int value)
         {
+            if (value < 0)
+            {
+                var iFrames = GetComponent<PlayerIFrames>();
+                if (iFrames != null && iFrames.IsInvincible())
+                {
+                    return;
+                }
+            }
+
             hp += value;
 
             if (hp > maxHp) hp = maxHp;
             if (hp < 0) hp = 0;
+
+            Debug.Log($"HP changed: {hp}/{maxHp} (value: {value})");
 
             OnHpChanged.Invoke(hp, maxHp);
 
             if (hp <= 0)
                 _dead.Invoke();
         }
+
+
 
         public void ModifyArmor(int value)
         {

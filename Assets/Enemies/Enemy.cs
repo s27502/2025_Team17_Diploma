@@ -13,7 +13,6 @@ public enum EnemyState
 
 public class Enemy : MonoBehaviour
 {
-    private float _contactDmgCounter = 0f;
     protected EnemyStats EnemyStats;
     protected EnemyState State;
     protected GameObject _player;
