@@ -11,14 +11,14 @@ namespace Items
         [SerializeField] private GameObject _projectile;
         private PlayerStats _stats;
         private Equipment _equipment;
-        private bool _isShop;
+        
         
         public void OnInteract()
         {
             _stats = ServiceLocator.Instance.GetService<PlayerStatManager>().GetPlayerStats();
             _equipment = ServiceLocator.Instance.GetService<EquipmentManager>().GetEquipment();
             Item toDrop;
-            if (_isShop)
+            if (IsShop)
             {
                 //Buy
                 if (_stats.GetCoins() > GetItemPrice())
