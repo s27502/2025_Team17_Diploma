@@ -1,14 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
-public class PlayerStatManager : MonoBehaviour
+namespace Managers
 {
-    private PlayerStats _playerStats;
-
-    void Awake()
+    public class PlayerStatManager : MonoBehaviour
     {
-        _playerStats = GetComponent<PlayerStats>();
-        ServiceLocator.Instance.Register(this);
+        private PlayerStats _playerStats;
+
+        void Awake()
+        {
+            _playerStats = GetComponent<PlayerStats>();
+            ServiceLocator.Instance.Register(this);
+        }
+
+        public PlayerStats GetPlayerStats()
+        {
+            return _playerStats;
+        }
     }
 }

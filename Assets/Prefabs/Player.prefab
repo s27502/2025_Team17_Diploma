@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 5372722575000309435}
   - component: {fileID: 7839067856128871869}
   - component: {fileID: 2898640903758995795}
+  - component: {fileID: 6244004483546145208}
+  - component: {fileID: 2934615792645559845}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -42,6 +44,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2828809347817452949}
+  - {fileID: 8850575305998260809}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7817061768605420129
@@ -252,8 +255,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 4
   maxHp: 4
-  strength: 1
-  agility: 1
+  dmg: 1
+  atkSpeed: 1
+  luck: 0
+  projectileCount: 1
   coins: 0
 --- !u!114 &5372722575000309435
 MonoBehaviour:
@@ -289,6 +294,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c96c6ea4e593cb5428f1dd3037916e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6244004483546145208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2230101389136409127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1575e837a27034c48b91963c494e4724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2934615792645559845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2230101389136409127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab524d2db6cfed74f967e948afe2b731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5612368169346099847
@@ -381,3 +410,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b281e50c4c68b74e8bc193a10a9393d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8842091315989905579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8850575305998260809}
+  m_Layer: 7
+  m_Name: Items
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8850575305998260809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8842091315989905579}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1828529381762116686}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
