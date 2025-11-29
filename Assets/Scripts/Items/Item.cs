@@ -1,38 +1,39 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+namespace Items
 {
-    [SerializeField] private string itemName;
-    [SerializeField] private int itemPrice;
-    private Sprite _sprite;
-    //Stats should be in order: HP, MAX HP, DMG, ATTACK SPEED, LUCK, PROJECTILE COUNT;
-    [SerializeField] private List<float> stats;
-
-    private void Awake()
+    public class Item : MonoBehaviour
     {
-        _sprite = GetComponent<SpriteRenderer>().sprite;
-    }
+        [SerializeField] private string itemName;
+        [SerializeField] private int itemPrice;
+        private Sprite _sprite;
+        //Stats should be in order: HP, MAX HP, DMG, ATTACK SPEED, LUCK, PROJECTILE COUNT;
+        [SerializeField] private List<float> stats;
 
-    public List<float> GetStats()
-    {
-        return stats;
-    }
+        private void Awake()
+        {
+            _sprite = GetComponent<SpriteRenderer>().sprite;
+        }
 
-    public string GetItemName()
-    {
-        return itemName;
-    }
+        public List<float> GetStats()
+        {
+            return stats;
+        }
 
-    public int GetItemPrice()
-    {
-        return itemPrice;
-    }
+        public string GetItemName()
+        {
+            return itemName;
+        }
 
-    public Sprite GetSprite()
-    {
-        return _sprite;
+        public int GetItemPrice()
+        {
+            return itemPrice;
+        }
+
+        public Sprite GetSprite()
+        {
+            return _sprite;
+        }
     }
 }

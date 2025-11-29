@@ -1,14 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
+namespace Managers
 {
-    private Inventory _inventory;
-
-    void Awake()
+    public class InventoryManager : MonoBehaviour
     {
-        _inventory = GetComponent<Inventory>();
-        ServiceLocator.Instance.Register(this);
+        private Inventory _inventory;
+
+        void Awake()
+        {
+            _inventory = GetComponent<Inventory>();
+            ServiceLocator.Instance.Register(this);
+        }
     }
 }

@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : Item
+namespace Items
 {
-    [SerializeField] private GameObject _projectile;
-
-    public GameObject GetProjectile()
+    public class Weapon : Item
     {
-        return _projectile;
+        [SerializeField] private GameObject _projectile;
+
+        public GameObject GetProjectile()
+        {
+            return _projectile;
+        }
     }
 }

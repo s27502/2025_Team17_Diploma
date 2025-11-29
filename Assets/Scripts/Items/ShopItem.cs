@@ -1,25 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using DefaultNamespace;
-using UnityEngine;
 
-public class ShopItem : Item, IInteractable
+namespace Items
 {
+    public class ShopItem : Item, IInteractable
+    {
     
     
-    public void OnInteract()
-    {
+        public void OnInteract()
+        {
         
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
+        }
+        // Start is called before the first frame update
+        void Start()
+        {
         
-    }
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
         
+        }
     }
 }
