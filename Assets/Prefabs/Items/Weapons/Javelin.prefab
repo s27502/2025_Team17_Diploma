@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1245038915652604770}
   - component: {fileID: 8157514366077335369}
   - component: {fileID: 6008146206263699945}
+  - component: {fileID: 475260408448661508}
   m_Layer: 0
   m_Name: Javelin
   m_TagString: Untagged
@@ -109,7 +110,6 @@ MonoBehaviour:
   - 0
   - 0
   _projectile: {fileID: 0}
-  _isShop: 1
 --- !u!61 &6008146206263699945
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -155,3 +155,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &475260408448661508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729763460014226140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0750e97c62eca45a50a54d7ce8731d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -43,6 +43,7 @@ namespace Items
                 Debug.Log("Dropped " + toDrop.name);
             }
             ApplyStatChanges(this);
+            ServiceLocator.Instance.GetService<ItemManager>().PutInStorage(this);
         }
 
         private void ApplyStatChanges(Item item)

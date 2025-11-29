@@ -12,7 +12,8 @@ namespace Player
         [SerializeField] private int luck;
         [SerializeField] private int projectileCount;
         [SerializeField] private int coins;
-
+        [SerializeField] private int armorMax;
+        [SerializeField] private int armor;
         private UnityEvent _dead;
 
         void Start()
@@ -33,10 +34,30 @@ namespace Player
                 _dead.Invoke();
             }
         }
-    
+
+        public void ModifyArmor(int value)
+        {
+            armor += value;
+        }
+
+        private int GetMaxArmor()
+        {
+            return armorMax;
+        }
+        
+        public void SetArmor(int value)
+        {
+            armor = GetMaxArmor();
+        }
+        
         public void ModifyMaxHp(int value)
         {
-            if (maxHp + value > 0)
+            //Max Hp capped
+            if (maxHp + value > 6)
+            {
+                maxHp = 6;
+            }
+            else if (maxHp + value > 0)
             {
                 maxHp += value;
             }
@@ -67,7 +88,15 @@ namespace Player
     
         public void ModifyProjectileCount(int value)
         {
-            projectileCount += value;
+            //Projectile Count capped
+            if (projectileCount + value > 5)
+            {
+                projectileCount = 5;
+            }
+            else
+            {
+                projectileCount += value;
+            }
         }
     
         public void ModifyLuck(int value)
