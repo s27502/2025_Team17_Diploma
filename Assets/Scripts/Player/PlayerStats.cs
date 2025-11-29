@@ -7,8 +7,10 @@ public class PlayerStats : MonoBehaviour
 {
     [SerializeField] private int hp;
     [SerializeField] private int maxHp;
-    [SerializeField] private int strength;
-    [SerializeField] private int agility;
+    [SerializeField] private int dmg;
+    [SerializeField] private int atkSpeed;
+    [SerializeField] private int luck;
+    [SerializeField] private int projectileCount;
     [SerializeField] private int coins;
 
     private UnityEvent _dead;
@@ -40,21 +42,49 @@ public class PlayerStats : MonoBehaviour
         }
     }
     
-    public void ModifyStrength(int value)
+    public void ModifyDmg(int value)
     {
-        strength += value;
+        dmg += value;
     }
     
-    public void ModifyAgility(int value)
+    public void ModifyAtkSpeed(int value)
     {
-        agility += value;
+        //Attack Speed capped
+        if (atkSpeed + value > 10)
+        {
+            atkSpeed = 10;
+        }
+        else
+        {
+            atkSpeed += value;
+        }
     }
     
     public void ModifyCoins(int value)
     {
         coins += value;
     }
-
+    
+    public void ModifyProjectileCount(int value)
+    {
+        projectileCount += value;
+    }
+    
+    public void ModifyLuck(int value)
+    {
+        luck += value;
+    }
+    
+    public int GetProjectileCount()
+    {
+        return projectileCount;
+    }
+    
+    public int GetLuck()
+    {
+        return luck;
+    }
+    
     public int GetHp()
     {
         return hp;
@@ -65,14 +95,14 @@ public class PlayerStats : MonoBehaviour
         return maxHp;
     }
 
-    public int GetStrength()
+    public int GetDmg()
     {
-        return strength;
+        return dmg;
     }
 
-    public int GetAgility()
+    public int GetAtkSpeed()
     {
-        return agility;
+        return atkSpeed;
     }
 
     public int GetCoins()
