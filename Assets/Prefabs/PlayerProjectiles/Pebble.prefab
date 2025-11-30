@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5662330439796338021}
   - component: {fileID: 4422836660671509328}
   m_Layer: 8
-  m_Name: Fist
+  m_Name: Pebble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
