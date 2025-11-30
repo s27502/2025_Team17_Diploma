@@ -36,5 +36,10 @@ public class PlayerInput : MonoBehaviour
         {
             _interactions.Interact();
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            _movement.Dash();
+        }
     }
 }

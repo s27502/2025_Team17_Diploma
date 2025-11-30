@@ -24,15 +24,20 @@ namespace Items
                 if (_stats.GetCoins() > GetItemPrice())
                 {
                     _stats.ModifyCoins(-GetItemPrice());
-                }
-                toDrop = _equipment.Equip(this);
-                if (toDrop)
-                {
-                    DeEquipStatChanges(toDrop);
-                    ItemManager.PutInRoom(toDrop, gameObject.transform.position);
-                }
+                    toDrop = _equipment.Equip(this);
+                    if (toDrop)
+                    {
+                        DeEquipStatChanges(toDrop);
+                        ItemManager.PutInRoom(toDrop, gameObject.transform.position);
+                    }
 
-                ApplyStatChanges(this);
+                    IsShop = false;
+                    ApplyStatChanges(this);
+                }
+                else
+                {
+                    Debug.Log("Not enough coins");
+                }
                 return;
             }
             //Pick up
