@@ -17,10 +17,12 @@ namespace Player
         private Vector2 _dashDirection;
         
         private Rigidbody2D _rb;
+        private PlayerIFrames _playerIFrames;
 
         void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _playerIFrames = GetComponent<PlayerIFrames>();
             _rb.drag = 0;
         }
 
@@ -36,12 +38,16 @@ namespace Player
         public void Dash()
         {
             if (_canDash)
+            {
+                _playerIFrames.StartCustomIFrameRoutine(dashDuration);
                 StartCoroutine(DashCoroutine());
+            }
         }
 
         private IEnumerator DashCoroutine()
         {
             _isDashing = true;
+            
             _rb.velocity = _dashDirection * dashForce;
             _canDash = false;
             yield return new WaitForSeconds(dashDuration);
