@@ -19,19 +19,24 @@ public class PlayerIFrames : MonoBehaviour
     {
         if (hp < maxHp && !_invincible)
         {
-            StartCoroutine(IFrameRoutine());
+            StartCoroutine(IFrameRoutine(iFrameDuration));
         }
     }
 
-    private IEnumerator IFrameRoutine()
+    private IEnumerator IFrameRoutine(float duration)
     {
         _invincible = true;
 
-        yield return new WaitForSeconds(iFrameDuration);
+        yield return new WaitForSeconds(duration);
 
         _invincible = false;
     }
 
+    public void StartCustomIFrameRoutine(float duration)
+    {
+        StartCoroutine(IFrameRoutine(duration));
+    }
+    
     public bool IsInvincible()
     {
         return _invincible;
