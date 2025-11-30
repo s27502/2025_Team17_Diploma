@@ -7,7 +7,7 @@ namespace Player
     {
         public float speed = 10f;
         
-        public float dashForce = 30f;
+        public float dashForce = 50f;
         public float dashDuration = 0.2f;
         public float dashCooldown = 1f;
         
