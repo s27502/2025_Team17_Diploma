@@ -208,6 +208,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  dashForce: 50
+  dashDuration: 0.2
+  dashCooldown: 1
 --- !u!114 &6680564350508708747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d602c851fe959a9409419d8f95bc2e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 3424888137376225583, guid: 9a086db5cdeaba6479b690d0a789742f, type: 3}
+  _defaultProjectile: {fileID: 3424888137376225583, guid: 9a086db5cdeaba6479b690d0a789742f, type: 3}
   EnemiesInRange: []
 --- !u!1 &2493996594397876807
 GameObject:

@@ -104,7 +104,7 @@ MonoBehaviour:
   stats:
   - 1
   - 1.8
-  _projectile: {fileID: 0}
+  _projectile: {fileID: 6956411485249998196, guid: 15db544a8ba27ad4294b5d0e3a9189d9, type: 3}
 --- !u!61 &7144042239436880089
 BoxCollider2D:
   m_ObjectHideFlags: 0

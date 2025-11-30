@@ -1,3 +1,4 @@
+using System;
 using Items;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ namespace Player
 {
     public class Equipment : MonoBehaviour
     {
+        public event Action<Weapon> OnWeaponChanged;
+        
         private Item _weapon;
         private Item _armor;
         private Item _helmet;
@@ -27,22 +30,26 @@ namespace Player
         public Item Equip(Item item)
         {
             Item toDrop = null;
-            if (item.GetType() == typeof(Weapon))
+
+            if (item is Weapon newWeapon)
             {
                 if (_weapon)
-                {
                     toDrop = Unequip(_weapon);
-                }
-                _weapon = item;
+
+                _weapon = newWeapon;
+                
+                OnWeaponChanged?.Invoke(newWeapon);
             }
+
             return toDrop;
         }
 
         private Item Unequip(Item item)
         {
-            if (item.GetType() == typeof(Weapon))
+            if (item is Weapon)
             {
                 _weapon = null;
+                OnWeaponChanged?.Invoke(null);
             }
             return item;
         }

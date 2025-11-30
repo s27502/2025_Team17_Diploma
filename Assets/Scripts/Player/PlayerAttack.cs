@@ -1,11 +1,15 @@
 using System.Collections.Generic;
+using Items;
+using Managers;
 using Player;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private GameObject _projectile;
+    [SerializeField] private GameObject _defaultProjectile;
+    private GameObject _projectile;
     private IObjectPool _projectilePool;
+    private IObjectFactory _factory;
     
     [HideInInspector] public List<GameObject> EnemiesInRange = new List<GameObject>();
 
@@ -15,9 +19,40 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         _stats = GetComponent<PlayerStats>();
-        IObjectFactory factory = new ProjectileFactory(_projectile);
-        _projectilePool = new ProjectilePool(factory, 5);
+
+        var equipment = ServiceLocator.Instance.GetService<EquipmentManager>().GetEquipment();
+        equipment.OnWeaponChanged += UpdateWeapon;
+        
+        if (equipment.GetWeapon() is Weapon w)
+            UpdateWeapon(w);
+        else
+            SetDefaultProjectile();
     }
+
+    public void UpdateWeapon(Weapon newWeapon)
+    {
+        if (newWeapon == null)
+        {
+            SetDefaultProjectile();
+            return;
+        }
+
+        _projectile = newWeapon.GetProjectile();
+        RebuildProjectilePool();
+    }
+    
+    private void SetDefaultProjectile()
+    {
+        _projectile = _defaultProjectile;
+        RebuildProjectilePool();
+    }
+
+    private void RebuildProjectilePool()
+    {
+        _factory = new ProjectileFactory(_projectile);
+        _projectilePool = new ProjectilePool(_factory, 5);
+    }
+
 
     private void FixedUpdate()
     {
@@ -38,6 +73,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
+    
 
     private void Attack(GameObject target)
     {
