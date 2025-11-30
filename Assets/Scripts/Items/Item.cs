@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 
 namespace Items
@@ -16,6 +18,11 @@ namespace Items
         private void Awake()
         {
             _sprite = GetComponent<SpriteRenderer>().sprite;
+            
+        }
+
+        private void Start()
+        {
             ItemManager = ServiceLocator.Instance.GetService<ItemManager>();
         }
 
