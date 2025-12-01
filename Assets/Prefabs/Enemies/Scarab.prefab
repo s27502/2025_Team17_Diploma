@@ -250,8 +250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e192957331d31419df13c2ab346822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 6
-  _hp: 6
+  _maxHp: 10
+  _hp: 10
   _atkSpd: 1
   _fireRate: 1
   _movementSpeed: 5
@@ -312,3 +312,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69103584e9574d9680a17cb66e4717f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DashDelay: 1
+  DashDistance: 0.5
