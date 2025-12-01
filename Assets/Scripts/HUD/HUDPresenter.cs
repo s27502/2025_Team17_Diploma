@@ -21,7 +21,8 @@ namespace HUD
             _equipment = ServiceLocator.Instance.GetService<EquipmentManager>().GetEquipment();
 
             _equipment.OnWeaponChanged += HandleWeaponChange;
-        
+            
+            _playerStats.OnHpChanged.AddListener(HandleHpChange);
             _playerStats.onDamageChanged.AddListener(HandleDamageChange);
             _playerStats.onAtkSpdChanged.AddListener(HandleAttackSpeedChange);
             _playerStats.onProjCountChanged.AddListener(HandleProjectileCountChange);
@@ -32,6 +33,7 @@ namespace HUD
 
         private void SetStats()
         {
+            _view.SetHP(_playerStats.GetHp(), _playerStats.GetMaxHp());
             _view.SetDamage(_playerStats.GetDmg());
             _view.SetAttackSpeed(_playerStats.GetAtkSpeed());
             _view.SetProjectileCount(_playerStats.GetProjectileCount());
@@ -64,6 +66,11 @@ namespace HUD
             _view.SetCoins(value);
         }
 
+        private void HandleHpChange(int hp, int max)
+        {
+            _view.SetHP(hp, max);
+        }
+        
         private void HandleWeaponChange(Weapon weapon)
         {
             var sprite = weapon != null ? weapon.GetSprite() : null;
