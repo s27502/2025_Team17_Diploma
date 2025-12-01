@@ -16,6 +16,8 @@ MonoBehaviour:
   possibleRooms:
   - {fileID: 2005126786876904744, guid: 69e811fb50b20dc439eedd6b93785700, type: 3}
   - {fileID: 2005126786876904744, guid: 87ae97c7ad4aef0489d2a7a64cf849af, type: 3}
+  shopRoomNumber: 5
   startRoom: {fileID: 2005126786876904744, guid: 4f9d711f3728cf54eb996ae7e9328f33, type: 3}
-  bossRoom: {fileID: 0}
-  roomsToGenerate: 8
+  bossRoom: {fileID: 2005126786876904744, guid: 69e811fb50b20dc439eedd6b93785700, type: 3}
+  shopRoom: {fileID: 2005126786876904744, guid: f5857537e3648bd458ac64ceb9f9de46, type: 3}
+  roomsToGenerate: 10
