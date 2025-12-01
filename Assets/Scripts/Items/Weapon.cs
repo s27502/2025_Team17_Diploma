@@ -21,9 +21,10 @@ namespace Items
             if (IsShop)
             {
                 //Buy
-                if (_stats.GetCoins() > GetItemPrice())
+                if (_stats.GetCoins() >= GetItemPrice())
                 {
                     _stats.ModifyCoins(-GetItemPrice());
+                    IsShop = false;
                     toDrop = _equipment.Equip(this);
                     if (toDrop)
                     {
@@ -31,8 +32,9 @@ namespace Items
                         ItemManager.PutInRoom(toDrop, gameObject.transform.position);
                     }
 
-                    IsShop = false;
+                    
                     ApplyStatChanges(this);
+                    ItemManager.PutInStorage(this);
                 }
                 else
                 {
