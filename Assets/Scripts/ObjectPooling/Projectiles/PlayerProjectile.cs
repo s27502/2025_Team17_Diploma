@@ -7,13 +7,24 @@ public class PlayerProjectile : ProjectileBase
 {
     [SerializeField] private GameObject damageTextPrefab;
     [SerializeField] private float damageTextRange = 0.5f;
+    
+    private IObjectPool _damagePopupPool;
+    private IObjectFactory _damagePopupFactory;
+
 
     protected override void Awake()
     {
         base.Awake();
-        damage = ServiceLocator.Instance.GetService<PlayerStatManager>()
-            .GetPlayerStats().GetDmg();
+    
+        damage = ServiceLocator.Instance.GetService<PlayerStatManager>().GetPlayerStats().GetDmg();
+
+        if (damageTextPrefab != null)
+        {
+            _damagePopupFactory = new DamagePopupFactory(damageTextPrefab);
+            _damagePopupPool = new DamagePopupPool(_damagePopupFactory, 20);
+        }
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -37,7 +48,7 @@ public class PlayerProjectile : ProjectileBase
 
     private void ShowDamageText(Vector3 enemyPos)
     {
-        if (damageTextPrefab == null)
+        if (_damagePopupPool == null)
             return;
 
         Vector3 randomOffset = new Vector3(
@@ -46,11 +57,14 @@ public class PlayerProjectile : ProjectileBase
             0f
         );
 
-        GameObject textObj = Instantiate(damageTextPrefab, enemyPos + randomOffset, Quaternion.identity);
-        var dmgPopup = textObj.GetComponent<DamagePopup>();
-        if (dmgPopup != null)
+        IPoolableObject popupObj = _damagePopupPool.GetObject();
+        if (popupObj != null)
         {
-            dmgPopup.Setup(damage);
+            popupObj.Spawn(enemyPos + randomOffset, Vector2.zero);
+
+            DamagePopup popup = popupObj as DamagePopup;
+            popup.Setup(damage);
         }
     }
+
 }

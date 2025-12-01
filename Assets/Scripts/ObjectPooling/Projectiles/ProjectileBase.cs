@@ -22,8 +22,14 @@ public abstract class ProjectileBase : MonoBehaviour, IPoolableObject
         gameObject.SetActive(true);
 
         _dir = direction.normalized;
+
+        float angle = Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
+
         _rb.velocity = _dir * speed;
     }
+
+
 
     public virtual void Despawn()
     {
