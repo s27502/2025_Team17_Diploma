@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
@@ -6,18 +7,22 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     private FloorManager _floorManager;
+    [SerializeField] private GameObject _playerTP;
+    [SerializeField] private GameObject _enemies;
 
     public GameObject _spawnPos;
-    // Start is called before the first frame update
+
     void Start()
     {
         _floorManager = ServiceLocator.Instance.GetService<FloorManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        if (_enemies.transform.childCount == 0)
+        {
+            _playerTP.SetActive(true);
+        }
     }
 
     public void GoToNextRoom()

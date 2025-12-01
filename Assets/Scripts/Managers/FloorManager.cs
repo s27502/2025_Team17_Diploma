@@ -13,6 +13,7 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
     private FloorData _currentFloorData;
 
     private GameObject _currentRoom;
+    private int _shopNumber;
     private int _roomCounter = 0;
 
     protected override void Awake()
@@ -31,9 +32,6 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
 
     public void GoToNextRoom()
     {
-        Debug.Log("should TP");
-
-
         if (_roomCounter == _currentFloorData.roomsToGenerate)
         {
             GoToNextFloor();
@@ -41,9 +39,23 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
         else
         {
             Destroy(_currentRoom);
-            _currentRoom = Instantiate(PickRandomRoom(), Vector3.zero, Quaternion.identity);
-            _player.transform.position = _currentRoom.GetComponent<Room>()._spawnPos.transform.position;
             _roomCounter++;
+
+            if (_roomCounter == _currentFloorData.shopRoomNumber)
+            {
+                _currentRoom = Instantiate(_currentFloorData.shopRoom, Vector3.zero, Quaternion.identity);
+            }
+            else if (_roomCounter == _currentFloorData.roomsToGenerate)
+            {
+                _currentRoom = Instantiate(_currentFloorData.bossRoom, Vector3.zero, Quaternion.identity);
+            }
+            else
+            {
+                _currentRoom = Instantiate(PickRandomRoom(), Vector3.zero, Quaternion.identity);
+            }
+            
+            _player.transform.position = _currentRoom.GetComponent<Room>()._spawnPos.transform.position;
+            
         }
     }
 

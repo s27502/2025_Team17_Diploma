@@ -77,7 +77,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack(GameObject target)
     {
-        Debug.Log("Attacking: " + target.name);
+
         IPoolableObject projectile = _projectilePool.GetObject();
         if (projectile != null)
         {
