@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -17,6 +19,13 @@ namespace Player
         [SerializeField] private int armor;
 
         public UnityEvent<int, int> OnHpChanged = new UnityEvent<int, int>();
+        
+        public UnityEvent<int> onDamageChanged = new UnityEvent<int>();
+        public UnityEvent<float> onAtkSpdChanged = new UnityEvent<float>();
+        public UnityEvent<int> onProjCountChanged = new UnityEvent<int>();
+        public UnityEvent<int> onLuckChanged = new UnityEvent<int>();
+        public UnityEvent<int> onCoinsChanged = new UnityEvent<int>();
+        
         private UnityEvent _dead;
 
         void Start()
@@ -78,31 +87,32 @@ namespace Player
         public void ModifyDmg(int value)
         {
             dmg += value;
-        }
-
-        public void ModifyAtkSpeed(int value)
-        {
-            atkSpeed = Mathf.Clamp(atkSpeed + value, 0, 10);
+            onDamageChanged?.Invoke(dmg);
         }
 
         public void ModifyAttackSpeed(float value)
         {
-            atkSpeed += value;
+            atkSpeed = Mathf.Clamp(atkSpeed + value, 0, 10);
+            onAtkSpdChanged?.Invoke(atkSpeed);
         }
+        
 
         public void ModifyCoins(int value)
         {
             coins += value;
+            onCoinsChanged?.Invoke(coins);
         }
 
         public void ModifyProjectileCount(int value)
         {
             projectileCount = Mathf.Clamp(projectileCount + value, 1, 5);
+            onProjCountChanged?.Invoke(projectileCount);
         }
 
         public void ModifyLuck(int value)
         {
             luck += value;
+            onLuckChanged?.Invoke(luck);
         }
 
         public int GetProjectileCount()
@@ -142,6 +152,7 @@ namespace Player
 
         void OnEventTriggered()
         {
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Debug.Log("Player Died");
         }
     }
