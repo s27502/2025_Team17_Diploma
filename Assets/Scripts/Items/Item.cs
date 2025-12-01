@@ -17,13 +17,14 @@ namespace Items
 
         private void Awake()
         {
-            _sprite = GetComponent<SpriteRenderer>().sprite;
+            
             
         }
 
         private void Start()
         {
             ItemManager = ServiceLocator.Instance.GetService<ItemManager>();
+            _sprite = GetComponent<SpriteRenderer>().sprite;
         }
 
         public List<float> GetStats()

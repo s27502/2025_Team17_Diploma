@@ -1,0 +1,52 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class HUDView : MonoBehaviour
+{
+    [SerializeField] private Image weapon;
+    [SerializeField] private TMP_Text dmg;
+    [SerializeField] private TMP_Text atkSpd;
+    [SerializeField] private TMP_Text projCount;
+    [SerializeField] private TMP_Text luck;
+    [SerializeField] private TMP_Text coins;
+    [SerializeField] private Sprite emptySprite;
+
+    public void SetWeapon(Sprite sprite)
+    {
+        if (weapon.color.a == 0)
+        {
+            var color = weapon.color;
+            color.a = 1;
+            weapon.color = color;
+        }
+        weapon.sprite = sprite != null ? sprite : emptySprite; 
+    }
+    
+    public void SetDamage(int value)
+    {
+        dmg.text = $"DMG: {value}";
+    }
+
+    public void SetAttackSpeed(float value)
+    {
+        atkSpd.text = $"ATK SPD: {value}";
+    }
+
+    public void SetProjectileCount(int value)
+    {
+        projCount.text = $"PROJECTILES: {value}";
+    }
+
+    public void SetLuck(int value)
+    {
+        luck.text = $"LUCK: {value}";
+    }
+
+    public void SetCoins(int value)
+    {
+        coins.text = $"COINS: {value}";
+    }
+}
