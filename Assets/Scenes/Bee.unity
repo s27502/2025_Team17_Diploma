@@ -1042,11 +1042,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2763355417171956340, guid: 2d73715f95b788e49a552491ffbda3b9, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5122515828330555949, guid: 2d73715f95b788e49a552491ffbda3b9, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5664389403120658398, guid: 2d73715f95b788e49a552491ffbda3b9, type: 3}
       propertyPath: m_enableWordWrapping
