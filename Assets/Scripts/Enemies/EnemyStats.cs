@@ -1,11 +1,10 @@
-﻿using UnityEngine;
+﻿using StatSystem;
+using UnityEngine;
 
 namespace Enemies
 {
-    public class EnemyStats : MonoBehaviour
+    public class EnemyStats : Stats
     {
-        [SerializeField] private int _maxHp = 6;
-        [SerializeField] private int _hp = 6;
         private int _dmg = 1;
         [SerializeField] private float _atkSpd = 1f;
         [SerializeField] private float _fireRate = 1f;

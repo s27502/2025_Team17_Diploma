@@ -1,15 +1,15 @@
 using System;
+using StatSystem;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace Player
 {
-    public class PlayerStats : MonoBehaviour
+    public class PlayerStats : Stats
     {
         [Header("Stats")]
-        [SerializeField] private int hp;
-        [SerializeField] private int maxHp;
+        
         [SerializeField] private int dmg;
         [SerializeField] private float atkSpeed;
         [SerializeField] private int luck;
@@ -47,16 +47,16 @@ namespace Player
                 }
             }
 
-            hp += value;
+            _hp += value;
 
-            if (hp > maxHp) hp = maxHp;
-            if (hp < 0) hp = 0;
+            if (_hp > _maxHp) _hp = _maxHp;
+            if (_hp < 0) _hp = 0;
 
-            Debug.Log($"HP changed: {hp}/{maxHp} (value: {value})");
+            Debug.Log($"HP changed: {_hp}/{_maxHp} (value: {value})");
 
-            OnHpChanged.Invoke(hp, maxHp);
+            OnHpChanged.Invoke(_hp, _maxHp);
 
-            if (hp <= 0)
+            if (_hp <= 0)
                 _dead.Invoke();
         }
 
@@ -79,9 +79,9 @@ namespace Player
 
         public void ModifyMaxHp(int value)
         {
-            maxHp = Mathf.Clamp(maxHp + value, 1, 6);
-            hp = Mathf.Clamp(hp, 0, maxHp);
-            OnHpChanged.Invoke(hp, maxHp);
+            _maxHp = Mathf.Clamp(_maxHp + value, 1, 6);
+            _hp = Mathf.Clamp(_hp, 0, _maxHp);
+            OnHpChanged.Invoke(_hp, _maxHp);
         }
 
         public void ModifyDmg(int value)
@@ -127,12 +127,12 @@ namespace Player
 
         public int GetHp()
         {
-            return hp;
+            return _hp;
         }
 
         public int GetMaxHp()
         {
-            return maxHp;
+            return _maxHp;
         }
 
         public int GetDmg()
