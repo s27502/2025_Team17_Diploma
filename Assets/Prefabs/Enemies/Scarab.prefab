@@ -332,3 +332,5 @@ MonoBehaviour:
   _poisonDelay: 5
   _poisonDuration: 11
   _poisoned: 0
+  damageTextPrefab: {fileID: 774244208891461880, guid: ec981b5c9825e5d45a912edd53f19d9d, type: 3}
+  damageTextRange: 0.5

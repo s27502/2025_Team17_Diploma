@@ -152,9 +152,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 8258885455956857493}
-  _poisonDelay: 5
+  _poisonDelay: 1
   _poisonDuration: 11
-  _poisoned: 0
+  _poisoned: 1
+  damageTextPrefab: {fileID: 774244208891461880, guid: ec981b5c9825e5d45a912edd53f19d9d, type: 3}
+  damageTextRange: 0.5
 --- !u!1 &7980610666339357273
 GameObject:
   m_ObjectHideFlags: 0
