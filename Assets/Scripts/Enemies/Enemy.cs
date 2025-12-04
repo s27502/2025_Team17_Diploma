@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
         Vector2 currentPos = _rb.position;
         Vector2 dir = (targetPos - currentPos).normalized;
         
-        Vector2 newPos = currentPos + dir * EnemyStats.MovementSpeed * Time.fixedDeltaTime;
+        Vector2 newPos = currentPos + dir * EnemyStats.GetMovementSpeed() * Time.fixedDeltaTime;
         _rb.MovePosition(newPos);
         
         FlipTo(dir.x);
@@ -74,8 +74,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         EnemyStats.ModifyHp(-dmg);
-        Debug.Log(EnemyStats.Hp);
-        if (EnemyStats.Hp <= 0)
+        Debug.Log(EnemyStats.GetHp());
+        if (EnemyStats.GetHp() <= 0)
         {
             Die();
         }
@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour
 
         other.gameObject
             .GetComponent<PlayerStats>()
-            .ModifyHp(-EnemyStats.Dmg);
+            .ModifyHp(-EnemyStats.GetDmg());
     }
 
 
@@ -113,7 +113,7 @@ public class Enemy : MonoBehaviour
 
     private void DealDamage()
     {
-        _player.GetComponent<PlayerStats>().ModifyHp(-EnemyStats.Dmg);
+        _player.GetComponent<PlayerStats>().ModifyHp(-EnemyStats.GetDmg());
     }
     
     public void Flip()

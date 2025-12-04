@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 199127576719669044}
   - component: {fileID: 4350617402437241751}
   - component: {fileID: 4446495004430660187}
+  - component: {fileID: 8378851208999660756}
   m_Layer: 0
   m_Name: Scarab
   m_TagString: Enemy
@@ -250,11 +251,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e192957331d31419df13c2ab346822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 10
   _hp: 10
-  _atkSpd: 1
-  _fireRate: 1
-  _movementSpeed: 5
+  _maxHp: 10
+  dmg: 1
+  atkSpd: 1
+  fireRate: 1
+  movementSpeed: 1
 --- !u!61 &4350617402437241751
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -314,3 +316,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dashDelay: 0.5
   _dashDistance: 0.5
+--- !u!114 &8378851208999660756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8540372696898740873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2382be96fa44211889d31663b54ce34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stats: {fileID: 199127576719669044}
+  _poisonDelay: 5
+  _poisonDuration: 11
+  _poisoned: 0

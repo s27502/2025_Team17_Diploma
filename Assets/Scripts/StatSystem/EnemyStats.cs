@@ -5,86 +5,26 @@ namespace Enemies
 {
     public class EnemyStats : Stats
     {
-        private int _dmg = 1;
-        [SerializeField] private float _atkSpd = 1f;
-        [SerializeField] private float _fireRate = 1f;
-        [SerializeField] private float _movementSpeed = 1f;
+        [Header("Enemy Stats")]
+        [SerializeField] private int dmg = 1;
+        [SerializeField] private float atkSpd = 1f;
+        [SerializeField] private float fireRate = 1f;
+        [SerializeField] private float movementSpeed = 1f;
 
-        public int MaxHp
+        protected override void OnDeath()
         {
-            get => _maxHp;
-            set => _maxHp = value;
+            Debug.Log($"{name} enemy died!");
+            Destroy(gameObject);
         }
 
-        public int Hp
-        {
-            get => _hp;
-            set => _hp = value;
-        }
+        public void ModifyDamage(int amount) => dmg += amount;
+        public void ModifyFireRate(float amount) => fireRate += amount;
+        public void ModifyAtkSpd(float amount) => atkSpd += amount;
+        public void ModifyMovement(float amount) => movementSpeed += amount;
 
-        public int Dmg
-        {
-            get => _dmg;
-            set => _dmg = value;
-        }
-
-        public float AtkSpd
-        {
-            get => _atkSpd;
-            set => _atkSpd = value;
-        }
-
-        public float FireRate
-        {
-            get => _fireRate;
-            set => _fireRate = value;
-        }
-
-        public float MovementSpeed
-        {
-            get => _movementSpeed;
-            set => _movementSpeed = value;
-        }
-
-        public void SetHp(int newHp)
-        {
-            Hp = Mathf.Clamp(newHp, 0, MaxHp);
-            CheckDeath();
-        }
-
-        public void ModifyHp(int amount)
-        {
-            Hp = Mathf.Clamp(Hp + amount, 0, MaxHp);
-            CheckDeath();
-        }
-
-        public void ModifyMaxHp(int amount)
-        {
-            MaxHp += amount;
-        }
-
-        public void ModifyFireRate(float amount)
-        {
-            FireRate += amount;
-        }
-
-        public void ModifyDamage(int amount)
-        {
-            Dmg += amount;
-        }
-
-        public void ModifyAtkSpd(float amount)
-        {
-            AtkSpd += amount;
-        }
-
-        private void CheckDeath()
-        {
-            if (Hp <= 0)
-            {
-                Debug.Log($"{gameObject.name} died");
-                Destroy(gameObject);
-            }
-        }
+        public int GetDmg() => dmg;
+        public float GetAtkSpd() => atkSpd;
+        public float GetFireRate() => fireRate;
+        public float GetMovementSpeed() => movementSpeed;
     }
 }
