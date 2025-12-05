@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 81823104470534550}
   - component: {fileID: 4721389395099425998}
   - component: {fileID: -2710031481141343982}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TrainingDummy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -34,6 +34,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4941901163230583142}
   - {fileID: 257557588788748990}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -94,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b4d3ec700abe444bcd555df3aff3c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileFactory: {fileID: 3347852215263936475}
 --- !u!61 &4721389395099425998
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -157,6 +159,52 @@ MonoBehaviour:
   _poisoned: 1
   damageTextPrefab: {fileID: 774244208891461880, guid: ec981b5c9825e5d45a912edd53f19d9d, type: 3}
   damageTextRange: 0.5
+--- !u!1 &6028356948979794103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4941901163230583142}
+  - component: {fileID: 3347852215263936475}
+  m_Layer: 10
+  m_Name: ProjectileFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4941901163230583142
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6028356948979794103}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.765563, y: 4.5244656, z: 0.070225716}
+  m_LocalScale: {x: 0.18563, y: 2.0874999, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5932134434896544632}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3347852215263936475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6028356948979794103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01816df97784062909a382a33fa9b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 3424888137376225583, guid: 8fe445095ede6d343b7eca146a384b55, type: 3}
+  initialPoolSize: 16
 --- !u!1 &7980610666339357273
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 257557588788748990}
   - component: {fileID: 5687494337261136182}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

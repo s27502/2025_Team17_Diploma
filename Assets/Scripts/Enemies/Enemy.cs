@@ -13,6 +13,7 @@ public enum EnemyState
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] protected EnemyProjectileFactory projectileFactory;
     protected EnemyStats EnemyStats;
     protected EnemyState State;
     protected GameObject _player;

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1072278042038462344}
   - component: {fileID: 8415279723637311348}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,6 +84,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &4700179017359639795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4327573582443652929}
+  - component: {fileID: 4205302803076265978}
+  m_Layer: 10
+  m_Name: ProjectileFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4327573582443652929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4700179017359639795}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.8809657, z: 0}
+  m_LocalScale: {x: 0.18563, y: 2.0874999, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1713972396571053585}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4205302803076265978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4700179017359639795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01816df97784062909a382a33fa9b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 3424888137376225583, guid: 8fe445095ede6d343b7eca146a384b55, type: 3}
+  initialPoolSize: 16
 --- !u!1 &7547260836863140292
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +234,7 @@ GameObject:
   - component: {fileID: 4350617402437241751}
   - component: {fileID: 4446495004430660187}
   - component: {fileID: 8378851208999660756}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Scarab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -208,6 +254,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4327573582443652929}
   - {fileID: 1072278042038462344}
   - {fileID: 4464653369367681850}
   m_Father: {fileID: 0}
@@ -314,6 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69103584e9574d9680a17cb66e4717f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileFactory: {fileID: 4205302803076265978}
   _dashDelay: 0.5
   _dashDistance: 0.5
 --- !u!114 &8378851208999660756

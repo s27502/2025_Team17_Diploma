@@ -8,6 +8,9 @@ namespace Enemies
         private bool _isNotDashing = true;
         [SerializeField] private float _dashSpeedMult = 7f;
 
+        private float _shootCounter;
+        
+
         private float _posChangeInterval = 0.5f;
         private float _posChangeCounter = 0f;
 
@@ -26,6 +29,7 @@ namespace Enemies
             if (_isNotDashing)
             {
                 MoveToRandomDirection();
+                Shoot8();
             }
 
             base.Attack();
@@ -66,8 +70,32 @@ namespace Enemies
 
         private void Shoot8()
         {
-            
+            if (_shootCounter <= 0f)
+            {
+                _shootCounter = EnemyStats.GetFireRate();
+
+                Vector2[] dirs =
+                {
+                    Vector2.up,
+                    Vector2.down,
+                    Vector2.left,
+                    Vector2.right,
+                    new Vector2(1, 1).normalized,
+                    new Vector2(-1, 1).normalized,
+                    new Vector2(1, -1).normalized,
+                    new Vector2(-1, -1).normalized
+                };
+
+                foreach (var dir in dirs)
+                {
+                    projectileFactory.Shoot(dir);
+                }
+                Debug.Log("shooting");
+            }
+
+            _shootCounter -= Time.fixedDeltaTime;
         }
+
 
         private IEnumerator DashCoroutine(Vector3 targetPos)
         {
