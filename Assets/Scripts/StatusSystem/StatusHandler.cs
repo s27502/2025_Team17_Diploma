@@ -81,6 +81,14 @@ namespace StatusSystem
             _poisonDmg = (int)dmg;
         }
 
+        public void Cleanse()
+        {
+            
+            _poisoned = false;
+            _poisonDurationCounter = 0f;
+            _poisonDuration = 0f;
+        }
+
 
         private void ShowDamageText(Vector3 position)
         {

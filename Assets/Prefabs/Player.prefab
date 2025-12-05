@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 2934615792645559845}
   - component: {fileID: 4825536196020048289}
   - component: {fileID: 646862989149235956}
+  - component: {fileID: 2251959762814279925}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -391,6 +392,18 @@ MonoBehaviour:
   _poisoned: 0
   damageTextPrefab: {fileID: 0}
   damageTextRange: 0.5
+--- !u!114 &2251959762814279925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2230101389136409127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f926825a30847a1bb0e45e3949063cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2493996594397876807
 GameObject:
   m_ObjectHideFlags: 0
