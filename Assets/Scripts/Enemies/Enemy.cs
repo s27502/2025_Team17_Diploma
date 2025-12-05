@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     protected EnemyStats EnemyStats;
     protected EnemyState State;
     protected GameObject _player;
-    private Rigidbody2D _rb;
+    protected Rigidbody2D _rb;
     public bool FacingRight { get; private set; } = true;
     
     protected virtual void Start()

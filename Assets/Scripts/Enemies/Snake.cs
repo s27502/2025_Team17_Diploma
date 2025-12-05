@@ -1,0 +1,89 @@
+﻿using System.Collections;
+using UnityEngine;
+
+namespace Enemies
+{
+    public class Snake : Enemy
+    {
+        private bool _isNotDashing = true;
+        [SerializeField] private float _dashSpeedMult = 7f;
+
+        private float _posChangeInterval = 0.5f;
+        private float _posChangeCounter = 0f;
+
+        private Vector2 _currentRandomTarget;
+        
+        private float _randomMoveDistance = 2f;
+
+        protected override void Start()
+        {
+            base.Start();
+            StartAttacking();
+        }
+
+        protected override void Attack()
+        {
+            if (_isNotDashing)
+            {
+                MoveToRandomDirection();
+            }
+
+            base.Attack();
+        }
+
+        private void MoveToRandomDirection()
+        {
+            _posChangeCounter -= Time.fixedDeltaTime;
+            
+            if (_posChangeCounter <= 0f)
+            {
+                PickNewRandomTarget360();
+                _posChangeCounter = _posChangeInterval;
+            }
+            
+            MoveTo(_currentRandomTarget);
+        }
+
+        private void PickNewRandomTarget360()
+        {
+            float angle = Random.Range(0f, 360f);
+            
+            Vector2 dir = new Vector2(
+                Mathf.Cos(angle * Mathf.Deg2Rad),
+                Mathf.Sin(angle * Mathf.Deg2Rad)
+            ).normalized;
+            
+            _currentRandomTarget = (Vector2)_rb.position + dir * _randomMoveDistance;
+        }
+
+        public void StartDashing(Vector3 targetPos)
+        {
+            if (!_isNotDashing) return;
+
+            _isNotDashing = false;
+            StartCoroutine(DashCoroutine(targetPos));
+        }
+
+        private void Shoot8()
+        {
+            
+        }
+
+        private IEnumerator DashCoroutine(Vector3 targetPos)
+        {
+            Debug.Log("Dash start");
+            EnemyStats.SetMovementSpeed(EnemyStats.GetMovementSpeed() * _dashSpeedMult);
+            
+            while (Vector2.Distance(_rb.position, targetPos) > 0.1f)
+            {
+                MoveTo(targetPos);
+                yield return new WaitForFixedUpdate();
+            }
+
+            Debug.Log("Dash end");
+            EnemyStats.SetMovementSpeed(EnemyStats.GetMovementSpeed() / _dashSpeedMult);
+            _isNotDashing = true;
+        }
+
+    }
+}

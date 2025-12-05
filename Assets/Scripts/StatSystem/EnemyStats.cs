@@ -26,5 +26,10 @@ namespace Enemies
         public float GetAtkSpd() => atkSpd;
         public float GetFireRate() => fireRate;
         public float GetMovementSpeed() => movementSpeed;
+
+        public void SetMovementSpeed(float speed)
+        {
+            movementSpeed = speed;
+        }
     }
 }
