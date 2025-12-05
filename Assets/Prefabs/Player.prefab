@@ -389,6 +389,8 @@ MonoBehaviour:
   _poisonDelay: 5
   _poisonDuration: 11
   _poisoned: 0
+  damageTextPrefab: {fileID: 0}
+  damageTextRange: 0.5
 --- !u!1 &2493996594397876807
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +402,7 @@ GameObject:
   - component: {fileID: 2876390250241682804}
   - component: {fileID: 2086762642434006754}
   - component: {fileID: 4621513715189176705}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +492,7 @@ GameObject:
   - component: {fileID: 2828809347817452949}
   - component: {fileID: 7879472498800663555}
   - component: {fileID: 2632582174487780499}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: InteractionRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}

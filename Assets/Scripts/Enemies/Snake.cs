@@ -90,7 +90,6 @@ namespace Enemies
                 {
                     projectileFactory.Shoot(dir);
                 }
-                Debug.Log("shooting");
             }
 
             _shootCounter -= Time.fixedDeltaTime;
