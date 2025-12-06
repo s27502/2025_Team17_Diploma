@@ -31,11 +31,24 @@ namespace Player
                     return;
             }
 
-            base.ModifyHp(value);
+            if (armor > value)
+            {
+                ModifyArmor(value);
+            } 
+            else if (armor > 0)
+            {
+                base.ModifyHp(value - armor);
+                ModifyArmor(armor);
+            }
+            else
+            {
+                base.ModifyHp(value);
+            }
+            
             
             OnHpChanged?.Invoke(_hp, _maxHp);
         }
-
+        
         public override void ModifyMaxHp(int value)
         {
             base.ModifyMaxHp(value);
@@ -79,6 +92,26 @@ namespace Player
             onLuckChanged?.Invoke(luck);
         }
 
+        public void ModifyArmorMax(int value)
+        {
+            armorMax = Mathf.Clamp(armorMax + value, 0, 5);
+        }
+
+        public void ModifyArmor(int value)
+        {
+            armor = Mathf.Clamp(armor + value, 0, armorMax);
+        }
+
+        public int GetArmorMax()
+        {
+            return armorMax;
+        }
+
+        public int GetArmor()
+        {
+            return armor;
+        }
+        
         public int GetProjectileCount() => projectileCount;
         public int GetLuck() => luck;
         public int GetDmg() => dmg;
