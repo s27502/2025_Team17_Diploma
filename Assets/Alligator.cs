@@ -6,6 +6,7 @@ public class Alligator : Enemy
 {
     [SerializeField] private float _windUpTime = 2f;
     [SerializeField] private float _miniChargeCooldown = 0.5f;
+    [SerializeField] private float _chargingSpeedMult = 10;
     
     private float _windingUpCounter;
     private bool _charging = false;
@@ -60,7 +61,7 @@ public class Alligator : Enemy
     private void StartCharge()
     {
         _charging = true;
-        EnemyStats.SetMovementSpeed(_originalSpeed * 10);
+        EnemyStats.SetMovementSpeed(_originalSpeed * _chargingSpeedMult);
         _chargesNumber = RollChargesNumber();
         _chargeDirection = (_player.transform.position - transform.position).normalized;
         FlipTo(_chargeDirection.x);
