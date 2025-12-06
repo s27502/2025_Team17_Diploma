@@ -28,6 +28,7 @@ namespace HUD
             _playerStats.onProjCountChanged.AddListener(HandleProjectileCountChange);
             _playerStats.onLuckChanged.AddListener(HandleLuckChange);
             _playerStats.onCoinsChanged.AddListener(HandleCoinChange);
+            _playerStats.onArmorChanged.AddListener(HandleArmorChange);
             SetStats();
         }
 
@@ -70,6 +71,11 @@ namespace HUD
         private void HandleHpChange(int hp, int max)
         {
             _view.SetHP(hp, max);
+        }
+
+        private void HandleArmorChange(int armor, int max)
+        {
+            _view.SetArmor(armor, max);
         }
         
         private void HandleWeaponChange(Weapon weapon)

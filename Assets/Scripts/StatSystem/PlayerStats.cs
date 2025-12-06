@@ -21,7 +21,9 @@ namespace Player
         public UnityEvent<int> onProjCountChanged = new UnityEvent<int>();
         public UnityEvent<int> onLuckChanged = new UnityEvent<int>();
         public UnityEvent<int> onCoinsChanged = new UnityEvent<int>();
-
+        public UnityEvent<int, int> onArmorChanged = new UnityEvent<int, int>();
+        
+        
         public override void ModifyHp(int value)
         {
             if (value < 0)
@@ -30,16 +32,11 @@ namespace Player
                 if (iFrames != null && iFrames.IsInvincible())
                     return;
             }
-
-            if (armor > value)
+            Debug.Log(armor);
+            if (armor > 0)
             {
                 ModifyArmor(value);
             } 
-            else if (armor > 0)
-            {
-                base.ModifyHp(value - armor);
-                ModifyArmor(armor);
-            }
             else
             {
                 base.ModifyHp(value);
@@ -100,6 +97,7 @@ namespace Player
         public void ModifyArmor(int value)
         {
             armor = Mathf.Clamp(armor + value, 0, armorMax);
+            onArmorChanged?.Invoke(armor, armorMax);
         }
 
         public int GetArmorMax()
