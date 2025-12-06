@@ -79,6 +79,26 @@ namespace Player
             onLuckChanged?.Invoke(luck);
         }
 
+        public void ModifyArmorMax(int value)
+        {
+            armorMax = Mathf.Clamp(armorMax + value, 0, 5);
+        }
+
+        public void ModifyArmor(int value)
+        {
+            armor = Mathf.Clamp(armor + value, 0, armorMax);
+        }
+
+        public int GetArmorMax()
+        {
+            return armorMax;
+        }
+
+        public int GetArmor()
+        {
+            return armor;
+        }
+        
         public int GetProjectileCount() => projectileCount;
         public int GetLuck() => luck;
         public int GetDmg() => dmg;

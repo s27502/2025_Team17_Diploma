@@ -34,6 +34,7 @@ namespace HUD
         private void SetStats()
         {
             _view.SetHP(_playerStats.GetHp(), _playerStats.GetMaxHp());
+            _view.SetArmor(_playerStats.GetArmor(), _playerStats.GetArmorMax());
             _view.SetDamage(_playerStats.GetDmg());
             _view.SetAttackSpeed(_playerStats.GetAtkSpeed());
             _view.SetProjectileCount(_playerStats.GetProjectileCount());

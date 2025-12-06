@@ -16,6 +16,7 @@ namespace HUD
         [SerializeField] private Sprite emptySprite;
         
         [SerializeField] private List<HPSlot> hpSlots;
+        [SerializeField] private List<ArmorSlot> armorSlots;
         
         public void SetWeapon(Sprite sprite)
         {
@@ -70,6 +71,26 @@ namespace HUD
                 int hpForSlot = Mathf.Clamp(currentHp - (i * 2), 0, 2);
 
                 hpSlots[i].SetState(hpForSlot);
+            }
+        }
+
+        public void SetArmor(int currentArmor, int maxArmor)
+        {
+            int totalSlots = maxArmor;
+
+            for (int i = 0; i < armorSlots.Count; i++)
+            {
+                if (i >= totalSlots)
+                {
+                    armorSlots[i].gameObject.SetActive(false);
+                    continue;
+                }
+
+                armorSlots[i].gameObject.SetActive(true);
+                
+                int state = i < currentArmor ? 1 : 0;
+
+                armorSlots[i].SetState(state);
             }
         }
     }
