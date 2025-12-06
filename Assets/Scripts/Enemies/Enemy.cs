@@ -64,6 +64,21 @@ public class Enemy : MonoBehaviour
         
         FlipTo(dir.x);
     }
+    
+    protected void MoveInDirection(Vector2 direction)
+    {
+        if (_rb == null) return;
+        
+        Vector2 dir = direction.normalized;
+        
+        Vector2 currentPos = _rb.position;
+        Vector2 newPos = currentPos + dir * EnemyStats.GetMovementSpeed() * Time.fixedDeltaTime;
+        
+        _rb.MovePosition(newPos);
+        
+        FlipTo(dir.x);
+    }
+
 
     protected void MoveToPlayer()
     {
