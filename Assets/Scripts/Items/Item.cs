@@ -47,5 +47,10 @@ namespace Items
         {
             return _sprite;
         }
+
+        public void SetIsShop(bool isShop)
+        {
+            IsShop = isShop;
+        }
     }
 }

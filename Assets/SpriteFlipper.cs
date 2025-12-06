@@ -23,7 +23,7 @@ public class SpriteFlipper : MonoBehaviour
         }
         else
         {
-            _sr.flipX = false;
+            _sr.flipX = _lastFlip;
         }
     }
 }
