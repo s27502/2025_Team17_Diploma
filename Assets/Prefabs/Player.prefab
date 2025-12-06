@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 6680564350508708747}
   - component: {fileID: 8897864883774425281}
   - component: {fileID: 6450290854481000439}
+  - component: {fileID: 616241774219923881}
   - component: {fileID: 306556040188712002}
   - component: {fileID: 3932144308935858083}
   - component: {fileID: 5372722575000309435}
@@ -444,6 +445,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   helmetAnimator: {fileID: 8049077995007196258}
+--- !u!114 &616241774219923881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2230101389136409127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d69569adaa4ec39e7b874d45becd4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deathScreen: {fileID: 2540575307087665946, guid: bb614ef866ac3d0448e3f0a30ee3e678, type: 3}
 --- !u!114 &306556040188712002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,6 +495,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onCoinsChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onArmorChanged:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &3932144308935858083

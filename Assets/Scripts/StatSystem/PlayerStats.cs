@@ -15,6 +15,7 @@ namespace Player
         [SerializeField] private int coins;
         [SerializeField] private int armorMax;
         [SerializeField] private int armor;
+        private PlayerDeath _death;
         
         public UnityEvent<int, int> OnHpChanged = new UnityEvent<int, int>();
         public UnityEvent<int> onDamageChanged = new UnityEvent<int>();
@@ -24,9 +25,9 @@ namespace Player
         public UnityEvent<int> onCoinsChanged = new UnityEvent<int>();
         public UnityEvent<int, int> onArmorChanged = new UnityEvent<int, int>();
 
-        private void FixedUpdate()
+        private void Start()
         {
-            Debug.Log(_hp);
+            _death = GetComponent<PlayerDeath>();
         }
 
         public override void ModifyHp(int value)
@@ -66,7 +67,7 @@ namespace Player
 
         protected override void OnDeath()
         {
-            Debug.Log("Player died!");
+            _death.StartDeath();
         }
         
 
