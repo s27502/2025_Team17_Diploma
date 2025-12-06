@@ -31,11 +31,24 @@ namespace Player
                     return;
             }
 
-            base.ModifyHp(value);
+            if (armor > value)
+            {
+                ModifyArmor(value);
+            } 
+            else if (armor > 0)
+            {
+                base.ModifyHp(value - armor);
+                ModifyArmor(armor);
+            }
+            else
+            {
+                base.ModifyHp(value);
+            }
+            
             
             OnHpChanged?.Invoke(_hp, _maxHp);
         }
-
+        
         public override void ModifyMaxHp(int value)
         {
             base.ModifyMaxHp(value);
