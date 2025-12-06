@@ -6,9 +6,8 @@ using UnityEngine;
 
 namespace Items
 {
-    public class Weapon : Item , IInteractable
+    public class Armor : Item , IInteractable
     {
-        [SerializeField] private GameObject _projectile;
         private PlayerStats _stats;
         private Equipment _equipment;
         
@@ -55,12 +54,13 @@ namespace Items
             
             if (stats[0] != 0)
             {
-                _stats.ModifyDmg((int)stats[0]);
+                _stats.ModifyArmorMax((int)stats[0]);
+                _stats.ModifyArmor((int)stats[0]);
             }
 
             if (stats[1] != 0)
             {
-                _stats.ModifyAttackSpeed(stats[1]);
+                //Some stat idk
             }
         }
 
@@ -70,17 +70,14 @@ namespace Items
             
             if (stats[0] != 0)
             {
-                _stats.ModifyDmg(-(int)stats[0]);
+                _stats.ModifyArmorMax(-(int)stats[0]);
+                _stats.ModifyArmor(-(int)stats[0]);
             }
 
             if (stats[1] != 0)
             {
-                _stats.ModifyAttackSpeed(-stats[1]);
+                //_stats.ModifyAttackSpeed(-stats[1]);
             }
-        }
-        public GameObject GetProjectile()
-        {
-            return _projectile;
         }
     }
 }

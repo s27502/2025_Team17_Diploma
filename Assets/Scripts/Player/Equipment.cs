@@ -7,6 +7,8 @@ namespace Player
     public class Equipment : MonoBehaviour
     {
         public event Action<Weapon> OnWeaponChanged;
+        public event Action<Armor> OnArmorChanged;
+        public event Action<Helmet> OnHelmetChanged;
         
         private Item _weapon;
         private Item _armor;
@@ -39,6 +41,22 @@ namespace Player
                 _weapon = newWeapon;
                 
                 OnWeaponChanged?.Invoke(newWeapon);
+            } else if (item is Armor newArmor)
+            {
+                if (_armor)
+                    toDrop = Unequip(_armor);
+
+                _armor = newArmor;
+                    
+                OnArmorChanged?.Invoke(newArmor);
+            } else if (item is Helmet newHelmet)
+            {
+                if (_helmet)
+                    toDrop = Unequip(_helmet);
+                
+                _helmet = newHelmet;
+                
+                OnHelmetChanged?.Invoke(newHelmet);
             }
 
             return toDrop;
@@ -50,6 +68,15 @@ namespace Player
             {
                 _weapon = null;
                 OnWeaponChanged?.Invoke(null);
+            }
+            else if (item is Armor)
+            {
+                _armor = null;
+                OnArmorChanged?.Invoke(null);
+            } else if (item is Helmet)
+            {
+                _helmet = null;
+                OnHelmetChanged?.Invoke(null);
             }
             return item;
         }

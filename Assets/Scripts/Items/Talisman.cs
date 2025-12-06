@@ -2,24 +2,21 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using Managers;
 using Player;
-using UnityEngine;
 
 namespace Items
 {
-    public class Weapon : Item , IInteractable
+    public class Talisman : Item , IInteractable
     {
-        [SerializeField] private GameObject _projectile;
         private PlayerStats _stats;
-        private Equipment _equipment;
+        private Inventory _inventory;
         
         
         public void OnInteract()
         {
             if (!_stats)
                 _stats = ServiceLocator.Instance.GetService<PlayerStatManager>().GetPlayerStats();
-            if (!_equipment)
-                _equipment = ServiceLocator.Instance.GetService<EquipmentManager>().GetEquipment();
-            Item toDrop;
+            if (!_inventory)
+                _inventory = ServiceLocator.Instance.GetService<InventoryManager>().GetInventory();
             if (IsShop)
             {
                 //Buy
@@ -27,24 +24,14 @@ namespace Items
                 {
                     _stats.ModifyCoins(-GetItemPrice());
                     IsShop = false;
-                    toDrop = _equipment.Equip(this);
-                    if (toDrop)
-                    {
-                        DeEquipStatChanges(toDrop);
-                        ItemManager.PutInRoom(toDrop, gameObject.transform.position);
-                    }
+                    _inventory.AddItem(this);
                     ApplyStatChanges(this);
                     ItemManager.PutInStorage(this);
                 }
                 return;
             }
             //Pick up
-            toDrop = _equipment.Equip(this);
-            if (toDrop)
-            {
-                DeEquipStatChanges(toDrop);
-                ItemManager.PutInRoom(toDrop, gameObject.transform.position);
-            }
+            _inventory.AddItem(this);
             ApplyStatChanges(this);
             ItemManager.PutInStorage(this);
         }
@@ -62,6 +49,16 @@ namespace Items
             {
                 _stats.ModifyAttackSpeed(stats[1]);
             }
+
+            if (stats[2] != 0)
+            {
+                _stats.ModifyLuck((int)stats[2]);
+            }
+            if (stats[3] != 0)
+            {
+                _stats.ModifyMaxHp((int)stats[3]);
+                _stats.ModifyHp((int)stats[3]);
+            }
         }
 
         private void DeEquipStatChanges(Item item)
@@ -70,17 +67,14 @@ namespace Items
             
             if (stats[0] != 0)
             {
-                _stats.ModifyDmg(-(int)stats[0]);
+                _stats.ModifyArmorMax(-(int)stats[0]);
+                _stats.ModifyArmor(-(int)stats[0]);
             }
 
             if (stats[1] != 0)
             {
                 _stats.ModifyAttackSpeed(-stats[1]);
             }
-        }
-        public GameObject GetProjectile()
-        {
-            return _projectile;
         }
     }
 }
