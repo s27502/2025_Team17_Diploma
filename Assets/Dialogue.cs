@@ -20,7 +20,7 @@ public class Dialogue : MonoBehaviour
     
     protected virtual void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             if (textComponent.text == lines[index])
             {
