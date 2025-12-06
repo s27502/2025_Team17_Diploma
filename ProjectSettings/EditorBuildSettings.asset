@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Floor 1.unity
     guid: ff3bd953b1d23b246b0a2281e629275c
+  - enabled: 0
+    path: Assets/Scenes/Inari.unity
+    guid: 0f4058db32bcaac45be6eb54fe9624d5
   m_configObjects: {}
