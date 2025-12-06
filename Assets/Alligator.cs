@@ -5,12 +5,14 @@ using Random = UnityEngine.Random;
 public class Alligator : Enemy
 {
     [SerializeField] private float _windUpTime = 2f;
+    [SerializeField] private float _miniChargeCooldown = 0.5f;
     
     private float _windingUpCounter;
     private bool _charging = false;
     private int _chargesNumber = 0;
     private Vector2 _chargeDirection;
     private float _originalSpeed;
+    private float _miniChargeCounter = 0f;
 
     protected override void Start()
     {
@@ -33,14 +35,21 @@ public class Alligator : Enemy
             {
                 StartCharge();
             }
+            return;
         }
-
-        if (_charging && _chargesNumber > 0)
+        
+        if (_miniChargeCounter > 0)
+        {
+            _miniChargeCounter -= Time.fixedDeltaTime;
+            return;
+        }
+        
+        if (_chargesNumber > 0)
         {
             MoveInDirection(_chargeDirection);
         }
-
-        if (_charging && _chargesNumber <= 0)
+        
+        if (_chargesNumber <= 0)
         {
             _charging = false;
             EnemyStats.SetMovementSpeed(_originalSpeed);
@@ -55,6 +64,7 @@ public class Alligator : Enemy
         _chargesNumber = RollChargesNumber();
         _chargeDirection = (_player.transform.position - transform.position).normalized;
         FlipTo(_chargeDirection.x);
+        _miniChargeCounter = 0f;
     }
 
     private int RollChargesNumber()
@@ -64,10 +74,9 @@ public class Alligator : Enemy
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Obstacle") && _charging)
-        {
-            _chargesNumber--;
-            _chargeDirection = (_player.transform.position - transform.position).normalized;
-        }
+        if ((!other.gameObject.CompareTag("Obstacle") && !other.gameObject.CompareTag("Player")) || !_charging) return;
+        _chargesNumber--;
+        _chargeDirection = (_player.transform.position - transform.position).normalized;
+        _miniChargeCounter = _miniChargeCooldown;
     }
 }

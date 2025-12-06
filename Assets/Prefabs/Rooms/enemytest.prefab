@@ -4405,3 +4405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b53b312fc9573849a0f6e1976f25124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileFactory: {fileID: 0}
+  _windUpTime: 2
+  _chargeCooldown: 1
