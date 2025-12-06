@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
     private SpriteFlipper _spriteFlipper;
     private PlayerInteractions _interactions;
     private Animator _animator;
+    [SerializeField] private Animator helmetAnimator;
 
     private Vector2 _moveInput;
 
@@ -17,6 +18,7 @@ public class PlayerInput : MonoBehaviour
         _spriteFlipper = GetComponent<SpriteFlipper>();
         _interactions = GetComponent<PlayerInteractions>();
         _animator = GetComponent<Animator>();
+        
     }
 
     private void FixedUpdate()
@@ -26,7 +28,7 @@ public class PlayerInput : MonoBehaviour
 
         bool isWalking = _moveInput.sqrMagnitude > 0;
         _animator.SetBool("isWalking", isWalking);
-
+        helmetAnimator.SetBool("isWalking", isWalking);
         _spriteFlipper.Flip(_moveInput);
     }
 
