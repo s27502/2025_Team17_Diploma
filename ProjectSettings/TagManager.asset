@@ -16,8 +16,8 @@ TagManager:
   - Player
   - PlayerProjectiles
   - EnemySight
-  - 
-  - 
+  - Enemy
+  - EnemyProjectiles
   - 
   - 
   - 

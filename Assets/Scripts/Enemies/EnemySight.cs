@@ -17,7 +17,6 @@ public class EnemySight : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Enemy.SetPlayer(other.gameObject);
-            Debug.Log("player found");
             Enemy.StartAttacking();
         }
     }

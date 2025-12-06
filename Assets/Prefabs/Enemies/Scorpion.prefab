@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01816df97784062909a382a33fa9b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3424888137376225583, guid: 8fe445095ede6d343b7eca146a384b55, type: 3}
+  projectilePrefab: {fileID: 3424888137376225583, guid: 911804beabefe4a41a5d5b238b9b00d9, type: 3}
   initialPoolSize: 16
 --- !u!1 &4317041100969953655
 GameObject:
@@ -120,7 +120,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -218,7 +218,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 6}
+  m_Size: {x: 20, y: 20}
   m_EdgeRadius: 0
 --- !u!1 &6284812516142713474
 GameObject:
@@ -231,11 +231,11 @@ GameObject:
   - component: {fileID: 3923792817393296922}
   - component: {fileID: 5312698377774260539}
   - component: {fileID: 2557531591745838911}
-  - component: {fileID: 5943739389093322404}
   - component: {fileID: 2151915149779411868}
   - component: {fileID: 2061756402025848000}
+  - component: {fileID: -4951716605129902157}
   m_Layer: 10
-  m_Name: EnemyBase
+  m_Name: Scorpion
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -304,19 +304,6 @@ MonoBehaviour:
   atkSpd: 1
   fireRate: 1
   movementSpeed: 1
---- !u!114 &5943739389093322404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6284812516142713474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50b4d3ec700abe444bcd555df3aff3c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileFactory: {fileID: 4218424028790637274}
 --- !u!61 &2151915149779411868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -380,3 +367,17 @@ MonoBehaviour:
   _poisoned: 0
   damageTextPrefab: {fileID: 774244208891461880, guid: ec981b5c9825e5d45a912edd53f19d9d, type: 3}
   damageTextRange: 0.5
+--- !u!114 &-4951716605129902157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6284812516142713474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e111eb4612b241cab007f475f20766b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileFactory: {fileID: 4218424028790637274}
+  _attackChangeInterval: 3

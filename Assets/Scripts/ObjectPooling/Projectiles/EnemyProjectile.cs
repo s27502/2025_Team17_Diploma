@@ -6,7 +6,7 @@ public class EnemyProjectile : ProjectileBase
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy") || other.CompareTag("EnemyHitbox"))
+        if (other.CompareTag("Enemy"))
             return;
         
         if (other.CompareTag("Player"))
