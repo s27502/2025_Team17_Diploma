@@ -7,7 +7,8 @@ public class PlayerProjectile : ProjectileBase
 {
     [SerializeField] private GameObject damageTextPrefab;
     [SerializeField] private float damageTextRange = 0.5f;
-    
+
+    private PlayerStats _playerStats;
     private IObjectPool _damagePopupPool;
     private IObjectFactory _damagePopupFactory;
 
@@ -15,8 +16,8 @@ public class PlayerProjectile : ProjectileBase
     protected override void Awake()
     {
         base.Awake();
-    
-        damage = ServiceLocator.Instance.GetService<PlayerStatManager>().GetPlayerStats().GetDmg();
+
+        _playerStats = ServiceLocator.Instance.GetService<PlayerStatManager>().GetPlayerStats();
 
         if (damageTextPrefab != null)
         {
@@ -36,7 +37,7 @@ public class PlayerProjectile : ProjectileBase
             var enemyStats = other.GetComponent<EnemyStats>();
             if (enemyStats != null)
             {
-                enemyStats.ModifyHp(-damage);
+                enemyStats.ModifyHp(-_playerStats.GetDmg());
                 ShowDamageText(other.transform.position);
             }
             _pool?.ReleaseObject(this);

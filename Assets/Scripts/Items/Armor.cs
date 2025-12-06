@@ -76,7 +76,7 @@ namespace Items
 
             if (stats[1] != 0)
             {
-                _stats.ModifyAttackSpeed(-stats[1]);
+                //_stats.ModifyAttackSpeed(-stats[1]);
             }
         }
     }

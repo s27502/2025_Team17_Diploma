@@ -26,17 +26,12 @@ public class AnimatorManager : MonoBehaviour
 
     private void SwitchHelmet(Helmet helmet)
     {
-        Debug.Log("Switching Helmet");
         _spriteFlipper.GetHelmetRenderer().enabled = true;
-        
     }
 
     private void SwitchArmor(Armor armor)
     {
-        Debug.Log("Switching Armor");
         _spriteFlipper.GetArmorRenderer().enabled = true;
-        
-        
     }
     
     public SpriteFlipper GetSpriteFlipper()

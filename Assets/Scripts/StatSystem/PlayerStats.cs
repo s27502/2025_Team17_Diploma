@@ -49,7 +49,7 @@ namespace Player
         public override void ModifyMaxHp(int value)
         {
             base.ModifyMaxHp(value);
-            
+            _hp += value;
             OnHpChanged?.Invoke(_hp, _maxHp);
         }
 
