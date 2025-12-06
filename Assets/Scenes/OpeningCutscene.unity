@@ -713,7 +713,7 @@ MonoBehaviour:
   - 'Anubis: talking something 2'
   - 'Anubis: talking something 3'
   - 'Anubis: Good luck'
-  textSpeed: 0.5
+  textSpeed: 0.1
   _imageObject: {fileID: 526765508}
   _images:
   - {fileID: 11400000, guid: 1893254ff0cab37479b9493af24acd0a, type: 2}
