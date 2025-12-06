@@ -1,3 +1,4 @@
+using System;
 using StatSystem;
 using UnityEngine;
 using UnityEngine.Events;
@@ -22,8 +23,12 @@ namespace Player
         public UnityEvent<int> onLuckChanged = new UnityEvent<int>();
         public UnityEvent<int> onCoinsChanged = new UnityEvent<int>();
         public UnityEvent<int, int> onArmorChanged = new UnityEvent<int, int>();
-        
-        
+
+        private void FixedUpdate()
+        {
+            Debug.Log(_hp);
+        }
+
         public override void ModifyHp(int value)
         {
             if (value < 0)
@@ -45,7 +50,13 @@ namespace Player
             
             OnHpChanged?.Invoke(_hp, _maxHp);
         }
-        
+
+        public override void StatusDmg(int amount)
+        {
+            base.StatusDmg(amount);
+            OnHpChanged?.Invoke(_hp, _maxHp);
+        }
+
         public override void ModifyMaxHp(int value)
         {
             base.ModifyMaxHp(value);

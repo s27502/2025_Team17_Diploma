@@ -17,7 +17,7 @@ namespace StatSystem
 
         public virtual void StatusDmg(int amount)
         {
-            _hp = Mathf.Clamp(_hp - amount, 1, _maxHp);
+            _hp = Mathf.Clamp(_hp + amount, 1, _maxHp);
         }
 
         public virtual void ModifyMaxHp(int amount)
