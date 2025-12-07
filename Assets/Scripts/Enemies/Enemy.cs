@@ -14,18 +14,22 @@ public enum EnemyState
 public class Enemy : MonoBehaviour
 {
     [SerializeField] protected EnemyProjectileFactory projectileFactory;
+    [SerializeField] private float startDelay = 1f;
+
     protected EnemyStats EnemyStats;
     protected EnemyState State;
     protected GameObject _player;
     protected Rigidbody2D _rb;
+    private bool canReact = false; 
     public bool FacingRight { get; private set; } = true;
     
     protected virtual void Start()
     {
-        EnemyStats = gameObject.GetComponent<EnemyStats>();
-        State = EnemyState.Idle;
+        EnemyStats = GetComponent<EnemyStats>();
         _rb = GetComponent<Rigidbody2D>();
+        StartCoroutine(StartAfterDelay());
     }
+
     
 
     protected virtual void FixedUpdate()
@@ -41,6 +45,22 @@ public class Enemy : MonoBehaviour
         }
         
     }
+    
+    private IEnumerator StartAfterDelay()
+    {
+        yield return new WaitForSeconds(startDelay);
+        OnStartAfterDelay();
+    }
+
+    protected virtual void OnStartAfterDelay()
+    {
+        canReact = true;
+        
+        if (_player != null)
+            StartAttacking();
+    }
+
+    public bool CanReact() => canReact;
 
     protected virtual void Attack()
     {

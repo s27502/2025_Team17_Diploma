@@ -18,9 +18,9 @@ namespace Enemies
         
         private float _randomMoveDistance = 2f;
 
-        protected override void Start()
+        protected override void OnStartAfterDelay()
         {
-            base.Start();
+            base.OnStartAfterDelay();
             StartAttacking();
         }
 
