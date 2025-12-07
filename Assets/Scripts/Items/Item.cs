@@ -21,7 +21,7 @@ namespace Items
             
         }
 
-        private void Start()
+        protected virtual void Start()
         {
             ItemManager = ServiceLocator.Instance.GetService<ItemManager>();
             _sprite = GetComponent<SpriteRenderer>().sprite;

@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using Managers;
 using Player;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Items
@@ -11,7 +13,19 @@ namespace Items
         [SerializeField] private GameObject _projectile;
         private PlayerStats _stats;
         private Equipment _equipment;
-        
+        [SerializeField] private GameObject _price;
+
+
+        protected override void Start()
+        {
+            base.Start();
+            if (IsShop)
+            {
+                _price.GetComponent<TextMeshPro>().text = GetItemPrice().ToString();
+                _price.SetActive(true);
+            }
+        }
+
         
         public void OnInteract()
         {
@@ -25,6 +39,7 @@ namespace Items
                 //Buy
                 if (_stats.GetCoins() >= GetItemPrice())
                 {
+                    _price.SetActive(false);
                     _stats.ModifyCoins(-GetItemPrice());
                     IsShop = false;
                     toDrop = _equipment.Equip(this);
