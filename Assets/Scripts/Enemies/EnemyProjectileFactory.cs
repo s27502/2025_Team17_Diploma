@@ -15,6 +15,15 @@ namespace Enemies
             _projectilePool = new ProjectilePool(factory, initialPoolSize);
         }
 
+        public void Spawn()
+        {
+            IPoolableObject projectile = _projectilePool.GetObject();
+            if (projectile != null)
+            {
+                projectile.Spawn(transform.position,new Vector2(0,0));
+            }
+        }
+
         public void Shoot(Vector2 direction)
         {
             if (direction == Vector2.zero)

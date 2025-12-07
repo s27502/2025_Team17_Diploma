@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileFactory :  IObjectFactory
 {
-    private GameObject bulletPrefab;
+    protected GameObject bulletPrefab;
 
     public ProjectileFactory(GameObject prefab) {
         bulletPrefab = prefab;
