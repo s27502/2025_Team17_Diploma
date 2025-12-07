@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,24 +9,25 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject hud;
 
-    void Start()
+    private void Awake()
     {
         ServiceLocator.Instance.Register(this);
+    }
+
+    void Start()
+    {
+        
     }
     
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Resume();
-        }
+        
     }
 
     public void Pause()
     {
-        hud.SetActive(false);
         pauseMenu.SetActive(true);
+        hud.SetActive(false);
         Time.timeScale = 0;
     }
 
