@@ -15,6 +15,7 @@ namespace ObjectPooling.Projectiles
         public override void Spawn(Vector2 position, Vector2 direction)
         {
             transform.position = position;
+            _rb.velocity = Vector2.zero;
             gameObject.SetActive(true);
         }
     }

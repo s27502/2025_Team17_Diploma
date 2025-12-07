@@ -40,4 +40,8 @@ public class TimedEnemyProjectile : EnemyProjectile
         _lifeCounter = _lifeTime;
     }
 
+    public override void Despawn()
+    {
+        _lifeCounter = _lifeTime;
+    }
 }
