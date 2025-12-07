@@ -17,9 +17,9 @@ namespace Enemies
         private float _shootCounter = 0f;
         private ScorpionAttack _currentAttack;
 
-        protected override void Start()
+        protected override void OnStartAfterDelay()
         {
-            base.Start();
+            base.OnStartAfterDelay();
             _currentAttack = RollAttack();
         }
 
