@@ -1,31 +1,40 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 public class ResolutionSettings : MonoBehaviour
 {
     public TMP_Dropdown resolutionDropdown;
 
-    private Resolution[] _resolutions;
+    private List<(int width, int height)> _resolutions = new List<(int, int)>();
 
     void Start()
     {
-        _resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
 
-        int currentResIndex = 0;
-        var options = new System.Collections.Generic.List<string>();
-
-        for (int i = 0; i < _resolutions.Length; i++)
+        HashSet<string> seen = new HashSet<string>();
+        
+        foreach (var res in Screen.resolutions)
         {
-            double refresh = _resolutions[i].refreshRateRatio.value;
-            string option = $"{_resolutions[i].width} x {_resolutions[i].height}"; 
+            string key = $"{res.width}x{res.height}";
+
+            if (!seen.Contains(key))
+            {
+                seen.Add(key);
+                _resolutions.Add((res.width, res.height));
+            }
+        }
+        
+        List<string> options = new List<string>();
+        int currentResIndex = 0;
+
+        for (int i = 0; i < _resolutions.Count; i++)
+        {
+            var (w, h) = _resolutions[i];
+            options.Add($"{w} x {h}");
             
-
-            options.Add(option);
-
-            if (_resolutions[i].width == Screen.currentResolution.width &&
-                _resolutions[i].height == Screen.currentResolution.height &&
-                Approximately(refresh, Screen.currentResolution.refreshRateRatio.value))
+            if (w == Screen.currentResolution.width &&
+                h == Screen.currentResolution.height)
             {
                 currentResIndex = i;
             }
@@ -40,23 +49,14 @@ public class ResolutionSettings : MonoBehaviour
 
     public void SetResolution(int index)
     {
-        Resolution res = _resolutions[index];
+        var (width, height) = _resolutions[index];
 
-        Screen.SetResolution(
-            res.width,
-            res.height,
-            Screen.fullScreenMode,
-            res.refreshRateRatio
-        );
+        // Set refresh rate to 60
+        Screen.SetResolution(width, height, Screen.fullScreenMode, 60);
     }
-    private bool Approximately(double a, double b, double tolerance = 0.5)
-    {
-        return System.Math.Abs(a - b) < tolerance;
-    }
-    
+
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
     }
-    
 }
