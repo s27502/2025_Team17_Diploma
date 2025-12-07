@@ -9,4 +9,13 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("Floor 1");
     }
+
+    public void ExitButton()
+    {
+        Application.Quit();
+        if (Application.isEditor)
+        {
+            Debug.Log("Exit");
+        }
+    }
 }
