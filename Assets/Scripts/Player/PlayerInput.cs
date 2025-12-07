@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
     private SpriteFlipper _spriteFlipper;
     private PlayerInteractions _interactions;
     private Animator _animator;
+    private PauseManager _pauseManager;
     [SerializeField] private Animator helmetAnimator;
 
     private Vector2 _moveInput;
@@ -19,6 +20,11 @@ public class PlayerInput : MonoBehaviour
         _interactions = GetComponent<PlayerInteractions>();
         _animator = GetComponent<Animator>();
         
+    }
+
+    void Start()
+    {
+        _pauseManager = ServiceLocator.Instance.GetService<PauseManager>();
     }
 
     private void FixedUpdate()
@@ -42,6 +48,11 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             _movement.Dash();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _pauseManager.Pause();
         }
     }
 }
