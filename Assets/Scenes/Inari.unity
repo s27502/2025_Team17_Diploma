@@ -448,6 +448,14 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6695317352611069199, guid: 388f1e6f86bcabb4f86f7457011f68a6, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695317352611069199, guid: 388f1e6f86bcabb4f86f7457011f68a6, type: 3}
+      propertyPath: m_UpdateRectTransformForStandalone
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6953259065390449362, guid: 388f1e6f86bcabb4f86f7457011f68a6, type: 3}
       propertyPath: m_Pivot.x
       value: 0
