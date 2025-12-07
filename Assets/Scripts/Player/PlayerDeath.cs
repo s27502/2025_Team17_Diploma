@@ -8,6 +8,7 @@ namespace Player
     {
         [SerializeField] private GameObject _deathScreen;
         private GameObject _deathScreenInstance;
+
         public void StartDeath()
         {
             StartCoroutine(DeathCoroutine());
@@ -16,14 +17,23 @@ namespace Player
         private IEnumerator DeathCoroutine()
         {
             Time.timeScale = 0;
+            
             _deathScreenInstance = Instantiate(_deathScreen);
+            
+            Canvas canvas = _deathScreenInstance.GetComponentInChildren<Canvas>();
+            Camera cam = Camera.main;
+            if (cam != null)
+            {
+                canvas.worldCamera = cam;
+            }
+
             yield return new WaitForSecondsRealtime(2f);
+
             Destroy(gameObject);
             ServiceLocator.Instance.Erase();
             SceneManager.LoadScene("MainMenu");
-            //_deathScreen.SetActive(false);
-            Time.timeScale = 1;
 
+            Time.timeScale = 1;
         }
     }
 }
