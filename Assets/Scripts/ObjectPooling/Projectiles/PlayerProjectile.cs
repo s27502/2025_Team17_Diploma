@@ -64,7 +64,7 @@ public class PlayerProjectile : ProjectileBase
             popupObj.Spawn(enemyPos + randomOffset, Vector2.zero);
 
             DamagePopup popup = popupObj as DamagePopup;
-            popup.Setup(damage);
+            popup.Setup(_playerStats.GetDmg());
         }
     }
 

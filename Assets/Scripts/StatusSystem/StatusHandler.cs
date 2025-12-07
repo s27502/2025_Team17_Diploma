@@ -51,7 +51,7 @@ namespace StatusSystem
 
             if (_poisonDelayCounter >= _poisonDelay)
             {
-                _stats.ModifyHp(-_poisonDmg);
+                _stats.StatusDmg(-_poisonDmg);
                 ShowDamageText(transform.position);
 
                 _poisonDelayCounter = 0f;

@@ -58,4 +58,9 @@ public class ServiceLocator : SingletonDoNotDestroy<ServiceLocator>
         }
         Debug.Log("===========================");
     }
+
+    public void Erase()
+    {
+        Destroy(gameObject);
+    }
 }
