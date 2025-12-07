@@ -7,21 +7,12 @@ namespace Enemies
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private int initialPoolSize = 10;
 
-        private IObjectPool _projectilePool;
+        protected IObjectPool _projectilePool;
 
         private void Awake()
         {
             IObjectFactory factory = new ProjectileFactory(projectilePrefab);
             _projectilePool = new ProjectilePool(factory, initialPoolSize);
-        }
-
-        public void Spawn()
-        {
-            IPoolableObject projectile = _projectilePool.GetObject();
-            if (projectile != null)
-            {
-                projectile.Spawn(transform.position,new Vector2(0,0));
-            }
         }
 
         public void Shoot(Vector2 direction)

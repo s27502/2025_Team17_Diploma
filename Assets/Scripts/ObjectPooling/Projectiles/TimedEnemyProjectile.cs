@@ -33,4 +33,11 @@ public class TimedEnemyProjectile : EnemyProjectile
             _pool?.ReleaseObject(this);
         }
     }
+    
+    public override void Spawn(Vector2 position, Vector2 direction)
+    {
+        base.Spawn(position, direction);
+        _lifeCounter = _lifeTime;
+    }
+
 }

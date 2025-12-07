@@ -163,5 +163,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   damage: 1
-  _lifeTime: 10
+  _lifeTime: 7
   gravityScale: 1
