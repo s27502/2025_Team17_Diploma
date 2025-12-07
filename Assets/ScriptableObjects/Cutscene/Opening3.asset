@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Opening3
   m_EditorClassIdentifier: 
   index: 5
-  sprite: {fileID: 21300000, guid: 90afc82908f5c7748873a7fe5021b422, type: 3}
+  sprite: {fileID: 21300000, guid: e2fbc3b0d9eed6349ad793699d972426, type: 3}
