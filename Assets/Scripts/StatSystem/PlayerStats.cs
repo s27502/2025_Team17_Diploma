@@ -35,6 +35,7 @@ namespace Player
             if (value < 0)
             {
                 var iFrames = GetComponent<PlayerIFrames>();
+                Debug.Log(iFrames.IsInvincible());
                 if (iFrames != null && iFrames.IsInvincible())
                     return;
             }
@@ -42,6 +43,7 @@ namespace Player
             if (armor > 0)
             {
                 ModifyArmor(value);
+                OnHpChanged?.Invoke(1, 2);
             } 
             else
             {
