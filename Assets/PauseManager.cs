@@ -9,7 +9,7 @@ public class PauseManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject hud;
-    [SerializeField] private PlayerDeath _deathScreen;
+    [SerializeField] private GameObject _player;
     private void Awake()
     {
         ServiceLocator.Instance.Register(this);
@@ -31,7 +31,8 @@ public class PauseManager : MonoBehaviour
 
     public void Quit()
     {
-        _deathScreen.StartDeath();
-        SceneManager.LoadScene("MainMenu");
+        pauseMenu.SetActive(false);
+        _player.GetComponent<PlayerDeath>().StartDeath();
+        //SceneManager.LoadScene("MainMenu");
     }
 }
