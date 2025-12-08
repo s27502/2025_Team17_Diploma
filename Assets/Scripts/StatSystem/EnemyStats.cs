@@ -1,5 +1,6 @@
 ﻿using StatSystem;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Enemies
 {
@@ -10,6 +11,8 @@ namespace Enemies
         [SerializeField] private float atkSpd = 1f;
         [SerializeField] private float fireRate = 1f;
         [SerializeField] private float movementSpeed = 1f;
+        
+        public UnityEvent<int, int> OnHpChanged = new UnityEvent<int, int>();
 
         protected override void OnDeath()
         {
@@ -21,6 +24,12 @@ namespace Enemies
         public void ModifyFireRate(float amount) => fireRate += amount;
         public void ModifyAtkSpd(float amount) => atkSpd += amount;
         public void ModifyMovement(float amount) => movementSpeed += amount;
+
+        public override void ModifyHp(int value)
+        {
+            base.ModifyHp(value);
+            OnHpChanged?.Invoke(_hp,_maxHp);
+        }
 
         public int GetDmg() => dmg;
         public float GetAtkSpd() => atkSpd;

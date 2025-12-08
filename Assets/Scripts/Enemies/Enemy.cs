@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] protected EnemyProjectileFactory projectileFactory;
     [SerializeField] private float startDelay = 1f;
+    
+    public System.Action<Enemy> OnDeath;
 
     protected EnemyStats EnemyStats;
     protected EnemyState State;
@@ -127,8 +129,9 @@ public class Enemy : MonoBehaviour
     }
 
 
-    private void Die()
+    protected virtual void Die()
     {
+        OnDeath?.Invoke(this);
         Destroy(gameObject);
     }
 
@@ -161,7 +164,8 @@ public class Enemy : MonoBehaviour
 
     public void FlipTo(float dirX)
     {
-        if (dirX == 0) return;
+        float threshold = 0.01f;
+        if (Mathf.Abs(dirX) < threshold) return;
 
         Vector3 scale = transform.localScale;
         scale.x = Mathf.Abs(scale.x) * -Mathf.Sign(dirX);
@@ -169,4 +173,5 @@ public class Enemy : MonoBehaviour
 
         FacingRight = dirX > 0;
     }
+
 }
