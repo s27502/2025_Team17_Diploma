@@ -35,11 +35,9 @@ namespace Player
             if (value < 0)
             {
                 var iFrames = GetComponent<PlayerIFrames>();
-                Debug.Log(iFrames.IsInvincible());
                 if (iFrames != null && iFrames.IsInvincible())
                     return;
             }
-            Debug.Log(armor);
             if (armor > 0)
             {
                 ModifyArmor(value);
