@@ -21,6 +21,7 @@ namespace Enemies
         private float _summonDelayCounter = 0f;
 
         private float _spiralAngle = 0;
+        [SerializeField] private float _spiralFireRate = .2f;
         
         [SerializeField] private GameObject _rainSpawner;
         [SerializeField] private GameObject _enemySpawnerObject;
@@ -119,6 +120,7 @@ namespace Enemies
                     return SobekAttacks.Charge;
                 case 1:
                     _attackDuration = _spiralDuration;
+                    _spiralAngle = 0f;
                     return SobekAttacks.Spiral;
                 case 2:
                     _attackDuration = _movingDuration;
@@ -169,21 +171,30 @@ namespace Enemies
             _shootCounter -= Time.fixedDeltaTime;
         }
         
-        private void Shoot4(float angleOffset)
+        private void ShootSpiral()
         {
-            Vector2[] dirs =
+            if (_shootCounter <= 0f)
             {
-                Vector2.up,
-                Vector2.down,
-                Vector2.left,
-                Vector2.right
-            };
+                _shootCounter = _spiralFireRate;
+                
+                Vector2[] dirs =
+                {
+                    Vector2.up,
+                    Vector2.down,
+                    Vector2.left,
+                    Vector2.right
+                };
 
-            foreach (var dir in dirs)
-            {
-                Vector2 rotated = Rotate(dir, angleOffset);
-                projectileFactory.Shoot(rotated);
+                foreach (var dir in dirs)
+                {
+                    Vector2 rotated = Rotate(dir, _spiralAngle);
+                    projectileFactory.Shoot(rotated);
+                }
+
+                _spiralAngle += 10;
             }
+            
+            _shootCounter -= Time.fixedDeltaTime;
         }
 
         private Vector2 Rotate(Vector2 v, float angle)
@@ -228,7 +239,7 @@ namespace Enemies
             }
             else
             {
-                
+                ShootSpiral();
                 _attackDurationCounter -= Time.fixedDeltaTime;
             }
         }

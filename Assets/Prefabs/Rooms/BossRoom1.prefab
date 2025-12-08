@@ -2983,7 +2983,7 @@ PrefabInstance:
       objectReference: {fileID: 7698311031577275283}
     - target: {fileID: 4115151345796909996, guid: 86782023a9d7e5141a39c2cfb6996d1d, type: 3}
       propertyPath: _summonDelay
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4115151345796909996, guid: 86782023a9d7e5141a39c2cfb6996d1d, type: 3}
       propertyPath: _posChangeInterval
