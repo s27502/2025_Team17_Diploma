@@ -163,12 +163,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e192957331d31419df13c2ab346822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 6
-  _maxHp: 6
+  _hp: 10
+  _maxHp: 10
   dmg: 1
   atkSpd: 1
   fireRate: 1
   movementSpeed: 1
+  OnHpChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &2151915149779411868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -245,6 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileFactory: {fileID: 7915239341842770536}
+  startDelay: 1
   _dashSpeedMult: 7
 --- !u!114 &3468808269164808497
 MonoBehaviour:
@@ -381,7 +385,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 35}
+  m_Size: {x: 0.4, y: 50}
   m_EdgeRadius: 0
 --- !u!61 &2483948396896497761
 BoxCollider2D:
@@ -426,7 +430,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 35, y: 0.4}
+  m_Size: {x: 50, y: 0.4}
   m_EdgeRadius: 0
 --- !u!114 &8585423003275884758
 MonoBehaviour:
