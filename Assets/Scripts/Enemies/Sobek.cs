@@ -20,7 +20,7 @@ namespace Enemies
         [SerializeField] private float _summonDelay = 10f;
         private float _summonDelayCounter = 0f;
 
-        private List<Alligator> _alligators = new List<Alligator>();
+        private float _spiralAngle = 0;
         
         [SerializeField] private GameObject _rainSpawner;
         [SerializeField] private GameObject _enemySpawnerObject;
@@ -58,12 +58,13 @@ namespace Enemies
 
             _attackDurationCounter = 0;
             _attackDelayCounter = 0;
+            _summonDelayCounter = 10;
+            
+            _spawner.SpawnAtRandomPosition();
+            _spawner.SpawnAtRandomPosition();
             
             _windingUpCounter = _windUpTime;
             _originalSpeed = EnemyStats.GetMovementSpeed();
-            
-            
-            _spawner.SpawnAtRandomPosition();
         }
         
         
@@ -82,17 +83,14 @@ namespace Enemies
                 _attackDelayCounter -= Time.fixedDeltaTime;
             }
 
-            if (_summonDelayCounter <= 0 && _alligators.Count == 0)
+            if (_summonDelayCounter <= 0)
             {
-                SpawnAndRegisterGator();
-                SpawnAndRegisterGator();
+                _spawner.SpawnAtRandomPosition();
+                _spawner.SpawnAtRandomPosition();
                 _summonDelayCounter = _summonDelay;
             }
             
             if (_summonDelayCounter > 0) _summonDelayCounter -= Time.fixedDeltaTime;
-
-            Debug.Log(_currentAttack);
-            Debug.Log(_alligators.Count);
             
             switch (_currentAttack)
             {
@@ -171,6 +169,30 @@ namespace Enemies
             _shootCounter -= Time.fixedDeltaTime;
         }
         
+        private void Shoot4(float angleOffset)
+        {
+            Vector2[] dirs =
+            {
+                Vector2.up,
+                Vector2.down,
+                Vector2.left,
+                Vector2.right
+            };
+
+            foreach (var dir in dirs)
+            {
+                Vector2 rotated = Rotate(dir, angleOffset);
+                projectileFactory.Shoot(rotated);
+            }
+        }
+
+        private Vector2 Rotate(Vector2 v, float angle)
+        {
+            return Quaternion.Euler(0, 0, angle) * v;
+        }
+
+        
+        
         private void MoveToRandomDirection()
         {
             _posChangeCounter -= Time.fixedDeltaTime;
@@ -206,7 +228,7 @@ namespace Enemies
             }
             else
             {
-                //spiralshooting
+                
                 _attackDurationCounter -= Time.fixedDeltaTime;
             }
         }
@@ -278,18 +300,6 @@ namespace Enemies
             _chargesNumber--;
             _chargeDirection = (_player.transform.position - transform.position).normalized;
             _miniChargeCounter = _miniChargeCooldown;
-        }
-        
-        private void SpawnAndRegisterGator()
-        {
-            var gator = (Alligator)_spawner.SpawnAtRandomPosition();
-            gator.OnDeath += HandleGatorDeath;
-            _alligators.Add(gator);
-        }
-
-        private void HandleGatorDeath(Alligator gator)
-        {
-            _alligators.Remove(gator);
         }
     }
 }

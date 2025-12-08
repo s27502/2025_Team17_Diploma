@@ -8,8 +8,6 @@ public class Alligator : Enemy
     [SerializeField] private float _miniChargeCooldown = 0.5f;
     [SerializeField] private float _chargingSpeedMult = 10;
     
-    public System.Action<Alligator> OnDeath;
-    
     private float _windingUpCounter;
     private bool _charging = false;
     private int _chargesNumber = 0;
@@ -81,11 +79,5 @@ public class Alligator : Enemy
         _chargesNumber--;
         _chargeDirection = (_player.transform.position - transform.position).normalized;
         _miniChargeCounter = _miniChargeCooldown;
-    }
-
-    protected override void Die()
-    {
-        OnDeath?.Invoke(this);
-        base.Die();
     }
 }

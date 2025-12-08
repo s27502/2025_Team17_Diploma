@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] protected EnemyProjectileFactory projectileFactory;
     [SerializeField] private float startDelay = 1f;
+    
+    public System.Action<Enemy> OnDeath;
 
     protected EnemyStats EnemyStats;
     protected EnemyState State;
@@ -129,6 +131,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
+        OnDeath?.Invoke(this);
         Destroy(gameObject);
     }
 
