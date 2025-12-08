@@ -23,7 +23,6 @@ namespace Enemies
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
-            Debug.Log(EnemyStats.GetHp());
         }
 
         protected virtual void OnHpChangedHandler(int hp, int maxHp)

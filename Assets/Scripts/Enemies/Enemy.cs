@@ -127,7 +127,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-    private void Die()
+    protected virtual void Die()
     {
         Destroy(gameObject);
     }

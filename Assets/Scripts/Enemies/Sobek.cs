@@ -1,19 +1,53 @@
-﻿using DefaultNamespace.Factory;
+﻿using System.Collections.Generic;
+using DefaultNamespace.Factory;
 using UnityEngine;
+
+public enum SobekAttacks
+{
+    Charge,
+    Spiral,
+    RandomMoving
+}
 
 namespace Enemies
 {
     public class Sobek : Boss
     {
+        [SerializeField] private float _windUpTime = 2f;
+        [SerializeField] private float _miniChargeCooldown = 0.5f;
+        [SerializeField] private float _chargingSpeedMult = 5;
+
+        [SerializeField] private float _summonDelay = 10f;
+        private float _summonDelayCounter = 0f;
+
+        private List<Alligator> _alligators = new List<Alligator>();
+        
         [SerializeField] private GameObject _rainSpawner;
         [SerializeField] private GameObject _enemySpawnerObject;
         private EnemySpawner _spawner;
         private float _shootCounter;
+
+        private SobekAttacks _currentAttack;
+
+        private float _attackDurationCounter;
+        private float _attackDuration;
+
+        private float _windingUpCounter;
+        private bool _charging = false;
+        private int _chargesNumber = 0;
+        private Vector2 _chargeDirection;
+        private float _originalSpeed;
+        private float _miniChargeCounter = 0f;
         
         private Vector2 _currentRandomTarget;
         [SerializeField] private float _posChangeInterval = 0.5f;
         private float _posChangeCounter = 0f;
         [SerializeField] private float _randomMoveDistance = 2f;
+
+        [SerializeField] private float _spiralDuration = 7f;
+        [SerializeField] private float _movingDuration = 5f;
+
+        private float _attackDelayCounter;
 
         
         
@@ -21,15 +55,79 @@ namespace Enemies
         {
             base.Start();
             _spawner = _enemySpawnerObject.GetComponent<EnemySpawner>();
-            _spawner.SpawnAtRandomPosition();
+
+            _attackDurationCounter = 0;
+            _attackDelayCounter = 0;
+            
+            _windingUpCounter = _windUpTime;
+            _originalSpeed = EnemyStats.GetMovementSpeed();
+            
+            
             _spawner.SpawnAtRandomPosition();
         }
+        
+        
 
         protected override void Attack()
         {
             base.Attack();
-            MoveToRandomDirection();
-            Shoot8();
+            if (_attackDurationCounter <= 0 && _attackDelayCounter <= 0)
+            {
+                _currentAttack = RollAttack();
+                _attackDurationCounter = _attackDuration;
+            }
+
+            if (_attackDelayCounter > 0)
+            {
+                _attackDelayCounter -= Time.fixedDeltaTime;
+            }
+
+            if (_summonDelayCounter <= 0 && _alligators.Count == 0)
+            {
+                SpawnAndRegisterGator();
+                SpawnAndRegisterGator();
+                _summonDelayCounter = _summonDelay;
+            }
+            
+            if (_summonDelayCounter > 0) _summonDelayCounter -= Time.fixedDeltaTime;
+
+            Debug.Log(_currentAttack);
+            Debug.Log(_alligators.Count);
+            
+            switch (_currentAttack)
+            {
+                case SobekAttacks.Charge:
+                    PerformChargeAttack();
+                    break;
+                case SobekAttacks.Spiral:
+                    PerformSpiralAttack();
+                    break;
+                case SobekAttacks.RandomMoving:
+                    PerformRandomMovingAttack();
+                    break;
+            }
+            
+        }
+
+        private SobekAttacks RollAttack()
+        {
+            int attackNumber = Random.Range(0, 3);
+
+            switch (attackNumber)
+            {
+                case 0:
+                    //_charging = true;
+                    _attackDuration = 1000;
+                    return SobekAttacks.Charge;
+                case 1:
+                    _attackDuration = _spiralDuration;
+                    return SobekAttacks.Spiral;
+                case 2:
+                    _attackDuration = _movingDuration;
+                    return SobekAttacks.RandomMoving;
+            }
+
+            return SobekAttacks.RandomMoving;
         }
 
         protected override void OnHpChangedHandler(int hp, int maxHp)
@@ -85,6 +183,82 @@ namespace Enemies
             
             MoveTo(_currentRandomTarget);
         }
+
+        private void PerformRandomMovingAttack()
+        {
+            if (_attackDurationCounter <= 0)
+            {
+                _attackDelayCounter = EnemyStats.GetAtkSpd();
+            }
+            else
+            {
+                MoveToRandomDirection();
+                Shoot8();
+                _attackDurationCounter -= Time.fixedDeltaTime;
+            }
+        }
+
+        private void PerformSpiralAttack()
+        {
+            if (_attackDurationCounter <= 0)
+            {
+                _attackDelayCounter = EnemyStats.GetAtkSpd();
+            }
+            else
+            {
+                //spiralshooting
+                _attackDurationCounter -= Time.fixedDeltaTime;
+            }
+        }
+
+        private void PerformChargeAttack()
+        {
+            if (!_charging)
+            {
+                _windingUpCounter -= Time.fixedDeltaTime;
+                if (_windingUpCounter <= 0)
+                {
+                    StartCharge();
+                }
+                return;
+            }
+        
+            if (_miniChargeCounter > 0)
+            {
+                _miniChargeCounter -= Time.fixedDeltaTime;
+                return;
+            }
+        
+            if (_chargesNumber > 0)
+            {
+                MoveInDirection(_chargeDirection);
+            }
+        
+            if (_chargesNumber <= 0)
+            {
+                _charging = false;
+                EnemyStats.SetMovementSpeed(_originalSpeed);
+                _windingUpCounter = _windUpTime;
+                _attackDurationCounter = 0;
+                _attackDelayCounter = EnemyStats.GetAtkSpd();
+            }
+        }
+        
+        
+        private void StartCharge()
+        {
+            _charging = true;
+            EnemyStats.SetMovementSpeed(_originalSpeed * _chargingSpeedMult);
+            _chargesNumber = RollChargesNumber();
+            _chargeDirection = (_player.transform.position - transform.position).normalized;
+            FlipTo(_chargeDirection.x);
+            _miniChargeCounter = 0f;
+        }
+        
+        private int RollChargesNumber()
+        {
+            return Random.Range(1, 4);
+        }
         
         private void PickNewRandomTarget360()
         {
@@ -96,6 +270,26 @@ namespace Enemies
             ).normalized;
             
             _currentRandomTarget = (Vector2)_rb.position + dir * _randomMoveDistance;
+        }
+        
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if ((!other.gameObject.CompareTag("Obstacle") && !other.gameObject.CompareTag("Player")) || !_charging) return;
+            _chargesNumber--;
+            _chargeDirection = (_player.transform.position - transform.position).normalized;
+            _miniChargeCounter = _miniChargeCooldown;
+        }
+        
+        private void SpawnAndRegisterGator()
+        {
+            var gator = (Alligator)_spawner.SpawnAtRandomPosition();
+            gator.OnDeath += HandleGatorDeath;
+            _alligators.Add(gator);
+        }
+
+        private void HandleGatorDeath(Alligator gator)
+        {
+            _alligators.Remove(gator);
         }
     }
 }

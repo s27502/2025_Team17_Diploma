@@ -11,7 +11,7 @@ namespace DefaultNamespace.Factory
         [SerializeField] private Vector2 areaSize = new Vector2(30f, 20f);
         [SerializeField] private Transform areaCenter;
 
-        public void SpawnAtRandomPosition()
+        public Enemy SpawnAtRandomPosition()
         {
             Vector2 randomOffset = new Vector2(
                 Random.Range(-areaSize.x / 2f, areaSize.x / 2f),
@@ -22,7 +22,7 @@ namespace DefaultNamespace.Factory
             Vector3 finalPos = new Vector3(spawnPos.x, spawnPos.y, 10.0411f);
             GameObject enemy = Instantiate(_enemyPrefab, finalPos, Quaternion.identity, transform);
             enemy.transform.parent = _enemies.transform;
-
+            return enemy.GetComponent<Enemy>();
         }
     }
 }
