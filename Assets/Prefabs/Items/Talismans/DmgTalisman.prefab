@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Violent Talisman
   itemPrice: 70
-  IsShop: 1
+  IsShop: 0
   stats:
   - 1
   - 0
