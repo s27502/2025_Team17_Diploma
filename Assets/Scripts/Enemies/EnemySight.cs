@@ -1,4 +1,5 @@
 using System;
+using Enemies;
 using UnityEngine;
 
 public class EnemySight : MonoBehaviour
@@ -9,11 +10,16 @@ public class EnemySight : MonoBehaviour
     {
         Enemy = GetComponentInParent<Enemy>();
     }
-    
+
+    private void Awake()
+    {
+        Enemy = GetComponentInParent<Enemy>();
+    }
+
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-
+        
         Enemy.SetPlayer(other.gameObject);
 
         if (Enemy.CanReact())
