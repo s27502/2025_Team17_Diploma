@@ -9,6 +9,8 @@ public class Room : MonoBehaviour
     private FloorManager _floorManager;
     [SerializeField] private GameObject _playerTP;
     [SerializeField] private GameObject _enemies;
+    [SerializeField] private GameObject _doorClosed;
+    [SerializeField] private GameObject _doorOpen;
 
     public GameObject _spawnPos;
 
@@ -22,6 +24,8 @@ public class Room : MonoBehaviour
         if (_enemies.transform.childCount == 0)
         {
             _playerTP.SetActive(true);
+            _doorClosed.SetActive(false);
+            _doorOpen.SetActive(true);
         }
     }
 
