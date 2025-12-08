@@ -132,15 +132,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 306556040188712002, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: _hp
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 306556040188712002, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: coins
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 306556040188712002, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: _maxHp
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 646862989149235956, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: _poisoned
