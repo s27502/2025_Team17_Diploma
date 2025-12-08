@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1729763460014226140}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5075592, y: 2.1933534, z: 0}
+  m_LocalPosition: {x: -2.976324, y: 6.1264668, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Javelin
   itemPrice: 90
-  IsShop: 0
+  IsShop: 1
   stats:
   - 2
   - 1.2

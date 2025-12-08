@@ -18,7 +18,8 @@ public class ItemFactory : MonoBehaviour
     protected virtual void SpawnItem()
     {
         var rnd = new Random();
-        var i = rnd.Next(0, items.Count);
-        Instantiate(items[i].gameObject, gameObject.transform.position, Quaternion.identity);
+        var item = items[rnd.Next(0, items.Count)];
+        item.SetIsShop(false);
+        Instantiate(item.gameObject, gameObject.transform.position, Quaternion.identity);
     }
 }
