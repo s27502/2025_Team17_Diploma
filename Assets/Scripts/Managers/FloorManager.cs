@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FloorManager : SingletonDoNotDestroy<FloorManager>
 {
+    [SerializeField] private GameObject _thankScreen;
+    private GameObject _thankScreenInstance;
+    
     [SerializeField] private GameObject _player;
     [SerializeField] private int _floorsToGenerate;
     private int _currentFloor = 0;
@@ -58,10 +62,27 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
             
         }
     }
+    
+    private IEnumerator DeathCoroutine()
+    {
+        Time.timeScale = 0;
+        Destroy(ServiceLocator.Instance.GetService<FloorManager>().GetCurrentRoom());
+            
+        _thankScreenInstance = Instantiate(_thankScreen);
+            
+        yield return new WaitForSecondsRealtime(5f);
+
+        Destroy(gameObject);
+        ServiceLocator.Instance.Erase();
+        SceneManager.LoadScene("MainMenu");
+
+        Time.timeScale = 1;
+    }
+    
 
     private void GoToNextFloor()
     {
-        throw new System.NotImplementedException();
+        StartCoroutine(DeathCoroutine());
     }
 
     private GameObject PickRandomRoom()
