@@ -9,6 +9,7 @@ public class ShopItemFactory : ItemFactory
 {
     [SerializeField] private GameObject _price;
     [SerializeField] private GameObject empty;
+    
     protected override void SpawnItem()
     {
         var rnd = new Random();
@@ -16,14 +17,11 @@ public class ShopItemFactory : ItemFactory
         Item item = items[i];
         item.SetIsShop(true);
         
-        Instantiate(item.gameObject, empty.transform.position, empty.transform.rotation);
-        Destroy(empty);
+        var hrgte = Instantiate(item.gameObject, _parent.transform);
+        hrgte.transform.position = transform.position;
         
-        item.transform.position = transform.position;
-        item.transform.SetParent(gameObject.transform.parent);
         item.SetPrice(_price);
         _price.GetComponent<TextMeshPro>().text = item.GetItemPrice().ToString();
         _price.SetActive(true);
-        Destroy(gameObject);
     }
 }
