@@ -17,6 +17,7 @@ namespace Player
         private IEnumerator DeathCoroutine()
         {
             Time.timeScale = 0;
+            Destroy(ServiceLocator.Instance.GetService<FloorManager>().GetCurrentRoom());
             
             _deathScreenInstance = Instantiate(_deathScreen);
             
