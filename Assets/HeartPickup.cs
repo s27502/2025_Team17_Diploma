@@ -31,8 +31,11 @@ public class HeartPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _stats.ModifyHp(healAmount);
-            Destroy(gameObject);
+            if (_stats.GetMaxHp() > _stats.GetHp())
+            {
+                _stats.ModifyHp(healAmount);
+                Destroy(gameObject);
+            }
         }
     }
 }
