@@ -14,14 +14,18 @@ public class ShopItemFactory : ItemFactory
     {
         var rnd = new Random();
         var i = rnd.Next(0, items.Count);
-        Item item = items[i];
-        item.SetIsShop(true);
         
-        var hrgte = Instantiate(item.gameObject, _parent.transform);
+        Item itemPrefab = items[i];
+        itemPrefab.SetIsShop(true);
+        
+        var hrgte = Instantiate(itemPrefab.gameObject, _parent.transform);
         hrgte.transform.position = transform.position;
-        
-        item.SetPrice(_price);
-        _price.GetComponent<TextMeshPro>().text = item.GetItemPrice().ToString();
+
+        var instanceItem = hrgte.GetComponent<Item>();
+        instanceItem.SetPrice(_price);
+
+        _price.GetComponent<TextMeshPro>().text = instanceItem.GetItemPrice().ToString();
         _price.SetActive(true);
     }
+
 }
