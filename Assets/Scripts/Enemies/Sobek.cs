@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO.IsolatedStorage;
 using DefaultNamespace.Factory;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace Enemies
 {
     public class Sobek : Boss
     {
+        [SerializeField] private GameObject _enemies;
         [SerializeField] private float _windUpTime = 2f;
         [SerializeField] private float _miniChargeCooldown = 0.5f;
         [SerializeField] private float _chargingSpeedMult = 5;
@@ -49,9 +51,9 @@ namespace Enemies
         [SerializeField] private float _movingDuration = 5f;
 
         private float _attackDelayCounter;
+        [SerializeField] private int _maxGators = 2;
 
-        
-        
+
         protected override void Start()
         {
             base.Start();
@@ -73,6 +75,8 @@ namespace Enemies
         protected override void Attack()
         {
             base.Attack();
+            
+            //Debug.Log(_enemies.transform.childCount);
             if (_attackDurationCounter <= 0 && _attackDelayCounter <= 0)
             {
                 _currentAttack = RollAttack();
@@ -84,10 +88,9 @@ namespace Enemies
                 _attackDelayCounter -= Time.fixedDeltaTime;
             }
 
-            if (_summonDelayCounter <= 0)
+            if (_summonDelayCounter <= 0 && _enemies.transform.childCount < _maxGators + 1)
             {
-                _spawner.SpawnAtRandomPosition();
-                _spawner.SpawnAtRandomPosition();
+                SpawnGators(_maxGators + 1 - _enemies.transform.childCount);
                 _summonDelayCounter = _summonDelay;
             }
             
@@ -108,6 +111,14 @@ namespace Enemies
             
         }
 
+        private void SpawnGators(int number)
+        {
+            for (int i = 0; i < number; i++)
+            {
+                _spawner.SpawnAtRandomPosition();
+            }
+        }
+        
         private SobekAttacks RollAttack()
         {
             int attackNumber = Random.Range(0, 3);
