@@ -7,7 +7,7 @@ namespace Enemies
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private int initialPoolSize = 10;
 
-        private IObjectPool _projectilePool;
+        protected IObjectPool _projectilePool;
 
         private void Awake()
         {
