@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class OpeningCutscene : Dialogue
 {
+    [SerializeField] private Animator _transition;
     [SerializeField] private GameObject _imageObject;
 
     [SerializeField] private List<CutsceneImage> _images;
@@ -17,8 +18,7 @@ public class OpeningCutscene : Dialogue
         base.Update();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //playtransition
-            SceneManager.LoadScene("MainMenu");
+            StartCoroutine(LoadMenu());
         }
 
         CutsceneImage data = _images.Find(e => e.index == index);
@@ -30,8 +30,15 @@ public class OpeningCutscene : Dialogue
 
     protected override void EndDialogue()
     {
+
+        StartCoroutine(LoadMenu());
+    }
+
+    private IEnumerator LoadMenu()
+    {
+        _transition.SetTrigger("Start");
+        yield return new WaitForSeconds(0.5f);
         base.EndDialogue();
-        //playtransition
         SceneManager.LoadScene("MainMenu");
     }
 }
