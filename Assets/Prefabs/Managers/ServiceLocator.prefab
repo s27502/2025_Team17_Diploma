@@ -1519,10 +1519,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9210276994955500330}
     m_Modifications:
-    - target: {fileID: 787705762275999292, guid: 06614f7df320e75459f79a7444ec002a, type: 3}
-      propertyPath: _floorDatas.Array.data[0]
+    - target: {fileID: 746723389943550064, guid: 06614f7df320e75459f79a7444ec002a, type: 3}
+      propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 11400000, guid: 1524820abd20d67489ebe9b5d2eff9ed, type: 2}
+      objectReference: {fileID: 997789869778457924}
+    - target: {fileID: 787705762275999292, guid: 06614f7df320e75459f79a7444ec002a, type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 7720894703235608262}
     - target: {fileID: 6791691809835160493, guid: 06614f7df320e75459f79a7444ec002a, type: 3}
       propertyPath: m_Name
       value: FloorManager
@@ -1575,5 +1579,10 @@ PrefabInstance:
 --- !u!4 &2458773472185163936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6830821320877018806, guid: 06614f7df320e75459f79a7444ec002a, type: 3}
+  m_PrefabInstance: {fileID: 8994993296783322646}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7720894703235608262 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1725585014672294096, guid: 06614f7df320e75459f79a7444ec002a, type: 3}
   m_PrefabInstance: {fileID: 8994993296783322646}
   m_PrefabAsset: {fileID: 0}

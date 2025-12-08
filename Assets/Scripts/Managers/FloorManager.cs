@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class FloorManager : SingletonDoNotDestroy<FloorManager>
 {
+    [SerializeField] private Animator transition;
     [SerializeField] private GameObject _thankScreen;
     private GameObject _thankScreenInstance;
     
@@ -34,7 +35,7 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
 
     }
 
-    public void GoToNextRoom()
+    public IEnumerator GoToNextRoomCoroutine()
     {
         if (_roomCounter == _currentFloorData.roomsToGenerate)
         {
@@ -42,6 +43,9 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
         }
         else
         {
+            transition.SetTrigger("Start");
+            yield return new WaitForSeconds(0.5f);
+            Time.timeScale = 0;
             Destroy(_currentRoom);
             _roomCounter++;
 
@@ -60,7 +64,17 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
             
             _player.transform.position = _currentRoom.GetComponent<Room>()._spawnPos.transform.position;
             
+            Time.timeScale = 1;
+            transition.SetTrigger("End");
+            yield return new WaitForSeconds(0.5f);
+            
         }
+        
+        
+    }
+    public void GoToNextRoom()
+    {
+        StartCoroutine(GoToNextRoomCoroutine());
     }
     
     private IEnumerator DeathCoroutine()
