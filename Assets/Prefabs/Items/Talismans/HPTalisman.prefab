@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 970474773120563047}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.29, y: -2.31, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -145,9 +145,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Vitality Talisman
   itemPrice: 50
-  IsShop: 0
+  IsShop: 1
   stats:
   - 0
   - 0
   - 0
   - 2
+  _price: {fileID: 0}

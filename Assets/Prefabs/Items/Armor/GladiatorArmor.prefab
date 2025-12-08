@@ -144,8 +144,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Gladiator Armor
-  itemPrice: 50
+  itemPrice: 100
   IsShop: 0
   stats:
   - 1
   - 0
+  _price: {fileID: 0}

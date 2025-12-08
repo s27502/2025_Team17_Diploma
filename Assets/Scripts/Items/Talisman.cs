@@ -22,6 +22,7 @@ namespace Items
                 //Buy
                 if (_stats.GetCoins() >= GetItemPrice())
                 {
+                    _price.SetActive(false);
                     _stats.ModifyCoins(-GetItemPrice());
                     IsShop = false;
                     _inventory.AddItem(this);
