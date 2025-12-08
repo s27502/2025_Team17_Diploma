@@ -8,6 +8,7 @@ namespace Enemies
         [SerializeField] private GameObject _rainSpawner;
         [SerializeField] private GameObject _enemySpawnerObject;
         private EnemySpawner _spawner;
+        private float _shootCounter;
         
         private Vector2 _currentRandomTarget;
         [SerializeField] private float _posChangeInterval = 0.5f;
@@ -28,6 +29,7 @@ namespace Enemies
         {
             base.Attack();
             MoveToRandomDirection();
+            Shoot8();
         }
 
         protected override void OnHpChangedHandler(int hp, int maxHp)
@@ -42,6 +44,33 @@ namespace Enemies
             {
                 Destroy(_rainSpawner);
             }
+        }
+        
+        private void Shoot8()
+        {
+            if (_shootCounter <= 0f)
+            {
+                _shootCounter = EnemyStats.GetFireRate();
+
+                Vector2[] dirs =
+                {
+                    Vector2.up,
+                    Vector2.down,
+                    Vector2.left,
+                    Vector2.right,
+                    new Vector2(1, 1).normalized,
+                    new Vector2(-1, 1).normalized,
+                    new Vector2(1, -1).normalized,
+                    new Vector2(-1, -1).normalized
+                };
+
+                foreach (var dir in dirs)
+                {
+                    projectileFactory.Shoot(dir);
+                }
+            }
+
+            _shootCounter -= Time.fixedDeltaTime;
         }
         
         private void MoveToRandomDirection()
