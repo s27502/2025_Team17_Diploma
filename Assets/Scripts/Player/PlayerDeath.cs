@@ -21,13 +21,6 @@ namespace Player
             
             _deathScreenInstance = Instantiate(_deathScreen);
             
-            Canvas canvas = _deathScreenInstance.GetComponentInChildren<Canvas>();
-            Camera cam = Camera.main;
-            if (cam != null)
-            {
-                canvas.worldCamera = cam;
-            }
-
             yield return new WaitForSecondsRealtime(2f);
 
             Destroy(gameObject);
