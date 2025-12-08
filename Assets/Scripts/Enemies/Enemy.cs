@@ -161,7 +161,8 @@ public class Enemy : MonoBehaviour
 
     public void FlipTo(float dirX)
     {
-        if (dirX == 0) return;
+        float threshold = 0.01f;
+        if (Mathf.Abs(dirX) < threshold) return;
 
         Vector3 scale = transform.localScale;
         scale.x = Mathf.Abs(scale.x) * -Mathf.Sign(dirX);
@@ -169,4 +170,5 @@ public class Enemy : MonoBehaviour
 
         FacingRight = dirX > 0;
     }
+
 }

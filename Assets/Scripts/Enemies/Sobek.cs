@@ -1,15 +1,28 @@
-﻿using UnityEngine;
+﻿using DefaultNamespace.Factory;
+using UnityEngine;
 
 namespace Enemies
 {
     public class Sobek : Boss
     {
         [SerializeField] private GameObject _rainSpawner;
+        [SerializeField] private GameObject _enemySpawnerObject;
+        private EnemySpawner _spawner;
         
         private Vector2 _currentRandomTarget;
         [SerializeField] private float _posChangeInterval = 0.5f;
         private float _posChangeCounter = 0f;
         [SerializeField] private float _randomMoveDistance = 2f;
+
+        
+        
+        protected override void Start()
+        {
+            base.Start();
+            _spawner = _enemySpawnerObject.GetComponent<EnemySpawner>();
+            _spawner.SpawnAtRandomPosition();
+            _spawner.SpawnAtRandomPosition();
+        }
 
         protected override void Attack()
         {
