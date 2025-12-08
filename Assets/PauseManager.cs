@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,20 +9,10 @@ public class PauseManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject hud;
-
+    [SerializeField] private PlayerDeath _deathScreen;
     private void Awake()
     {
         ServiceLocator.Instance.Register(this);
-    }
-
-    void Start()
-    {
-        
-    }
-    
-    void Update()
-    {
-        
     }
 
     public void Pause()
@@ -40,6 +31,7 @@ public class PauseManager : MonoBehaviour
 
     public void Quit()
     {
+        _deathScreen.StartDeath();
         SceneManager.LoadScene("MainMenu");
     }
 }
