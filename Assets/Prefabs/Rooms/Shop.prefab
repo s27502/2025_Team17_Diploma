@@ -93,6 +93,10 @@ PrefabInstance:
       value: ShopItemOther
       objectReference: {fileID: 0}
     - target: {fileID: 2967311802735901853, guid: 2600a2fb9f9bdac4d828bf03f20d4d1e, type: 3}
+      propertyPath: itemParent
+      value: 
+      objectReference: {fileID: 1237033786266511199}
+    - target: {fileID: 2967311802735901853, guid: 2600a2fb9f9bdac4d828bf03f20d4d1e, type: 3}
       propertyPath: items.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -157,6 +161,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2600a2fb9f9bdac4d828bf03f20d4d1e, type: 3}
+--- !u!1 &1237033786266511199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2624663909369891550, guid: 2600a2fb9f9bdac4d828bf03f20d4d1e, type: 3}
+  m_PrefabInstance: {fileID: 3838894579165539713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8607286412912973022 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4770797601973664095, guid: 2600a2fb9f9bdac4d828bf03f20d4d1e, type: 3}
@@ -174,6 +183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopItemFactory
       objectReference: {fileID: 0}
+    - target: {fileID: 2967311802735901853, guid: 2600a2fb9f9bdac4d828bf03f20d4d1e, type: 3}
+      propertyPath: itemParent
+      value: 
+      objectReference: {fileID: 4892097226207636901}
     - target: {fileID: 2967311802735901853, guid: 2600a2fb9f9bdac4d828bf03f20d4d1e, type: 3}
       propertyPath: items.Array.size
       value: 4
@@ -242,5 +255,10 @@ PrefabInstance:
 --- !u!4 &2719560986526522916 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4770797601973664095, guid: 2600a2fb9f9bdac4d828bf03f20d4d1e, type: 3}
+  m_PrefabInstance: {fileID: 7460377067822016379}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4892097226207636901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2624663909369891550, guid: 2600a2fb9f9bdac4d828bf03f20d4d1e, type: 3}
   m_PrefabInstance: {fileID: 7460377067822016379}
   m_PrefabAsset: {fileID: 0}
