@@ -13,17 +13,13 @@ namespace Items
         [SerializeField] private GameObject _projectile;
         private PlayerStats _stats;
         private Equipment _equipment;
-        [SerializeField] private GameObject _price;
+        
 
 
         protected override void Start()
         {
             base.Start();
-            if (IsShop)
-            {
-                _price.GetComponent<TextMeshPro>().text = GetItemPrice().ToString();
-                _price.SetActive(true);
-            }
+            
         }
 
         

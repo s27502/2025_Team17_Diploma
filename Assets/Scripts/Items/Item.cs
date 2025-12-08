@@ -14,6 +14,7 @@ namespace Items
         [SerializeField] protected bool IsShop;
         //Stats should be in order: HP, MAX HP, DMG, ATTACK SPEED, LUCK, PROJECTILE COUNT;
         [SerializeField] private List<float> stats;
+        [SerializeField] protected GameObject _price;
 
         private void Awake()
         {
@@ -48,6 +49,10 @@ namespace Items
             return _sprite;
         }
 
+        public void SetPrice(GameObject p)
+        {
+            _price = p;
+        }
         public void SetIsShop(bool isShop)
         {
             IsShop = isShop;
