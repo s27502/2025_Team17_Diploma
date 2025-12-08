@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Managers;
@@ -10,17 +11,28 @@ public class HeartPickup : MonoBehaviour
     private PlayerStats _stats;
     
     [SerializeField] private Sprite full;
-    [SerializeField] private Sprite empty;
+    [SerializeField] private Sprite half;
 
     [SerializeField] private int healAmount;
     void Start()
     {
+        _sr = gameObject.GetComponent<SpriteRenderer>();
         _stats = ServiceLocator.Instance.GetService<PlayerStatManager>().GetPlayerStats();
+        if (healAmount == 1)
+        {
+            _sr.sprite = half;
+        } else if (healAmount == 2)
+        {
+            _sr.sprite = full;
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            _stats.ModifyHp(healAmount);
+            Destroy(gameObject);
+        }
     }
 }
