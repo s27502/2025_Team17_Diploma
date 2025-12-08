@@ -8,7 +8,6 @@ using Random = System.Random;
 public class ItemFactory : MonoBehaviour
 {
     [SerializeField] protected List<Item> items = new List<Item>();
-
     private void Awake()
     {
         SpawnItem();
@@ -21,5 +20,7 @@ public class ItemFactory : MonoBehaviour
         var item = items[rnd.Next(0, items.Count)];
         item.SetIsShop(false);
         Instantiate(item.gameObject, gameObject.transform.position, Quaternion.identity);
+        item.transform.SetParent(gameObject.transform.parent);
+        Destroy(gameObject);
     }
 }

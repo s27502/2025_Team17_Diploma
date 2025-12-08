@@ -20,8 +20,10 @@ public class ShopItemFactory : ItemFactory
         Destroy(empty);
         
         item.transform.position = transform.position;
+        item.transform.SetParent(gameObject.transform.parent);
         item.SetPrice(_price);
         _price.GetComponent<TextMeshPro>().text = item.GetItemPrice().ToString();
         _price.SetActive(true);
+        Destroy(gameObject);
     }
 }
