@@ -297,16 +297,19 @@ MonoBehaviour:
   _name: Sobek
   _nameArea: {fileID: 0}
   _healthBar: {fileID: 0}
+  _enemies: {fileID: 0}
   _windUpTime: 2
   _miniChargeCooldown: 0.5
   _chargingSpeedMult: 5
-  _summonDelay: 10
+  _summonDelay: 20
+  _spiralFireRate: 0.2
   _rainSpawner: {fileID: 0}
   _enemySpawnerObject: {fileID: 0}
   _posChangeInterval: 0.5
   _randomMoveDistance: 2
   _spiralDuration: 7
   _movingDuration: 5
+  _maxGators: 2
 --- !u!1 &6309769243928695759
 GameObject:
   m_ObjectHideFlags: 0
