@@ -63,8 +63,8 @@ namespace Enemies
             _attackDelayCounter = 0;
             _summonDelayCounter = 15;
             
-            _spawner.SpawnAtRandomPosition();
-            _spawner.SpawnAtRandomPosition();
+            //_spawner.SpawnAtRandomPosition();
+            //_spawner.SpawnAtRandomPosition();
             
             _windingUpCounter = _windUpTime;
             _originalSpeed = EnemyStats.GetMovementSpeed();
@@ -88,13 +88,15 @@ namespace Enemies
                 _attackDelayCounter -= Time.fixedDeltaTime;
             }
 
-            if (_summonDelayCounter <= 0)
-            {
-                _summonDelayCounter = _summonDelay;
-            }
-            else if (_summonDelayCounter <= 0 && _enemies.transform.childCount < _maxGators + 1)
+
+            if (_summonDelayCounter <= 0 && _enemies.transform.childCount < _maxGators + 1)
             {
                 SpawnGators(_maxGators + 1 - _enemies.transform.childCount);
+                _summonDelayCounter = _summonDelay;
+            }          
+            
+            if (_summonDelayCounter <= 0)
+            {
                 _summonDelayCounter = _summonDelay;
             }
             
@@ -326,6 +328,12 @@ namespace Enemies
             _chargesNumber--;
             _chargeDirection = (_player.transform.position - transform.position).normalized;
             _miniChargeCounter = _miniChargeCooldown;
+        }
+
+        protected override void Die()
+        {
+            _healthBar.gameObject.SetActive(false);
+            base.Die();
         }
     }
 }

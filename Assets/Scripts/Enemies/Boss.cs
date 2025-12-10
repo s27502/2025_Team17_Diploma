@@ -10,7 +10,7 @@ namespace Enemies
         [SerializeField] private string _name;
         [SerializeField] private TextMeshProUGUI _nameArea;
 
-        [SerializeField] private Slider _healthBar;
+        [SerializeField] protected Slider _healthBar;
 
         protected override void Start()
         {
