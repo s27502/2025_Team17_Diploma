@@ -143,8 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d9236033c988ae45a4f26f57aadfc02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Lucky Talismant
-  itemPrice: 35
+  itemName: Lucky Talisman
+  itemPrice: 15
   IsShop: 0
   stats:
   - 0
