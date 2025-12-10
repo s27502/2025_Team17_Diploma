@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Inari.unity
-    guid: 0f4058db32bcaac45be6eb54fe9624d5
   - enabled: 1
     path: Assets/Scenes/OpeningCutscene.unity
     guid: f3e7c6d4e09d8654ca943c9f887045b9
