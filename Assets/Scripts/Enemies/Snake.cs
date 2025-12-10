@@ -118,7 +118,7 @@ namespace Enemies
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Player"))
+            if ((other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Player")) && !_isNotDashing)
             {
                 _obstacleFound = true;
             }

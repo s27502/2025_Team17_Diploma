@@ -61,7 +61,7 @@ namespace Enemies
 
             _attackDurationCounter = 0;
             _attackDelayCounter = 0;
-            _summonDelayCounter = 10;
+            _summonDelayCounter = 15;
             
             _spawner.SpawnAtRandomPosition();
             _spawner.SpawnAtRandomPosition();
@@ -88,7 +88,11 @@ namespace Enemies
                 _attackDelayCounter -= Time.fixedDeltaTime;
             }
 
-            if (_summonDelayCounter <= 0 && _enemies.transform.childCount < _maxGators + 1)
+            if (_summonDelayCounter <= 0)
+            {
+                _summonDelayCounter = _summonDelay;
+            }
+            else if (_summonDelayCounter <= 0 && _enemies.transform.childCount < _maxGators + 1)
             {
                 SpawnGators(_maxGators + 1 - _enemies.transform.childCount);
                 _summonDelayCounter = _summonDelay;
