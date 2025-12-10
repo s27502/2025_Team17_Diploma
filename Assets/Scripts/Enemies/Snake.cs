@@ -1,5 +1,7 @@
 ﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Enemies
 {
@@ -17,6 +19,7 @@ namespace Enemies
         private Vector2 _currentRandomTarget;
         
         private float _randomMoveDistance = 2f;
+        private bool _obstacleFound = false;
 
         protected override void OnStartAfterDelay()
         {
@@ -101,15 +104,24 @@ namespace Enemies
             Debug.Log("Dash start");
             EnemyStats.SetMovementSpeed(EnemyStats.GetMovementSpeed() * _dashSpeedMult);
             
-            while (Vector2.Distance(_rb.position, targetPos) > 0.1f)
+            while (Vector2.Distance(_rb.position, targetPos) > 0.1f && !_obstacleFound)
             {
                 MoveTo(targetPos);
                 yield return new WaitForFixedUpdate();
             }
 
-            Debug.Log("Dash end");
+            
             EnemyStats.SetMovementSpeed(EnemyStats.GetMovementSpeed() / _dashSpeedMult);
+            _obstacleFound = false;
             _isNotDashing = true;
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Player"))
+            {
+                _obstacleFound = true;
+            }
         }
 
     }
