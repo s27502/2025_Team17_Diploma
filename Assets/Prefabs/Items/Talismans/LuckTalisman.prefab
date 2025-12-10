@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Lucky Talisman
-  itemPrice: 15
+  itemPrice: 20
   IsShop: 0
   stats:
   - 0

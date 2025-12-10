@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Energy Talisman
-  itemPrice: 30
+  itemPrice: 35
   IsShop: 1
   stats:
   - 0
