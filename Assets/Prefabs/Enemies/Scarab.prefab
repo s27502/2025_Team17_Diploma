@@ -366,8 +366,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileFactory: {fileID: 4205302803076265978}
   startDelay: 1
-  _dashDelay: 0.5
-  _dashDistance: 0.5
+  _dashDelay: 0.3
+  _dashDistance: 0.7
 --- !u!114 &8378851208999660756
 MonoBehaviour:
   m_ObjectHideFlags: 0
