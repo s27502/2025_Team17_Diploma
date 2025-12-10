@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Javelin
-  itemPrice: 90
+  itemPrice: 30
   IsShop: 0
   stats:
   - 2

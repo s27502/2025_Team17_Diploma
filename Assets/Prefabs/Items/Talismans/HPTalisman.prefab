@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Vitality Talisman
-  itemPrice: 50
+  itemPrice: 25
   IsShop: 1
   stats:
   - 0
