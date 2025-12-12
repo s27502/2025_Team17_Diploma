@@ -52,7 +52,14 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            _pauseManager.Pause();
+            if (_pauseManager.GetPaused())
+            {
+                _pauseManager.Resume();
+            }
+            else
+            {
+                _pauseManager.Pause();
+            }
         }
     }
 }

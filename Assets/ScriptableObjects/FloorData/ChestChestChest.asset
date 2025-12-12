@@ -15,15 +15,6 @@ MonoBehaviour:
   floorName: Floor1
   possibleRooms:
   - {fileID: 2005126786876904744, guid: 69e811fb50b20dc439eedd6b93785700, type: 3}
-  - {fileID: 2005126786876904744, guid: 87ae97c7ad4aef0489d2a7a64cf849af, type: 3}
-  - {fileID: 2005126786876904744, guid: 4f04a18bb72408e4a81c4d2c38aac1b7, type: 3}
-  - {fileID: 2005126786876904744, guid: 892cdf4337f7413449c4f725f355867d, type: 3}
-  - {fileID: 2005126786876904744, guid: a828e5ce80ac1e0419fc02b65c83fb78, type: 3}
-  - {fileID: 2005126786876904744, guid: 54bc5cd1614e9c34e81230f0a8603c43, type: 3}
-  - {fileID: 2005126786876904744, guid: 9df0ddba9b5a79643b829dde0e196989, type: 3}
-  - {fileID: 2005126786876904744, guid: 56a8230ac84cc10459c84676ddf00a95, type: 3}
-  - {fileID: 2005126786876904744, guid: 94c6ef571fc10ba44965293cacf50879, type: 3}
-  - {fileID: 2005126786876904744, guid: 55f7ef15f8ecc784f9de5be5f09d4c80, type: 3}
   shopRoomNumber: 10
   startRoom: {fileID: 2005126786876904744, guid: 4f9d711f3728cf54eb996ae7e9328f33, type: 3}
   bossRoom: {fileID: 2005126786876904744, guid: 438ab9e369f9adc458a640883f13eab7, type: 3}
