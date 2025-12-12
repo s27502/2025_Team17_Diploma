@@ -7,6 +7,11 @@ public class ResolutionSettings : MonoBehaviour
     public TMP_Dropdown resolutionDropdown;
 
     private List<(int width, int height)> _resolutions = new List<(int, int)>();
+    private HashSet<(int, int)> _excludedResolutions = new HashSet<(int, int)>
+    {
+        (720, 576)
+        
+    };
 
     void Start()
     {
@@ -17,7 +22,10 @@ public class ResolutionSettings : MonoBehaviour
         foreach (var res in Screen.resolutions)
         {
             string key = $"{res.width}x{res.height}";
-
+            var tuple = (res.width, res.height);
+            
+            if (_excludedResolutions.Contains(tuple))
+                continue; // ❌ Skip it
             if (!seen.Contains(key))
             {
                 seen.Add(key);
