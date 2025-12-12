@@ -9,7 +9,8 @@ public class ResolutionSettings : MonoBehaviour
     private List<(int width, int height)> _resolutions = new List<(int, int)>();
     private HashSet<(int, int)> _excludedResolutions = new HashSet<(int, int)>
     {
-        (720, 576)
+        (720, 576),
+        (1280, 1024)
         
     };
 
