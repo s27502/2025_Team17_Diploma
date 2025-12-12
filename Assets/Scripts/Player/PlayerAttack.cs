@@ -89,6 +89,8 @@ public class PlayerAttack : MonoBehaviour
 
     public GameObject GetClosestEnemy()
     {
+        EnemiesInRange.RemoveAll(e => e == null);
+        
         if (EnemiesInRange.Count == 0)
             return null;
 
