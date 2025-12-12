@@ -13,6 +13,8 @@ public class Coin : MonoBehaviour
     private float height = 0f;            
     private float verticalVelocity;
     
+    private Collider2D col;
+    
     public Transform sprite;  
     
     public SpriteRenderer _renderer;
@@ -23,6 +25,9 @@ public class Coin : MonoBehaviour
     }
     void Start()
     {
+        col = GetComponent<Collider2D>();
+        col.enabled = false;
+        StartCoroutine(PickUpCooldown());
         StartCoroutine(Despawn(despawnTime));
         
         verticalVelocity = initialUpVelocity;
@@ -30,18 +35,15 @@ public class Coin : MonoBehaviour
     
     void Update()
     {
-        // height physics
         verticalVelocity -= gravity * Time.deltaTime;
         height += verticalVelocity * Time.deltaTime;
-
-        // stop on ground
+        
         if (height < 0)
         {
             height = 0;
             verticalVelocity = 0;
         }
-
-        // move the sprite upward based on height
+        
         sprite.localPosition = new Vector3(0, height * maxHeightOffset, 0);
     }
     
@@ -49,23 +51,17 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //other.GetComponentInParent<PlayerStats>().ModifyCoins(value);
             Destroy(gameObject);
-            // GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            // GetComponentInChildren<BoxCollider2D>().enabled = false;
-            //StartCoroutine(PlayAnimThenDestroy());
         }
     }
 
-    // IEnumerator PlayAnimThenDestroy()
-    // {
-    //     //animator.SetBool("Destroyed", true);
-    //     yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-    //     Destroy(gameObject);
-    // }
 
-
-
+    IEnumerator PickUpCooldown()
+    {
+        yield return new WaitForSeconds(2f);
+        col.enabled = true;
+    }
+    
     IEnumerator Despawn(float lifetime)
     {
         float blinkDuration = 1.0f;
