@@ -5,6 +5,8 @@ public class SpriteFlipper : MonoBehaviour
     private SpriteRenderer _sr;
     [SerializeField] private SpriteRenderer helmet;
     [SerializeField] private SpriteRenderer armor;
+    [SerializeField] private Animator _helmetAnim;
+    [SerializeField] private Animator _armorAnim;
     private bool _lastFlip;
 
     void Awake()
@@ -43,5 +45,15 @@ public class SpriteFlipper : MonoBehaviour
     public SpriteRenderer GetArmorRenderer()
     {
         return armor;
+    }
+
+    public void SetArmorAnimator(Animator animator)
+    {
+        _armorAnim.runtimeAnimatorController = animator.runtimeAnimatorController;
+    }
+
+    public void SetHelmetAnimator(Animator animator)
+    {
+        _helmetAnim.runtimeAnimatorController = animator.runtimeAnimatorController;
     }
 }
