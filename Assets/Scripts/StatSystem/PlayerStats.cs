@@ -43,7 +43,7 @@ namespace Player
                 _iFrames?.StartIFrames();
             }
             
-            if (armor > 0)
+            if (armor > 0 && value < 0)
             {
                 ModifyArmor(value);
                 OnHpChanged?.Invoke(_hp, _maxHp);

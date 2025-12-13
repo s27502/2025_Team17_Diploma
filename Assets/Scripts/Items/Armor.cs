@@ -81,7 +81,9 @@ namespace Items
                 //_stats.ModifyAttackSpeed(-stats[1]);
             }
         }
-
+        
+        
+        
         public AnimatorController GetAnimator()
         {
             return _armorAnimator;
