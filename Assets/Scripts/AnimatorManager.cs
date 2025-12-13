@@ -27,14 +27,20 @@ public class AnimatorManager : MonoBehaviour
 
     private void SwitchHelmet(Helmet helmet)
     {
-        _spriteFlipper.GetHelmetRenderer().enabled = true;
-        _spriteFlipper.SetHelmetAnimator(helmet.GetAnimator());
+        if (helmet)
+        {
+            _spriteFlipper.GetHelmetRenderer().enabled = true;
+            _spriteFlipper.SetHelmetAnimator(helmet.GetAnimator());
+        }
     }
 
     private void SwitchArmor(Armor armor)
     {
-        _spriteFlipper.GetArmorRenderer().enabled = true;
-        _spriteFlipper.SetArmorAnimator(armor.GetAnimator());
+        if (armor)
+        {
+            _spriteFlipper.GetArmorRenderer().enabled = true;
+            _spriteFlipper.SetArmorAnimator(armor.GetAnimator());
+        }
     }
     
     public SpriteFlipper GetSpriteFlipper()

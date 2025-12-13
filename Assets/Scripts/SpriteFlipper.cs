@@ -13,6 +13,8 @@ public class SpriteFlipper : MonoBehaviour
     void Awake()
     {
         _sr = GetComponent<SpriteRenderer>();
+        _helmetAnim.enabled = false;
+        _armorAnim.enabled = false;
     }
 
     public void Flip(Vector2 movement)
@@ -51,10 +53,12 @@ public class SpriteFlipper : MonoBehaviour
     public void SetArmorAnimator(AnimatorController animator)
     {
         _armorAnim.runtimeAnimatorController = animator;
+        _armorAnim.enabled = true;
     }
 
     public void SetHelmetAnimator(AnimatorController animator)
     {
         _helmetAnim.runtimeAnimatorController = animator;
+        _helmetAnim.enabled = true;
     }
 }

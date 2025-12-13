@@ -467,18 +467,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 306556040188712002, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
-      propertyPath: _hp
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 306556040188712002, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
-      propertyPath: coins
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 306556040188712002, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
-      propertyPath: _maxHp
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1828529381762116686, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.3457005
@@ -531,10 +519,6 @@ PrefabInstance:
       propertyPath: armorAnimator
       value: 
       objectReference: {fileID: 1383953885}
-    - target: {fileID: 7877314806086784831, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8049077995007196258, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: m_Controller
       value: 
@@ -548,16 +532,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1969464978}
     - target: {fileID: 9169208993093334413, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 9384211, guid: f21d6d276914bec4f9fc18dea05c7dea, type: 3}
-    - target: {fileID: 9169208993093334413, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9169208993093334413, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
