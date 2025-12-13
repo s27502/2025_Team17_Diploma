@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using Managers;
 using Player;
+using UnityEditor.Animations;
+using UnityEngine;
 
 namespace Items
 {
@@ -9,6 +11,7 @@ namespace Items
     {
         private PlayerStats _stats;
         private Equipment _equipment;
+        [SerializeField] private AnimatorController _helmetAnimator;
         
         public void OnInteract()
         {
@@ -78,5 +81,11 @@ namespace Items
                 //_stats.ModifyAttackSpeed(-stats[1]);
             }
         }
+        
+        public AnimatorController GetAnimator()
+        {
+            return _helmetAnimator;
+        }
+        
     }
 }

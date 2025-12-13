@@ -150,3 +150,4 @@ MonoBehaviour:
   - 1
   - 0
   _price: {fileID: 0}
+  _armorAnimator: {fileID: 9100000, guid: 3c20addf55a04764c8aa99ef5ed171c2, type: 2}

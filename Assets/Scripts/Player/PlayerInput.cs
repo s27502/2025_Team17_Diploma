@@ -10,6 +10,7 @@ public class PlayerInput : MonoBehaviour
     private Animator _animator;
     private PauseManager _pauseManager;
     [SerializeField] private Animator helmetAnimator;
+    [SerializeField] private Animator armorAnimator;
 
     private Vector2 _moveInput;
 
@@ -35,6 +36,7 @@ public class PlayerInput : MonoBehaviour
         bool isWalking = _moveInput.sqrMagnitude > 0;
         _animator.SetBool("isWalking", isWalking);
         helmetAnimator.SetBool("isWalking", isWalking);
+        armorAnimator.SetBool("isWalking", isWalking);
         _spriteFlipper.Flip(_moveInput);
     }
 

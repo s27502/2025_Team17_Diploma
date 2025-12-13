@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class SpriteFlipper : MonoBehaviour
@@ -5,11 +6,15 @@ public class SpriteFlipper : MonoBehaviour
     private SpriteRenderer _sr;
     [SerializeField] private SpriteRenderer helmet;
     [SerializeField] private SpriteRenderer armor;
+    [SerializeField] private Animator _helmetAnim;
+    [SerializeField] private Animator _armorAnim;
     private bool _lastFlip;
 
     void Awake()
     {
         _sr = GetComponent<SpriteRenderer>();
+        _helmetAnim.enabled = false;
+        _armorAnim.enabled = false;
     }
 
     public void Flip(Vector2 movement)
@@ -43,5 +48,17 @@ public class SpriteFlipper : MonoBehaviour
     public SpriteRenderer GetArmorRenderer()
     {
         return armor;
+    }
+
+    public void SetArmorAnimator(AnimatorController animator)
+    {
+        _armorAnim.runtimeAnimatorController = animator;
+        _armorAnim.enabled = true;
+    }
+
+    public void SetHelmetAnimator(AnimatorController animator)
+    {
+        _helmetAnim.runtimeAnimatorController = animator;
+        _helmetAnim.enabled = true;
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f21d6d276914bec4f9fc18dea05c7dea
+guid: 398bf0ab0dff84343939871b580ea4f7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Armor_0
+      name: SobekHead_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d809a205132b5e418c102a23dd49a4a
-      internalID: 9384211
+      spriteID: cac98fb71f5453944aa8840aca827d0a
+      internalID: 143513925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Armor_1
+      name: SobekHead_1
       rect:
         serializedVersion: 2
         x: 16
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbad289f21595b742b6e5388e87a47ae
-      internalID: 1437236721
+      spriteID: a8d2e784ded93ef4cae9026c30a43fcc
+      internalID: 669272896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Armor_2
+      name: SobekHead_2
       rect:
         serializedVersion: 2
         x: 32
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff78241128dc1c447bdc5ae46d5a01fc
-      internalID: -2136882860
+      spriteID: 7808bea4b0effeb48bcd33c73424f1bc
+      internalID: 52423115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Armor_3
+      name: SobekHead_3
       rect:
         serializedVersion: 2
         x: 48
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a309561310f4b4b4bb2575dba9dd94f8
-      internalID: -1545120026
+      spriteID: 63d2c1dc9e07e3a4c95ef78d053dd544
+      internalID: 2050498779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Armor_4
+      name: SobekHead_4
       rect:
         serializedVersion: 2
         x: 64
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31b9cd41c049bda40917bd0b96bce310
-      internalID: -1891002230
+      spriteID: 75f97d85c06f3414b9b3da1c9df32e87
+      internalID: 1879621113
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Armor_5
+      name: SobekHead_5
       rect:
         serializedVersion: 2
         x: 80
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4aaa2b13e0d1323498fb4577825c21a8
-      internalID: -1170551305
+      spriteID: 6c61efab50172f740b8c3a582a2427ae
+      internalID: 1048678289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Armor_6
+      name: SobekHead_6
       rect:
         serializedVersion: 2
         x: 0
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91e4d2f07a60d7d438e2f0ec3dd9b671
-      internalID: -1080898698
+      spriteID: 368d252d584da394eb3f7dcff8ee7dfb
+      internalID: -115939365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Armor_7
+      name: SobekHead_7
       rect:
         serializedVersion: 2
         x: 16
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53b1d1dc96e77ab4c8241aa8ba38d0c6
-      internalID: -1801114417
+      spriteID: ce58a818d34d37041a569a75111d3d27
+      internalID: -64580371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Armor_8
+      name: SobekHead_8
       rect:
         serializedVersion: 2
         x: 32
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a50fc34c4296824459395fb50d917342
-      internalID: 1345449471
+      spriteID: 379e8594ab3ca1247981db4db7df46e3
+      internalID: -943320835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Armor_9
+      name: SobekHead_9
       rect:
         serializedVersion: 2
         x: 48
@@ -300,14 +300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1620c871794c204cb1b9d3dd5f8d98a
-      internalID: -1653700714
+      spriteID: 95a3fda7bfed11244bbb88ef634f811a
+      internalID: 1210213148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Armor_10
+      name: SobekHead_10
       rect:
         serializedVersion: 2
         x: 64
@@ -321,14 +321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90a6bfb4c02b656438f9f17787ead660
-      internalID: -59704554
+      spriteID: 7032bb052d33580439e580d87dd4eee3
+      internalID: 467988217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Armor_11
+      name: SobekHead_11
       rect:
         serializedVersion: 2
         x: 80
@@ -342,8 +342,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a013ced38361df44098cb02c963f4352
-      internalID: -83221741
+      spriteID: ea4302358e5dcb446bf91314ada644ae
+      internalID: 786048138
       vertices: []
       indices: 
       edges: []
@@ -359,18 +359,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Armor_0: 9384211
-      Armor_1: 1437236721
-      Armor_10: -59704554
-      Armor_11: -83221741
-      Armor_2: -2136882860
-      Armor_3: -1545120026
-      Armor_4: -1891002230
-      Armor_5: -1170551305
-      Armor_6: -1080898698
-      Armor_7: -1801114417
-      Armor_8: 1345449471
-      Armor_9: -1653700714
+      SobekHead_0: 143513925
+      SobekHead_1: 669272896
+      SobekHead_10: 467988217
+      SobekHead_11: 786048138
+      SobekHead_2: 52423115
+      SobekHead_3: 2050498779
+      SobekHead_4: 1879621113
+      SobekHead_5: 1048678289
+      SobekHead_6: -115939365
+      SobekHead_7: -64580371
+      SobekHead_8: -943320835
+      SobekHead_9: 1210213148
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

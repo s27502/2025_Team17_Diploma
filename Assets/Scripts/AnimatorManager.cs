@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Items;
 using Managers;
 using Player;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class AnimatorManager : MonoBehaviour
@@ -26,16 +27,25 @@ public class AnimatorManager : MonoBehaviour
 
     private void SwitchHelmet(Helmet helmet)
     {
-        _spriteFlipper.GetHelmetRenderer().enabled = true;
+        if (helmet)
+        {
+            _spriteFlipper.GetHelmetRenderer().enabled = true;
+            _spriteFlipper.SetHelmetAnimator(helmet.GetAnimator());
+        }
     }
 
     private void SwitchArmor(Armor armor)
     {
-        _spriteFlipper.GetArmorRenderer().enabled = true;
+        if (armor)
+        {
+            _spriteFlipper.GetArmorRenderer().enabled = true;
+            _spriteFlipper.SetArmorAnimator(armor.GetAnimator());
+        }
     }
     
     public SpriteFlipper GetSpriteFlipper()
     {
         return _spriteFlipper;
     }
+    
 }
