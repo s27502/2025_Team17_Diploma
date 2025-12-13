@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class SpriteFlipper : MonoBehaviour
@@ -47,13 +48,13 @@ public class SpriteFlipper : MonoBehaviour
         return armor;
     }
 
-    public void SetArmorAnimator(Animator animator)
+    public void SetArmorAnimator(AnimatorController animator)
     {
-        _armorAnim.runtimeAnimatorController = animator.runtimeAnimatorController;
+        _armorAnim.runtimeAnimatorController = animator;
     }
 
-    public void SetHelmetAnimator(Animator animator)
+    public void SetHelmetAnimator(AnimatorController animator)
     {
-        _helmetAnim.runtimeAnimatorController = animator.runtimeAnimatorController;
+        _helmetAnim.runtimeAnimatorController = animator;
     }
 }

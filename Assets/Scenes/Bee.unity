@@ -387,6 +387,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13844501cb87aea40a9bac9cfa1f4eed, type: 3}
+--- !u!95 &1383953885 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3356717318963003365, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+  m_PrefabInstance: {fileID: 1978676970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1535078098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7917381024074839936, guid: d30eebc4d9510bf4cb4c18041f580462, type: 3}
@@ -449,6 +454,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c15d5fed35a36c4d871a0d23a4e2f57, type: 3}
+--- !u!95 &1969464978 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8049077995007196258, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+  m_PrefabInstance: {fileID: 1978676970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1978676970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,17 +523,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3356717318963003365, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450290854481000439, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: armorAnimator
+      value: 
+      objectReference: {fileID: 1383953885}
     - target: {fileID: 7877314806086784831, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8049077995007196258, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897864883774425281, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: _armorAnim
+      value: 
+      objectReference: {fileID: 1383953885}
+    - target: {fileID: 8897864883774425281, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: _helmetAnim
+      value: 
+      objectReference: {fileID: 1969464978}
     - target: {fileID: 9169208993093334413, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 9384211, guid: f21d6d276914bec4f9fc18dea05c7dea, type: 3}
     - target: {fileID: 9169208993093334413, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9169208993093334413, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: m_WasSpriteAssigned
