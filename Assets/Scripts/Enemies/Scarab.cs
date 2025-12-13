@@ -25,21 +25,48 @@ namespace Enemies
         private void DoRandomDash()
         {
             if (_player == null) return;
-            
+
             Vector2 moveDir = (_player.transform.position - transform.position).normalized;
-            
-            bool goLeft = Random.Range(0, 2) == 0;
 
-            Vector2 perpDir;
+            for (int i = 0; i < 10; i++)
+            {
+                bool goLeft = Random.Range(0, 2) == 0;
 
-            if (goLeft)
-                perpDir = new Vector2(-moveDir.y, moveDir.x);
-            else
-                perpDir = new Vector2(moveDir.y, -moveDir.x);
-            
-            perpDir.Normalize();
-            transform.position += (Vector3)(perpDir * _dashDistance);
+                Vector2 perpDir = goLeft
+                    ? new Vector2(-moveDir.y, moveDir.x)
+                    : new Vector2(moveDir.y, -moveDir.x);
+
+                perpDir.Normalize();
+
+                Vector2 startPos = transform.position;
+                Vector2 targetPos = startPos + perpDir * _dashDistance;
+
+                if (PathBlocked(startPos, targetPos))
+                    continue;
+
+                if (IsObstacleAt(targetPos))
+                    continue;
+
+                transform.position = targetPos;
+                return;
+            }
         }
+
+
+        private bool IsObstacleAt(Vector2 pos)
+        {
+            Collider2D col = Physics2D.OverlapPoint(pos);
+            return col != null && col.CompareTag("Obstacle");
+        }
+
+        
+        private bool PathBlocked(Vector2 from, Vector2 to)
+        {
+            RaycastHit2D hit = Physics2D.Linecast(from, to);
+
+            return hit.collider != null && hit.collider.CompareTag("Obstacle");
+        }
+
 
         protected override void Idle()
         {

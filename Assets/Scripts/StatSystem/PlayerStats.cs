@@ -25,30 +25,32 @@ namespace Player
         public UnityEvent<int> onCoinsChanged = new UnityEvent<int>();
         public UnityEvent<int, int> onArmorChanged = new UnityEvent<int, int>();
 
+        private PlayerIFrames _iFrames;
+
         private void Start()
         {
             _death = GetComponent<PlayerDeath>();
+            _iFrames = GetComponent<PlayerIFrames>();
         }
 
         public override void ModifyHp(int value)
         {
             if (value < 0)
             {
-                var iFrames = GetComponent<PlayerIFrames>();
-                if (iFrames != null && iFrames.IsInvincible())
+                if (_iFrames != null && _iFrames.IsInvincible())
                     return;
+
+                _iFrames?.StartIFrames();
             }
+            
             if (armor > 0)
             {
                 ModifyArmor(value);
-                OnHpChanged?.Invoke(1, 2);
-            } 
-            else
-            {
-                base.ModifyHp(value);
+                OnHpChanged?.Invoke(_hp, _maxHp);
+                return;
             }
             
-            
+            base.ModifyHp(value);
             OnHpChanged?.Invoke(_hp, _maxHp);
         }
 
@@ -69,7 +71,6 @@ namespace Player
         {
             _death.StartDeath();
         }
-        
 
         public void ModifyDmg(int value)
         {
@@ -112,16 +113,9 @@ namespace Player
             onArmorChanged?.Invoke(armor, armorMax);
         }
 
-        public int GetArmorMax()
-        {
-            return armorMax;
-        }
+        public int GetArmorMax() => armorMax;
+        public int GetArmor() => armor;
 
-        public int GetArmor()
-        {
-            return armor;
-        }
-        
         public int GetProjectileCount() => projectileCount;
         public int GetLuck() => luck;
         public int GetDmg() => dmg;
