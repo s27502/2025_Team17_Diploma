@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -19,7 +20,7 @@ public class Alligator : Enemy
     private bool _canDetectCollision = true;
     private static readonly int WindUp = Animator.StringToHash("WindUp");
     private static readonly int Attack1 = Animator.StringToHash("Attack");
-    private static readonly int Idle1 = Animator.StringToHash("Idle");
+    private static readonly int IsIdling = Animator.StringToHash("isIdling");
 
     protected override void Start()
     {
@@ -39,10 +40,10 @@ public class Alligator : Enemy
         {
             _windingUpCounter -= Time.fixedDeltaTime;
 
-            if (_windingUpCounter <= 0.5f)
+            if (Math.Abs(_windingUpCounter - 0.5f) < 0.1)
             {
                 Debug.Log("idle");
-                _animator.SetTrigger(Idle1);
+                _animator.SetBool(IsIdling,true);
             }
             
             if (_windingUpCounter <= 0)
@@ -73,6 +74,7 @@ public class Alligator : Enemy
     private void StartCharge()
     {
         _charging = true;
+        _animator.SetBool(IsIdling,false);
         _animator.SetTrigger(Attack1);
         EnemyStats.SetMovementSpeed(_originalSpeed * _chargingSpeedMult);
         _chargesNumber = RollChargesNumber();
