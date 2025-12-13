@@ -208,7 +208,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5147e89165a14234f96cdeb39d1263da, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -317,6 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileFactory: {fileID: 3077437587570912818}
   startDelay: 1
+  _animator: {fileID: 6850765252732017033}
   _windUpTime: 2
   _miniChargeCooldown: 0.5
   _chargingSpeedMult: 10

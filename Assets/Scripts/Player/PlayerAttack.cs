@@ -77,14 +77,17 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack(GameObject target)
     {
-
         IPoolableObject projectile = _projectilePool.GetObject();
         if (projectile != null)
         {
             Vector2 dir = (target.transform.position - transform.position).normalized;
-            projectile.Spawn(transform.position, dir);
+            
+            Vector2 spawnPos = (Vector2)transform.position + dir * 3f;
+
+            projectile.Spawn(spawnPos, dir);
         }
     }
+
 
 
     public GameObject GetClosestEnemy()

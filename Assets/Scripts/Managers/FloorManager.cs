@@ -46,6 +46,7 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
             transition.SetTrigger("Start");
             yield return new WaitForSeconds(0.5f);
             Time.timeScale = 0;
+
             Destroy(_currentRoom);
             _roomCounter++;
 
@@ -64,9 +65,11 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
             
             _player.transform.position = _currentRoom.GetComponent<Room>()._spawnPos.transform.position;
             
-            Time.timeScale = 1;
+
             transition.SetTrigger("End");
+            Time.timeScale = 1;
             yield return new WaitForSeconds(0.5f);
+
             
         }
         

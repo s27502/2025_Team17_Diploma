@@ -4,6 +4,7 @@ using Random = UnityEngine.Random;
 
 public class Alligator : Enemy
 {
+    [SerializeField] private Animator _animator;
     [SerializeField] private float _windUpTime = 2f;
     [SerializeField] private float _miniChargeCooldown = 0.5f;
     [SerializeField] private float _chargingSpeedMult = 10;
@@ -16,6 +17,9 @@ public class Alligator : Enemy
     private float _miniChargeCounter = 0f;
     
     private bool _canDetectCollision = true;
+    private static readonly int WindUp = Animator.StringToHash("WindUp");
+    private static readonly int Attack1 = Animator.StringToHash("Attack");
+    private static readonly int Idle1 = Animator.StringToHash("Idle");
 
     protected override void Start()
     {
@@ -34,6 +38,13 @@ public class Alligator : Enemy
         if (!_charging)
         {
             _windingUpCounter -= Time.fixedDeltaTime;
+
+            if (_windingUpCounter <= 0.5f)
+            {
+                Debug.Log("idle");
+                _animator.SetTrigger(Idle1);
+            }
+            
             if (_windingUpCounter <= 0)
             {
                 StartCharge();
@@ -54,15 +65,15 @@ public class Alligator : Enemy
         
         if (_chargesNumber <= 0)
         {
-            _charging = false;
-            EnemyStats.SetMovementSpeed(_originalSpeed);
-            _windingUpCounter = _windUpTime;
+            StartCoroutine(FinishCharging());
         }
+
     }
 
     private void StartCharge()
     {
         _charging = true;
+        _animator.SetTrigger(Attack1);
         EnemyStats.SetMovementSpeed(_originalSpeed * _chargingSpeedMult);
         _chargesNumber = RollChargesNumber();
 
@@ -80,6 +91,19 @@ public class Alligator : Enemy
         yield return new WaitForFixedUpdate();
         _canDetectCollision = true;
     }
+    
+    private IEnumerator FinishCharging()
+    {
+        _charging = false;
+        EnemyStats.SetMovementSpeed(_originalSpeed);
+        
+        
+        _windingUpCounter = _windUpTime;
+        Debug.Log("windup");
+        _animator.SetTrigger(WindUp);
+        yield return null;
+    }
+
 
     private int RollChargesNumber()
     {

@@ -154,6 +154,10 @@ PrefabInstance:
       propertyPath: _poisoned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 646862989149235956, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: _poisonDelay
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1828529381762116686, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.1912854
@@ -197,6 +201,10 @@ PrefabInstance:
     - target: {fileID: 2230101389136409127, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3223014105759049452, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_Mass
+      value: 999999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

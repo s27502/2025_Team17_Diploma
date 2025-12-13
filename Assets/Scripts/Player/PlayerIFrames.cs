@@ -1,44 +1,37 @@
 ﻿using System.Collections;
-using Player;
 using UnityEngine;
 
 public class PlayerIFrames : MonoBehaviour
 {
-    private PlayerStats _stats;
-    [SerializeField] private float iFrameDuration = 1f;
+    [SerializeField] private float iframeDuration = 1f;
 
-    private bool _invincible;
+    private bool _invincible = false;
 
-    void Start()
+    public bool IsInvincible() => _invincible;
+
+    public void StartIFrames()
     {
-        _stats = GetComponent<PlayerStats>();
-        _stats.OnHpChanged.AddListener(OnHpChanged);
-    }
+        if (_invincible) return;
 
-    private void OnHpChanged(int hp, int maxHp)
-    {
-        if (hp < maxHp && !_invincible)
-        {
-            StartCoroutine(IFrameRoutine(iFrameDuration));
-        }
-    }
-
-    private IEnumerator IFrameRoutine(float duration)
-    {
         _invincible = true;
+        StartCoroutine(IFrameRoutine());
+    }
 
-        yield return new WaitForSeconds(duration);
-
+    private IEnumerator IFrameRoutine()
+    {
+        yield return new WaitForSeconds(iframeDuration);
         _invincible = false;
     }
 
     public void StartCustomIFrameRoutine(float duration)
     {
-        StartCoroutine(IFrameRoutine(duration));
+        StartCoroutine(CustomIFrameRoutine(duration));
     }
-    
-    public bool IsInvincible()
+
+    private IEnumerator CustomIFrameRoutine(float duration)
     {
-        return _invincible;
+        _invincible = true;
+        yield return new WaitForSeconds(duration);
+        _invincible = false;
     }
 }
