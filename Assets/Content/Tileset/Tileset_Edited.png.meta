@@ -1570,8 +1570,8 @@ TextureImporter:
       name: Tileset_Edited_70
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
+        x: 192
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -1591,7 +1591,7 @@ TextureImporter:
       name: Tileset_Edited_71
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 32
         width: 16
         height: 16
@@ -1612,7 +1612,7 @@ TextureImporter:
       name: Tileset_Edited_72
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 32
         width: 16
         height: 16
@@ -1633,7 +1633,7 @@ TextureImporter:
       name: Tileset_Edited_73
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 32
         width: 16
         height: 16
@@ -1654,7 +1654,7 @@ TextureImporter:
       name: Tileset_Edited_74
       rect:
         serializedVersion: 2
-        x: 96
+        x: 64
         y: 32
         width: 16
         height: 16
@@ -1675,7 +1675,7 @@ TextureImporter:
       name: Tileset_Edited_75
       rect:
         serializedVersion: 2
-        x: 112
+        x: 96
         y: 32
         width: 16
         height: 16
@@ -1696,8 +1696,8 @@ TextureImporter:
       name: Tileset_Edited_76
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 112
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1717,7 +1717,7 @@ TextureImporter:
       name: Tileset_Edited_77
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 16
         width: 16
         height: 16
@@ -1738,7 +1738,7 @@ TextureImporter:
       name: Tileset_Edited_78
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 16
         width: 16
         height: 16
@@ -1759,7 +1759,7 @@ TextureImporter:
       name: Tileset_Edited_79
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 16
         width: 16
         height: 16
@@ -1772,6 +1772,27 @@ TextureImporter:
       bones: []
       spriteID: 0c748207262969e409d3bcaa951c7cd8
       internalID: -1318364421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset_Edited_80
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31835ec488d56ee4ebb9a0e7b0cd6549
+      internalID: -562038302
       vertices: []
       indices: 
       edges: []
@@ -1866,6 +1887,7 @@ TextureImporter:
       Tileset_Edited_78: -1461625060
       Tileset_Edited_79: -1318364421
       Tileset_Edited_8: 761678268
+      Tileset_Edited_80: -562038302
       Tileset_Edited_9: 1985075195
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
