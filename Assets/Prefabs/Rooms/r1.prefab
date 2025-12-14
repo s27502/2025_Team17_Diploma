@@ -2289,6 +2289,7 @@ GameObject:
   - component: {fileID: 1550618470696787796}
   - component: {fileID: 7453117396169414848}
   - component: {fileID: 2448360958775957509}
+  - component: {fileID: 4793428104616675245}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Untagged
@@ -2427,7 +2428,7 @@ TilemapCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2504,6 +2505,18 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 6429192294650785520}
+--- !u!114 &4793428104616675245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6429192294650785520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb12251e5a915984f884803af06f9ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6433475435896145499
 GameObject:
   m_ObjectHideFlags: 0
