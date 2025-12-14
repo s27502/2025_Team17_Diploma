@@ -13,7 +13,8 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
     [SerializeField] private GameObject _player;
     [SerializeField] private int _floorsToGenerate;
     private int _currentFloor = 0;
-
+    private bool _newFloor = false;
+    
     [SerializeField] private List<FloorData> _floorDatas;
     private FloorData _currentFloorData;
 
@@ -27,7 +28,7 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
         if (Instance != this) return;
         
         ServiceLocator.Instance.Register(this);
-        _currentFloorData = _floorDatas[0];
+        _currentFloorData = _floorDatas[_currentFloor];
         
         _currentRoom = Instantiate(_currentFloorData.startRoom, Vector3.zero, Quaternion.identity);
         _player.transform.position = _currentRoom.GetComponent<Room>()._spawnPos.transform.position;
@@ -57,6 +58,11 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
             else if (_roomCounter == _currentFloorData.roomsToGenerate)
             {
                 _currentRoom = Instantiate(_currentFloorData.bossRoom, Vector3.zero, Quaternion.identity);
+            }
+            else if (_newFloor)
+            {
+                _currentRoom = Instantiate(_currentFloorData.startRoom, Vector3.zero, Quaternion.identity);
+                _newFloor = false;
             }
             else
             {
@@ -99,7 +105,16 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
 
     private void GoToNextFloor()
     {
-        StartCoroutine(DeathCoroutine());
+        //END
+        //StartCoroutine(DeathCoroutine());
+        
+        //ENDLESS
+        _newFloor = true;
+        _currentFloor = 0;
+        _roomCounter = 0;
+        _currentFloorData = _floorDatas[_currentFloor];
+
+        StartCoroutine(GoToNextRoomCoroutine());
     }
 
     private GameObject PickRandomRoom()
