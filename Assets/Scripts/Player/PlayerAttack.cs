@@ -16,6 +16,9 @@ public class PlayerAttack : MonoBehaviour
     private PlayerStats _stats;
     private float attackTimer = 0f;
 
+    [SerializeField] private float _projectileOffset = 10f;
+    private float _offsetStart;
+
     private void Start()
     {
         _stats = GetComponent<PlayerStats>();
@@ -50,7 +53,7 @@ public class PlayerAttack : MonoBehaviour
     private void RebuildProjectilePool()
     {
         _factory = new ProjectileFactory(_projectile);
-        _projectilePool = new ProjectilePool(_factory, 5);
+        _projectilePool = new ProjectilePool(_factory, 25);
     }
 
 
@@ -77,15 +80,33 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack(GameObject target)
     {
-        IPoolableObject projectile = _projectilePool.GetObject();
-        if (projectile != null)
-        {
-            Vector2 dir = (target.transform.position - transform.position).normalized;
-            
-            Vector2 spawnPos = (Vector2)transform.position + dir * 3f;
+        int count = _stats.GetProjectileCount();
+        _offsetStart = -(_projectileOffset * (count - 1) / 2f);
+        
+        Vector2 baseDir = (target.transform.position - transform.position).normalized;
 
-            projectile.Spawn(spawnPos, dir);
+        for (int i = 0; i < count; i++)
+        {
+            IPoolableObject projectile = _projectilePool.GetObject();
+            if (projectile == null) continue;
+
+            Vector2 rotatedDir = Rotate(baseDir, _offsetStart).normalized;
+
+            Vector2 spawnPos = (Vector2)transform.position + rotatedDir * 2f;
+            
+            Vector2 finalDir = (target.transform.position - (Vector3)spawnPos).normalized;
+
+            projectile.Spawn(spawnPos, finalDir);
+
+            _offsetStart += _projectileOffset;
         }
+    }
+
+
+    
+    private Vector2 Rotate(Vector2 v, float angle)
+    {
+        return Quaternion.Euler(0, 0, angle) * v;
     }
 
 
