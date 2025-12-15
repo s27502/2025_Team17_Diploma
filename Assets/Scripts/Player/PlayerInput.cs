@@ -1,9 +1,11 @@
 using System;
+using Managers;
 using Player;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    [SerializeField] private AudioClip _oof;
     private PlayerMovement _movement;
     private SpriteFlipper _spriteFlipper;
     private PlayerInteractions _interactions;
@@ -33,6 +35,8 @@ public class PlayerInput : MonoBehaviour
         _moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         _movement.Move(_moveInput);
 
+        AudioManager.Instance.PlayPlayerAudio(_oof);
+        
         bool isWalking = _moveInput.sqrMagnitude > 0;
         _animator.SetBool("isWalking", isWalking);
         helmetAnimator.SetBool("isWalking", isWalking);
