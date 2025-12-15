@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using Managers;
 using Player;
-using UnityEditor.Animations;
+
 using UnityEngine;
 
 namespace Items
@@ -11,7 +11,7 @@ namespace Items
     {
         private PlayerStats _stats;
         private Equipment _equipment;
-        [SerializeField] private AnimatorController _helmetAnimator;
+        [SerializeField] private RuntimeAnimatorController _helmetAnimator;
         
         public void OnInteract()
         {
@@ -82,7 +82,7 @@ namespace Items
             }
         }
         
-        public AnimatorController GetAnimator()
+        public RuntimeAnimatorController GetAnimator()
         {
             return _helmetAnimator;
         }
