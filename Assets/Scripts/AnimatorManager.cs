@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Items;
 using Managers;
 using Player;
-using UnityEditor.Animations;
+
 using UnityEngine;
 
 public class AnimatorManager : MonoBehaviour

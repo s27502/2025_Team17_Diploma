@@ -18,7 +18,7 @@ public class OpeningCutscene : Dialogue
 
     private void Awake()
     {
-        AudioManager.Instance.PlayMusic(_openingMusic);
+        //AudioManager.Instance.PlayMusic(_openingMusic);
     }
 
     protected override void Update()
