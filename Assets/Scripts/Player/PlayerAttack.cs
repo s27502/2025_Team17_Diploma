@@ -16,7 +16,7 @@ public class PlayerAttack : MonoBehaviour
     private PlayerStats _stats;
     private float attackTimer = 0f;
 
-    [SerializeField] private float _projectileOffset = 10f;
+    [SerializeField] private float _projectileOffset = 20f;
     private float _offsetStart;
 
     private void Start()
@@ -92,7 +92,7 @@ public class PlayerAttack : MonoBehaviour
 
             Vector2 rotatedDir = Rotate(baseDir, _offsetStart).normalized;
 
-            Vector2 spawnPos = (Vector2)transform.position + rotatedDir * 2f;
+            Vector2 spawnPos = (Vector2)transform.position + rotatedDir * 0.7f;
             
             Vector2 finalDir = (target.transform.position - (Vector3)spawnPos).normalized;
 

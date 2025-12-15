@@ -24,8 +24,12 @@ MonoBehaviour:
   - {fileID: 2005126786876904744, guid: 56a8230ac84cc10459c84676ddf00a95, type: 3}
   - {fileID: 2005126786876904744, guid: 94c6ef571fc10ba44965293cacf50879, type: 3}
   - {fileID: 2005126786876904744, guid: 55f7ef15f8ecc784f9de5be5f09d4c80, type: 3}
-  shopRoomNumber: 10
+  shopRoomNumberMin: 11
+  shopRoomNumberMax: 13
+  shrineRoomNumberMin: 2
+  shrineRoomNumberMax: 4
   startRoom: {fileID: 2005126786876904744, guid: 4f9d711f3728cf54eb996ae7e9328f33, type: 3}
   bossRoom: {fileID: 2005126786876904744, guid: 438ab9e369f9adc458a640883f13eab7, type: 3}
   shopRoom: {fileID: 2005126786876904744, guid: f5857537e3648bd458ac64ceb9f9de46, type: 3}
+  shrineRoom: {fileID: 2005126786876904744, guid: bfa4e71e5caff6549afeeaa3948bcfb7, type: 3}
   roomsToGenerate: 15

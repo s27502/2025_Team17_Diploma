@@ -8,10 +8,18 @@ namespace DefaultNamespace
     {
         public string floorName;
         public List<GameObject> possibleRooms;
-        public int shopRoomNumber;
+        
+        public int shopRoomNumberMin;
+        public int shopRoomNumberMax;
+
+        public int shrineRoomNumberMin;
+        public int shrineRoomNumberMax;
+        
+        
         public GameObject startRoom;
         public GameObject bossRoom;
         public GameObject shopRoom;
+        public GameObject shrineRoom;
 
         public int roomsToGenerate = 10;
     }
