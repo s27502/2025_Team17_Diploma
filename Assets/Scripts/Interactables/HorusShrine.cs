@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using DefaultNamespace;
 using UnityEngine;
 using Random = System.Random;
@@ -10,6 +11,7 @@ namespace Interactables
     {
         [SerializeField]private List<Blessing> _blessings;
         BlessingManager _choiceUI;
+        private bool _blessed = false;
 
         private void Start()
         {
@@ -18,17 +20,22 @@ namespace Interactables
 
         public void OnInteract()
         {
-            if (_choiceUI != null)
+            if (!_blessed)
             {
-                _choiceUI = ServiceLocator.Instance.GetService<BlessingManager>();
+                if (_choiceUI != null)
+                {
+                    _choiceUI = ServiceLocator.Instance.GetService<BlessingManager>();
+                }
+                Random rnd = new Random();
+                var first =  _blessings[rnd.Next(_blessings.Count)];
+                _blessings.Remove(first);
+                var second =  _blessings[rnd.Next(_blessings.Count)];
+                _blessings.Add(first);
+                _choiceUI.ShowUI();
+                _choiceUI.SetBlessings(first, second);
+                _blessed = true;
             }
-            Random rnd = new Random();
-            var first =  _blessings[rnd.Next(_blessings.Count)];
-            _blessings.Remove(first);
-            var second =  _blessings[rnd.Next(_blessings.Count)];
-            _blessings.Add(first);
-            _choiceUI.ShowUI();
-            _choiceUI.SetBlessings(first, second);
+            
         }
     }
 }
