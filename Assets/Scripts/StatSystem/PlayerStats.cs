@@ -53,7 +53,7 @@ namespace Player
             base.ModifyHp(value);
             OnHpChanged?.Invoke(_hp, _maxHp);
         }
-
+        
         public override void StatusDmg(int amount)
         {
             base.StatusDmg(amount);
@@ -113,6 +113,16 @@ namespace Player
             onArmorChanged?.Invoke(armor, armorMax);
         }
 
+        public void SetDamage(int value)
+        {
+            dmg = value;
+        }
+        
+        public void SetAtkSpd(float value)
+        {
+            atkSpeed = Mathf.Clamp(atkSpeed + value, 0, 10);
+        }
+        
         public int GetArmorMax() => armorMax;
         public int GetArmor() => armor;
 
