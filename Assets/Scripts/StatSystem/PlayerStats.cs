@@ -115,12 +115,15 @@ namespace Player
 
         public void SetDamage(int value)
         {
+            
             dmg = value;
+            onDamageChanged?.Invoke(dmg);
         }
         
         public void SetAtkSpd(float value)
         {
             atkSpeed = Mathf.Clamp(atkSpeed + value, 0, 10);
+            onAtkSpdChanged?.Invoke(atkSpeed);
         }
         
         public int GetArmorMax() => armorMax;
