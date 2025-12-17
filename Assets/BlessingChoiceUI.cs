@@ -60,7 +60,9 @@ public class BlessingChoiceUI : MonoBehaviour
         {
             if (_choice.GetAtkSpdMult() != 0)
             {
-                _playerStats.ModifyAttackSpeed(_playerStats.GetAtkSpeed()*_choice.GetAtkSpdMult());    
+                var p = _playerStats.GetAtkSpeed() * _choice.GetAtkSpdMult();
+                Debug.Log(p);
+                _playerStats.ModifyAttackSpeed(p);    
             }
 
             if (_choice.GetDmgMult() != 0)
