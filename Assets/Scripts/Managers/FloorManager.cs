@@ -19,7 +19,9 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
     private FloorData _currentFloorData;
 
     private GameObject _currentRoom;
+    
     private int _shopNumber;
+    private int _shrineNumber;
     private int _roomCounter = 0;
 
     protected override void Awake()
@@ -29,11 +31,23 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
         
         ServiceLocator.Instance.Register(this);
         _currentFloorData = _floorDatas[_currentFloor];
-        
+
+        _shopNumber = RollShopRoomNumber();
+        _shrineNumber = RollShrineRoomNumber();
         _currentRoom = Instantiate(_currentFloorData.startRoom, Vector3.zero, Quaternion.identity);
         _player.transform.position = _currentRoom.GetComponent<Room>()._spawnPos.transform.position;
         _roomCounter++;
 
+    }
+
+    private int RollShrineRoomNumber()
+    {
+        return Random.Range(_currentFloorData.shrineRoomNumberMin, _currentFloorData.shrineRoomNumberMax+1);
+    }
+
+    private int RollShopRoomNumber()
+    {
+        return Random.Range(_currentFloorData.shopRoomNumberMin, _currentFloorData.shopRoomNumberMax+1);
     }
 
     public IEnumerator GoToNextRoomCoroutine()
@@ -51,9 +65,13 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
             Destroy(_currentRoom);
             _roomCounter++;
 
-            if (_roomCounter == _currentFloorData.shopRoomNumber)
+            if (_roomCounter == _shopNumber)
             {
                 _currentRoom = Instantiate(_currentFloorData.shopRoom, Vector3.zero, Quaternion.identity);
+            }
+            else if (_roomCounter == _shrineNumber)
+            {
+                _currentRoom = Instantiate(_currentFloorData.shrineRoom, Vector3.zero, Quaternion.identity);
             }
             else if (_roomCounter == _currentFloorData.roomsToGenerate)
             {
@@ -113,6 +131,8 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
         _currentFloor = 0;
         _roomCounter = 0;
         _currentFloorData = _floorDatas[_currentFloor];
+        _shopNumber = RollShopRoomNumber();
+        _shrineNumber = RollShrineRoomNumber();
 
         StartCoroutine(GoToNextRoomCoroutine());
     }

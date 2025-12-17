@@ -12,7 +12,7 @@ public class Dialogue : MonoBehaviour
 
     protected int index;
     
-    void Start()
+    protected virtual void Start()
     {
         textComponent.text = string.Empty;
         StartDialogue();

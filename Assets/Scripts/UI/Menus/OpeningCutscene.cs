@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
 using Managers;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,17 +12,18 @@ using UnityEngine.UI;
 public class OpeningCutscene : Dialogue
 {
     [SerializeField] private AudioClip _openingMusic;
-    
+
     [SerializeField] private Animator _transition;
     [SerializeField] private GameObject _imageObject;
     [SerializeField] private List<CutsceneImage> _images;
 
-    private void Awake()
+    protected override void Start()
     {
-        //AudioManager.Instance.PlayMusic(_openingMusic);
+        base.Start();
+        AudioManager.Instance.PlayMusic(_openingMusic);
     }
 
-    protected override void Update()
+protected override void Update()
     {
         base.Update();
         if (Input.GetKeyDown(KeyCode.Escape))

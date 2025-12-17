@@ -135,28 +135,8 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 306556040188712002, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
-      propertyPath: dmg
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 306556040188712002, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
-      propertyPath: coins
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 306556040188712002, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: _maxHp
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 306556040188712002, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
-      propertyPath: atkSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 646862989149235956, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
-      propertyPath: _poisoned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 646862989149235956, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
-      propertyPath: _poisonDelay
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1828529381762116686, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -201,6 +181,22 @@ PrefabInstance:
     - target: {fileID: 2230101389136409127, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828809347817452949, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828809347817452949, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876390250241682804, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876390250241682804, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 3223014105759049452, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
       propertyPath: m_Mass

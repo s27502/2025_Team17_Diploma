@@ -27,8 +27,11 @@ namespace Managers
 
         public void PlayMusic(AudioClip clip)
         {
-            _musicAudioSources.GetComponent<AudioSource>().clip = clip;
-            _musicAudioSources.GetComponent<AudioSource>().Play();
+            if (clip != _musicAudioSources.GetComponent<AudioSource>().clip )
+            {
+                _musicAudioSources.GetComponent<AudioSource>().clip = clip;
+                _musicAudioSources.GetComponent<AudioSource>().Play();
+            }
         }
         
         public void PlaySfx(AudioClip clip)
