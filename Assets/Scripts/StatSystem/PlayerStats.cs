@@ -122,7 +122,7 @@ namespace Player
         
         public void SetAtkSpd(float value)
         {
-            atkSpeed = Mathf.Clamp(atkSpeed + value, 0, 10);
+            atkSpeed = Mathf.Clamp(value, 0, 10);
             onAtkSpdChanged?.Invoke(atkSpeed);
         }
         
