@@ -76,7 +76,6 @@ namespace Enemies
         {
             base.Attack();
             
-            //Debug.Log(_enemies.transform.childCount);
             if (_attackDurationCounter <= 0 && _attackDelayCounter <= 0)
             {
                 _currentAttack = RollAttack();
@@ -132,7 +131,6 @@ namespace Enemies
             switch (attackNumber)
             {
                 case 0:
-                    //_charging = true;
                     _attackDuration = 1000;
                     return SobekAttacks.Charge;
                 case 1:
