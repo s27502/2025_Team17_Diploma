@@ -15,7 +15,9 @@ namespace Items
         //Stats should be in order: HP, MAX HP, DMG, ATTACK SPEED, LUCK, PROJECTILE COUNT;
         [SerializeField] private List<float> stats;
         [SerializeField] protected GameObject _price;
-
+        [SerializeField] private bool _isPoisoning;
+        [SerializeField] private bool _isBouncing;
+        [SerializeField] private bool _isHoming;
         private void Awake()
         {
             
@@ -33,6 +35,9 @@ namespace Items
             return stats;
         }
         
+        public bool GetPoison() => _isPoisoning;
+        public bool GetBounce() => _isBouncing;
+        public bool GetHoming() => _isHoming;
         
         public string GetItemName()
         {
