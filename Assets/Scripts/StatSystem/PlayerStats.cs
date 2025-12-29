@@ -15,6 +15,11 @@ namespace Player
         [SerializeField] private int coins;
         [SerializeField] private int armorMax;
         [SerializeField] private int armor;
+        
+        private bool _isPoisoning;
+        private bool _isBouncing;
+        private bool _isHoming;
+        
         private PlayerDeath _death;
         
         public UnityEvent<int, int> OnHpChanged = new UnityEvent<int, int>();
@@ -126,6 +131,18 @@ namespace Player
             onAtkSpdChanged?.Invoke(atkSpeed);
         }
         
+        public void SetPoison(bool value){
+            _isPoisoning = value;
+        }
+        
+        public void SetBounce(bool value){
+            _isBouncing = value;
+        }
+        public void SetHoming(bool value)
+        {
+            _isHoming = value;
+        }
+        
         public int GetArmorMax() => armorMax;
         public int GetArmor() => armor;
 
@@ -134,5 +151,9 @@ namespace Player
         public int GetDmg() => dmg;
         public float GetAtkSpeed() => atkSpeed;
         public int GetCoins() => coins;
+        
+        public bool GetPosion() => _isPoisoning;
+        public bool GetBounce() => _isBouncing;
+        public bool GetHoming() => _isHoming;
     }
 }
