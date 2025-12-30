@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97d95f3e9bf9ee4d9b7fc6365162745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _desc: Additional projectile count
+  _desc: Additional projectile but lower attack speed
   _coins: 0
   _dmgMult: 0
-  _atkSpdMult: 0
+  _atkSpdMult: -0.25
   _projCount: 1
   _hp: 0
