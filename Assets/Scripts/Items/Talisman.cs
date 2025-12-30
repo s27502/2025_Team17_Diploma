@@ -60,6 +60,10 @@ namespace Items
                 _stats.ModifyMaxHp((int)stats[3]);
                 _stats.ModifyHp((int)stats[3]);
             }
+            
+            _stats.SetBounce(_isBouncing);
+            _stats.SetHoming(_isHoming);
+            _stats.SetPoison(_isPoisoning);
         }
 
         private void DeEquipStatChanges(Item item)
