@@ -13,7 +13,10 @@ namespace Items
         [SerializeField] private GameObject _projectile;
         private PlayerStats _stats;
         private Equipment _equipment;
-        
+
+        private bool _isPoisonFromTalisman;
+        private bool _isBouncingFromTalisman;
+        private bool _isHomingFromTalisman;
 
 
         protected override void Start()
@@ -73,6 +76,34 @@ namespace Items
             {
                 _stats.ModifyAttackSpeed(stats[1]);
             }
+
+            if (_stats.GetPosion())
+            {
+                _isPoisonFromTalisman = true;
+            }
+            else
+            {
+                _stats.SetPoison(_isPoisoning);
+            }
+            if (_stats.GetBounce())
+            {
+                _isBouncingFromTalisman = true;
+            }
+            else
+            {
+                _stats.SetBounce(_isBouncing);
+            }
+            if (_stats.GetHoming())
+            {
+                _isHomingFromTalisman = true;
+            }
+            else
+            {
+                _stats.SetHoming(_isHoming);
+            }
+            
+            
+            
         }
 
         private void DeEquipStatChanges(Item item)
@@ -87,6 +118,21 @@ namespace Items
             if (stats[1] != 0)
             {
                 _stats.ModifyAttackSpeed(-stats[1]);
+            }
+
+            if (!_isPoisonFromTalisman)
+            {
+                _stats.SetPoison(!_isPoisoning);
+            }
+
+            if (!_isBouncingFromTalisman)
+            {
+                _stats.SetBounce(!_isBouncing);
+            }
+
+            if (!_isHomingFromTalisman)
+            {
+                _stats.SetHoming(!_isHoming);
             }
         }
         public GameObject GetProjectile()
