@@ -29,6 +29,7 @@ namespace Player
         public UnityEvent<int> onLuckChanged = new UnityEvent<int>();
         public UnityEvent<int> onCoinsChanged = new UnityEvent<int>();
         public UnityEvent<int, int> onArmorChanged = new UnityEvent<int, int>();
+        public UnityEvent<bool> onPoisonedChanged = new UnityEvent<bool>();
 
         private PlayerIFrames _iFrames;
 
