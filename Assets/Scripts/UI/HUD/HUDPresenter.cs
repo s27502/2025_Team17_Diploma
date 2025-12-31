@@ -29,6 +29,7 @@ namespace HUD
             _playerStats.onLuckChanged.AddListener(HandleLuckChange);
             _playerStats.onCoinsChanged.AddListener(HandleCoinChange);
             _playerStats.onArmorChanged.AddListener(HandleArmorChange);
+            _playerStats.onPoisonedChanged.AddListener(HandlePoisonStatus);
             SetStats();
         }
 
@@ -58,6 +59,11 @@ namespace HUD
             _view.SetProjectileCount(value);
         }
 
+        private void HandlePoisonStatus(bool value)
+        {
+            _view.SetPoison(value);
+        }
+        
         private void HandleLuckChange(int value)
         {
             _view.SetLuck(value);

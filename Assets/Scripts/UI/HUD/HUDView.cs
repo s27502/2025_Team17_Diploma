@@ -14,6 +14,7 @@ namespace HUD
         [SerializeField] private TMP_Text luck;
         [SerializeField] private TMP_Text coins;
         [SerializeField] private Sprite emptySprite;
+        [SerializeField] private Image poisonStatus;
         
         [SerializeField] private List<HPSlot> hpSlots;
         [SerializeField] private List<ArmorSlot> armorSlots;
@@ -92,6 +93,11 @@ namespace HUD
 
                 armorSlots[i].SetState(state);
             }
+        }
+
+        public void SetPoison(bool value)
+        {
+            poisonStatus.gameObject.SetActive(value);
         }
     }
 }
