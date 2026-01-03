@@ -19,6 +19,9 @@ namespace Player
         private bool _isPoisoning;
         private bool _isBouncing;
         private bool _isHoming;
+        [SerializeField] private int bounceNumber;
+        [SerializeField] private float poisonDMG;
+        [SerializeField] private float poisonDuration;
         
         private PlayerDeath _death;
         
@@ -156,5 +159,8 @@ namespace Player
         public bool GetPosion() => _isPoisoning;
         public bool GetBounce() => _isBouncing;
         public bool GetHoming() => _isHoming;
+        public int GetBounceNumber() => bounceNumber;
+        public float GetPoisonDMG() => poisonDMG;
+        public float GetPoisonDuration() => poisonDuration;
     }
 }

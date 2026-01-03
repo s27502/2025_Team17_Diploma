@@ -505,6 +505,9 @@ MonoBehaviour:
   coins: 0
   armorMax: 0
   armor: 0
+  bounceNumber: 3
+  poisonDMG: 1
+  poisonDuration: 10
   OnHpChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -524,6 +527,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onArmorChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onPoisonedChanged:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &3932144308935858083
