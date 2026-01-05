@@ -84,6 +84,7 @@ namespace Items
             else
             {
                 _stats.SetPoison(_isPoisoning);
+                _isPoisonFromTalisman = false;
             }
             if (_stats.GetBounce())
             {
@@ -92,6 +93,7 @@ namespace Items
             else
             {
                 _stats.SetBounce(_isBouncing);
+                _isBouncingFromTalisman = false;
             }
             if (_stats.GetHoming())
             {
@@ -100,10 +102,8 @@ namespace Items
             else
             {
                 _stats.SetHoming(_isHoming);
+                _isHomingFromTalisman = false;
             }
-            
-            
-            
         }
 
         private void DeEquipStatChanges(Item item)
