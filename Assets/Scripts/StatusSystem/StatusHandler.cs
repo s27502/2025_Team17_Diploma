@@ -1,4 +1,5 @@
 ﻿using System;
+using Player;
 using StatSystem;
 using UnityEngine;
 
@@ -60,6 +61,11 @@ namespace StatusSystem
             if (_poisonDurationCounter >= _poisonDuration)
             {
                 _poisoned = false;
+                if (_stats is PlayerStats)
+                {
+                    PlayerStats _playerStats = _stats as PlayerStats;
+                    _playerStats.onPoisonedChanged.Invoke(false);
+                }
             }
         }
 
@@ -73,11 +79,16 @@ namespace StatusSystem
 
                 _poisonDmg = (int)dmg;
                 _poisoned = true;
+                if (_stats is PlayerStats)
+                {
+                    PlayerStats _playerStats = _stats as PlayerStats;
+                    _playerStats.onPoisonedChanged.Invoke(true);
+                }
             }
 
             _poisonDurationCounter = 0f;
             _poisonDuration = duration;
-
+            
             _poisonDmg = (int)dmg;
         }
 

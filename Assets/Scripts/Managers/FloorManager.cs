@@ -89,15 +89,10 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
             
             _player.transform.position = _currentRoom.GetComponent<Room>()._spawnPos.transform.position;
             
-
             transition.SetTrigger("End");
             Time.timeScale = 1;
             yield return new WaitForSeconds(0.5f);
-
-            
         }
-        
-        
     }
     public void GoToNextRoom()
     {

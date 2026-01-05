@@ -16,6 +16,7 @@ namespace ObjectPooling.Projectiles
         
             if (other.CompareTag("Player"))
             {
+                other.GetComponent<PlayerStats>()?.ModifyHp(-damage);
                 other.GetComponent<StatusHandler>().Poison(_poisonDuration,_poisonDmg);
                 _pool?.ReleaseObject(this);
                 return;
