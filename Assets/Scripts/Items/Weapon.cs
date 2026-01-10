@@ -108,6 +108,7 @@ namespace Items
 
         private void DeEquipStatChanges(Item item)
         {
+            Debug.Log("twoja matka");
             List<float> stats = item.GetStats();
             
             if (stats[0] != 0)
@@ -120,19 +121,27 @@ namespace Items
                 _stats.ModifyAttackSpeed(-stats[1]);
             }
 
-            if (!_isPoisonFromTalisman)
+            if (!_isPoisonFromTalisman && _isPoisoning)
             {
                 _stats.SetPoison(!_isPoisoning);
-            }
-
-            if (!_isBouncingFromTalisman)
+                _stats.SetBounce(_isBouncing);
+                _stats.SetHoming(_isHoming);
+            } else if (!_isBouncingFromTalisman && _isBouncing)
             {
+                _stats.SetPoison(_isPoisoning);
                 _stats.SetBounce(!_isBouncing);
-            }
-
-            if (!_isHomingFromTalisman)
+                _stats.SetHoming(_isHoming);
+            } else if (!_isHomingFromTalisman && _isHoming)
             {
+                _stats.SetPoison(_isPoisoning);
+                _stats.SetBounce(_isBouncing);
                 _stats.SetHoming(!_isHoming);
+            }
+            else
+            {
+                _stats.SetPoison(_isPoisoning);
+                _stats.SetBounce(_isBouncing);
+                _stats.SetHoming(_isHoming);
             }
         }
         public GameObject GetProjectile()
