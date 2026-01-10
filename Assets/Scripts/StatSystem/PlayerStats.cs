@@ -16,9 +16,9 @@ namespace Player
         [SerializeField] private int armorMax;
         [SerializeField] private int armor;
         
-        private bool _isPoisoning;
-        private bool _isBouncing;
-        private bool _isHoming;
+        [SerializeField] private bool _isPoisoning = false;
+        [SerializeField] private bool _isBouncing = false;
+        [SerializeField] private bool _isHoming = false;
         [SerializeField] private int bounceNumber;
         [SerializeField] private float poisonDMG;
         [SerializeField] private float poisonDuration;
