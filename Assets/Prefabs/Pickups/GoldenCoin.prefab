@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   despawnTime: 10
+  collectSound: {fileID: 8300000, guid: b5c619283726ebd48b57209ee2aedbdc, type: 3}
   initialUpVelocity: 4
   gravity: 12
   maxHeightOffset: 0.5

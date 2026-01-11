@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Enemies;
+using Managers;
 using Player;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] protected EnemyProjectileFactory projectileFactory;
     [SerializeField] private float startDelay = 1f;
+    [SerializeField] private AudioClip enemyDie;
     
     public System.Action<Enemy> OnDeath;
 
@@ -131,6 +133,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
+        AudioManager.Instance.PlaySfx(enemyDie);
         OnDeath?.Invoke(this);
         Destroy(gameObject);
     }

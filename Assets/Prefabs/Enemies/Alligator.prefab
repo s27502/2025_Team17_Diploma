@@ -317,6 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileFactory: {fileID: 3077437587570912818}
   startDelay: 1
+  enemyDie: {fileID: 8300000, guid: 6baaf62589bfd7a45b84810349ba4fe6, type: 3}
   _animator: {fileID: 6850765252732017033}
   _windUpTime: 2
   _miniChargeCooldown: 0.5
