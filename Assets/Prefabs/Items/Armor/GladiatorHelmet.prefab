@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Gladiator Helmet
-  itemPrice: 15
+  itemPrice: 35
   IsShop: 0
   stats:
   - 2
