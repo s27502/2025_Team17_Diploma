@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5072097356757535338}
   - component: {fileID: 3243413398820275427}
-  - component: {fileID: 1439417504059778776}
   - component: {fileID: 5662330439796338021}
   - component: {fileID: 4422836660671509328}
+  - component: {fileID: 1924129790984449856}
   m_Layer: 8
-  m_Name: WaterProjectile
+  m_Name: SplashWaterProjectile 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,23 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1439417504059778776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3424888137376225583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c14bad06bdc244419084005eba12b4d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  damage: 1
-  damageTextPrefab: {fileID: 774244208891461880, guid: 0f26b6719cff7a240b36207a029fee92, type: 3}
-  damageTextRange: 0.5
-  _splashProjectile: {fileID: 3424888137376225583, guid: f9b316b55ee3c694991cbf9f2db56475, type: 3}
 --- !u!50 &5662330439796338021
 Rigidbody2D:
   serializedVersion: 4
@@ -166,3 +149,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.02}
   serializedVersion: 2
   m_Radius: 0.05
+--- !u!114 &1924129790984449856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424888137376225583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b77c0dac409437db63823e751fa45dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  damage: 1
+  damageTextPrefab: {fileID: 774244208891461880, guid: 0f26b6719cff7a240b36207a029fee92, type: 3}
+  damageTextRange: 0.5
