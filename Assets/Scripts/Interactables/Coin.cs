@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
     [SerializeField] private float despawnTime;
+    [SerializeField] private AudioClip collectSound;
     
     public float initialUpVelocity = 1.2f;   
     public float gravity = 10f;          
@@ -51,6 +53,7 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager.Instance.PlaySfx(collectSound);
             Destroy(gameObject);
         }
     }
