@@ -468,7 +468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131aba11d1a11c14992e77ba34f1e881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _oof: {fileID: 0}
   helmetAnimator: {fileID: 8049077995007196258}
   armorAnimator: {fileID: 3356717318963003365}
 --- !u!114 &616241774219923881
@@ -505,9 +504,13 @@ MonoBehaviour:
   coins: 0
   armorMax: 0
   armor: 0
+  _isPoisoning: 0
+  _isBouncing: 0
+  _isHoming: 0
   bounceNumber: 3
   poisonDMG: 1
   poisonDuration: 10
+  dmgSFX: {fileID: 8300000, guid: 5d72fb6594f449e47b1b38924f6b084c, type: 3}
   OnHpChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -618,6 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultProjectile: {fileID: 3424888137376225583, guid: 9a086db5cdeaba6479b690d0a789742f, type: 3}
+  playerShoot: {fileID: 8300000, guid: cd77895a4db326a4381021862a7df762, type: 3}
   EnemiesInRange: []
   _projectileOffset: 10
 --- !u!114 &646862989149235956

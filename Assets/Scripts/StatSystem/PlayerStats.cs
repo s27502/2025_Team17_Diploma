@@ -1,4 +1,5 @@
 using System;
+using Managers;
 using StatSystem;
 using UnityEngine;
 using UnityEngine.Events;
@@ -22,7 +23,9 @@ namespace Player
         [SerializeField] private int bounceNumber;
         [SerializeField] private float poisonDMG;
         [SerializeField] private float poisonDuration;
-        
+
+        [SerializeField] private AudioClip dmgSFX;
+
         private PlayerDeath _death;
         
         public UnityEvent<int, int> OnHpChanged = new UnityEvent<int, int>();
@@ -44,11 +47,12 @@ namespace Player
 
         public override void ModifyHp(int value)
         {
+            
             if (value < 0)
             {
                 if (_iFrames != null && _iFrames.IsInvincible())
                     return;
-
+                AudioManager.Instance.PlaySfx(dmgSFX);
                 _iFrames?.StartIFrames();
             }
             
@@ -66,6 +70,7 @@ namespace Player
         public override void StatusDmg(int amount)
         {
             base.StatusDmg(amount);
+            AudioManager.Instance.PlaySfx(dmgSFX);
             OnHpChanged?.Invoke(_hp, _maxHp);
         }
 
