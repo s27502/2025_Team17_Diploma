@@ -406,4 +406,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileFactory: {fileID: 4218424028790637274}
   startDelay: 1
+  enemyDie: {fileID: 8300000, guid: 6baaf62589bfd7a45b84810349ba4fe6, type: 3}
   _attackChangeInterval: 3

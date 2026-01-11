@@ -316,6 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileFactory: {fileID: 2601403101457127642}
   startDelay: 1
+  enemyDie: {fileID: 8300000, guid: 6baaf62589bfd7a45b84810349ba4fe6, type: 3}
   _name: Sobek
   _nameArea: {fileID: 0}
   _healthBar: {fileID: 0}

@@ -321,6 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileFactory: {fileID: 4218424028790637274}
   startDelay: 1
+  enemyDie: {fileID: 8300000, guid: 6baaf62589bfd7a45b84810349ba4fe6, type: 3}
 --- !u!61 &2151915149779411868
 BoxCollider2D:
   m_ObjectHideFlags: 0

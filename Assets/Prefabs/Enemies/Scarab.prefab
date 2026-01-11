@@ -388,6 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileFactory: {fileID: 4205302803076265978}
   startDelay: 1
+  enemyDie: {fileID: 8300000, guid: 6baaf62589bfd7a45b84810349ba4fe6, type: 3}
   _dashDelay: 0.3
   _dashDistance: 0.7
 --- !u!114 &8378851208999660756
