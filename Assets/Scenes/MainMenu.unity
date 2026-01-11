@@ -1227,9 +1227,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1884749320}
-        m_TargetAssemblyTypeName: ObjectPooling.AudioSources.AudioSourcePlayer, Assembly-CSharp
-        m_MethodName: SetVolume
+      - m_Target: {fileID: 1829598009}
+        m_TargetAssemblyTypeName: Managers.AudioManager, Assembly-CSharp
+        m_MethodName: SetSFXVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1520,11 +1520,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63c9ea4d9ad5de74292be50e74968881, type: 3}
---- !u!82 &346902365 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7931224800997529077, guid: 63c9ea4d9ad5de74292be50e74968881, type: 3}
-  m_PrefabInstance: {fileID: 346902364}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &358925435
 GameObject:
   m_ObjectHideFlags: 0
@@ -5716,9 +5711,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 346902365}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: set_volume
+      - m_Target: {fileID: 1829598009}
+        m_TargetAssemblyTypeName: Managers.AudioManager, Assembly-CSharp
+        m_MethodName: SetMusicVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6502,8 +6497,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2021669282}
-        m_TargetAssemblyTypeName: ObjectPooling.AudioSources.AudioSourcePlayer, Assembly-CSharp
+      - m_Target: {fileID: 1829598009}
+        m_TargetAssemblyTypeName: Managers.AudioManager, Assembly-CSharp
         m_MethodName: SetMasterVolume
         m_Mode: 0
         m_Arguments:
@@ -6514,30 +6509,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 346902365}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: set_volume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1884749320}
-        m_TargetAssemblyTypeName: ObjectPooling.AudioSources.AudioSourcePlayer, Assembly-CSharp
-        m_MethodName: SetMasterVolume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+--- !u!114 &1829598009 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 751589382034172177, guid: 63c9ea4d9ad5de74292be50e74968881, type: 3}
+  m_PrefabInstance: {fileID: 346902364}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca2527250d44b6f9f7ff2e355e6de98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1832760526
 GameObject:
   m_ObjectHideFlags: 0
@@ -6973,17 +6955,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869501173}
   m_CullTransparentMesh: 1
---- !u!114 &1884749320 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2809917580549899483, guid: 63c9ea4d9ad5de74292be50e74968881, type: 3}
-  m_PrefabInstance: {fileID: 346902364}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1da00b9712543e39e43602438c78451, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1887021050
 GameObject:
   m_ObjectHideFlags: 0
@@ -7461,17 +7432,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
---- !u!114 &2021669282 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1208099968437111080, guid: 63c9ea4d9ad5de74292be50e74968881, type: 3}
-  m_PrefabInstance: {fileID: 346902364}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1da00b9712543e39e43602438c78451, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2040404581
 GameObject:
   m_ObjectHideFlags: 0
