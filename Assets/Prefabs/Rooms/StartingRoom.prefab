@@ -3321,9 +3321,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 239973909591963468, guid: 2708afdb5c3562f40a3827def4fbd8e2, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1097205717122909842, guid: 2708afdb5c3562f40a3827def4fbd8e2, type: 3}
       propertyPath: m_Name
       value: WaterStaff
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966942822898171979, guid: 2708afdb5c3562f40a3827def4fbd8e2, type: 3}
+      propertyPath: _isBouncing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966942822898171979, guid: 2708afdb5c3562f40a3827def4fbd8e2, type: 3}
+      propertyPath: _isPoisoning
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
