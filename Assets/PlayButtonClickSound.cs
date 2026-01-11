@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class PlayButtonClickSound : MonoBehaviour
 {
-    [SerializeField] private AudioManager _audioManager;
+    private AudioManager _audioManager;
     [SerializeField] private AudioClip _clickSound;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _audioManager = AudioManager.Instance;
     }
 
     public void PlayShit()
