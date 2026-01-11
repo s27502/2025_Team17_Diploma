@@ -18,6 +18,8 @@ namespace Items
         [SerializeField] protected bool _isPoisoning;
         [SerializeField] protected bool _isBouncing;
         [SerializeField] protected bool _isHoming;
+        
+        [SerializeField] protected AudioClip pickUpSound;
         private void Awake()
         {
             

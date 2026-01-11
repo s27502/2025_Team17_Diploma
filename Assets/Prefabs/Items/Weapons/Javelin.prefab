@@ -105,6 +105,10 @@ MonoBehaviour:
   - 2
   - 1.2
   _price: {fileID: 0}
+  _isPoisoning: 0
+  _isBouncing: 0
+  _isHoming: 0
+  pickUpSound: {fileID: 8300000, guid: 1b1db92b32b5d7d4984bd21ffaeb4172, type: 3}
   _projectile: {fileID: 4227859849147311175, guid: 0d9853263533c7c4f8c1a533b28012e6, type: 3}
 --- !u!61 &6008146206263699945
 BoxCollider2D:

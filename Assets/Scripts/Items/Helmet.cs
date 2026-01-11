@@ -46,6 +46,7 @@ namespace Items
                 DeEquipStatChanges(toDrop);
                 ItemManager.PutInRoom(toDrop, gameObject.transform.position);
             }
+            AudioManager.Instance.PlaySfx(pickUpSound);
             ApplyStatChanges(this);
             ItemManager.PutInStorage(this);
         }
