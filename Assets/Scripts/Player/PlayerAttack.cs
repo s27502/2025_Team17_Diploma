@@ -10,6 +10,7 @@ public class PlayerAttack : MonoBehaviour
     private GameObject _projectile;
     private IObjectPool _projectilePool;
     private IObjectFactory _factory;
+    [SerializeField] private AudioClip playerShoot;
     
     [HideInInspector] public List<GameObject> EnemiesInRange = new List<GameObject>();
 
@@ -72,6 +73,7 @@ public class PlayerAttack : MonoBehaviour
             GameObject target = GetClosestEnemy();
             if (target != null)
             {
+                AudioManager.Instance.PlaySfx(playerShoot);
                 Attack(target);
             }
         }
