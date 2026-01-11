@@ -47,5 +47,10 @@ namespace ObjectPooling.AudioSources
             _pool?.ReleaseObject(this);
         }
 
+        public void SetVolume(float vol)
+        {
+            _audioSource.volume = vol;
+        }
+
     }
 }
