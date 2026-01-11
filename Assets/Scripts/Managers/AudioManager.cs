@@ -11,6 +11,7 @@ namespace Managers
         [SerializeField] private GameObject _sfxAudioSources;
 
         public float _masterVolume = 1f;
+        public float _musicVolume = 1f;
         public float _sfxVolume = 1f;
         
         private AudioSourcePlayer _playerAudioPlayer;
@@ -44,12 +45,15 @@ namespace Managers
 
         public void SetMusicVolume(float vol)
         {
+            _musicVolume = vol;
             _musicAudioSources.GetComponent<AudioSource>().volume = vol * _masterVolume;
         }
 
         public void SetMasterVolume(float vol)
         {
             _masterVolume = vol;
+            
+            SetMusicVolume(_musicVolume);
         }
         
         public void SetSFXVolume(float vol)
