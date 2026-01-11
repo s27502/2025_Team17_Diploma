@@ -3460,6 +3460,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4115151345796909996, guid: 86782023a9d7e5141a39c2cfb6996d1d, type: 3}
+      propertyPath: _healthBarArea
+      value: 
+      objectReference: {fileID: 1644738869056123328}
+    - target: {fileID: 4115151345796909996, guid: 86782023a9d7e5141a39c2cfb6996d1d, type: 3}
       propertyPath: _posChangeInterval
       value: 1
       objectReference: {fileID: 0}
