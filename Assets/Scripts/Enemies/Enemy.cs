@@ -131,7 +131,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-    protected virtual void Die()
+    public virtual void Die()
     {
         AudioManager.Instance.PlaySfx(enemyDie);
         OnDeath?.Invoke(this);

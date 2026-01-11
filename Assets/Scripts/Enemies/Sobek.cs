@@ -327,11 +327,5 @@ namespace Enemies
             _chargeDirection = (_player.transform.position - transform.position).normalized;
             _miniChargeCounter = _miniChargeCooldown;
         }
-
-        protected override void Die()
-        {
-            _healthBar.gameObject.SetActive(false);
-            base.Die();
-        }
     }
 }
