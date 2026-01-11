@@ -32,6 +32,7 @@ namespace Items
                 return;
             }
             //Pick up
+            AudioManager.Instance.PlaySfx(pickUpSound);
             _inventory.AddItem(this);
             ApplyStatChanges(this);
             ItemManager.PutInStorage(this);

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1729763460014226140
+--- !u!1 &8780368622895493572
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8463360767679353421}
-  - component: {fileID: 1245038915652604770}
-  - component: {fileID: 8157514366077335369}
-  - component: {fileID: 6008146206263699945}
+  - component: {fileID: 794329388775214117}
+  - component: {fileID: 8430336913725483083}
+  - component: {fileID: 7815909248149221635}
+  - component: {fileID: 8968668842886240574}
   m_Layer: 0
-  m_Name: Javelin
+  m_Name: BronzeArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8463360767679353421
+--- !u!4 &794329388775214117
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729763460014226140}
+  m_GameObject: {fileID: 8780368622895493572}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.21, y: 4.71, z: -9.91}
+  m_LocalPosition: {x: -7.845058, y: 4.4382577, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1245038915652604770
+--- !u!212 &8430336913725483083
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729763460014226140}
+  m_GameObject: {fileID: 8780368622895493572}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c5f99290a0446524db17511c5ded4cd2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72df50965d0a35647b65ec875107e824, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,37 +86,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8157514366077335369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729763460014226140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 521ffe4f1da2c8f4c87b9b3c81a7b97b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Javelin
-  itemPrice: 30
-  IsShop: 0
-  stats:
-  - 2
-  - 1.2
-  _price: {fileID: 0}
-  _isPoisoning: 0
-  _isBouncing: 0
-  _isHoming: 0
-  pickUpSound: {fileID: 8300000, guid: 1b1db92b32b5d7d4984bd21ffaeb4172, type: 3}
-  _projectile: {fileID: 4227859849147311175, guid: 0d9853263533c7c4f8c1a533b28012e6, type: 3}
---- !u!61 &6008146206263699945
+--- !u!61 &7815909248149221635
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729763460014226140}
+  m_GameObject: {fileID: 8780368622895493572}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -146,7 +122,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -155,3 +131,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24, y: 0.24}
   m_EdgeRadius: 0
+--- !u!114 &8968668842886240574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8780368622895493572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c7c53fba43a5e4fa0b070389564b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Gladiator Armor
+  itemPrice: 15
+  IsShop: 0
+  stats:
+  - 1
+  - 0
+  _price: {fileID: 0}
+  _isPoisoning: 0
+  _isBouncing: 0
+  _isHoming: 0
+  pickUpSound: {fileID: 8300000, guid: 1b1db92b32b5d7d4984bd21ffaeb4172, type: 3}
+  _armorAnimator: {fileID: 9100000, guid: e74275ae961769b47b89ee439d7aea50, type: 2}

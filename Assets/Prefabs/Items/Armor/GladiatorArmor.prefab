@@ -147,7 +147,11 @@ MonoBehaviour:
   itemPrice: 15
   IsShop: 0
   stats:
-  - 1
+  - 2
   - 0
   _price: {fileID: 0}
+  _isPoisoning: 0
+  _isBouncing: 0
+  _isHoming: 0
+  pickUpSound: {fileID: 8300000, guid: 1b1db92b32b5d7d4984bd21ffaeb4172, type: 3}
   _armorAnimator: {fileID: 9100000, guid: 3c20addf55a04764c8aa99ef5ed171c2, type: 2}

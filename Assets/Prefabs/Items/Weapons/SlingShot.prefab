@@ -108,6 +108,7 @@ MonoBehaviour:
   _isPoisoning: 0
   _isBouncing: 1
   _isHoming: 0
+  pickUpSound: {fileID: 8300000, guid: 1b1db92b32b5d7d4984bd21ffaeb4172, type: 3}
   _projectile: {fileID: 3424888137376225583, guid: 9a086db5cdeaba6479b690d0a789742f, type: 3}
 --- !u!61 &9085162210941975416
 BoxCollider2D:
