@@ -328,7 +328,7 @@ namespace Enemies
             _miniChargeCounter = _miniChargeCooldown;
         }
 
-        protected override void Die()
+        public override void Die()
         {
             _healthBar.gameObject.SetActive(false);
             base.Die();

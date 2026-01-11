@@ -17,7 +17,8 @@ namespace Enemies
         protected override void OnDeath()
         {
             Debug.Log($"{name} enemy died!");
-            Destroy(gameObject);
+            GetComponent<Enemy>().Die();
+            //Destroy(gameObject);
         }
 
         public void ModifyDamage(int amount) => dmg += amount;
