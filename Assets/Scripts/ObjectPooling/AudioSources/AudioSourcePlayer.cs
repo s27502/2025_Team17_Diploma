@@ -6,7 +6,7 @@ namespace ObjectPooling.AudioSources
     {
         [SerializeField] private GameObject _audioSourcePrefab;
         [SerializeField] private int initialPoolSize = 10;
-        private float _volume;
+        private float _volume = 1;
         protected IObjectPool _audioSourcePool;
         
         private void Awake()
@@ -23,6 +23,7 @@ namespace ObjectPooling.AudioSources
             if (audioSource != null)
             {
                 audioSource.Spawn(gameObject.transform,Vector2.zero);
+                audioSource.SetVolume(_volume);
                 audioSource.PlayClip(clip);
             }
         }
@@ -30,6 +31,7 @@ namespace ObjectPooling.AudioSources
         public void SetVolume(float volume)
         {
             _volume *= volume;
+            Debug.Log("volume " + _volume);
         }
     }
 }
