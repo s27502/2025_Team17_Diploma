@@ -22,10 +22,12 @@ public class Laser : MonoBehaviour
     private SpriteRenderer _laserStart;
     private SpriteRenderer _laserEnd;
 
+    private float _laserWidth;
+
     private void Awake()
     {
         GameObject startObj = new GameObject("LaserStart");
-        startObj.transform.parent = transform; 
+        startObj.transform.parent = transform;
         _laserStart = startObj.AddComponent<SpriteRenderer>();
         _laserStart.sprite = _startSprite;
         _laserStart.transform.localScale = Vector3.one * _laserSize;
@@ -35,7 +37,10 @@ public class Laser : MonoBehaviour
         _laserEnd = endObj.AddComponent<SpriteRenderer>();
         _laserEnd.sprite = _endSprite;
         _laserEnd.transform.localScale = Vector3.one * _laserSize;
+        
+        _laserWidth = _startSprite.bounds.size.y * _laserSize;
     }
+
 
 
 
@@ -100,7 +105,8 @@ public class Laser : MonoBehaviour
         if (_lineRenderer != null)
         {
             float distance = Vector2.Distance(start, end);
-            _lineRenderer.widthMultiplier = _laserStart != null ? _laserStart.bounds.size.y : 0.1f;
+            _lineRenderer.widthMultiplier = _laserWidth;
+
             if (_lineRenderer.material != null)
             {
                 _lineRenderer.material.mainTextureScale = new Vector2(distance, 1);

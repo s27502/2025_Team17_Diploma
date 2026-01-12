@@ -5,6 +5,7 @@ using Enemies;
 using Managers;
 using Player;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public enum EnemyState
 {
@@ -17,6 +18,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected EnemyProjectileFactory projectileFactory;
     [SerializeField] private float startDelay = 1f;
     [SerializeField] private AudioClip enemyDie;
+
+    [SerializeField] private float minCrossMoveDuration = 0.5f;
+    [SerializeField] private float maxCrossMoveDuration = 1.5f;
+    private Vector2 currentCrossDirection;
+    private Vector2 newCrossDirection;
+
+    private float _crossCounter = 0f;
     
     public System.Action<Enemy> OnDeath;
 
@@ -25,6 +33,8 @@ public class Enemy : MonoBehaviour
     protected GameObject _player;
     protected Rigidbody2D _rb;
     private bool canReact = false; 
+    
+    
     public bool FacingRight { get; private set; } = true;
     
     protected virtual void Start()
@@ -89,6 +99,8 @@ public class Enemy : MonoBehaviour
         FlipTo(dir.x);
     }
     
+    
+    
     protected void MoveInDirection(Vector2 direction)
     {
         if (_rb == null) return;
@@ -101,6 +113,48 @@ public class Enemy : MonoBehaviour
         _rb.MovePosition(newPos);
         
         FlipTo(dir.x);
+    }
+
+    protected void CrossMove()
+    {
+        if (_crossCounter <= 0f)
+        {
+            _crossCounter = Random.Range(minCrossMoveDuration, maxCrossMoveDuration);
+            newCrossDirection = RollCrossDirection();
+            if (newCrossDirection == currentCrossDirection)
+            {
+                currentCrossDirection = -newCrossDirection;
+            }
+            else
+            {
+                currentCrossDirection = newCrossDirection;
+            }
+        }
+        else
+        {
+            _crossCounter -= Time.fixedDeltaTime;
+            MoveInDirection(currentCrossDirection);
+        }
+        
+    }
+
+    private Vector2 RollCrossDirection()
+    {
+        int dirNumber = Random.Range(0, 4);
+
+        switch (dirNumber)
+        {
+            case 0:
+                return Vector2.up;
+            case 1:
+                return Vector2.down;
+            case 2:
+                return Vector2.left;
+            case 3:
+                return Vector2.right;
+        }
+
+        return Vector2.up;
     }
 
 
