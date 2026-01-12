@@ -3263,6 +3263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MultiLaserSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 5125345614870425749, guid: 3b4392cad3165914fa7286af50f29fc1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
