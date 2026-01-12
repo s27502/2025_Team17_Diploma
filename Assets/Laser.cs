@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
+    [SerializeField] private float _laserSize = 1f;
+    
     [SerializeField] private float _defDistanceRay = 100f;
     [SerializeField] private Transform _firePoint;
     [SerializeField] private LineRenderer _lineRenderer;
@@ -26,12 +28,15 @@ public class Laser : MonoBehaviour
         startObj.transform.parent = transform; 
         _laserStart = startObj.AddComponent<SpriteRenderer>();
         _laserStart.sprite = _startSprite;
-        
+        _laserStart.transform.localScale = Vector3.one * _laserSize;
+
         GameObject endObj = new GameObject("LaserEnd");
         endObj.transform.parent = transform;
         _laserEnd = endObj.AddComponent<SpriteRenderer>();
         _laserEnd.sprite = _endSprite;
+        _laserEnd.transform.localScale = Vector3.one * _laserSize;
     }
+
 
 
     private void Update()
@@ -95,7 +100,7 @@ public class Laser : MonoBehaviour
         if (_lineRenderer != null)
         {
             float distance = Vector2.Distance(start, end);
-            _lineRenderer.widthMultiplier = _laserStart != null ? _laserStart.bounds.size.x : 0.1f;
+            _lineRenderer.widthMultiplier = _laserStart != null ? _laserStart.bounds.size.y : 0.1f;
             if (_lineRenderer.material != null)
             {
                 _lineRenderer.material.mainTextureScale = new Vector2(distance, 1);

@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae77f8589a70ac4bad043863d3f2347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _laserSize: 2
   _defDistanceRay: 100
   _firePoint: {fileID: 5663101356416919045}
   _lineRenderer: {fileID: 6102418439672163596}
