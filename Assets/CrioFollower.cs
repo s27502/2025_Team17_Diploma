@@ -14,6 +14,11 @@ public class CrioFollower : Enemy
         if (!haltMovement)
         {
             CrossMove();
+            
+            _shootTimer += Time.fixedDeltaTime;
+
+            if (!(_shootTimer >= EnemyStats.GetFireRate())) return;
+            _shootTimer = 0f;
             Shoot();
         }
     }
