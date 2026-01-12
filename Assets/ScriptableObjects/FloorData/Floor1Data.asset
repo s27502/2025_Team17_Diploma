@@ -31,5 +31,5 @@ MonoBehaviour:
   startRoom: {fileID: 2005126786876904744, guid: 4f9d711f3728cf54eb996ae7e9328f33, type: 3}
   bossRoom: {fileID: 2005126786876904744, guid: 438ab9e369f9adc458a640883f13eab7, type: 3}
   shopRoom: {fileID: 2005126786876904744, guid: f5857537e3648bd458ac64ceb9f9de46, type: 3}
-  shrineRoom: {fileID: 2005126786876904744, guid: bfa4e71e5caff6549afeeaa3948bcfb7, type: 3}
+  shrineRoom: {fileID: 2005126786876904744, guid: 66183ad372d44394cbaa05c38566dbb5, type: 3}
   roomsToGenerate: 12
