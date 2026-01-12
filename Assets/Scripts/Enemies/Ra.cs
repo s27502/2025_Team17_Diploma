@@ -49,7 +49,6 @@ public class Ra : Boss
     {
         if (!isAttacking)
         {
-            Debug.Log("moving");
             CrossMove();
             _attackDelayCounter += Time.fixedDeltaTime;
 
@@ -186,7 +185,6 @@ public class Ra : Boss
         }
         else
         {
-            Debug.Log("sunny");
             _sunDurationCounter -= Time.fixedDeltaTime;
 
             _rotationDelayCounter -= Time.fixedDeltaTime;
