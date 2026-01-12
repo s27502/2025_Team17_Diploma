@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
+    [SerializeField] private float _laserSize = 1f;
+    
     [SerializeField] private float _defDistanceRay = 100f;
     [SerializeField] private Transform _firePoint;
     [SerializeField] private LineRenderer _lineRenderer;
@@ -13,6 +15,29 @@ public class Laser : MonoBehaviour
 
     [SerializeField] private LayerMask _obstacleMask;
     [SerializeField] private LayerMask _playerMask;
+    
+    [SerializeField] private Sprite _startSprite;
+    [SerializeField] private Sprite _endSprite;
+
+    private SpriteRenderer _laserStart;
+    private SpriteRenderer _laserEnd;
+
+    private void Awake()
+    {
+        GameObject startObj = new GameObject("LaserStart");
+        startObj.transform.parent = transform; 
+        _laserStart = startObj.AddComponent<SpriteRenderer>();
+        _laserStart.sprite = _startSprite;
+        _laserStart.transform.localScale = Vector3.one * _laserSize;
+
+        GameObject endObj = new GameObject("LaserEnd");
+        endObj.transform.parent = transform;
+        _laserEnd = endObj.AddComponent<SpriteRenderer>();
+        _laserEnd.sprite = _endSprite;
+        _laserEnd.transform.localScale = Vector3.one * _laserSize;
+    }
+
+
 
     private void Update()
     {
@@ -57,7 +82,32 @@ public class Laser : MonoBehaviour
         _lineRenderer.positionCount = 2;
         _lineRenderer.SetPosition(0, start);
         _lineRenderer.SetPosition(1, end);
+        
+        if (_laserStart != null)
+        {
+            _laserStart.transform.position = start;
+            Vector2 dirStart = end - start;
+            _laserStart.transform.right = dirStart;
+        }
+
+        if (_laserEnd != null)
+        {
+            _laserEnd.transform.position = end;
+            Vector2 dirEnd = end - start;
+            _laserEnd.transform.right = dirEnd;
+        }
+        
+        if (_lineRenderer != null)
+        {
+            float distance = Vector2.Distance(start, end);
+            _lineRenderer.widthMultiplier = _laserStart != null ? _laserStart.bounds.size.y : 0.1f;
+            if (_lineRenderer.material != null)
+            {
+                _lineRenderer.material.mainTextureScale = new Vector2(distance, 1);
+            }
+        }
     }
+
 
 
 }
