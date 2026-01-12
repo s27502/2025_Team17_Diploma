@@ -219,7 +219,7 @@ public class Enemy : MonoBehaviour
         transform.localScale = scale;
     }
 
-    public void FlipTo(float dirX)
+    public virtual void FlipTo(float dirX)
     {
         float threshold = 0.01f;
         if (Mathf.Abs(dirX) < threshold) return;
