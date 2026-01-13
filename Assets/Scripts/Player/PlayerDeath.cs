@@ -13,6 +13,7 @@ namespace Player
 
         public void StartDeath()
         {
+            AudioManager.Instance.PlaySfx(deathSound);
             StartCoroutine(DeathCoroutine());
         }
 
@@ -24,7 +25,7 @@ namespace Player
             _deathScreenInstance = Instantiate(_deathScreen);
             
             yield return new WaitForSecondsRealtime(2f);
-            AudioManager.Instance.PlaySfx(deathSound);
+           
             Destroy(gameObject);
             ServiceLocator.Instance.Erase();
             SceneManager.LoadScene("MainMenu");
