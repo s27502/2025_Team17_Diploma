@@ -123,7 +123,8 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
         
         //ENDLESS
         _newFloor = true;
-        _currentFloor = 0;
+        _currentFloor ++;
+        if (_currentFloor == _floorDatas.Count) _currentFloor = 0;
         _roomCounter = 0;
         _currentFloorData = _floorDatas[_currentFloor];
         _shopNumber = RollShopRoomNumber();

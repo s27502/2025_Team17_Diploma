@@ -51,6 +51,7 @@ MonoBehaviour:
   _floorsToGenerate: 1
   _floorDatas:
   - {fileID: 11400000, guid: c53d5992491f94240bbfa814df250bf8, type: 2}
+  - {fileID: 11400000, guid: f067d895015b5fd49b41b22b6439a992, type: 2}
 --- !u!1001 &5549335181579082721
 PrefabInstance:
   m_ObjectHideFlags: 0
