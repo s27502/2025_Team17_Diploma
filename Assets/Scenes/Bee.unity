@@ -170,6 +170,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1978676971}
+    - target: {fileID: 8519364127439130666, guid: 13844501cb87aea40a9bac9cfa1f4eed, type: 3}
+      propertyPath: floorInfo
+      value: 
+      objectReference: {fileID: 1756817127}
     - target: {fileID: 9210276994955500330, guid: 13844501cb87aea40a9bac9cfa1f4eed, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.57838076
@@ -339,6 +343,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c15d5fed35a36c4d871a0d23a4e2f57, type: 3}
+--- !u!114 &1756817127 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7763425837827620338, guid: 13844501cb87aea40a9bac9cfa1f4eed, type: 3}
+  m_PrefabInstance: {fileID: 701071952}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cdcf141a499651458c31f66fbbfd047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1969464978 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8049077995007196258, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
