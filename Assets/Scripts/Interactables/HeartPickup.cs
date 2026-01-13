@@ -14,6 +14,8 @@ public class HeartPickup : MonoBehaviour
     [SerializeField] private Sprite half;
 
     [SerializeField] private int healAmount;
+    [SerializeField] protected AudioClip pickUpSound;
+    
     void Start()
     {
         _sr = gameObject.GetComponent<SpriteRenderer>();
@@ -34,6 +36,7 @@ public class HeartPickup : MonoBehaviour
             if (_stats.GetMaxHp() > _stats.GetHp())
             {
                 _stats.ModifyHp(healAmount);
+                AudioManager.Instance.PlaySfx(pickUpSound);
                 Destroy(gameObject);
             }
         }

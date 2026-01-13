@@ -49,6 +49,7 @@ MonoBehaviour:
   full: {fileID: 21300000, guid: 10da2b57e71707241b0ffc1cfa033a99, type: 3}
   half: {fileID: 21300000, guid: 26f3429c7d211d54d95f20e763ef96ca, type: 3}
   healAmount: 2
+  pickUpSound: {fileID: 8300000, guid: 21974ede33a36064f913adc5f7f89aee, type: 3}
 --- !u!212 &393116414801907537
 SpriteRenderer:
   m_ObjectHideFlags: 0
