@@ -15,6 +15,8 @@ public class Ra : Boss
 {
     [SerializeField] private GameObject spriteObject;
     [SerializeField] private float attackDelay = 5f;
+    private float _shootCounter;
+    private Vector2 _shootingDir;
     private float _attackDelayCounter = 3f;
 
     [Header("Spiral Attack")]
@@ -51,6 +53,7 @@ public class Ra : Boss
         if (!isAttacking)
         {
             CrossMove();
+            Shoot4();
             _attackDelayCounter += Time.fixedDeltaTime;
 
             if (_attackDelayCounter >= attackDelay)
@@ -77,6 +80,25 @@ public class Ra : Boss
                     break;
             }
         }
+    }
+    
+    private void Shoot4()
+    {
+        if (_shootCounter <= 0)
+        {
+            if (_player)
+                _shootingDir = (_player.transform.position - transform.position).normalized;
+
+            projectileFactory.Shoot(Rotate(_shootingDir, -20));
+            projectileFactory.Shoot(Rotate(_shootingDir, 20));
+            projectileFactory.Shoot(Rotate(_shootingDir, -60));
+            projectileFactory.Shoot(Rotate(_shootingDir, 60));
+
+            _shootCounter = EnemyStats.GetFireRate();
+        }
+
+        _shootCounter -= Time.deltaTime;
+
     }
     
     private void SpiralAttack()
