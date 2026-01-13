@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ namespace Player
     {
         [SerializeField] private GameObject _deathScreen;
         private GameObject _deathScreenInstance;
+        [SerializeField] protected AudioClip deathSound;
 
         public void StartDeath()
         {
@@ -22,7 +24,7 @@ namespace Player
             _deathScreenInstance = Instantiate(_deathScreen);
             
             yield return new WaitForSecondsRealtime(2f);
-
+            AudioManager.Instance.PlaySfx(deathSound);
             Destroy(gameObject);
             ServiceLocator.Instance.Erase();
             SceneManager.LoadScene("MainMenu");

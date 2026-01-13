@@ -483,6 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathScreen: {fileID: 2540575307087665946, guid: bb614ef866ac3d0448e3f0a30ee3e678, type: 3}
+  deathSound: {fileID: 8300000, guid: 9937821208262fa45a0a443469fa5bde, type: 3}
 --- !u!114 &306556040188712002
 MonoBehaviour:
   m_ObjectHideFlags: 0
