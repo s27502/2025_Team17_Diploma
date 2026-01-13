@@ -10,6 +10,8 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
     [SerializeField] private GameObject _thankScreen;
     private GameObject _thankScreenInstance;
     
+    [SerializeField] private FloorInfo floorInfo;
+    
     [SerializeField] private GameObject _player;
     [SerializeField] private int _floorsToGenerate;
     private int _currentFloor = 0;
@@ -37,7 +39,8 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
         _currentRoom = Instantiate(_currentFloorData.startRoom, Vector3.zero, Quaternion.identity);
         _player.transform.position = _currentRoom.GetComponent<Room>()._spawnPos.transform.position;
         _roomCounter++;
-
+        floorInfo.SetText(ShowFloorInfo(_currentFloor));
+        floorInfo.FlyInNOut();
     }
 
     private int RollShrineRoomNumber()
@@ -55,6 +58,8 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
         if (_roomCounter == _currentFloorData.roomsToGenerate)
         {
             GoToNextFloor();
+            floorInfo.SetText(ShowFloorInfo(_currentFloor));
+            floorInfo.FlyInNOut();
         }
         else
         {
@@ -140,6 +145,30 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
         ];
     }
 
+    private string ShowFloorInfo(int floorNumber)
+    {
+        string displayText = "";
+        switch (floorNumber)
+        {
+            case 0:
+                displayText = "Temple of the Nile";
+                break;
+            case 1:
+                displayText = "Temple of the War";
+                break;
+            case 2:
+                displayText = "Temple of the Sun";
+                break;
+            case 3:
+                displayText = "Temple of the Death";
+                break;
+            default:
+                displayText = "I am error";
+                break;
+        }
+        return displayText;
+    }
+    
     public GameObject GetCurrentRoom()
     {
         return _currentRoom;
