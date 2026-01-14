@@ -548,7 +548,7 @@ Transform:
   m_GameObject: {fileID: 7243646597143355865}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.56, y: 5.2309656, z: 10.041097}
+  m_LocalPosition: {x: -11.56, y: 5.2309656, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -689,7 +689,6 @@ MonoBehaviour:
   MultiLaserSpawner: {fileID: 8012445837850818386}
   LaserTime: 1
   WindUpTime: 1
-  spriteObject: {fileID: 601106987362329132}
 --- !u!195 &5092558424392481310
 NavMeshAgent:
   m_ObjectHideFlags: 0
