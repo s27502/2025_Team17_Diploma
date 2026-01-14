@@ -24,6 +24,8 @@ namespace Player
         [SerializeField] private float poisonDMG;
         [SerializeField] private float poisonDuration;
 
+        private int _capHp = 10;
+        
         [SerializeField] private AudioClip dmgSFX;
 
         private PlayerDeath _death;
@@ -76,11 +78,22 @@ namespace Player
 
         public override void ModifyMaxHp(int value)
         {
+            if (_capHp < value)
+            {
+                return;
+            }
             base.ModifyMaxHp(value);
             _hp += value;
             OnHpChanged?.Invoke(_hp, _maxHp);
         }
 
+        public void CapHp(int value)
+        {
+            _maxHp = value;
+            _hp = value;
+            _capHp = value;
+        }
+        
         protected override void OnDeath()
         {
             _death.StartDeath();

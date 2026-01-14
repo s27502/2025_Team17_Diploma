@@ -61,6 +61,10 @@ namespace Items
                 _stats.ModifyMaxHp((int)stats[3]);
                 _stats.ModifyHp((int)stats[3]);
             }
+            if (stats[4] != 0)
+            {
+                _stats.ModifyProjectileCount((int)stats[4]);
+            }
             if(!_stats.GetBounce())
                 _stats.SetBounce(_isBouncing);
             if(!_stats.GetHoming())
