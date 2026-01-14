@@ -12,6 +12,7 @@ public abstract class ProjectileBase : MonoBehaviour, IPoolableObject
     {
         _rb = GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0;
+        transform.SetParent(ServiceLocator.Instance.GetService<FloorManager>().GetCurrentRoom().transform);
     }
 
     public void SetPool(IObjectPool pool) => _pool = pool;

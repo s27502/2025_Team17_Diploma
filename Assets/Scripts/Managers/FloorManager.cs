@@ -55,6 +55,7 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
 
     public IEnumerator GoToNextRoomCoroutine()
     {
+        _player.GetComponent<PlayerAttack>().RebuildProjectilePool();
         if (_roomCounter == _currentFloorData.roomsToGenerate)
         {
             GoToNextFloor();

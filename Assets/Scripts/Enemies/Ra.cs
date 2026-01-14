@@ -47,6 +47,12 @@ public class Ra : Boss
 
     private RaAttacks _currentAttack;
 
+    protected override void Start()
+    {
+        base.Start();
+        _agent.enabled = false;
+    }
+
     protected override void Attack()
     {
         if (!isAttacking)

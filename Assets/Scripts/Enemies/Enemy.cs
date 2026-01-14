@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
     protected Rigidbody2D _rb;
     private bool canReact = false;
 
-    private NavMeshAgent _agent;
+    protected NavMeshAgent _agent;
     
     
     public bool FacingRight { get; private set; } = true;
