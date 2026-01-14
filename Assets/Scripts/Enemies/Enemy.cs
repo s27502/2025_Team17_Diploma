@@ -69,9 +69,13 @@ public class Enemy : MonoBehaviour
     private void SetUpAgent()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _agent.updateRotation = false;
-        _agent.updateUpAxis = false;
-        _agent.speed = EnemyStats.GetMovementSpeed();
+        if (_agent)
+        {
+            _agent.updateRotation = false;
+            _agent.updateUpAxis = false;
+            _agent.speed = EnemyStats.GetMovementSpeed();
+        }
+
     }
     
     private IEnumerator StartAfterDelay()
@@ -252,6 +256,11 @@ public class Enemy : MonoBehaviour
         Vector3 scale = _spriteObject.transform.localScale;
         scale.x = Mathf.Abs(scale.x) * -Mathf.Sign(dirX);
         _spriteObject.transform.localScale = scale;
+    }
+    
+    protected Vector2 RotateProjectile(Vector2 v, float angle)
+    {
+        return Quaternion.Euler(0, 0, angle) * v;
     }
 
 }
