@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b48a5052314aad88c0c32763a7ed8c, type: 3}
   m_Name: Floor1Data
   m_EditorClassIdentifier: 
-  floorName: Floor1
+  floorName: Temple of the Nile
   possibleRooms:
   - {fileID: 2005126786876904744, guid: 69e811fb50b20dc439eedd6b93785700, type: 3}
   - {fileID: 2005126786876904744, guid: 87ae97c7ad4aef0489d2a7a64cf849af, type: 3}

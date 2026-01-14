@@ -8,7 +8,6 @@ public class HieraFollower : Enemy
     [SerializeField] private GameObject MultiLaserSpawner;
     [SerializeField] private float LaserTime = 1f;
     [SerializeField] private float WindUpTime = 1f;
-    [SerializeField] private GameObject spriteObject;
     private MultiLaserSpawner _spawner;
 
     private float _shootCounter = 0f;
@@ -46,15 +45,5 @@ public class HieraFollower : Enemy
     {
         yield return new WaitForSeconds(WindUpTime);
         _spawner.ShootForTimeInDir(LaserTime,dir);
-    }
-
-    public override void FlipTo(float dirX)
-    {
-        float threshold = 0.01f;
-        if (Mathf.Abs(dirX) < threshold) return;
-
-        Vector3 scale = spriteObject.transform.localScale;
-        scale.x = Mathf.Abs(scale.x) * -Mathf.Sign(dirX);
-        spriteObject.transform.localScale = scale;
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b48a5052314aad88c0c32763a7ed8c, type: 3}
   m_Name: Floor3Data
   m_EditorClassIdentifier: 
-  floorName: Floor3
+  floorName: Temple of the Sun
   possibleRooms:
   - {fileID: 2005126786876904744, guid: 090bdfb2355b6d246803b64b63afe8c1, type: 3}
   - {fileID: 2005126786876904744, guid: 96193db285949874c89463c160f2ad3d, type: 3}

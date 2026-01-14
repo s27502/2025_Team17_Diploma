@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 8735838614574303341}
   - component: {fileID: 8681278737512593201}
   - component: {fileID: 7595355044669697714}
+  - component: {fileID: 8541438711571239185}
   m_Layer: 10
   m_Name: CrioFollower
   m_TagString: Enemy
@@ -120,7 +121,7 @@ Transform:
   m_GameObject: {fileID: 3737686619770593651}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4355628, y: 5.2309656, z: 10.041097}
+  m_LocalPosition: {x: 2.4355628, y: 5.2309656, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -258,6 +259,28 @@ MonoBehaviour:
   minCrossMoveDuration: 0.5
   maxCrossMoveDuration: 1.5
   haltMovement: 0
+--- !u!195 &8541438711571239185
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3737686619770593651}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &6849970086194111110
 GameObject:
   m_ObjectHideFlags: 0

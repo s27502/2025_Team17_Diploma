@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b48a5052314aad88c0c32763a7ed8c, type: 3}
+  m_Name: Floor4Data
+  m_EditorClassIdentifier: 
+  floorName: Temple of the Death
+  possibleRooms:
+  - {fileID: 2005126786876904744, guid: 090bdfb2355b6d246803b64b63afe8c1, type: 3}
+  - {fileID: 2005126786876904744, guid: 96193db285949874c89463c160f2ad3d, type: 3}
+  shopRoomNumberMin: 9
+  shopRoomNumberMax: 11
+  shrineRoomNumberMin: 4
+  shrineRoomNumberMax: 6
+  startRoom: {fileID: 2005126786876904744, guid: 036949b01db40e449869c3ad7f0022a7, type: 3}
+  bossRoom: {fileID: 2005126786876904744, guid: 7a9fa94bbbffcbd41a410524991954ec, type: 3}
+  shopRoom: {fileID: 2005126786876904744, guid: 4ae85a1cb25b57444b52a59c54fd8f83, type: 3}
+  shrineRoom: {fileID: 2005126786876904744, guid: 341f951a682f2a34ab06db2bd91f8b76, type: 3}
+  roomsToGenerate: 12
