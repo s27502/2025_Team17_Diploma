@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 4522305652489709931}
   - component: {fileID: 8567432768001314344}
   - component: {fileID: 1239416351784108254}
+  - component: {fileID: 1791129415173640593}
   m_Layer: 10
   m_Name: ChampionScarab
   m_TagString: Enemy
@@ -407,5 +408,29 @@ MonoBehaviour:
   projectileFactory: {fileID: 4106780261509027078}
   startDelay: 1
   enemyDie: {fileID: 8300000, guid: 6baaf62589bfd7a45b84810349ba4fe6, type: 3}
+  minCrossMoveDuration: 0.5
+  maxCrossMoveDuration: 1.5
   _dashDelay: 0.5
   _dashDistance: 0.5
+--- !u!195 &1791129415173640593
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8369787925077704821}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

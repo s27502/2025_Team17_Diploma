@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 238114044502374812}
   - component: {fileID: 147497962096363200}
   - component: {fileID: 4115151345796909996}
+  - component: {fileID: 8480153936547261181}
   m_Layer: 10
   m_Name: Sobek
   m_TagString: Enemy
@@ -317,22 +318,45 @@ MonoBehaviour:
   projectileFactory: {fileID: 2601403101457127642}
   startDelay: 1
   enemyDie: {fileID: 8300000, guid: 6baaf62589bfd7a45b84810349ba4fe6, type: 3}
+  minCrossMoveDuration: 0.5
+  maxCrossMoveDuration: 1.5
   _name: Sobek
   _nameArea: {fileID: 0}
-  _healthBar: {fileID: 0}
+  _healthBarArea: {fileID: 0}
   _enemies: {fileID: 0}
   _windUpTime: 2
   _miniChargeCooldown: 0.5
   _chargingSpeedMult: 5
   _summonDelay: 20
-  _spiralFireRate: 0.2
+  _shootDuration: 0
   _rainSpawner: {fileID: 0}
   _enemySpawnerObject: {fileID: 0}
   _posChangeInterval: 0.5
   _randomMoveDistance: 2
-  _spiralDuration: 7
   _movingDuration: 5
   _maxGators: 2
+--- !u!195 &8480153936547261181
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5307760116205342850}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &6309769243928695759
 GameObject:
   m_ObjectHideFlags: 0
