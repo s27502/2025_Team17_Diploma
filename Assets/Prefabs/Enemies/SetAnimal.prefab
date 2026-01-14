@@ -214,7 +214,7 @@ MonoBehaviour:
   dmg: 1
   atkSpd: 1
   fireRate: 1
-  movementSpeed: 7
+  movementSpeed: 9
   OnHpChanged:
     m_PersistentCalls:
       m_Calls: []

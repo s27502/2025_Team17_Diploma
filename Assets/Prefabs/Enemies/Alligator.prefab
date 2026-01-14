@@ -166,7 +166,6 @@ GameObject:
   - component: {fileID: 1000564441474043764}
   - component: {fileID: 910659397338001448}
   - component: {fileID: 7485485230768743625}
-  - component: {fileID: -3194180829523818834}
   m_Layer: 10
   m_Name: Alligator
   m_TagString: Enemy
@@ -324,28 +323,6 @@ MonoBehaviour:
   _windUpTime: 2
   _miniChargeCooldown: 0.5
   _chargingSpeedMult: 10
---- !u!195 &-3194180829523818834
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5118262691685541482}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &6431006997422073127
 GameObject:
   m_ObjectHideFlags: 0

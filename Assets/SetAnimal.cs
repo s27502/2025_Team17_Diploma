@@ -57,10 +57,7 @@ public class SetAnimal : Enemy
         projectileFactory.Shoot(RotateProjectile(_shootingDir,40));
     }
     
-    private Vector2 RotateProjectile(Vector2 v, float angle)
-    {
-        return Quaternion.Euler(0, 0, angle) * v;
-    }
+
 
     public override void Die()
     {
