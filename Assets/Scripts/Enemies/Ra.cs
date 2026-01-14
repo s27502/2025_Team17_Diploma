@@ -13,7 +13,6 @@ public enum RaAttacks
 
 public class Ra : Boss
 {
-    [SerializeField] private GameObject spriteObject;
     [SerializeField] private float attackDelay = 5f;
     private float _shootCounter;
     private Vector2 _shootingDir;
@@ -254,14 +253,6 @@ public class Ra : Boss
         _laserDurationCounter = laserDuration;
         _laserChargeCounter = laserCharge;
         return RaAttacks.LaserX;
-    }
-
-    public override void FlipTo(float dirX)
-    {
-        if (Mathf.Abs(dirX) < 0.01f) return;
-        Vector3 scale = spriteObject.transform.localScale;
-        scale.x = Mathf.Abs(scale.x) * -Mathf.Sign(dirX);
-        spriteObject.transform.localScale = scale;
     }
 
     public override void Die()

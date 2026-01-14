@@ -5,6 +5,7 @@ using Enemies;
 using Managers;
 using Player;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 public enum EnemyState
@@ -21,6 +22,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float minCrossMoveDuration = 0.5f;
     [SerializeField] private float maxCrossMoveDuration = 1.5f;
+    private GameObject _spriteObject;
     private Vector2 currentCrossDirection;
     private Vector2 newCrossDirection;
 
@@ -32,7 +34,9 @@ public class Enemy : MonoBehaviour
     protected EnemyState State;
     protected GameObject _player;
     protected Rigidbody2D _rb;
-    private bool canReact = false; 
+    private bool canReact = false;
+
+    private NavMeshAgent _agent;
     
     
     public bool FacingRight { get; private set; } = true;
@@ -42,6 +46,8 @@ public class Enemy : MonoBehaviour
         EnemyStats = GetComponent<EnemyStats>();
         _rb = GetComponent<Rigidbody2D>();
         StartCoroutine(StartAfterDelay());
+        _spriteObject = transform.Find("Sprite").gameObject;
+        SetUpAgent();
     }
 
     
@@ -58,6 +64,14 @@ public class Enemy : MonoBehaviour
                 break;
         }
         
+    }
+
+    private void SetUpAgent()
+    {
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.updateRotation = false;
+        _agent.updateUpAxis = false;
+        _agent.speed = EnemyStats.GetMovementSpeed();
     }
     
     private IEnumerator StartAfterDelay()
@@ -78,12 +92,24 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Attack()
     {
-        //throw new NotImplementedException();
+        //MoveToPlayer();
     }
 
     protected virtual void Idle()
     {
         //throw new NotImplementedException();
+    }
+
+    protected void NavMoveTo(Transform target)
+    {
+        _agent.SetDestination(target.position);
+        
+        if (_rb == null) return;
+    
+        Vector2 currentPos = _rb.position;
+        Vector2 dir = ((Vector2)target.position - currentPos).normalized;
+        
+        FlipTo(dir.x);
     }
 
     protected void MoveTo(Vector2 targetPos)
@@ -161,7 +187,8 @@ public class Enemy : MonoBehaviour
     protected void MoveToPlayer()
     {
         if (_player == null) return;
-        MoveTo(_player.transform.position);
+        //MoveTo(_player.transform.position);
+        NavMoveTo(_player.transform);
     }
     
 
@@ -221,14 +248,10 @@ public class Enemy : MonoBehaviour
 
     public virtual void FlipTo(float dirX)
     {
-        float threshold = 0.01f;
-        if (Mathf.Abs(dirX) < threshold) return;
-
-        Vector3 scale = transform.localScale;
+        if (Mathf.Abs(dirX) < 0.01f) return;
+        Vector3 scale = _spriteObject.transform.localScale;
         scale.x = Mathf.Abs(scale.x) * -Mathf.Sign(dirX);
-        transform.localScale = scale;
-
-        FacingRight = dirX > 0;
+        _spriteObject.transform.localScale = scale;
     }
 
 }

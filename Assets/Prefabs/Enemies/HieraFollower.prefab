@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 3342685710813350087}
   - component: {fileID: 3396397031077230491}
   - component: {fileID: 715916084071125511}
+  - component: {fileID: 5092558424392481310}
   m_Layer: 10
   m_Name: HieraFollower
   m_TagString: Enemy
@@ -547,7 +548,7 @@ Transform:
   m_GameObject: {fileID: 7243646597143355865}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.56, y: 5.2309656, z: 10.041097}
+  m_LocalPosition: {x: -11.56, y: 5.2309656, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -688,7 +689,28 @@ MonoBehaviour:
   MultiLaserSpawner: {fileID: 8012445837850818386}
   LaserTime: 1
   WindUpTime: 1
-  spriteObject: {fileID: 601106987362329132}
+--- !u!195 &5092558424392481310
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7243646597143355865}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8527105638976187558
 GameObject:
   m_ObjectHideFlags: 0
