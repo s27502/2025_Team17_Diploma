@@ -21,7 +21,7 @@ namespace Enemies
         [SerializeField] private float _summonDelay = 10f;
         private float _summonDelayCounter;
 
-        [Header("Shoot Attack (from Ra)")] 
+        [Header("Shoot Attack")] 
         [SerializeField] private float _shootDuration;
         private float _shootCounter;
         private Vector2 _shootingDir;
@@ -183,13 +183,13 @@ namespace Enemies
             if (_player)
                 _shootingDir = (_player.transform.position - transform.position).normalized;
 
-            projectileFactory.Shoot(Rotate(_shootingDir, -20));
-            projectileFactory.Shoot(Rotate(_shootingDir, 20));
-            projectileFactory.Shoot(Rotate(_shootingDir, -60));
-            projectileFactory.Shoot(Rotate(_shootingDir, 60));
+            projectileFactory.Shoot(RotateProjectile(_shootingDir, -20));
+            projectileFactory.Shoot(RotateProjectile(_shootingDir, 20));
+            projectileFactory.Shoot(RotateProjectile(_shootingDir, -60));
+            projectileFactory.Shoot(RotateProjectile(_shootingDir, 60));
         }
 
-        private Vector2 Rotate(Vector2 v, float angle)
+        private Vector2 RotateProjectile(Vector2 v, float angle)
         {
             return Quaternion.Euler(0, 0, angle) * v;
         }
@@ -253,9 +253,9 @@ namespace Enemies
             {
                 _shootingDir = (_player.transform.position - transform.position).normalized;
             }
-            projectileFactory.Shoot(Rotate(_shootingDir,-40));
+            projectileFactory.Shoot(RotateProjectile(_shootingDir,-40));
             projectileFactory.Shoot(_shootingDir);
-            projectileFactory.Shoot(Rotate(_shootingDir,40));
+            projectileFactory.Shoot(RotateProjectile(_shootingDir,40));
         }
         
         private void PerformChargeAttack()
