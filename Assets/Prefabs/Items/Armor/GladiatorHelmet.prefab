@@ -153,5 +153,6 @@ MonoBehaviour:
   _isPoisoning: 0
   _isBouncing: 0
   _isHoming: 0
+  _description: Grants 2 armor points
   pickUpSound: {fileID: 8300000, guid: 1b1db92b32b5d7d4984bd21ffaeb4172, type: 3}
   _helmetAnimator: {fileID: 9100000, guid: d56e250d5fac86544a5d33711799e2fb, type: 2}

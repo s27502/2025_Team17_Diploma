@@ -19,6 +19,8 @@ namespace Items
         [SerializeField] protected bool _isBouncing;
         [SerializeField] protected bool _isHoming;
         
+        [SerializeField] protected string _description;
+        
         [SerializeField] protected AudioClip pickUpSound;
         private void Awake()
         {
@@ -36,6 +38,8 @@ namespace Items
         {
             return stats;
         }
+        
+        public string GetDescription() => _description;
         
         public bool GetPoison() => _isPoisoning;
         public bool GetBounce() => _isBouncing;
