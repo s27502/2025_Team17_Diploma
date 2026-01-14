@@ -5,6 +5,7 @@ using Enemies;
 using Managers;
 using Player;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 public enum EnemyState
@@ -32,7 +33,9 @@ public class Enemy : MonoBehaviour
     protected EnemyState State;
     protected GameObject _player;
     protected Rigidbody2D _rb;
-    private bool canReact = false; 
+    private bool canReact = false;
+
+    private NavMeshAgent _agent;
     
     
     public bool FacingRight { get; private set; } = true;
@@ -42,6 +45,9 @@ public class Enemy : MonoBehaviour
         EnemyStats = GetComponent<EnemyStats>();
         _rb = GetComponent<Rigidbody2D>();
         StartCoroutine(StartAfterDelay());
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.updateRotation = false;
+        _agent.updateUpAxis = false;
     }
 
     
@@ -78,12 +84,17 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Attack()
     {
-        //throw new NotImplementedException();
+        MoveToPlayer();
     }
 
     protected virtual void Idle()
     {
         //throw new NotImplementedException();
+    }
+
+    protected void NavMoveTo(Transform target)
+    {
+        _agent.SetDestination(target.position);
     }
 
     protected void MoveTo(Vector2 targetPos)
@@ -161,7 +172,8 @@ public class Enemy : MonoBehaviour
     protected void MoveToPlayer()
     {
         if (_player == null) return;
-        MoveTo(_player.transform.position);
+        //MoveTo(_player.transform.position);
+        NavMoveTo(_player.transform);
     }
     
 
