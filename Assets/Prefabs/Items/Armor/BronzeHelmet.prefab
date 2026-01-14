@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29497df79cc70e34eab353bb6b224e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: CopperHelmet
+  itemName: Bronze Helmet
   itemPrice: 15
   IsShop: 0
   stats:
@@ -153,5 +153,6 @@ MonoBehaviour:
   _isPoisoning: 0
   _isBouncing: 0
   _isHoming: 0
+  _description: Grants 1 armor point
   pickUpSound: {fileID: 8300000, guid: 1b1db92b32b5d7d4984bd21ffaeb4172, type: 3}
   _helmetAnimator: {fileID: 9100000, guid: ce3b8c792ad7af14e8d57f5f4c5e8dfe, type: 2}

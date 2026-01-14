@@ -108,6 +108,7 @@ MonoBehaviour:
   _isPoisoning: 0
   _isBouncing: 0
   _isHoming: 1
+  _description: Grants 4 damage and 1.6 fire rate projectiles shot split on hit
   pickUpSound: {fileID: 8300000, guid: 1b1db92b32b5d7d4984bd21ffaeb4172, type: 3}
   _projectile: {fileID: 3424888137376225583, guid: ef068092e6740354a999f34fc9adf1b5, type: 3}
 --- !u!61 &239973909591963468
