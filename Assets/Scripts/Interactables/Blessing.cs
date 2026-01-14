@@ -10,6 +10,8 @@ namespace Interactables
         [SerializeField] private float _atkSpdMult;
         [SerializeField] private int _projCount;
         [SerializeField] private int _hp;
+        [SerializeField] private int _luck;
+        [SerializeField] private int _hpcap;
 
         public string GetDescription()
         {
@@ -36,6 +38,16 @@ namespace Interactables
             return _projCount;
         }
 
+        public int GetHpCap()
+        {
+            return _hpcap;
+        }
+
+        public int GetLuck()
+        {
+            return _luck;
+        }
+        
         public int GetHp()
         {
             return _hp;
