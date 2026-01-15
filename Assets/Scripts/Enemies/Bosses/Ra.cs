@@ -13,6 +13,7 @@ public enum RaAttacks
 
 public class Ra : Boss
 {
+    [SerializeField] private Animator _animator;
     [SerializeField] private float attackDelay = 5f;
     private float _shootCounter;
     private Vector2 _shootingDir;
@@ -55,8 +56,10 @@ public class Ra : Boss
 
     protected override void Attack()
     {
+
         if (!isAttacking)
         {
+            _animator.SetBool("isWalking",!isAttacking);
             CrossMove();
             Shoot4();
             _attackDelayCounter += Time.fixedDeltaTime;
@@ -199,6 +202,7 @@ public class Ra : Boss
             else
             {
                 isOnSun = true;
+                _animator.SetBool("isSummoning",false);
                 sun.SetActive(true);
                 transform.position += Vector3.down * 25f;
             }
@@ -238,6 +242,8 @@ public class Ra : Boss
             _sunDurationCounter = sunAttackDuration;
             _rotationDelayCounter = sunRotationDelay;
             _sunRotateClockwise = GetSunDir();
+            _animator.SetBool("isWalking",false);
+            _animator.SetBool("isSummoning",true);
             return RaAttacks.Sun;
         }
 
@@ -246,6 +252,7 @@ public class Ra : Boss
             _spiralDurationCounter = _spiralDuration;
             _spiralAngle = 0;
             _spiralShootCounter = 0;
+            _animator.SetBool("isWalking",false);
             return RaAttacks.Spiral;
         }
 
@@ -253,9 +260,11 @@ public class Ra : Boss
         {
             _laserDurationCounter = laserDuration;
             _laserChargeCounter = laserCharge;
+            _animator.SetBool("isWalking",false);
             return RaAttacks.LaserCross;
         }
 
+        _animator.SetBool("isWalking",false);
         _laserDurationCounter = laserDuration;
         _laserChargeCounter = laserCharge;
         return RaAttacks.LaserX;
