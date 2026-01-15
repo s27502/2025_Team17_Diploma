@@ -13,7 +13,6 @@ public enum RaAttacks
 
 public class Ra : Boss
 {
-    [SerializeField] private Animator _animator;
     [SerializeField] private float attackDelay = 5f;
     private float _shootCounter;
     private Vector2 _shootingDir;
