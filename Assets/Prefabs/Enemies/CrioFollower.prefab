@@ -253,6 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6bf5a4ba583394eb084e5911800239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 6402267997161953192}
   projectileFactory: {fileID: 6803839318125996331}
   startDelay: 1
   enemyDie: {fileID: 8300000, guid: 6baaf62589bfd7a45b84810349ba4fe6, type: 3}

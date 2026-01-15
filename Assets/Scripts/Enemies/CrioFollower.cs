@@ -14,7 +14,7 @@ public class CrioFollower : Enemy
         if (!haltMovement)
         {
             CrossMove();
-            
+            _animator.SetBool("isWalking",true);
             _shootTimer += Time.fixedDeltaTime;
 
             if (!(_shootTimer >= EnemyStats.GetFireRate())) return;
