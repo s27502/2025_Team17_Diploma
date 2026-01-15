@@ -19,7 +19,7 @@ public class HieracoSphynx : Enemy
     {
         if (fireCounter <= EnemyStats.GetFireRate())
         {
-            Debug.Log("searching");
+            _animator.SetBool("do",false);
             fireCounter += Time.fixedDeltaTime;
         }
         else
@@ -33,7 +33,7 @@ public class HieracoSphynx : Enemy
         if (laserCounter == 0)
         {
             //start anim
-
+            _animator.SetBool("do",true);
         }
         if (laserCounter <= laserDelay)
         {
