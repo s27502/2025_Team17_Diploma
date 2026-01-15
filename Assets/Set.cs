@@ -365,7 +365,23 @@ public class Set : Boss
 
     private void Bounce(Collision2D other)
     {
-        _rb.velocity = -_rb.velocity;
+        Vector2 normal = other.GetContact(0).normal;
+
+        Vector2 currentVelocity = _rb.velocity;
+
+        Vector2 reflectedDir = Vector2.Reflect(currentVelocity.normalized, normal);
+
+        float speed = currentVelocity.magnitude;
+
+
+        if (speed < EnemyStats.GetMovementSpeed())
+            speed = EnemyStats.GetMovementSpeed();
+
+        _rb.velocity = reflectedDir * speed;
+
+        _rb.position += normal * 0.05f;
+
+        _plumDir = reflectedDir;
     }
 
 
