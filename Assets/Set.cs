@@ -125,8 +125,9 @@ public class Set : Boss
             {
                 _agent.enabled = false;
                 _startPlum = false;
+                
                 _plumDir = PickNewRandomDir360();
-                _rb.velocity = _plumDir * (EnemyStats.GetMovementSpeed() /2);
+                _rb.velocity = _plumDir * EnemyStats.GetMovementSpeed();
             }
 
             if (_attackDurationCounter <= babyPlumDuration)
@@ -151,10 +152,23 @@ public class Set : Boss
     private Vector2 PickNewRandomDir360()
     {
         float angle = Random.Range(0f, 360f);
+        Debug.Log(angle);
         return new Vector2(
             Mathf.Cos(angle * Mathf.Deg2Rad),
             Mathf.Sin(angle * Mathf.Deg2Rad)
         ).normalized;
+    }
+    
+    public Vector3 GetRandomDirection()
+    {
+
+        float randomAngle = Random.Range(0f, 360f);
+        
+        Quaternion rotation = Quaternion.Euler(0, randomAngle, 0);
+
+        Vector3 newDirection = rotation * transform.forward;
+
+        return newDirection.normalized;
     }
 
 
@@ -340,11 +354,20 @@ public class Set : Boss
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (_plumming && (other.transform.CompareTag("Obstacle") || other.transform.CompareTag("Player")))
+        if (_plumming && (other.collider.CompareTag("Obstacle") || other.collider.CompareTag("Player")))
         {
-            _rb.velocity = -_rb.velocity;
+            Bounce(other);
         }
-        if (!_dashing) return;
-        FinishDash();
+
+        if (_dashing)
+            FinishDash();
     }
+
+    private void Bounce(Collision2D other)
+    {
+        _rb.velocity = -_rb.velocity;
+    }
+
+
+
 }
