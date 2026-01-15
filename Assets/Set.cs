@@ -16,9 +16,12 @@ public enum SetAttacks
 }
 public class Set : Boss
 {
-    private List<Vector2> _delayedShootPositions;
-    private Vector2 _delayedShootPos;
-    private Vector2 _delayedShootDir;
+    [SerializeField] private List<GameObject> hangingProjectileSprites;
+    [SerializeField] private float specialFireRate = .5f;
+    private float _hangingFireCounter = 0f;
+    
+    private int _hangingProjectileCounter = 0;
+
     
     [SerializeField] private float shootWalkDuration = 5f;
     private float _shootWalkFireCounter = 0f;
@@ -41,8 +44,7 @@ public class Set : Boss
     private bool _plumming = false;
     private bool _startPlum = false;
     
-    [SerializeField] private float delayedProjectileOffset = 1f;
-    [SerializeField] private float specialFireRate = .5f;
+
 
     private float _attackDurationCounter = 0f;
 
@@ -52,22 +54,10 @@ public class Set : Boss
     private SetAttacks _currentAttack;
     private float _attackDelayCounter = 0;
     
-    private static readonly Vector2[] _defaultShootPositions =
-    {
-        Vector2.up,
-        new Vector2(-1, 1).normalized,
-        Vector2.left,
-        new Vector2(-1, -1).normalized,
-        Vector2.down,
-        new Vector2(1, -1).normalized,
-        Vector2.right,
-        new Vector2(1, 1).normalized
-    };
     
     protected override void Start()
     {
         base.Start();
-        _delayedShootPositions = new List<Vector2>();
         _originalSpeed = EnemyStats.GetMovementSpeed();
     }
 
@@ -114,7 +104,16 @@ public class Set : Boss
 
     private void PerformDelayedShoot2()
     {
-        throw new System.NotImplementedException();
+        if (_hangingFireCounter <= specialFireRate)
+        {
+            hangingProjectileSprites[_hangingProjectileCounter%8].SetActive(true);
+            _hangingFireCounter += Time.fixedDeltaTime;
+        }
+        else
+        {
+            SpawnHangingProjectile();
+            _hangingFireCounter = 0;
+        }
     }
 
     private void PerformBabyPlum()
@@ -216,7 +215,46 @@ public class Set : Boss
 
     private void PerformDelayedShoot()
     {
-        throw new System.NotImplementedException();
+        if (_attackDurationCounter <= delayedShootDuration)
+        {
+            CrossMove();
+            if (_hangingFireCounter <= specialFireRate)
+            {
+                hangingProjectileSprites[_hangingProjectileCounter%8].SetActive(true);
+                _hangingFireCounter += Time.fixedDeltaTime;
+            }
+            else
+            {
+                SpawnHangingProjectile();
+                _hangingFireCounter = 0;
+            }
+
+            _attackDurationCounter += Time.fixedDeltaTime;
+        }
+        else
+        {
+            ClearProjectileSprites();
+            DelayNextAttack();
+        }
+    }
+
+    private void SpawnHangingProjectile()
+    {
+        Vector2 spawnPos = hangingProjectileSprites[_hangingProjectileCounter % 8].transform.position;
+        Debug.Log(spawnPos);
+        hangingProjectileSprites[_hangingProjectileCounter % 8].SetActive(false);
+        projectileFactory.ShootFromPosition((_player.transform.position - (Vector3)spawnPos).normalized,spawnPos);
+
+        _hangingProjectileCounter++;
+
+    }
+
+    private void ClearProjectileSprites()
+    {
+        foreach (GameObject spriteObject in hangingProjectileSprites)
+        {
+            spriteObject.SetActive(false);
+        }
     }
 
     private void PerformShootWalk()
@@ -281,12 +319,12 @@ public class Set : Boss
         _attackDurationCounter = 0f;
         int val = Random.Range(0, 100);
 
-        if (val >= 101)//70
+        if (val >= 70)//70
         {
             return SetAttacks.ShootWalk;
         }
 
-        if (val >= 101)//45
+        if (val >= 35)//45
         {
             _dashing = true;
             _startDash = true;
@@ -294,8 +332,10 @@ public class Set : Boss
             return SetAttacks.Dash;
         }
 
-        if (val >= 101)//20
+        if (val >= 0)//20
         {
+            _hangingProjectileCounter = 0;
+            _agent.enabled = false;
             return SetAttacks.DelayedShoot;
         }
 
@@ -308,7 +348,7 @@ public class Set : Boss
     {
         int val = Random.Range(0, 100);
 
-        if (val >= 65)
+        if (val >= 50)//65
         {
             _dashing = true;
             _startDash = true;
@@ -316,26 +356,14 @@ public class Set : Boss
             return SetAttacks.Dash;
         }
 
-        if (val >= 25)
+        if (val >= 0)//25
         {
             return SetAttacks.ShootWalk;
         }
 
         _plumming = true;
-        
+        _startPlum = true;
         return SetAttacks.BabyPlum;
-    }
-    
-    private void UpdateProjectileSpawnpoints()
-    {
-        _delayedShootPositions.Clear();
-
-        Vector2 origin = transform.position;
-
-        foreach (Vector2 dir in _defaultShootPositions)
-        {
-            _delayedShootPositions.Add(origin + dir * delayedProjectileOffset);
-        }
     }
 
     private void DelayNextAttack()
@@ -384,6 +412,12 @@ public class Set : Boss
         _plumDir = reflectedDir;
     }
 
+    protected override void OnHpChangedHandler(int hp, int maxHp)
+    {
+        base.OnHpChangedHandler(hp, maxHp);
 
+        if (hp <= (maxHp / 10) * 4)
+            _phase2 = true;
+    }
 
 }
