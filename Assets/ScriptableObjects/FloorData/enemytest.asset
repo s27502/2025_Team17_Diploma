@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorName: enemytest
   possibleRooms:
-  - {fileID: 2005126786876904744, guid: 27ea512f134f0f141ae8ad6fab27de13, type: 3}
+  - {fileID: 2005126786876904744, guid: d113f0854ac933149b44987f053551c1, type: 3}
   shopRoomNumberMin: 0
   shopRoomNumberMax: 0
   shrineRoomNumberMin: 0
   shrineRoomNumberMax: 0
   startRoom: {fileID: 2005126786876904744, guid: 4f9d711f3728cf54eb996ae7e9328f33, type: 3}
-  bossRoom: {fileID: 2005126786876904744, guid: 7a9fa94bbbffcbd41a410524991954ec, type: 3}
+  bossRoom: {fileID: 2005126786876904744, guid: d113f0854ac933149b44987f053551c1, type: 3}
   shopRoom: {fileID: 2005126786876904744, guid: f5857537e3648bd458ac64ceb9f9de46, type: 3}
   shrineRoom: {fileID: 0}
   roomsToGenerate: 3

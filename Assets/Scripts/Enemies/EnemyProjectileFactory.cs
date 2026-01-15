@@ -29,5 +29,20 @@ namespace Enemies
                 projectile.Spawn(transform.position, direction);
             }
         }
+
+        public void ShootFromPosition(Vector2 direction, Vector2 position)
+        {
+            if (direction == Vector2.zero)
+                return;
+
+            direction.Normalize();
+
+            IPoolableObject projectile = _projectilePool.GetObject();
+
+            if (projectile != null)
+            {
+                projectile.Spawn(position, direction);
+            }
+        }
     }
 }

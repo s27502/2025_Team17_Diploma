@@ -51,7 +51,7 @@ public class PlayerAttack : MonoBehaviour
         RebuildProjectilePool();
     }
 
-    private void RebuildProjectilePool()
+    public void RebuildProjectilePool()
     {
         _factory = new ProjectileFactory(_projectile);
         _projectilePool = new ProjectilePool(_factory, 25);
