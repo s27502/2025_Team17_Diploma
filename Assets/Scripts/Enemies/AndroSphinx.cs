@@ -9,7 +9,6 @@ public enum AndroSphinxAttacks
 }
 public class AndroSphinx : Enemy
 {
-    [SerializeField] private Animator _animator;
     [SerializeField] private float windUpTime = 2f;
     [SerializeField] private float _miniChargeCooldown = 0.5f;
     [SerializeField] private float _chargingSpeedMult = 5;

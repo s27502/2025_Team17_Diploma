@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995703974fbf5fb49b13739600288418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 346080804477681767}
   projectileFactory: {fileID: 5709543807013967549}
   startDelay: 1
   enemyDie: {fileID: 8300000, guid: 6baaf62589bfd7a45b84810349ba4fe6, type: 3}
@@ -173,7 +174,6 @@ MonoBehaviour:
   _name: Ra
   _nameArea: {fileID: 0}
   _healthBarArea: {fileID: 0}
-  spriteObject: {fileID: 5647429924815101200}
   attackDelay: 4
   _spiralFireRate: 0.2
   _spiralDuration: 6
