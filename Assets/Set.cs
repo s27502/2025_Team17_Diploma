@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Enemies;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 public enum SetAttacks
@@ -23,8 +25,21 @@ public class Set : Boss
     private Vector2 _shootWalkDir;
     private bool _nowShoot4 = false;
     
+    private bool _dashing;
+    private bool _startDash;
+    [SerializeField] private float dashWindUp;
+    private float _windUpCounter = 0f;
+    private Vector2 _dashDir;
+    private float _originalSpeed;
+    [SerializeField] private float _dashSpeedMult = 2f;
+    
     [SerializeField] private float delayedShootDuration = 4f;
+    
     [SerializeField] private float babyPlumDuration = 8f;
+    [SerializeField] private float plumSpeedMult = 2f;
+    private Vector2 _plumDir;
+    private bool _plumming = false;
+    private bool _startPlum = false;
     
     [SerializeField] private float delayedProjectileOffset = 1f;
     [SerializeField] private float specialFireRate = .5f;
@@ -35,6 +50,7 @@ public class Set : Boss
 
     private bool _rollNewAttack = true;
     private SetAttacks _currentAttack;
+    private float _attackDelayCounter = 0;
     
     private static readonly Vector2[] _defaultShootPositions =
     {
@@ -52,6 +68,7 @@ public class Set : Boss
     {
         base.Start();
         _delayedShootPositions = new List<Vector2>();
+        _originalSpeed = EnemyStats.GetMovementSpeed();
     }
 
     protected override void Attack()
@@ -102,12 +119,85 @@ public class Set : Boss
 
     private void PerformBabyPlum()
     {
-        throw new System.NotImplementedException();
+        if (_plumming)
+        {
+            if (_startPlum)
+            {
+                _agent.enabled = false;
+                _startPlum = false;
+                _plumDir = PickNewRandomDir360();
+                _rb.velocity = _plumDir * (EnemyStats.GetMovementSpeed() /2);
+            }
+
+            if (_attackDurationCounter <= babyPlumDuration)
+            {
+                _attackDurationCounter += Time.fixedDeltaTime;
+
+                //shoot
+            }
+            else
+            {
+                _plumming = false;
+                _rb.velocity = Vector2.zero;
+            }
+
+        }
+        else
+        {
+            DelayNextAttack();
+        }
     }
+    
+    private Vector2 PickNewRandomDir360()
+    {
+        float angle = Random.Range(0f, 360f);
+        return new Vector2(
+            Mathf.Cos(angle * Mathf.Deg2Rad),
+            Mathf.Sin(angle * Mathf.Deg2Rad)
+        ).normalized;
+    }
+
 
     private void PerformDash()
     {
-        throw new System.NotImplementedException();
+        if (_dashing)
+        {
+            if (_startDash)
+            {
+                StartDash();
+            }
+            else
+            {
+                MoveInDirection(_dashDir);
+            }
+        }
+        else
+        {
+            DelayNextAttack();
+        }
+    }
+
+    private void StartDash()
+    {
+        if (_windUpCounter <= dashWindUp)
+        {
+            _windUpCounter += Time.fixedDeltaTime;
+        }
+        else
+        {
+            _agent.enabled = false;
+            EnemyStats.SetMovementSpeed(_originalSpeed * _dashSpeedMult);
+            _dashDir = (_player.transform.position - transform.position).normalized;
+
+            _startDash = false;
+        }
+    }
+
+    private void FinishDash()
+    {
+        EnemyStats.SetMovementSpeed(_originalSpeed);
+        _dashing = false;
+        //_agent.enabled = true;
     }
 
     private void PerformDelayedShoot()
@@ -117,8 +207,16 @@ public class Set : Boss
 
     private void PerformShootWalk()
     {
-        NavMoveTo(_player.transform);
-        PerformWalkShooting();
+        if (_attackDurationCounter <= shootWalkDuration)
+        {
+            NavMoveTo(_player.transform);
+            PerformWalkShooting();
+            _attackDurationCounter += Time.fixedDeltaTime;
+        }
+        else
+        {
+            DelayNextAttack();
+        }
     }
     
     private void PerformWalkShooting()
@@ -166,24 +264,29 @@ public class Set : Boss
 
     private SetAttacks RollAttack()
     {
-        
+        _attackDurationCounter = 0f;
         int val = Random.Range(0, 100);
 
-        if (val >= 0)
+        if (val >= 101)//70
         {
             return SetAttacks.ShootWalk;
         }
 
-        if (val >= 45)
+        if (val >= 101)//45
         {
+            _dashing = true;
+            _startDash = true;
+            _windUpCounter = 0f;
             return SetAttacks.Dash;
         }
 
-        if (val >= 20)
+        if (val >= 101)//20
         {
             return SetAttacks.DelayedShoot;
         }
 
+        _plumming = true;
+        _startPlum = true;
         return SetAttacks.BabyPlum;
     }
 
@@ -193,6 +296,9 @@ public class Set : Boss
 
         if (val >= 65)
         {
+            _dashing = true;
+            _startDash = true;
+            _windUpCounter = 0f;
             return SetAttacks.Dash;
         }
 
@@ -201,6 +307,8 @@ public class Set : Boss
             return SetAttacks.ShootWalk;
         }
 
+        _plumming = true;
+        
         return SetAttacks.BabyPlum;
     }
     
@@ -214,5 +322,29 @@ public class Set : Boss
         {
             _delayedShootPositions.Add(origin + dir * delayedProjectileOffset);
         }
+    }
+
+    private void DelayNextAttack()
+    {
+        if (_attackDelayCounter <= EnemyStats.GetAtkSpd())
+        {
+            _attackDelayCounter += Time.fixedDeltaTime;
+        }
+        else
+        {
+            _rollNewAttack = true;
+            _attackDelayCounter = 0f;
+            _agent.enabled = true;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (_plumming && (other.transform.CompareTag("Obstacle") || other.transform.CompareTag("Player")))
+        {
+            _rb.velocity = -_rb.velocity;
+        }
+        if (!_dashing) return;
+        FinishDash();
     }
 }

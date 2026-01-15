@@ -285,7 +285,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &423719439766451970
 MonoBehaviour:
@@ -380,7 +380,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8189607167837397695}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -389,7 +389,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 2.33
   m_BaseOffset: 1.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -414,7 +414,10 @@ MonoBehaviour:
   _nameArea: {fileID: 0}
   _healthBarArea: {fileID: 0}
   shootWalkDuration: 5
+  dashWindUp: 0
+  _dashSpeedMult: 2
   delayedShootDuration: 4
   babyPlumDuration: 8
+  plumSpeedMult: 2
   delayedProjectileOffset: 0
   specialFireRate: 0.5
