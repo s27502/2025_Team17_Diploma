@@ -167,6 +167,7 @@ MonoBehaviour:
   enemyDie: {fileID: 8300000, guid: 6baaf62589bfd7a45b84810349ba4fe6, type: 3}
   minCrossMoveDuration: 0.5
   maxCrossMoveDuration: 1.5
+  _animator: {fileID: 581799433319597667}
   windUpTime: 2
   _miniChargeCooldown: 0.5
   _chargingSpeedMult: 5
