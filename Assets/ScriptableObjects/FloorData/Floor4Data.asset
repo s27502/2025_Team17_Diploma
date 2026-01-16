@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorName: Temple of the Death
   possibleRooms:
-  - {fileID: 2005126786876904744, guid: 090bdfb2355b6d246803b64b63afe8c1, type: 3}
-  - {fileID: 2005126786876904744, guid: 96193db285949874c89463c160f2ad3d, type: 3}
+  - {fileID: 2005126786876904744, guid: e61a97c3f34823249aebcd83a656503d, type: 3}
+  - {fileID: 2005126786876904744, guid: e24bb7cab75e16843bc1c04459926cb5, type: 3}
   shopRoomNumberMin: 9
   shopRoomNumberMax: 11
   shrineRoomNumberMin: 4
   shrineRoomNumberMax: 6
-  startRoom: {fileID: 2005126786876904744, guid: 036949b01db40e449869c3ad7f0022a7, type: 3}
-  bossRoom: {fileID: 2005126786876904744, guid: 7a9fa94bbbffcbd41a410524991954ec, type: 3}
-  shopRoom: {fileID: 2005126786876904744, guid: 4ae85a1cb25b57444b52a59c54fd8f83, type: 3}
+  startRoom: {fileID: 2005126786876904744, guid: 3cac50935aad2db46b7226031a400ae4, type: 3}
+  bossRoom: {fileID: 2005126786876904744, guid: 1bd3ff35d7ff3a0458fc51bc6032aacd, type: 3}
+  shopRoom: {fileID: 2005126786876904744, guid: 0533523c5863a8e438825d0334e5dcb2, type: 3}
   shrineRoom: {fileID: 2005126786876904744, guid: 341f951a682f2a34ab06db2bd91f8b76, type: 3}
   roomsToGenerate: 12

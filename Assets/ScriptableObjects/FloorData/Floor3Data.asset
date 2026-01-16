@@ -16,6 +16,11 @@ MonoBehaviour:
   possibleRooms:
   - {fileID: 2005126786876904744, guid: 090bdfb2355b6d246803b64b63afe8c1, type: 3}
   - {fileID: 2005126786876904744, guid: 96193db285949874c89463c160f2ad3d, type: 3}
+  - {fileID: 2005126786876904744, guid: 1e2fac279df38cd4f8bce225a469f4a7, type: 3}
+  - {fileID: 2005126786876904744, guid: 1697ecf80f72c57419f0c29624331153, type: 3}
+  - {fileID: 2005126786876904744, guid: b060015db906f3f479963a417c060d73, type: 3}
+  - {fileID: 2005126786876904744, guid: d127b03833e1cf04c9458e04cd26b48b, type: 3}
+  - {fileID: 2005126786876904744, guid: 9e7229d02c044df4b9618e07aeef1656, type: 3}
   shopRoomNumberMin: 9
   shopRoomNumberMax: 11
   shrineRoomNumberMin: 4

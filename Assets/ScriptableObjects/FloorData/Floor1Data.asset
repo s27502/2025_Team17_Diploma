@@ -24,6 +24,9 @@ MonoBehaviour:
   - {fileID: 2005126786876904744, guid: 56a8230ac84cc10459c84676ddf00a95, type: 3}
   - {fileID: 2005126786876904744, guid: 94c6ef571fc10ba44965293cacf50879, type: 3}
   - {fileID: 2005126786876904744, guid: 55f7ef15f8ecc784f9de5be5f09d4c80, type: 3}
+  - {fileID: 2005126786876904744, guid: 61b37cd2765520c4d81250a79b80dd51, type: 3}
+  - {fileID: 2005126786876904744, guid: 2de54297fd55b004ebff0b79425d5deb, type: 3}
+  - {fileID: 2005126786876904744, guid: 9d2d3de85992b244787e54a6750764bc, type: 3}
   shopRoomNumberMin: 9
   shopRoomNumberMax: 11
   shrineRoomNumberMin: 4
