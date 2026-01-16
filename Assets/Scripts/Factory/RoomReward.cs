@@ -21,7 +21,7 @@ public class RoomReward : MonoBehaviour
     public void SpawnReward()
     {
         var rnd = Random.Range(0, 100);
-        if (rnd < 51)
+        if (rnd < 41)
         {
             GameObject v;
             rnd = Random.Range(0, 100);
