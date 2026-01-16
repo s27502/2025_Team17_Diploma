@@ -3,10 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Enemies;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public enum AnubisAttacks
 {
-    SpikeSpawn
+    SpikeSpawn,
+    ChaseShoot,
+    DoubleSpiral,
+    TripleBrimstone,
+    OmegaShoot
 }
 public class Anubis : Boss
 {
@@ -19,10 +24,22 @@ public class Anubis : Boss
     [SerializeField] private float delaySpikesTime = 1f;
     private float _delaySpikesCounter = 0f;
 
+    private Vector2 _shootingDir;
+    private bool _shoot3 = true;
     private float _attackDelayCounter;
+
+
 
     private int _currentCorner;
     private bool _goToCorner = false;
+
+    private float _shootCounter = 0f;
+
+    private float _attackDuration = 0f;
+    private float _attackDurationCounter = 0f;
+    
+    [SerializeField] private float chaseAttackDuration = 5f;
+    [SerializeField] private float doubleSpiralDuration = 5f; 
 
     private bool _rollNewAttack = true;
     private AnubisAttacks _currentAttack;
@@ -36,9 +53,7 @@ public class Anubis : Boss
     {
         if (_rollNewAttack)
         {
-            SetUpSpikeAttack();
-            _currentAttack = AnubisAttacks.SpikeSpawn;
-
+            _currentAttack = RollAttack();
         }
         else
         {
@@ -46,9 +61,119 @@ public class Anubis : Boss
             {
                 case AnubisAttacks.SpikeSpawn:
                     PerformSpikeSpawn();
+                    Shoot8();
+                    break;
+                case AnubisAttacks.ChaseShoot:
+                    PerformChaseShoot();
                     break;
             }
         }
+    }
+    
+
+    private void PerformChaseShoot()
+    {
+        if (_attackDurationCounter <= _attackDuration)
+        {
+            _attackDurationCounter += Time.fixedDeltaTime;
+            MoveTo(_player.transform.position);
+            if (_shootCounter <= EnemyStats.GetFireRate())
+            {
+                _shootCounter += Time.fixedDeltaTime;
+            }
+            else
+            {
+                ShootRotate34();
+                _shootCounter = 0;
+            }
+        }
+        else
+        {
+            DelayNextAttack();
+        }
+    }
+
+    private void ShootRotate34()
+    {
+        if (_player)
+        {
+            _shootingDir = (_player.transform.position - transform.position).normalized;
+        }
+
+        if (_shoot3)
+        {
+            Shoot3();
+            _shoot3 = false;
+        }
+        else
+        {
+            Shoot4();
+            _shoot3 = true;
+        }
+    }
+
+    private void Shoot8()
+    {
+        if (_shootCounter <= EnemyStats.GetFireRate())
+        {
+            _shootCounter += Time.fixedDeltaTime;
+        }
+        else
+        {
+            ShootCross();
+            ShootX();
+            _shootCounter = 0f;
+        }
+    }
+    
+    private void Shoot4()
+    {
+        if (_player)
+            _shootingDir = (_player.transform.position - transform.position).normalized;
+
+        projectileFactory.Shoot(RotateProjectile(_shootingDir, -20));
+        projectileFactory.Shoot(RotateProjectile(_shootingDir, 20));
+        projectileFactory.Shoot(RotateProjectile(_shootingDir, -60));
+        projectileFactory.Shoot(RotateProjectile(_shootingDir, 60));
+    }
+    
+    private void Shoot3()
+    {
+        if (_player)
+        {
+            _shootingDir = (_player.transform.position - transform.position).normalized;
+        }
+        projectileFactory.Shoot(RotateProjectile(_shootingDir,-40));
+        projectileFactory.Shoot(_shootingDir);
+        projectileFactory.Shoot(RotateProjectile(_shootingDir,40));
+    }
+    
+    private void ShootCross()
+    {
+        Vector2[] dirs =
+        {
+            Vector2.up,
+            Vector2.down,
+            Vector2.left,
+            Vector2.right
+        };
+
+        foreach (var dir in dirs)
+            projectileFactory.Shoot(dir);
+    }
+
+    private void ShootX()
+    {
+        Vector2[] dirs =
+        {
+            new Vector2(1, 1).normalized,
+            new Vector2(-1, 1).normalized,
+            new Vector2(1, -1).normalized,
+            new Vector2(-1, -1).normalized
+        };
+
+        foreach (var dir in dirs)
+            projectileFactory.Shoot(dir);
     }
 
     private void PerformSpikeSpawn()
@@ -56,9 +181,11 @@ public class Anubis : Boss
         if (_goToCorner)
         {
             GoToCorner();
+            //walk anim
         }
         else if (_delaySpikes)
         {
+            //idle anim
             if (_delaySpikesCounter <= delaySpikesTime)
             {
                 _delaySpikesCounter += Time.fixedDeltaTime;
@@ -71,6 +198,7 @@ public class Anubis : Boss
         }
         else
         {
+            //staff anim
             if (_spikeLifetimeCounter <= spikeLifetime)
             {
                 _spikeLifetimeCounter += Time.fixedDeltaTime;
@@ -135,6 +263,13 @@ public class Anubis : Boss
         _rollNewAttack = false;
         _delaySpikesCounter = 0f;
         _spikeLifetimeCounter = 0f;
+        _shootCounter = 0f;
+    }
+
+    private void SetUpChaseShoot()
+    {
+        _shoot3 = true;
+        _attackDuration = chaseAttackDuration;
     }
     
     private void DelayNextAttack()
@@ -147,8 +282,31 @@ public class Anubis : Boss
         {
             _rollNewAttack = true;
             _attackDelayCounter = 0f;
+            _attackDurationCounter = 0f;
+            _shootCounter = 0f;
             //_agent.enabled = true;
         }
+    }
+
+    private AnubisAttacks RollAttack()
+    {
+        int val = Random.Range(0, 100);
+        _rollNewAttack = false;
+
+        if (val >= 101) //80
+        {
+            SetUpSpikeAttack();
+            return AnubisAttacks.SpikeSpawn;
+        }
+
+        if (val >= 0) //
+        {
+            SetUpChaseShoot();
+            return AnubisAttacks.ChaseShoot;
+        }
+        
+        SetUpChaseShoot();
+        return AnubisAttacks.ChaseShoot;
     }
 
 }
