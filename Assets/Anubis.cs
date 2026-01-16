@@ -17,6 +17,8 @@ public enum AnubisAttacks
 }
 public class Anubis : Boss
 {
+    [SerializeField] private float moveShootDuration = 5f;
+    
     private bool omega345 = false;
     private bool omegaWave = false;
     private int _currentShotNum;
@@ -126,7 +128,25 @@ public class Anubis : Boss
 
     private void PerformMoveShoot()
     {
-        throw new NotImplementedException();
+        if (_attackDurationCounter <= _attackDuration)
+        {
+            CrossMove();
+            if (_shootCounter <= EnemyStats.GetFireRate())
+            {
+                _shootCounter += Time.fixedDeltaTime;
+            }
+            else
+            {
+                Shoot8();
+                _shootCounter = 0f;
+            }
+            
+            _attackDurationCounter += Time.fixedDeltaTime;
+        }
+        else
+        {
+            DelayNextAttack();
+        }
     }
     
     private void Perform345Shoot()
@@ -616,14 +636,25 @@ public class Anubis : Boss
             return AnubisAttacks.DoubleSpiral;
         }
 
-        if (val >= 0)
+        if (val >= 101)
         {
             SetUpOmegaShoot();
             return AnubisAttacks.OmegaShoot;
         }
 
+        if (val >= 0)
+        {
+            SetUpMoveShoot();
+            return AnubisAttacks.MoveShoot;
+        }
+
         SetUpTripleBrimstone();
         return AnubisAttacks.TripleBrimstone;
+    }
+
+    private void SetUpMoveShoot()
+    {
+        _attackDuration = moveShootDuration;
     }
 
     private void SetUpOmegaShoot()
