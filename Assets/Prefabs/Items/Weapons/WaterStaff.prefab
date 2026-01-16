@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521ffe4f1da2c8f4c87b9b3c81a7b97b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Water Staff
+  itemName: Rain Staff
   itemPrice: 55
   IsShop: 0
   stats:
@@ -147,7 +147,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 0.33, y: 0.32}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
