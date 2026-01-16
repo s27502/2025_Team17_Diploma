@@ -230,8 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e192957331d31419df13c2ab346822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 15
-  _maxHp: 15
+  _hp: 12
+  _maxHp: 12
   dmg: 1
   atkSpd: 1
   fireRate: 1
@@ -314,12 +314,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b53b312fc9573849a0f6e1976f25124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 6850765252732017033}
   projectileFactory: {fileID: 3077437587570912818}
   startDelay: 1
   enemyDie: {fileID: 8300000, guid: 6baaf62589bfd7a45b84810349ba4fe6, type: 3}
   minCrossMoveDuration: 0.5
   maxCrossMoveDuration: 1.5
-  _animator: {fileID: 6850765252732017033}
   _windUpTime: 2
   _miniChargeCooldown: 0.5
   _chargingSpeedMult: 10
