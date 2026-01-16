@@ -12,10 +12,39 @@ public enum AnubisAttacks
     ChaseShoot,
     DoubleSpiral,
     TripleBrimstone,
-    OmegaShoot
+    OmegaShoot,
+    MoveShoot
 }
 public class Anubis : Boss
 {
+    private bool omega345 = false;
+    private bool omegaWave = false;
+    private int _currentShotNum;
+    private bool _delay;
+    private List<Vector2> _shootingDirections = new List<Vector2>();
+    
+    [SerializeField] private float spiralFireRate = 0.5f;
+    private float spiralLeftCounter = 0f;
+    private float spiralRightCounter = 0f;
+    private float spiralLeftAngle;
+    private float spiralRightAngle;
+    
+    [SerializeField] private List<GameObject> laserSpawners = new List<GameObject>();
+    private int _brimstoneCounter = 0;
+
+    [SerializeField] private float laserLifetime = 1.5f;
+
+    [SerializeField] private float laserDelay = 1f;
+
+
+    private int _lasersFinishedCounter = 0;
+    
+    private float hiddenLaserDelay = .5f;
+
+    [SerializeField] private float brimstoneDelay = .5f;
+    private float _brimstoneDelayCouner = 0f;
+    
+    
     [SerializeField] private List<GameObject> cornerPositions = new List<GameObject>();
     private List<Vector2> _cornerPositions = new List<Vector2>();
     [SerializeField] private List<GameObject> spikeObjects;
@@ -77,12 +106,243 @@ public class Anubis : Boss
                 case AnubisAttacks.ChaseShoot:
                     PerformChaseShoot();
                     break;
+                case AnubisAttacks.TripleBrimstone:
+                    PerformTripleBrimstone();
+                    break;
+                case AnubisAttacks.DoubleSpiral:
+                    PerformDoubleSpiral();
+                    break;
+                case AnubisAttacks.OmegaShoot:
+                    PerformOmegaShoot();
+                    break;
+                case AnubisAttacks.MoveShoot:
+                    PerformMoveShoot();
+                    break;
             }
         }
         
         HandleSummoning();
     }
+
+    private void PerformMoveShoot()
+    {
+        throw new NotImplementedException();
+    }
     
+    private void Perform345Shoot()
+    {
+        if (_currentShotNum < 3)
+        {
+            if (_shootCounter <= EnemyStats.GetFireRate()/2)
+            {
+                _shootCounter += Time.fixedDeltaTime;
+            }
+            else
+            {
+                switch (_currentShotNum)
+                {
+                    case 0:
+                        Shoot3();
+                        break;
+                    case 1:
+                        Shoot4();
+                        break;
+                    case 2:
+                        Shoot5();
+                        break;
+                }
+
+                _currentShotNum += 1;
+                _shootCounter = 0f;
+            }
+        }
+        else
+        {
+            omegaWave = true;
+            omega345 = false;
+            _currentShotNum = 0;
+        }
+    }
+    
+    private void PerformWaveShoot()
+    {
+        if (_currentShotNum < 6)
+        {
+            if (_delay && _shootCounter <= EnemyStats.GetFireRate())
+            {
+                _shootCounter += Time.fixedDeltaTime;
+            }
+            else if (_shootCounter <= EnemyStats.GetFireRate()/2)
+            {
+                _shootCounter += Time.fixedDeltaTime;
+            }
+            else
+            {
+                switch (_currentShotNum)
+                {
+                    case 0:
+                        _shootingDir = (_player.transform.position - transform.position).normalized;
+                        _shootingDirections.Add(RotateProjectile(_shootingDir,-40));
+                        _shootingDirections.Add(_shootingDir);
+                        _shootingDirections.Add(RotateProjectile(_shootingDir,40));
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        _delay = true;
+                        break;
+                    case 3:
+                        _delay = false;
+                        _shootingDir = (_player.transform.position - transform.position).normalized;
+                        _shootingDirections.Add(RotateProjectile(_shootingDir,40));
+                        _shootingDirections.Add(_shootingDir);
+                        _shootingDirections.Add(RotateProjectile(_shootingDir,-40));
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                }
+                
+                projectileFactory.Shoot(_shootingDirections[_currentShotNum]);
+                _currentShotNum += 1;
+
+                _shootCounter = 0f;
+            }
+        }
+        else
+        {
+            omegaWave = false;
+            DelayNextAttack();
+        }
+    }
+
+    private void PerformOmegaShoot()
+    {
+        if (omega345)
+        {
+            Perform345Shoot();
+        }
+        else if (omegaWave)
+        {
+            PerformWaveShoot();
+        }
+        else
+        {
+            DelayNextAttack();
+        }
+    }
+
+    private void PerformDoubleSpiral()
+    {
+        if (_attackDurationCounter <= _attackDuration)
+        {
+            SpiralAttack(true);
+            SpiralAttack(false);
+            
+            _attackDurationCounter += Time.fixedDeltaTime;
+        }
+        else
+        {
+            DelayNextAttack();
+        }
+    }
+
+    private void SpiralAttack(bool isRight)
+    {
+        switch (isRight)
+        {
+            case true:
+                if (spiralRightCounter <= spiralFireRate)
+                {
+                    spiralRightCounter += Time.fixedDeltaTime;
+                }
+                else
+                {
+                    Vector2[] dirs =
+                    {
+                        Vector2.up,
+                        Vector2.down,
+                        Vector2.left,
+                        Vector2.right
+                    };
+
+                    foreach (var dir in dirs)
+                    {
+                        projectileFactory.Shoot(RotateProjectile(dir, spiralRightAngle));
+                    }
+
+                    spiralRightAngle -= 20f;
+                    spiralRightCounter = 0f;
+                }
+                break;
+            case false:
+                if (spiralLeftCounter <= spiralFireRate)
+                {
+                    spiralLeftCounter += Time.fixedDeltaTime;
+                }
+                else
+                {
+                    Vector2[] dirs =
+                    {
+                        Vector2.up,
+                        Vector2.down,
+                        Vector2.left,
+                        Vector2.right
+                    };
+
+                    foreach (var dir in dirs)
+                    {
+                        projectileFactory.Shoot(RotateProjectile(dir, spiralLeftAngle));
+                    }
+
+                    spiralLeftAngle += 20f;
+                    spiralLeftCounter = 0f;
+                }
+                break;
+        }
+    }
+
+    private void PerformTripleBrimstone()
+    {
+        if (_brimstoneCounter < 3)
+        {
+            if (_brimstoneDelayCouner <= brimstoneDelay)
+            {
+                _brimstoneDelayCouner += Time.fixedDeltaTime;
+            }
+            else
+            {
+                StartCoroutine(ShootLaserCoroutine(laserSpawners[_brimstoneCounter]));
+
+                _brimstoneDelayCouner = 0f;
+                _brimstoneCounter++;
+            }
+        }
+        else if (_lasersFinishedCounter == 3) 
+        {
+            DelayNextAttack();
+        }
+    }
+
+    private IEnumerator ShootLaserCoroutine(GameObject laserSpawner)
+    {
+        yield return new WaitForSeconds(laserDelay);
+        
+        RotateLaserTowardsPlayer(laserSpawner);
+
+        yield return new WaitForSeconds(hiddenLaserDelay);
+        
+        laserSpawner.SetActive(true);
+
+        yield return new WaitForSeconds(laserLifetime);
+        
+        laserSpawner.SetActive(false);
+        _lasersFinishedCounter++;
+    }
+
+
+
     private void HandleSummoning()
     {
         if (_summonDelayCounter <= 0 && _enemies.transform.childCount < _maxMummies + 1)
@@ -155,6 +415,19 @@ public class Anubis : Boss
             ShootX();
             _shootCounter = 0f;
         }
+    }
+    
+    private void Shoot5()
+    {
+        if (_player)
+        {
+            _shootingDir = (_player.transform.position - transform.position).normalized;
+        }
+        projectileFactory.Shoot(RotateProjectile(_shootingDir,-60));
+        projectileFactory.Shoot(RotateProjectile(_shootingDir,-30));
+        projectileFactory.Shoot(_shootingDir);
+        projectileFactory.Shoot(RotateProjectile(_shootingDir,30));
+        projectileFactory.Shoot(RotateProjectile(_shootingDir,60));
     }
     
     private void Shoot4()
@@ -331,14 +604,60 @@ public class Anubis : Boss
             return AnubisAttacks.SpikeSpawn;
         }
 
-        if (val >= 0) //
+        if (val >= 101) //
         {
             SetUpChaseShoot();
             return AnubisAttacks.ChaseShoot;
         }
-        
-        SetUpChaseShoot();
-        return AnubisAttacks.ChaseShoot;
+
+        if (val >= 101)
+        {
+            SetUpSpiral();
+            return AnubisAttacks.DoubleSpiral;
+        }
+
+        if (val >= 0)
+        {
+            SetUpOmegaShoot();
+            return AnubisAttacks.OmegaShoot;
+        }
+
+        SetUpTripleBrimstone();
+        return AnubisAttacks.TripleBrimstone;
+    }
+
+    private void SetUpOmegaShoot()
+    {
+        //staffanim
+        omega345 = true;
+        _shootingDirections.Clear();
+        _shootCounter = 0;
+        _currentShotNum = 0;
+    }
+
+    private void SetUpSpiral()
+    {
+        //staffanim
+        _attackDuration = doubleSpiralDuration;
+        spiralLeftAngle = 0f;
+        spiralLeftCounter = 0f;
+        spiralRightAngle = 0f;
+        spiralRightCounter = 0f;
+    }
+
+    private void SetUpTripleBrimstone()
+    {
+        //staff anim
+        _lasersFinishedCounter = 0;
+        _brimstoneCounter = 0;
+        _brimstoneDelayCouner = 0f;
+    }
+
+    private void RotateLaserTowardsPlayer(GameObject laserObject)
+    {
+        Vector2 dir = (_player.transform.position - laserObject.transform.position).normalized;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        laserObject.transform.rotation = Quaternion.Euler(0f,0f, angle);
     }
 
 }
