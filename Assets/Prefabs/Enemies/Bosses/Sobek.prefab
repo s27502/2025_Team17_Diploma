@@ -230,8 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e192957331d31419df13c2ab346822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 75
-  _maxHp: 75
+  _hp: 70
+  _maxHp: 70
   dmg: 1
   atkSpd: 1
   fireRate: 1
@@ -334,7 +334,7 @@ MonoBehaviour:
   _posChangeInterval: 0.5
   _randomMoveDistance: 2
   _movingDuration: 5
-  _maxGators: 2
+  _maxGators: 1
 --- !u!1 &6309769243928695759
 GameObject:
   m_ObjectHideFlags: 0
