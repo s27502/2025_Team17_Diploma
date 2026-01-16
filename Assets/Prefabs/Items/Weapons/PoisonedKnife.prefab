@@ -103,7 +103,7 @@ MonoBehaviour:
   IsShop: 0
   stats:
   - 2
-  - 1.2
+  - 1.4
   _price: {fileID: 0}
   _isPoisoning: 1
   _isBouncing: 0
@@ -147,7 +147,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

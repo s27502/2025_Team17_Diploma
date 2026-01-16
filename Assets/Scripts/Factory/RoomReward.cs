@@ -38,7 +38,7 @@ public class RoomReward : MonoBehaviour
             }
         } else 
         {
-            rnd = Random.Range(1, 15);
+            rnd = Random.Range(3, 25);
             rnd += _playerStats.GetLuck();
             _coinFactory.SpawnCoins(gameObject.transform.position, rnd, gameObject);
         } 

@@ -230,8 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e192957331d31419df13c2ab346822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 100
-  _maxHp: 100
+  _hp: 70
+  _maxHp: 70
   dmg: 1
   atkSpd: 1
   fireRate: 1
@@ -314,6 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f60d6999e3b24f64884c48a55024e97d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
   projectileFactory: {fileID: 2601403101457127642}
   startDelay: 1
   enemyDie: {fileID: 8300000, guid: 6baaf62589bfd7a45b84810349ba4fe6, type: 3}
@@ -333,7 +334,7 @@ MonoBehaviour:
   _posChangeInterval: 0.5
   _randomMoveDistance: 2
   _movingDuration: 5
-  _maxGators: 2
+  _maxGators: 1
 --- !u!1 &6309769243928695759
 GameObject:
   m_ObjectHideFlags: 0
