@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Sobek's Head
-  itemPrice: 40
+  itemPrice: 50
   IsShop: 0
   stats:
   - 3

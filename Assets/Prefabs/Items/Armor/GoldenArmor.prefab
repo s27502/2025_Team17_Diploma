@@ -143,8 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c7c53fba43a5e4fa0b070389564b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gladiator Armor
-  itemPrice: 70
+  itemName: Golden Armor
+  itemPrice: 50
   IsShop: 0
   stats:
   - 3
@@ -153,6 +153,6 @@ MonoBehaviour:
   _isPoisoning: 0
   _isBouncing: 0
   _isHoming: 0
-  _description: Grants 2 armor points
+  _description: Grants 3 armor points
   pickUpSound: {fileID: 8300000, guid: 1b1db92b32b5d7d4984bd21ffaeb4172, type: 3}
   _armorAnimator: {fileID: 9100000, guid: 355041ca62da1404cb921d1a8960dda9, type: 2}
