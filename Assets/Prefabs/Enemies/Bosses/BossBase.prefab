@@ -251,7 +251,7 @@ Transform:
   m_GameObject: {fileID: 6284812516142713474}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4355628, y: 5.2309656, z: 10.041097}
+  m_LocalPosition: {x: 2.4355628, y: 5.2309656, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e42d40bdf2411dbfb799b4da940a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
   projectileFactory: {fileID: 0}
   startDelay: 1
   enemyDie: {fileID: 8300000, guid: 6baaf62589bfd7a45b84810349ba4fe6, type: 3}
