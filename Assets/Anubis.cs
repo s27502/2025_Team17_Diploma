@@ -618,34 +618,34 @@ public class Anubis : Boss
         int val = Random.Range(0, 100);
         _rollNewAttack = false;
 
-        if (val >= 101) //80
+        if (val >= 65)
+        {
+            SetUpMoveShoot();
+            return AnubisAttacks.MoveShoot;
+        }
+        
+        if (val >= 57) //80
         {
             SetUpSpikeAttack();
             return AnubisAttacks.SpikeSpawn;
         }
 
-        if (val >= 101) //
+        if (val >= 37) //
         {
             SetUpChaseShoot();
             return AnubisAttacks.ChaseShoot;
         }
 
-        if (val >= 101)
+        if (val >= 25)
         {
             SetUpSpiral();
             return AnubisAttacks.DoubleSpiral;
         }
 
-        if (val >= 101)
+        if (val >= 15)
         {
             SetUpOmegaShoot();
             return AnubisAttacks.OmegaShoot;
-        }
-
-        if (val >= 0)
-        {
-            SetUpMoveShoot();
-            return AnubisAttacks.MoveShoot;
         }
 
         SetUpTripleBrimstone();
@@ -654,6 +654,7 @@ public class Anubis : Boss
 
     private void SetUpMoveShoot()
     {
+        //move anim
         _attackDuration = moveShootDuration;
     }
 
