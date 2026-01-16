@@ -28,6 +28,7 @@ public class CrioSphynx : Enemy
         }
         else
         {
+            _animator.SetBool("anim",true);
             switch (_currentAttack)
             {
                 case CrioSphynxAttacks.WaveShoot:
@@ -181,6 +182,7 @@ public class CrioSphynx : Enemy
     {
         if (_attackDelayCounter <= EnemyStats.GetAtkSpd())
         {
+            _animator.SetBool("anim",false);
             _attackDelayCounter += Time.fixedDeltaTime;
         }
         else

@@ -7,7 +7,7 @@ public class CrioFollower : Enemy
 {
     [SerializeField] private bool haltMovement = false;
     private float _shootTimer;
-    private Vector2 _shootingDir;
+    protected Vector2 _shootingDir;
 
     protected override void Attack()
     {
@@ -23,7 +23,7 @@ public class CrioFollower : Enemy
         }
     }
     
-    private void Shoot()
+    protected virtual void Shoot()
     {
         if (_player)
         {
