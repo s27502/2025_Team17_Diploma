@@ -47,11 +47,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: {fileID: 1725585014672294096}
   _thankScreen: {fileID: 2540575307087665946, guid: cb85ed16da53f5b45a69423480c33c6e, type: 3}
+  floorInfo: {fileID: 0}
   _player: {fileID: 0}
   _floorsToGenerate: 1
   _floorDatas:
   - {fileID: 11400000, guid: c53d5992491f94240bbfa814df250bf8, type: 2}
+  - {fileID: 11400000, guid: a9e576f350e4ca549aac58b19769f918, type: 2}
   - {fileID: 11400000, guid: f067d895015b5fd49b41b22b6439a992, type: 2}
+  - {fileID: 11400000, guid: 74216e80df74f384790bd06877769aed, type: 2}
 --- !u!1001 &5549335181579082721
 PrefabInstance:
   m_ObjectHideFlags: 0

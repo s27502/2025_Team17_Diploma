@@ -14,22 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorName: Temple of the War
   possibleRooms:
-  - {fileID: 2005126786876904744, guid: 69e811fb50b20dc439eedd6b93785700, type: 3}
-  - {fileID: 2005126786876904744, guid: 87ae97c7ad4aef0489d2a7a64cf849af, type: 3}
-  - {fileID: 2005126786876904744, guid: 4f04a18bb72408e4a81c4d2c38aac1b7, type: 3}
-  - {fileID: 2005126786876904744, guid: 892cdf4337f7413449c4f725f355867d, type: 3}
-  - {fileID: 2005126786876904744, guid: a828e5ce80ac1e0419fc02b65c83fb78, type: 3}
-  - {fileID: 2005126786876904744, guid: 54bc5cd1614e9c34e81230f0a8603c43, type: 3}
-  - {fileID: 2005126786876904744, guid: 9df0ddba9b5a79643b829dde0e196989, type: 3}
-  - {fileID: 2005126786876904744, guid: 56a8230ac84cc10459c84676ddf00a95, type: 3}
-  - {fileID: 2005126786876904744, guid: 94c6ef571fc10ba44965293cacf50879, type: 3}
-  - {fileID: 2005126786876904744, guid: 55f7ef15f8ecc784f9de5be5f09d4c80, type: 3}
+  - {fileID: 2005126786876904744, guid: f84ad917efa2ce043b50e55ebf5c637b, type: 3}
+  - {fileID: 2005126786876904744, guid: 2536d6e8cd5024242bd0aaed386ef8e4, type: 3}
+  - {fileID: 2005126786876904744, guid: 922d2494b4f940d439e74472aa590674, type: 3}
+  - {fileID: 2005126786876904744, guid: c49c215d837819049969c7f1b53f5d98, type: 3}
+  - {fileID: 2005126786876904744, guid: 859c9738c78444a40b17941c6283515a, type: 3}
+  - {fileID: 2005126786876904744, guid: c2d6d8031a0313448855a614e6969040, type: 3}
+  - {fileID: 2005126786876904744, guid: 0e182cbfea14d1646a5cca003201401d, type: 3}
+  - {fileID: 2005126786876904744, guid: 843975010dc75fb40a3e4e3947c540c8, type: 3}
+  - {fileID: 2005126786876904744, guid: c4b5e6015e6d83848b6cd3a3ec1928e7, type: 3}
+  - {fileID: 2005126786876904744, guid: 4ebacce9c1a05d14da391af2f4b7a188, type: 3}
+  - {fileID: 2005126786876904744, guid: f435b3fa00923104693e458c58311507, type: 3}
+  - {fileID: 2005126786876904744, guid: ac0fbbe6c2ab48c4eb2cca00a2aeebba, type: 3}
+  - {fileID: 2005126786876904744, guid: 828e2c539acfa27459aa3dacdd44093d, type: 3}
   shopRoomNumberMin: 9
   shopRoomNumberMax: 11
   shrineRoomNumberMin: 4
   shrineRoomNumberMax: 6
-  startRoom: {fileID: 2005126786876904744, guid: 4f9d711f3728cf54eb996ae7e9328f33, type: 3}
-  bossRoom: {fileID: 2005126786876904744, guid: 438ab9e369f9adc458a640883f13eab7, type: 3}
-  shopRoom: {fileID: 2005126786876904744, guid: f5857537e3648bd458ac64ceb9f9de46, type: 3}
-  shrineRoom: {fileID: 2005126786876904744, guid: 66183ad372d44394cbaa05c38566dbb5, type: 3}
+  startRoom: {fileID: 2005126786876904744, guid: 07d3b52092f518e46a21e06c25a996fb, type: 3}
+  bossRoom: {fileID: 2005126786876904744, guid: d113f0854ac933149b44987f053551c1, type: 3}
+  shopRoom: {fileID: 2005126786876904744, guid: 926c51cc24a27df4bb5fc234294a0342, type: 3}
+  shrineRoom: {fileID: 2005126786876904744, guid: bfa4e71e5caff6549afeeaa3948bcfb7, type: 3}
   roomsToGenerate: 12
