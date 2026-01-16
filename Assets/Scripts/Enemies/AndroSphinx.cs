@@ -124,6 +124,8 @@ public class AndroSphinx : Enemy
                 StartCharge();
             return;
         }
+        
+        _animator.SetBool("isWalking",true);
 
         if (_miniChargeCounter > 0)
         {
@@ -137,6 +139,7 @@ public class AndroSphinx : Enemy
         if (_chargesNumber <= 0)
         {
             _charging = false;
+            _animator.SetBool("isWalking",false);
             EnemyStats.SetMovementSpeed(_originalSpeed);
             _windingUpCounter = windUpTime;
             _attackDurationCounter = 0;

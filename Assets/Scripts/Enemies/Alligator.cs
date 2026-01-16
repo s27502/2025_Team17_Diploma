@@ -5,7 +5,6 @@ using Random = UnityEngine.Random;
 
 public class Alligator : Enemy
 {
-    [SerializeField] private Animator _animator;
     [SerializeField] private float _windUpTime = 2f;
     [SerializeField] private float _miniChargeCooldown = 0.5f;
     [SerializeField] private float _chargingSpeedMult = 10;

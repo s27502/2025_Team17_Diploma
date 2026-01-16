@@ -16,6 +16,7 @@ public enum EnemyState
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] protected Animator _animator;
     [SerializeField] protected EnemyProjectileFactory projectileFactory;
     [SerializeField] private float startDelay = 1f;
     [SerializeField] private AudioClip enemyDie;

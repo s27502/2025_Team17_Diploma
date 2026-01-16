@@ -15,6 +15,7 @@ public class HieraFollower : Enemy
     private void Awake()
     {
         _spawner = MultiLaserSpawner.GetComponent<MultiLaserSpawner>();
+        _animator.SetBool("isWalking",true);
     }
 
     protected override void Attack()

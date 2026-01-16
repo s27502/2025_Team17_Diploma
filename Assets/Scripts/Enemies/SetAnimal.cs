@@ -11,6 +11,7 @@ public class SetAnimal : Enemy
     protected override void Attack()
     {
         NavMoveTo(_player.transform);
+        _animator.SetBool("isWalking",true);
         PerformShooting();
     }
 
