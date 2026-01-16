@@ -99,11 +99,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6194789230073260496}
+  - component: {fileID: 3064550797621659815}
   - component: {fileID: 3041667227399827185}
   - component: {fileID: 4679941854178038005}
   - component: {fileID: 9102179819004128342}
   - component: {fileID: 9155967278133089034}
-  - component: {fileID: 1290749287243961122}
   - component: {fileID: 3291889913413140894}
   m_Layer: 10
   m_Name: Anubis
@@ -120,7 +120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3797784166209668424}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6, y: 6, z: 10.041097}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -130,6 +130,44 @@ Transform:
   - {fileID: 9206674571400756475}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3064550797621659815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3797784166209668424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f21998ee98ce04686f034a6b61951b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  projectileFactory: {fileID: 6414965839070727440}
+  startDelay: 1
+  enemyDie: {fileID: 8300000, guid: 6baaf62589bfd7a45b84810349ba4fe6, type: 3}
+  minCrossMoveDuration: 0.5
+  maxCrossMoveDuration: 1.5
+  _name: Anubis
+  _nameArea: {fileID: 0}
+  _healthBarArea: {fileID: 0}
+  cornerPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  spikeObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  spikeLifetime: 2
+  delaySpikesTime: 1
+  _summonDelay: 20
+  _enemies: {fileID: 0}
+  _enemySpawnerObject: {fileID: 0}
+  chaseAttackDuration: 5
+  doubleSpiralDuration: 5
 --- !u!50 &3041667227399827185
 Rigidbody2D:
   serializedVersion: 4
@@ -169,12 +207,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e192957331d31419df13c2ab346822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 6
-  _maxHp: 6
+  _hp: 500
+  _maxHp: 500
   dmg: 1
   atkSpd: 1
   fireRate: 1
-  movementSpeed: 1
+  movementSpeed: 5
   OnHpChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -241,27 +279,6 @@ MonoBehaviour:
   _poisoned: 0
   damageTextPrefab: {fileID: 774244208891461880, guid: ec981b5c9825e5d45a912edd53f19d9d, type: 3}
   damageTextRange: 0.5
---- !u!114 &1290749287243961122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3797784166209668424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58e42d40bdf2411dbfb799b4da940a03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  projectileFactory: {fileID: 0}
-  startDelay: 1
-  enemyDie: {fileID: 8300000, guid: 6baaf62589bfd7a45b84810349ba4fe6, type: 3}
-  minCrossMoveDuration: 0.5
-  maxCrossMoveDuration: 1.5
-  _name: BossName
-  _nameArea: {fileID: 0}
-  _healthBarArea: {fileID: 0}
 --- !u!195 &3291889913413140894
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace.Factory;
 using Enemies;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -27,6 +28,12 @@ public class Anubis : Boss
     private Vector2 _shootingDir;
     private bool _shoot3 = true;
     private float _attackDelayCounter;
+    
+    [SerializeField] private float _summonDelay = 20f;
+    
+    [SerializeField] private GameObject _enemies;
+    [SerializeField] private GameObject _enemySpawnerObject;
+    private EnemySpawner _spawner;
 
 
 
@@ -43,10 +50,14 @@ public class Anubis : Boss
 
     private bool _rollNewAttack = true;
     private AnubisAttacks _currentAttack;
+    private float _summonDelayCounter;
+    private int _maxMummies = 2;
 
     private void Awake()
     {
         InitiateCornerList();
+        _spawner = _enemySpawnerObject.GetComponent<EnemySpawner>();
+        _summonDelayCounter = 5;
     }
 
     protected override void Attack()
@@ -68,13 +79,33 @@ public class Anubis : Boss
                     break;
             }
         }
+        
+        HandleSummoning();
     }
     
+    private void HandleSummoning()
+    {
+        if (_summonDelayCounter <= 0 && _enemies.transform.childCount < _maxMummies + 1)
+        {
+            SpawnMummies(_maxMummies + 1 - _enemies.transform.childCount);
+            _summonDelayCounter = _summonDelay;
+        }
+
+        if (_summonDelayCounter > 0)
+            _summonDelayCounter -= Time.fixedDeltaTime;
+    }
+
+    private void SpawnMummies(int number)
+    {
+        for (int i = 0; i < number; i++)
+            _spawner.SpawnAtRandomPosition();
+    }
 
     private void PerformChaseShoot()
     {
         if (_attackDurationCounter <= _attackDuration)
         {
+            //walk anim
             _attackDurationCounter += Time.fixedDeltaTime;
             MoveTo(_player.transform.position);
             if (_shootCounter <= EnemyStats.GetFireRate())
@@ -274,6 +305,7 @@ public class Anubis : Boss
     
     private void DelayNextAttack()
     {
+        //idle anim
         if (_attackDelayCounter <= EnemyStats.GetAtkSpd())
         {
             _attackDelayCounter += Time.fixedDeltaTime;
