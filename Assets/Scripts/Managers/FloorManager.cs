@@ -89,6 +89,11 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
                 //bossmusic
                 _currentRoom = Instantiate(_currentFloorData.bossRoom, Vector3.zero, Quaternion.identity);
             }
+            else if (_roomCounter == _currentFloorData.talismanRoomNumber)
+            {
+                AudioManager.Instance.PlayMusic(defaultMusic);
+                _currentRoom = Instantiate(_currentFloorData.talismanRoom);
+            }
             else if (_newFloor)
             {
                 _currentRoom = Instantiate(_currentFloorData.startRoom, Vector3.zero, Quaternion.identity);

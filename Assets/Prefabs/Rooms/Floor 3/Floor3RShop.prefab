@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdafd664b137a3040aaca4a2e6097703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _giveReward: 1
+  _giveReward: 0
   _playerTP: {fileID: 1223578823979113286}
   _enemies: {fileID: 4384258888759170160}
   _doorClosed: {fileID: 1682962217133070571}
