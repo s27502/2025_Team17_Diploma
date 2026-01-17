@@ -81,8 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e192957331d31419df13c2ab346822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 200
-  _maxHp: 200
+  _hp: 400
+  _maxHp: 400
   dmg: 1
   atkSpd: 1
   fireRate: 1
@@ -173,6 +173,8 @@ MonoBehaviour:
   maxCrossMoveDuration: 2.5
   _name: Ra
   _nameArea: {fileID: 0}
+  heart: {fileID: 0}
+  exit: {fileID: 0}
   _healthBarArea: {fileID: 0}
   attackDelay: 4
   _spiralFireRate: 0.2
