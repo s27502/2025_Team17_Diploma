@@ -595,6 +595,8 @@ public class Anubis : Boss
         }
         else
         {
+            _animator.SetBool("isWalking",false);
+            _animator.SetBool("isCharging",true);
             _goToCorner = false;
             _delaySpikes = true;
         }
@@ -631,6 +633,7 @@ public class Anubis : Boss
 
     private void SetUpSpikeAttack()
     {
+        _animator.SetBool("isWalking",true);
         _goToCorner = true;
         _currentCorner = GetFurthestCornerIndex();
         _rollNewAttack = false;
@@ -641,6 +644,7 @@ public class Anubis : Boss
 
     private void SetUpChaseShoot()
     {
+        _animator.SetBool("isWalking",true);
         _shoot3 = true;
         _attackDuration = chaseAttackDuration;
     }
@@ -648,6 +652,8 @@ public class Anubis : Boss
     private void DelayNextAttack()
     {
         //idle anim
+        _animator.SetBool("isWalking",false);
+        _animator.SetBool("isCharging",false);
         if (_attackDelayCounter <= EnemyStats.GetAtkSpd())
         {
             _attackDelayCounter += Time.fixedDeltaTime;
@@ -703,13 +709,14 @@ public class Anubis : Boss
 
     private void SetUpMoveShoot()
     {
-        //move anim
+        _animator.SetBool("isWalking",true);
         _attackDuration = moveShootDuration;
     }
 
     private void SetUpOmegaShoot()
     {
-        //staffanim
+        _animator.SetBool("isWalking",false);
+        _animator.SetBool("isCharging",false);
         omega345 = true;
         _shootingDirections.Clear();
         _shootCounter = 0;
@@ -718,7 +725,8 @@ public class Anubis : Boss
 
     private void SetUpSpiral()
     {
-        //staffanim
+        _animator.SetBool("isWalking",false);
+        _animator.SetBool("isCharging",false);
         _attackDuration = doubleSpiralDuration;
         spiralLeftAngle = 0f;
         spiralLeftCounter = 0f;
@@ -728,7 +736,7 @@ public class Anubis : Boss
 
     private void SetUpTripleBrimstone()
     {
-        //staff anim
+        _animator.SetBool("isCharging",true);
         _lasersFinishedCounter = 0;
         _brimstoneCounter = 0;
         _brimstoneDelayCouner = 0f;
