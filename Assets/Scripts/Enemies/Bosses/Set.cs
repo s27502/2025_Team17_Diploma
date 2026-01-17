@@ -442,7 +442,8 @@ public class Set : Boss
         yield return new WaitForSeconds(1);
 
         heart.SetActive(true);
-        base.Die();
+        _agent.enabled = false;
+        Destroy(gameObject);
     }
 
 }
