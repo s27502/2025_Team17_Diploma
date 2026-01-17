@@ -19,8 +19,15 @@ namespace DefaultNamespace.Factory
             );
 
             Vector2 spawnPos = (Vector2)areaCenter.position + randomOffset;
-            Vector3 finalPos = new Vector3(spawnPos.x, spawnPos.y, 10.0411f);
+            Vector3 finalPos = new Vector3(spawnPos.x, spawnPos.y, 0);
             GameObject enemy = Instantiate(_enemyPrefab, finalPos, Quaternion.identity, transform);
+            enemy.transform.parent = _enemies.transform;
+            return enemy.GetComponent<Enemy>();
+        }
+
+        public Enemy SpawnAt(Vector2 pos)
+        {
+            GameObject enemy = Instantiate(_enemyPrefab, pos, Quaternion.identity, transform);
             enemy.transform.parent = _enemies.transform;
             return enemy.GetComponent<Enemy>();
         }

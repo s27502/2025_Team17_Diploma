@@ -78,6 +78,8 @@ public class PlayerProjectile : ProjectileBase
         if (_playerStats.GetBounce())
         {
             _rb.velocity = -_rb.velocity;
+            float angle = Mathf.Atan2(_rb.velocity.y, _rb.velocity.x) * Mathf.Rad2Deg - 90f;
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
             _bounceNumber++;
 
             if (_bounceNumber > _playerStats.GetBounceNumber())

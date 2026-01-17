@@ -12,7 +12,7 @@ namespace Enemies
         [SerializeField] private TextMeshProUGUI _nameArea;
         [SerializeField] protected GameObject heart;
         [SerializeField] protected GameObject exit;
-        private bool _dead = false;
+
 
         [SerializeField] protected GameObject _healthBarArea;
         private Slider _healthBar;
@@ -56,6 +56,7 @@ namespace Enemies
         protected virtual IEnumerator ExitCoroutine()
         {
             _animator.SetBool("isWalking",true);
+            tag = "Untagged";
             
             while (Vector2.Distance(transform.position, exit.transform.position) > 0.1f)
             {

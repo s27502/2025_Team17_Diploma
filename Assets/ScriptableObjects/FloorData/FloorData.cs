@@ -12,6 +12,8 @@ namespace DefaultNamespace
         public int shopRoomNumberMin;
         public int shopRoomNumberMax;
 
+        public int nahebekuNumber;
+
         public int talismanRoomNumber;
 
         public int shrineRoomNumberMin;
@@ -23,6 +25,7 @@ namespace DefaultNamespace
         public GameObject shopRoom;
         public GameObject shrineRoom;
         public GameObject talismanRoom;
+        public GameObject nahebekuRoom;
 
         public int roomsToGenerate = 10;
     }

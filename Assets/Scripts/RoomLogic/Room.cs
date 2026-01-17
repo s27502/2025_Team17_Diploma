@@ -25,14 +25,21 @@ public class Room : MonoBehaviour
     {
         if (_enemies.transform.childCount == 0)
         {
-            _playerTP.SetActive(true);
-            _doorClosed.SetActive(false);
-            _doorOpen.SetActive(true);
             if (_giveReward)
             {
                 _roomReward.SetActive(true);
             }
+
+            StartCoroutine(RoomExitCoroutine());
         }
+    }
+
+    private IEnumerator RoomExitCoroutine()
+    {
+        yield return new WaitForSeconds(1);
+        _playerTP.SetActive(true);
+        _doorClosed.SetActive(false);
+        _doorOpen.SetActive(true);
     }
 
     public void GoToNextRoom()

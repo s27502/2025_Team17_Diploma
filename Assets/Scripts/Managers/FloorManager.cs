@@ -79,6 +79,11 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
                 //shopmusic
                 _currentRoom = Instantiate(_currentFloorData.shopRoom, Vector3.zero, Quaternion.identity);
             }
+            else if (_currentFloor == _floorDatas.Count-1 && _roomCounter == _currentFloorData.nahebekuNumber)
+            {
+                //bossmusic
+                _currentRoom = Instantiate(_currentFloorData.nahebekuRoom, Vector3.zero, Quaternion.identity);
+            }
             else if (_roomCounter == _shrineNumber)
             {
                 AudioManager.Instance.PlayMusic(defaultMusic);

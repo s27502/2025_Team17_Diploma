@@ -394,7 +394,11 @@ public class Set : Boss
         }
 
         if (_dashing)
+        {
+            PushBackReflect(other,1f);
             FinishDash();
+        }
+            
     }
 
     private void Bounce(Collision2D other)
@@ -429,6 +433,7 @@ public class Set : Boss
     protected override IEnumerator ExitCoroutine()
     {
         _animator.SetBool("isWalking",true);
+        tag = "Untagged";
         ClearProjectileSprites();
         _agent.enabled = true;
             
@@ -442,7 +447,8 @@ public class Set : Boss
         yield return new WaitForSeconds(1);
 
         heart.SetActive(true);
-        base.Die();
+        _agent.enabled = false;
+        Destroy(gameObject);
     }
 
 }

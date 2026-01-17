@@ -118,6 +118,7 @@ public class Alligator : Enemy
         if (!_charging) return;
         if (!other.gameObject.CompareTag("Obstacle") && !other.gameObject.CompareTag("Player")) return;
         
+        PushBackReflect(other,1f);
         _chargesNumber--;
         _chargeDirection = (_player.transform.position - transform.position).normalized;
         _miniChargeCounter = _miniChargeCooldown;
