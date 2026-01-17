@@ -61,6 +61,7 @@ public class FloorInfo : MonoBehaviour
     
     IEnumerator MoveRoutine(Vector2 target, float time)
     {
+        yield return new WaitForSeconds(1);
         Vector2 start = rect.anchoredPosition;
         float t = 0f;
 
