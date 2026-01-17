@@ -149,12 +149,12 @@ MonoBehaviour:
   stats:
   - 0
   - 0
-  - 0
-  - 0
   - 2
+  - 0
+  - 0
   _price: {fileID: 0}
   _isPoisoning: 0
   _isBouncing: 0
   _isHoming: 0
-  _description: Increases damage and gives poison effect
+  _description: Increases luck significantly
   pickUpSound: {fileID: 8300000, guid: 1b1db92b32b5d7d4984bd21ffaeb4172, type: 3}

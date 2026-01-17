@@ -230,8 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e192957331d31419df13c2ab346822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 70
-  _maxHp: 70
+  _hp: 100
+  _maxHp: 100
   dmg: 1
   atkSpd: 1
   fireRate: 1
@@ -322,6 +322,8 @@ MonoBehaviour:
   maxCrossMoveDuration: 1.5
   _name: Sobek
   _nameArea: {fileID: 0}
+  heart: {fileID: 0}
+  exit: {fileID: 0}
   _healthBarArea: {fileID: 0}
   _enemies: {fileID: 0}
   _windUpTime: 2
