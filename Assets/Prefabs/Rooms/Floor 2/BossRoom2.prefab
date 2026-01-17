@@ -4043,11 +4043,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 423719439766451970, guid: 7f49fa1ef2553eb49915aebeb195972f, type: 3}
       propertyPath: _hp
-      value: 10
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 423719439766451970, guid: 7f49fa1ef2553eb49915aebeb195972f, type: 3}
       propertyPath: _maxHp
-      value: 10
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1219186031532281383, guid: 7f49fa1ef2553eb49915aebeb195972f, type: 3}
       propertyPath: m_LocalPosition.x
