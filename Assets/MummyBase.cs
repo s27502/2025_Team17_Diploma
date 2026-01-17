@@ -8,6 +8,7 @@ public class MummyBase : Enemy
 
     public override void Die()
     {
+        mummyPile.transform.position = transform.position;
         mummyPile.SetActive(true);
         gameObject.SetActive(false);
         //base.Die();
