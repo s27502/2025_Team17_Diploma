@@ -4,12 +4,12 @@ namespace DefaultNamespace.Factory
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private GameObject _enemyPrefab;
-        [SerializeField] private GameObject _enemies;
+        [SerializeField] protected GameObject _enemyPrefab;
+        [SerializeField] protected GameObject _enemies;
         
         [Header("Spawn Area")]
-        [SerializeField] private Vector2 areaSize = new Vector2(30f, 20f);
-        [SerializeField] private Transform areaCenter;
+        [SerializeField] protected Vector2 areaSize = new Vector2(30f, 20f);
+        [SerializeField] protected Transform areaCenter;
 
         public Enemy SpawnAtRandomPosition()
         {

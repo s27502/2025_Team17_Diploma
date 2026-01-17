@@ -66,7 +66,7 @@ public class Anubis : Boss
     
     [SerializeField] private GameObject _enemies;
     [SerializeField] private GameObject _enemySpawnerObject;
-    private EnemySpawner _spawner;
+    private MummySpawner _spawner;
 
 
 
@@ -84,12 +84,13 @@ public class Anubis : Boss
     private bool _rollNewAttack = true;
     private AnubisAttacks _currentAttack;
     private float _summonDelayCounter;
-    private int _maxMummies = 2;
+    private bool _poison = false;
+    private int _maxMummies = 1;
 
     private void Awake()
     {
         InitiateCornerList();
-        _spawner = _enemySpawnerObject.GetComponent<EnemySpawner>();
+        _spawner = _enemySpawnerObject.GetComponent<MummySpawner>();
         _summonDelayCounter = 5;
     }
 
@@ -427,7 +428,10 @@ public class Anubis : Boss
     private void SpawnMummies(int number)
     {
         for (int i = 0; i < number; i++)
-            _spawner.SpawnAtRandomPosition();
+        {
+            _spawner.SpawnAtRandomPosition(_poison);
+            _poison = !_poison;
+        }
     }
 
     private void PerformChaseShoot()
