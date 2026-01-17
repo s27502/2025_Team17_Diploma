@@ -71,7 +71,7 @@ public class PlayerAttack : MonoBehaviour
         {
             attackTimer -= attackInterval;
             GameObject target = GetClosestEnemy();
-            if (target != null)
+            if (target != null && !target.GetComponent<Enemy>().GetDead())
             {
                 AudioManager.Instance.PlaySfx(playerShoot);
                 Attack(target);

@@ -12,7 +12,7 @@ namespace Enemies
         [SerializeField] private TextMeshProUGUI _nameArea;
         [SerializeField] protected GameObject heart;
         [SerializeField] protected GameObject exit;
-        private bool _dead = false;
+
 
         [SerializeField] protected GameObject _healthBarArea;
         private Slider _healthBar;

@@ -26,6 +26,8 @@ public class Enemy : MonoBehaviour
     private GameObject _spriteObject;
     private Vector2 currentCrossDirection;
     private Vector2 newCrossDirection;
+    
+    protected bool _dead = false;
 
     private float _crossCounter = 0f;
     
@@ -294,6 +296,11 @@ public class Enemy : MonoBehaviour
     protected Vector2 RotateProjectile(Vector2 v, float angle)
     {
         return Quaternion.Euler(0, 0, angle) * v;
+    }
+
+    public bool GetDead()
+    {
+        return _dead;
     }
 
 }

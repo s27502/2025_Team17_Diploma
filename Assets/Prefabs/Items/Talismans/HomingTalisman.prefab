@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Multiplying Talisman
   itemPrice: 50
-  IsShop: 1
+  IsShop: 0
   stats:
   - 0
   - 0
@@ -155,6 +155,6 @@ MonoBehaviour:
   _price: {fileID: 0}
   _isPoisoning: 0
   _isBouncing: 0
-  _isHoming: 1
+  _isHoming: 0
   _description: Grants additional projectile
   pickUpSound: {fileID: 8300000, guid: 1b1db92b32b5d7d4984bd21ffaeb4172, type: 3}
