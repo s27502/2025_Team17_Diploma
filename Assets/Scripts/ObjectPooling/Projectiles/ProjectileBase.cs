@@ -16,6 +16,10 @@ public abstract class ProjectileBase : MonoBehaviour, IPoolableObject
     }
 
     public void SetPool(IObjectPool pool) => _pool = pool;
+    public void Reparent(GameObject obj)
+    {
+        transform.SetParent(obj.transform);
+    }
 
     public virtual void Spawn(Vector2 position, Vector2 direction)
     {
