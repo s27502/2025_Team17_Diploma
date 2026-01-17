@@ -23,10 +23,12 @@ MonoBehaviour:
   - {fileID: 2005126786876904744, guid: 9e7229d02c044df4b9618e07aeef1656, type: 3}
   shopRoomNumberMin: 9
   shopRoomNumberMax: 11
-  shrineRoomNumberMin: 4
-  shrineRoomNumberMax: 6
+  talismanRoomNumber: 5
+  shrineRoomNumberMin: 3
+  shrineRoomNumberMax: 4
   startRoom: {fileID: 2005126786876904744, guid: 036949b01db40e449869c3ad7f0022a7, type: 3}
   bossRoom: {fileID: 2005126786876904744, guid: 7a9fa94bbbffcbd41a410524991954ec, type: 3}
   shopRoom: {fileID: 2005126786876904744, guid: 4ae85a1cb25b57444b52a59c54fd8f83, type: 3}
   shrineRoom: {fileID: 2005126786876904744, guid: 341f951a682f2a34ab06db2bd91f8b76, type: 3}
+  talismanRoom: {fileID: 2005126786876904744, guid: 88d0a7f787c081e479c292c4c750d9e0, type: 3}
   roomsToGenerate: 12
