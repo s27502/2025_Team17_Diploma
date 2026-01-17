@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using DefaultNamespace.Factory;
 using UnityEngine;
 
@@ -78,7 +79,11 @@ namespace Enemies
             }
 
             if (_attackDelayCounter > 0)
+            {
+                _animator.SetBool("isWalking",false);
                 _attackDelayCounter -= Time.fixedDeltaTime;
+            }
+
 
             HandleSummoning();
 
@@ -122,6 +127,7 @@ namespace Enemies
             {
                 case 0:
                     _attackDuration = 1000f;
+                    _animator.SetBool("isWalking",true);
                     return SobekAttacks.Charge;
 
                 case 1:
@@ -133,6 +139,7 @@ namespace Enemies
 
                 case 2:
                     _attackDuration = _movingDuration;
+                    _animator.SetBool("isWalking",true);
                     return SobekAttacks.RandomMoving;
             }
 
@@ -305,6 +312,24 @@ namespace Enemies
             _chargesNumber--;
             _chargeDirection = (_player.transform.position - transform.position).normalized;
             _miniChargeCounter = _miniChargeCooldown;
+        }
+        
+        protected override IEnumerator ExitCoroutine()
+        {
+            _animator.SetBool("isWalking",true);
+            EnemyStats.SetMovementSpeed(_originalSpeed);
+            
+            while (Vector2.Distance(transform.position, exit.transform.position) > 0.1f)
+            {
+                MoveTo(exit.transform.position);
+                yield return null;
+            }
+
+            _animator.SetBool("isWalking",false);
+            yield return new WaitForSeconds(1);
+
+            heart.SetActive(true);
+            base.Die();
         }
     }
 }
