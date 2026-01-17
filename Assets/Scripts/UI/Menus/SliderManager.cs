@@ -1,24 +1,20 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Managers;
-using UI.Menus;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SliderManager : MonoBehaviour
 {
-    public static SliderManager Instance;
-    
+    public static SliderManager Instance { get; private set; }
+
     [SerializeField] private Slider mainVolumeSlider;
-    [SerializeField] private Slider sfxVolumeSlider;
     [SerializeField] private Slider musicVolumeSlider;
-    
+    [SerializeField] private Slider sfxVolumeSlider;
+
     public event Action<float> OnMasterVolumeChanged;
     public event Action<float> OnMusicVolumeChanged;
     public event Action<float> OnSfxVolumeChanged;
-    
-    private AudioManager _audioManager;
+
     private void Awake()
     {
         if (Instance != null)
@@ -28,14 +24,25 @@ public class SliderManager : MonoBehaviour
         }
 
         Instance = this;
-        
-        mainVolumeSlider.value = GetMainVolume();
-        sfxVolumeSlider.value = GetSfxVolume();
-        musicVolumeSlider.value = GetMusicVolume();
-        
-        _audioManager = GetComponentInParent<AudioManager>();
-        //Add Listeners to AudioManager
+
+
+        mainVolumeSlider.SetValueWithoutNotify(GetMainVolume());
+        musicVolumeSlider.SetValueWithoutNotify(GetMusicVolume());
+        sfxVolumeSlider.SetValueWithoutNotify(GetSfxVolume());
+
+
+        AudioManager.Instance.RegisterSliderManager(this);
     }
+
+    private void OnDestroy()
+    {
+        //AudioManager.Instance.RegisterSliderManager(null);
+        if (Instance == this)
+            Instance = null;
+    }
+
+
+
     public void SetMainVolume(float value)
     {
         PlayerPrefs.SetFloat("Main Volume", value);
@@ -54,6 +61,7 @@ public class SliderManager : MonoBehaviour
         OnSfxVolumeChanged?.Invoke(value);
     }
     
+
     public float GetMainVolume() =>
         PlayerPrefs.GetFloat("Main Volume", 1f);
 
