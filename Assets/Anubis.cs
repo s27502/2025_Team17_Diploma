@@ -767,4 +767,5 @@ public class Anubis : Boss
             Destroy(ankhSpawner);
     }
 
+
 }

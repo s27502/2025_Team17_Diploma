@@ -10,8 +10,8 @@ namespace Enemies
     {
         [SerializeField] private string _name;
         [SerializeField] private TextMeshProUGUI _nameArea;
-        [SerializeField] private GameObject heart;
-        [SerializeField] private GameObject exit;
+        [SerializeField] protected GameObject heart;
+        [SerializeField] protected GameObject exit;
         private bool _dead = false;
 
         [SerializeField] protected GameObject _healthBarArea;
@@ -53,13 +53,18 @@ namespace Enemies
             //base.Die();
         }
 
-        private IEnumerator ExitCoroutine()
+        protected virtual IEnumerator ExitCoroutine()
         {
+            _animator.SetBool("isWalking",true);
+            
             while (Vector2.Distance(transform.position, exit.transform.position) > 0.1f)
             {
                 MoveTo(exit.transform.position);
                 yield return null;
             }
+
+            _animator.SetBool("isWalking",false);
+            yield return new WaitForSeconds(1);
 
             heart.SetActive(true);
             base.Die();
