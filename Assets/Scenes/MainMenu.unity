@@ -256,6 +256,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33710493}
   m_CullTransparentMesh: 1
+--- !u!1 &76526737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 76526739}
+  - component: {fileID: 76526738}
+  m_Layer: 0
+  m_Name: MusicPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &76526738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76526737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd280c59202330442b5a7bd45fa8e4a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menuMusic: {fileID: 8300000, guid: 02cb6746a00c0e649ad498533e3fb109, type: 3}
+--- !u!4 &76526739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76526737}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -133.0757, y: -31.40777, z: -11.576386}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &76689369
 GameObject:
   m_ObjectHideFlags: 0
@@ -7638,8 +7683,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainVolumeSlider: {fileID: 1828955187}
-  sfxVolumeSlider: {fileID: 299876519}
   musicVolumeSlider: {fileID: 1546408178}
+  sfxVolumeSlider: {fileID: 299876519}
 --- !u!1 &2044958362
 GameObject:
   m_ObjectHideFlags: 0
@@ -7864,3 +7909,4 @@ SceneRoots:
   - {fileID: 633097687}
   - {fileID: 346902364}
   - {fileID: 1832760528}
+  - {fileID: 76526739}

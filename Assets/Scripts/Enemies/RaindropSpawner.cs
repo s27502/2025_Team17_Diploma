@@ -31,5 +31,6 @@ public class RaindropSpawner : EnemyProjectileFactory
         Vector2 spawnPos = (Vector2)areaCenter.position + randomOffset;
         IPoolableObject projectile = _projectilePool.GetObject();
         projectile.Spawn(spawnPos,Vector2.down);
+        projectile.Reparent(gameObject);
     }
 }

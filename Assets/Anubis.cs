@@ -18,6 +18,7 @@ public enum AnubisAttacks
 public class Anubis : Boss
 {
     [SerializeField] private float moveShootDuration = 5f;
+    [SerializeField] private GameObject ankhSpawner;
     
     private bool omega345 = false;
     private bool omegaWave = false;
@@ -38,6 +39,7 @@ public class Anubis : Boss
 
     [SerializeField] private float laserDelay = 1f;
 
+    private bool _phase2 = true;
 
     private int _lasersFinishedCounter = 0;
     
@@ -95,7 +97,15 @@ public class Anubis : Boss
     {
         if (_rollNewAttack)
         {
-            _currentAttack = RollAttack();
+            if (_phase2)
+            {
+                _currentAttack = RollAttack2();
+            }
+            else
+            {
+                _currentAttack = RollAttack();
+            }
+            
         }
         else
         {
@@ -124,6 +134,45 @@ public class Anubis : Boss
         }
         
         HandleSummoning();
+    }
+
+    private AnubisAttacks RollAttack2()
+    {
+        int val = Random.Range(0, 100);
+        _rollNewAttack = false;
+
+        if (val >= 80)
+        {
+            SetUpMoveShoot();
+            return AnubisAttacks.MoveShoot;
+        }
+        
+        if (val >= 65) //80
+        {
+            SetUpSpikeAttack();
+            return AnubisAttacks.SpikeSpawn;
+        }
+
+        if (val >= 45) //
+        {
+            SetUpChaseShoot();
+            return AnubisAttacks.ChaseShoot;
+        }
+
+        if (val >= 25)
+        {
+            SetUpSpiral();
+            return AnubisAttacks.DoubleSpiral;
+        }
+
+        if (val >= 15)
+        {
+            SetUpOmegaShoot();
+            return AnubisAttacks.OmegaShoot;
+        }
+
+        SetUpTripleBrimstone();
+        return AnubisAttacks.TripleBrimstone;
     }
 
     private void PerformMoveShoot()
@@ -690,6 +739,20 @@ public class Anubis : Boss
         Vector2 dir = (_player.transform.position - laserObject.transform.position).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         laserObject.transform.rotation = Quaternion.Euler(0f,0f, angle);
+    }
+    
+    protected override void OnHpChangedHandler(int hp, int maxHp)
+    {
+        base.OnHpChangedHandler(hp, maxHp);
+
+        if (hp <= maxHp / 2)
+        {
+            ankhSpawner.SetActive(true);
+            _phase2 = true;
+        }
+
+        if (hp <= 0)
+            Destroy(ankhSpawner);
     }
 
 }

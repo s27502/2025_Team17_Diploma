@@ -11,6 +11,10 @@ public class DamagePopup : MonoBehaviour, IPoolableObject
     private IObjectPool _pool;
 
     public void SetPool(IObjectPool pool) => _pool = pool;
+    public void Reparent(GameObject obj)
+    {
+        throw new System.NotImplementedException();
+    }
 
     public void Spawn(Vector2 position, Vector2 direction)
     {

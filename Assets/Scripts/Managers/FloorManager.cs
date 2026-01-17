@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class FloorManager : SingletonDoNotDestroy<FloorManager>
 {
+    [SerializeField] private AudioClip defaultMusic;
     [SerializeField] private Animator transition;
     [SerializeField] private GameObject _thankScreen;
     private GameObject _thankScreenInstance;
@@ -33,6 +35,7 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
         
         ServiceLocator.Instance.Register(this);
         _currentFloorData = _floorDatas[_currentFloor];
+        AudioManager.Instance.PlayMusic(defaultMusic);
 
         _shopNumber = RollShopRoomNumber();
         _shrineNumber = RollShrineRoomNumber();
@@ -73,23 +76,28 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
 
             if (_roomCounter == _shopNumber)
             {
+                //shopmusic
                 _currentRoom = Instantiate(_currentFloorData.shopRoom, Vector3.zero, Quaternion.identity);
             }
             else if (_roomCounter == _shrineNumber)
             {
+                AudioManager.Instance.PlayMusic(defaultMusic);
                 _currentRoom = Instantiate(_currentFloorData.shrineRoom, Vector3.zero, Quaternion.identity);
             }
             else if (_roomCounter == _currentFloorData.roomsToGenerate)
             {
+                //bossmusic
                 _currentRoom = Instantiate(_currentFloorData.bossRoom, Vector3.zero, Quaternion.identity);
             }
             else if (_newFloor)
             {
                 _currentRoom = Instantiate(_currentFloorData.startRoom, Vector3.zero, Quaternion.identity);
+                AudioManager.Instance.PlayMusic(defaultMusic);
                 _newFloor = false;
             }
             else
             {
+                AudioManager.Instance.PlayMusic(defaultMusic);
                 _currentRoom = Instantiate(PickRandomRoom(), Vector3.zero, Quaternion.identity);
             }
             
