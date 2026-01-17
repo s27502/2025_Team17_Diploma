@@ -130,8 +130,40 @@ public class Enemy : MonoBehaviour
         FlipTo(dir.x);
     }
     
+    public void PushBack(Vector2 sourcePosition, float force)
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb == null) return;
+
+        Vector2 direction = ((Vector2)transform.position - sourcePosition).normalized;
+        rb.AddForce(direction * force, ForceMode2D.Impulse);
+    }
     
-    
+    public void PushBackReflect(Collision2D collision, float force)
+    {
+        if (!TryGetComponent(out Rigidbody2D rb)) return;
+        if (collision.contactCount == 0) return;
+
+        Vector2 incoming = rb.velocity;
+        
+        if (incoming.sqrMagnitude < 0.001f)
+            incoming = transform.position - collision.transform.position;
+
+        Vector2 normal = collision.contacts[0].normal;
+        Vector2 reflectDir = Vector2.Reflect(incoming, normal).normalized;
+
+        rb.AddForce(reflectDir * force, ForceMode2D.Impulse);
+
+        StartCoroutine(ResetForceCoroutine());
+    }
+
+    private IEnumerator ResetForceCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        _rb.velocity = Vector2.zero;
+    }
+
+
     protected void MoveInDirection(Vector2 direction)
     {
         if (_rb == null) return;

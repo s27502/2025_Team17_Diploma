@@ -162,6 +162,7 @@ public class AndroSphinx : Enemy
         if ((!other.gameObject.CompareTag("Obstacle") && !other.gameObject.CompareTag("Player")) || !_charging)
             return;
 
+        PushBackReflect(other,1f);
         _chargesNumber--;
         _chargeDirection = (_player.transform.position - transform.position).normalized;
         _miniChargeCounter = _miniChargeCooldown;

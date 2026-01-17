@@ -121,6 +121,7 @@ namespace Enemies
             if ((other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Player")) && !_isNotDashing)
             {
                 _obstacleFound = true;
+                PushBackReflect(other,1f);
             }
         }
 
