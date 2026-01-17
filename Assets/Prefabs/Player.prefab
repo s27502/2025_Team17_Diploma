@@ -496,8 +496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f0cef433fc5264e837807204ec4d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 4
-  _maxHp: 4
+  _hp: 6
+  _maxHp: 6
   dmg: 1
   atkSpeed: 1
   luck: 0

@@ -9,7 +9,8 @@ namespace Interactables
 {
     public class HorusShrine : MonoBehaviour, IInteractable
     {
-        [SerializeField]private List<Blessing> _blessings;
+        [SerializeField] private List<Blessing> _blessings;
+        [SerializeField] private Blessing riskyBlessing;
         BlessingManager _choiceUI;
         private bool _blessed = false;
 
@@ -20,6 +21,7 @@ namespace Interactables
 
         public void OnInteract()
         {
+            
             if (!_blessed)
             {
                 if (_choiceUI != null)
@@ -28,12 +30,21 @@ namespace Interactables
                 }
                 Random rnd = new Random();
                 var first =  _blessings[rnd.Next(_blessings.Count)];
+                
                 _blessings.Remove(first);
                 var second =  _blessings[rnd.Next(_blessings.Count)];
                 _blessings.Add(first);
+                if (first == riskyBlessing)
+                {
+                    _blessings.Remove(first);
+                } else if (second == riskyBlessing)
+                {
+                    _blessings.Remove(second);
+                }
                 _choiceUI.ShowUI();
                 _choiceUI.SetBlessings(first, second);
                 _blessed = true;
+                Time.timeScale = 0;
             }
             
         }

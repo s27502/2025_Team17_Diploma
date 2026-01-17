@@ -60,21 +60,31 @@ public class BlessingChoiceUI : MonoBehaviour
         {
             if (_choice.GetAtkSpdMult() != 0)
             {
-                var p = _playerStats.GetAtkSpeed() * _choice.GetAtkSpdMult();
-                
-                _playerStats.SetAtkSpd(p);
-                //_playerStats.ModifyDmg((int)(_playerStats.GetDmg()*_choice.GetDmgMult()));
+                Debug.Log(_playerStats.GetAtkSpeed() * _choice.GetAtkSpdMult());
+                if (_choice.GetAtkSpdMult() > 0)
+                {
+                    _playerStats.SetAtkSpd(_playerStats.GetAtkSpeed() * _choice.GetAtkSpdMult());
+                }
+                else
+                {
+                    var atkSpd = _playerStats.GetAtkSpeed() + (_playerStats.GetAtkSpeed() * _choice.GetAtkSpdMult());
+                    _playerStats.SetAtkSpd(atkSpd);
+                }
             }
 
             if (_choice.GetDmgMult() != 0)
             {
-                _playerStats.SetDamage((int)(_playerStats.GetDmg()*_choice.GetDmgMult()));
-                //_playerStats.ModifyAttackSpeed(_playerStats.GetAtkSpeed() * _choice.GetAtkSpdMult());
-            }
-
-            if (_choice.GetAtkSpdMult() != 0)
-            {
-                _playerStats.ModifyAttackSpeed(_playerStats.GetAtkSpeed() * _choice.GetAtkSpdMult());
+                Debug.Log(_playerStats.GetDmg() * _choice.GetDmgMult());
+                if (_choice.GetDmgMult() > 0)
+                {
+                    _playerStats.SetDamage((int)Mathf.Clamp(_playerStats.GetDmg() * _choice.GetDmgMult(), 1, 99));
+                }
+                else
+                {
+                    var dmg = _playerStats.GetDmg() + (_playerStats.GetDmg() * _choice.GetDmgMult());
+                    Debug.Log(dmg);
+                    _playerStats.SetDamage((int)dmg);
+                }
             }
 
             if (_choice.GetLuck() > 0)
@@ -86,12 +96,12 @@ public class BlessingChoiceUI : MonoBehaviour
             if (_choice.GetHpCap() > 0)
             {
                 _playerStats.CapHp(_choice.GetHpCap());
-                //_playerStats.SetDamage((int)(_playerStats.GetDmg()*_choice.GetDmgMult()));
             }
             _playerStats.ModifyMaxHp(_choice.GetHp());
             _playerStats.ModifyHp(0);
             _playerStats.ModifyCoins(_choice.GetCoins());
             _playerStats.ModifyProjectileCount(_choice.GetProjCount());
+            Time.timeScale = 1;
         }
     }
     
