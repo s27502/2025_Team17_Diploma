@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,9 @@ namespace Enemies
     {
         [SerializeField] private string _name;
         [SerializeField] private TextMeshProUGUI _nameArea;
+        [SerializeField] private GameObject heart;
+        [SerializeField] private GameObject exit;
+        private bool _dead = false;
 
         [SerializeField] protected GameObject _healthBarArea;
         private Slider _healthBar;
@@ -24,7 +28,10 @@ namespace Enemies
 
         protected override void FixedUpdate()
         {
-            base.FixedUpdate();
+            if (!_dead)
+            {
+                base.FixedUpdate();
+            }
         }
 
         protected virtual void OnHpChangedHandler(int hp, int maxHp)
@@ -41,7 +48,24 @@ namespace Enemies
         public override void Die()
         {
             _healthBarArea.gameObject.SetActive(false);
+            _dead = true;
+            StartCoroutine(ExitCoroutine());
             base.Die();
+        }
+
+        private IEnumerator ExitCoroutine()
+        {
+            float distance = Vector2.Distance(transform.position, exit.transform.position);
+
+            while (distance > 0.1f)
+            {
+                MoveTo(exit.transform.position);
+                distance = Vector2.Distance(transform.position, exit.transform.position);
+            }
+            
+            heart.SetActive(true);
+            base.Die();
+            yield break;
         }
     }
 }
