@@ -151,6 +151,8 @@ MonoBehaviour:
   maxCrossMoveDuration: 1.5
   _name: Anubis
   _nameArea: {fileID: 0}
+  heart: {fileID: 0}
+  exit: {fileID: 0}
   _healthBarArea: {fileID: 0}
   moveShootDuration: 5
   ankhSpawner: {fileID: 0}
@@ -215,8 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e192957331d31419df13c2ab346822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 500
-  _maxHp: 500
+  _hp: 750
+  _maxHp: 750
   dmg: 1
   atkSpd: 1
   fireRate: 1
