@@ -1146,6 +1146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 299876518}
   - component: {fileID: 299876519}
+  - component: {fileID: 299876520}
   m_Layer: 5
   m_Name: SFXVolume
   m_TagString: Untagged
@@ -1226,19 +1227,20 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1829598009}
-        m_TargetAssemblyTypeName: Managers.AudioManager, Assembly-CSharp
-        m_MethodName: SetSFXVolume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &299876520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299876517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97dfbb788db293b43bfec1eda7ab6b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 299876519}
 --- !u!1 &306210099
 GameObject:
   m_ObjectHideFlags: 0
@@ -5630,6 +5632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1546408177}
   - component: {fileID: 1546408178}
+  - component: {fileID: 1546408179}
   m_Layer: 5
   m_Name: MusicVolume
   m_TagString: Untagged
@@ -5710,19 +5713,20 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1829598009}
-        m_TargetAssemblyTypeName: Managers.AudioManager, Assembly-CSharp
-        m_MethodName: SetMusicVolume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &1546408179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546408176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a644a4d30a8af548bc63b90fee68374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1546408178}
 --- !u!1 &1550373521
 GameObject:
   m_ObjectHideFlags: 0
@@ -6416,6 +6420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1828955186}
   - component: {fileID: 1828955187}
+  - component: {fileID: 1828955188}
   m_Layer: 5
   m_Name: MainVolume
   m_TagString: Untagged
@@ -6496,30 +6501,20 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1829598009}
-        m_TargetAssemblyTypeName: Managers.AudioManager, Assembly-CSharp
-        m_MethodName: SetMasterVolume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1829598009 stripped
+      m_Calls: []
+--- !u!114 &1828955188
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 751589382034172177, guid: 63c9ea4d9ad5de74292be50e74968881, type: 3}
-  m_PrefabInstance: {fileID: 346902364}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1828955185}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ca2527250d44b6f9f7ff2e355e6de98, type: 3}
+  m_Script: {fileID: 11500000, guid: e1b5a1acf75e22c4d8a60c5a30c38b62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 1828955187}
 --- !u!1 &1832760526
 GameObject:
   m_ObjectHideFlags: 0
@@ -7520,6 +7515,7 @@ GameObject:
   - component: {fileID: 2040470617}
   - component: {fileID: 2040470616}
   - component: {fileID: 2040470615}
+  - component: {fileID: 2040470620}
   m_Layer: 5
   m_Name: Options Menu
   m_TagString: Untagged
@@ -7629,6 +7625,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2040470620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040470614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5180ed26987d14c9ac53c0bb85036f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainVolumeSlider: {fileID: 1828955187}
+  sfxVolumeSlider: {fileID: 299876519}
+  musicVolumeSlider: {fileID: 1546408178}
 --- !u!1 &2044958362
 GameObject:
   m_ObjectHideFlags: 0
