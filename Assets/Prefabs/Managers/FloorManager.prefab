@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6829bcbc2cfe8d489fa49e27ba5615a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultMusic: {fileID: 8300000, guid: b081d73cc0fc00247a637059561e7d35, type: 3}
   transition: {fileID: 1725585014672294096}
   _thankScreen: {fileID: 2540575307087665946, guid: cb85ed16da53f5b45a69423480c33c6e, type: 3}
   floorInfo: {fileID: 0}
