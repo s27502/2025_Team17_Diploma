@@ -321,6 +321,7 @@ public class Set : Boss
 
         if (val >= 70)//70
         {
+            _animator.SetBool("isWalking",true);
             return SetAttacks.ShootWalk;
         }
 
@@ -329,6 +330,7 @@ public class Set : Boss
             _dashing = true;
             _startDash = true;
             _windUpCounter = 0f;
+            _animator.SetBool("isWalking",true);
             return SetAttacks.Dash;
         }
 
@@ -336,6 +338,7 @@ public class Set : Boss
         {
             _hangingProjectileCounter = 0;
             _agent.enabled = false;
+            _animator.SetBool("isWalking",true);
             return SetAttacks.DelayedShoot;
         }
 
@@ -353,11 +356,13 @@ public class Set : Boss
             _dashing = true;
             _startDash = true;
             _windUpCounter = 0f;
+            _animator.SetBool("isWalking",true);
             return SetAttacks.Dash;
         }
 
         if (val >= 0)//25
         {
+            _animator.SetBool("isWalking",true);
             return SetAttacks.ShootWalk;
         }
 
@@ -368,6 +373,7 @@ public class Set : Boss
 
     private void DelayNextAttack()
     {
+        _animator.SetBool("isWalking",false);
         if (_attackDelayCounter <= EnemyStats.GetAtkSpd())
         {
             _attackDelayCounter += Time.fixedDeltaTime;
@@ -418,6 +424,25 @@ public class Set : Boss
 
         if (hp <= (maxHp / 10) * 4)
             _phase2 = true;
+    }
+    
+    protected override IEnumerator ExitCoroutine()
+    {
+        _animator.SetBool("isWalking",true);
+        ClearProjectileSprites();
+        _agent.enabled = true;
+            
+        while (Vector2.Distance(transform.position, exit.transform.position) > 0.1f)
+        {
+            NavMoveTo(exit.transform);
+            yield return null;
+        }
+
+        _animator.SetBool("isWalking",false);
+        yield return new WaitForSeconds(1);
+
+        heart.SetActive(true);
+        base.Die();
     }
 
 }

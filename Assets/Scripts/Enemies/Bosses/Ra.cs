@@ -276,4 +276,6 @@ public class Ra : Boss
         LaserCrossObject.SetActive(false);
         base.Die();
     }
+    
+
 }
