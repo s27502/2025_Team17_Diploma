@@ -56,6 +56,7 @@ namespace Enemies
         protected virtual IEnumerator ExitCoroutine()
         {
             _animator.SetBool("isWalking",true);
+            tag = "Untagged";
             
             while (Vector2.Distance(transform.position, exit.transform.position) > 0.1f)
             {

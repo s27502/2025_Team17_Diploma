@@ -318,6 +318,7 @@ namespace Enemies
         protected override IEnumerator ExitCoroutine()
         {
             _animator.SetBool("isWalking",true);
+            tag = "Untagged";
             EnemyStats.SetMovementSpeed(_originalSpeed);
             
             while (Vector2.Distance(transform.position, exit.transform.position) > 0.1f)
@@ -330,7 +331,7 @@ namespace Enemies
             yield return new WaitForSeconds(1);
 
             heart.SetActive(true);
-            base.Die();
+            Destroy(gameObject);
         }
     }
 }
