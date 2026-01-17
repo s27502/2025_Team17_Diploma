@@ -26,11 +26,6 @@ namespace Managers
             SetUpVolumes();
         }
 
-        private void Update()
-        {
-            Debug.Log("main " + _masterVolume + " music " + _musicVolume + " sfx " + _sfxVolume);
-        }
-
         private void SetUpVolumes()
         {
             SetMusicVolume(GetMusicVolume());
