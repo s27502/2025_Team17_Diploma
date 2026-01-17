@@ -1667,9 +1667,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textField: {fileID: 44081272139538740}
   rect: {fileID: 1343713683119774130}
-  offscreenStart: {x: -2000, y: -350}
+  offscreenStart: {x: -5000, y: -350}
   onscreenPos: {x: 720, y: -350}
-  offscreenEnd: {x: 2000, y: -350}
+  offscreenEnd: {x: 5000, y: -350}
   flyInTime: 0.5
   flyOutTime: 0.5
 --- !u!1 &5983987263834732719
@@ -2088,7 +2088,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -300}
+  m_AnchoredPosition: {x: 50, y: -300}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1423929517306060265
@@ -2624,7 +2624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -312.75}
+  m_AnchoredPosition: {x: 50, y: -312.75}
   m_SizeDelta: {x: 200, y: 160}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3357059253905174326
