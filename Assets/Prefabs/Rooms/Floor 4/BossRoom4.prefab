@@ -4926,6 +4926,7 @@ Transform:
   - {fileID: 2213149804231989452}
   - {fileID: 3947298738451267231}
   - {fileID: 5334932871411472389}
+  - {fileID: 1002503084117330968}
   - {fileID: 6881220661623708823}
   - {fileID: 1657621475476351370}
   - {fileID: 5358912862285266763}
@@ -7737,6 +7738,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb12251e5a915984f884803af06f9ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3526849765198543362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1002503084117330968}
+  m_Layer: 0
+  m_Name: BossExit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1002503084117330968
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3526849765198543362}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6, y: 6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2117331558896864061}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3762648259357031743
 GameObject:
   m_ObjectHideFlags: 0
@@ -13856,7 +13888,7 @@ PrefabInstance:
     - target: {fileID: 3064550797621659815, guid: 15b375ffba19d0f4aaf31ffc48ab6f93, type: 3}
       propertyPath: exit
       value: 
-      objectReference: {fileID: 3762648259357031743}
+      objectReference: {fileID: 3526849765198543362}
     - target: {fileID: 3064550797621659815, guid: 15b375ffba19d0f4aaf31ffc48ab6f93, type: 3}
       propertyPath: heart
       value: 
@@ -13939,11 +13971,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4679941854178038005, guid: 15b375ffba19d0f4aaf31ffc48ab6f93, type: 3}
       propertyPath: _hp
-      value: 10
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4679941854178038005, guid: 15b375ffba19d0f4aaf31ffc48ab6f93, type: 3}
       propertyPath: _maxHp
-      value: 10
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6194789230073260496, guid: 15b375ffba19d0f4aaf31ffc48ab6f93, type: 3}
       propertyPath: m_LocalPosition.x

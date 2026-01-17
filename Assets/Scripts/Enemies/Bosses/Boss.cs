@@ -50,22 +50,20 @@ namespace Enemies
             _healthBarArea.gameObject.SetActive(false);
             _dead = true;
             StartCoroutine(ExitCoroutine());
-            base.Die();
+            //base.Die();
         }
 
         private IEnumerator ExitCoroutine()
         {
-            float distance = Vector2.Distance(transform.position, exit.transform.position);
-
-            while (distance > 0.1f)
+            while (Vector2.Distance(transform.position, exit.transform.position) > 0.1f)
             {
                 MoveTo(exit.transform.position);
-                distance = Vector2.Distance(transform.position, exit.transform.position);
+                yield return null;
             }
-            
+
             heart.SetActive(true);
             base.Die();
-            yield break;
         }
+
     }
 }
