@@ -72,10 +72,10 @@ public class BlessingChoiceUI : MonoBehaviour
                 //_playerStats.ModifyAttackSpeed(_playerStats.GetAtkSpeed() * _choice.GetAtkSpdMult());
             }
 
-            if (_choice.GetAtkSpdMult() != 0)
-            {
-                _playerStats.ModifyAttackSpeed(_playerStats.GetAtkSpeed() * _choice.GetAtkSpdMult());
-            }
+            // if (_choice.GetAtkSpdMult() != 0)
+            // {
+            //     _playerStats.ModifyAttackSpeed(_playerStats.GetAtkSpeed() * _choice.GetAtkSpdMult());
+            // }
 
             if (_choice.GetLuck() > 0)
             {
@@ -92,6 +92,7 @@ public class BlessingChoiceUI : MonoBehaviour
             _playerStats.ModifyHp(0);
             _playerStats.ModifyCoins(_choice.GetCoins());
             _playerStats.ModifyProjectileCount(_choice.GetProjCount());
+            Time.timeScale = 1;
         }
     }
     
