@@ -419,6 +419,10 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5334115256909447321, guid: 13844501cb87aea40a9bac9cfa1f4eed, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 966147358}
     - target: {fileID: 5643028751999670154, guid: 13844501cb87aea40a9bac9cfa1f4eed, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
