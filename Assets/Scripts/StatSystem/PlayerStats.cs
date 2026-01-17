@@ -143,13 +143,13 @@ namespace Player
         public void SetDamage(int value)
         {
             
-            dmg = value;
+            dmg = Mathf.Clamp(value, 1, 99);
             onDamageChanged?.Invoke(dmg);
         }
         
         public void SetAtkSpd(float value)
         {
-            atkSpeed = Mathf.Clamp(value, 0, 10);
+            atkSpeed = Mathf.Clamp(value, 0.5f, 10);
             onAtkSpdChanged?.Invoke(atkSpeed);
         }
         
