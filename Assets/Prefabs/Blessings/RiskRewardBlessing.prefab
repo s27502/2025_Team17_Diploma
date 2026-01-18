@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97d95f3e9bf9ee4d9b7fc6365162745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _desc: Caps health at 1 heart but 3x the damage
+  _desc: Sets health to 1 heart but 3x the damage
   _coins: 0
   _dmgMult: 3
   _atkSpdMult: 0
