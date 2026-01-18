@@ -167,7 +167,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 18
-      m_TileSpriteIndex: 23
+      m_TileSpriteIndex: 24
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -437,7 +437,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 14
-      m_TileSpriteIndex: 18
+      m_TileSpriteIndex: 23
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1027,7 +1027,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 12
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 18
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1680,8 +1680,8 @@ Tilemap:
     m_Data: {fileID: -1017781245, guid: 5952a6033b1fc1343be4eb865ad1c33b, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1427852432, guid: 5952a6033b1fc1343be4eb865ad1c33b, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -696691696, guid: 5952a6033b1fc1343be4eb865ad1c33b, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: -1712866529, guid: 5952a6033b1fc1343be4eb865ad1c33b, type: 3}
   - m_RefCount: 15
@@ -1693,7 +1693,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -631641183, guid: 5952a6033b1fc1343be4eb865ad1c33b, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -118483969, guid: 5952a6033b1fc1343be4eb865ad1c33b, type: 3}
+    m_Data: {fileID: -696691696, guid: 5952a6033b1fc1343be4eb865ad1c33b, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -2145444990, guid: 5952a6033b1fc1343be4eb865ad1c33b, type: 3}
   - m_RefCount: 2
@@ -1703,9 +1703,9 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 307068121, guid: 5952a6033b1fc1343be4eb865ad1c33b, type: 3}
   - m_RefCount: 1
+    m_Data: {fileID: -118483969, guid: 5952a6033b1fc1343be4eb865ad1c33b, type: 3}
+  - m_RefCount: 1
     m_Data: {fileID: 1682543947, guid: 5952a6033b1fc1343be4eb865ad1c33b, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 144
     m_Data:
@@ -3218,7 +3218,7 @@ GameObject:
   - component: {fileID: 899387115355924579}
   - component: {fileID: 4991015396782396325}
   - component: {fileID: 5921011607053304123}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
