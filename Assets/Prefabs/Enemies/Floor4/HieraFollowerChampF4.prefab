@@ -533,7 +533,7 @@ GameObject:
   - component: {fileID: 5092558424392481310}
   - component: {fileID: 6746807022476789236}
   m_Layer: 10
-  m_Name: HieraFollowerChamp
+  m_Name: HieraFollowerChampF4
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
