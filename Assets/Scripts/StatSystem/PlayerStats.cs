@@ -102,6 +102,7 @@ namespace Player
         public void ModifyDmg(int value)
         {
             dmg += value;
+            dmg = Mathf.Clamp(dmg, 1, 99);
             onDamageChanged?.Invoke(dmg);
         }
 
