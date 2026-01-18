@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3659701753492435901}
   - component: {fileID: 2826697266865792426}
   - component: {fileID: 2588336806292896947}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: BrimstoneTrigger (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8692977291486520985}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: BrimstoneTriggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 8024363133873998698}
   - component: {fileID: 8041653348629071575}
   - component: {fileID: 2850889790559796254}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: BrimstoneTrigger (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 1387608488693060594}
   - component: {fileID: 7877160884898611914}
   - component: {fileID: 5046735974123086643}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: BrimstoneTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -723,7 +723,7 @@ GameObject:
   - component: {fileID: 2810038420520570596}
   - component: {fileID: 5444136790851786961}
   - component: {fileID: 7369268529712202351}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: BrimstoneTrigger (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
