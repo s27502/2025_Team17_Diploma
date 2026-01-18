@@ -236,7 +236,7 @@ public class Ra : Boss
     {
         int val = Random.Range(0, 100);
 
-        if (val >= 85)
+        if (val >= 75)
         {
             _sunDurationCounter = sunAttackDuration;
             _rotationDelayCounter = sunRotationDelay;
@@ -246,7 +246,7 @@ public class Ra : Boss
             return RaAttacks.Sun;
         }
 
-        if (val >= 50)
+        if (val >= 56)
         {
             _spiralDurationCounter = _spiralDuration;
             _spiralAngle = 0;
@@ -255,7 +255,7 @@ public class Ra : Boss
             return RaAttacks.Spiral;
         }
 
-        if (val >= 25)
+        if (val >= 28)
         {
             _laserDurationCounter = laserDuration;
             _laserChargeCounter = laserCharge;
