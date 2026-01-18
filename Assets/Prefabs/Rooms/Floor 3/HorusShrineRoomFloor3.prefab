@@ -2358,6 +2358,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HorusShrine
       objectReference: {fileID: 0}
+    - target: {fileID: 2323502475582077208, guid: 2695569253f800e4398b5a9ec291555a, type: 3}
+      propertyPath: _blessings.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8700197556414833651, guid: 2695569253f800e4398b5a9ec291555a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6

@@ -34,13 +34,7 @@ namespace Interactables
                 _blessings.Remove(first);
                 var second =  _blessings[rnd.Next(_blessings.Count)];
                 _blessings.Add(first);
-                if (first == riskyBlessing)
-                {
-                    _blessings.Remove(first);
-                } else if (second == riskyBlessing)
-                {
-                    _blessings.Remove(second);
-                }
+                _blessings.Remove(riskyBlessing);
                 _choiceUI.ShowUI();
                 _choiceUI.SetBlessings(first, second);
                 _blessed = true;
