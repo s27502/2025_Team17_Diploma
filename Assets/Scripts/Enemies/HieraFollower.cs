@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class HieraFollower : Enemy
 {
-    [SerializeField] private GameObject MultiLaserSpawner;
-    [SerializeField] private float LaserTime = 1f;
-    [SerializeField] private float WindUpTime = 1f;
+    [SerializeField] protected GameObject MultiLaserSpawner;
+    [SerializeField] protected float LaserTime = 1f;
+    [SerializeField] protected float WindUpTime = 1f;
     private MultiLaserSpawner _spawner;
 
     private float _shootCounter = 0f;

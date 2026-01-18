@@ -21,8 +21,15 @@ MonoBehaviour:
   - {fileID: 2005126786876904744, guid: b060015db906f3f479963a417c060d73, type: 3}
   - {fileID: 2005126786876904744, guid: d127b03833e1cf04c9458e04cd26b48b, type: 3}
   - {fileID: 2005126786876904744, guid: 9e7229d02c044df4b9618e07aeef1656, type: 3}
+  - {fileID: 2005126786876904744, guid: 14889cd8cc1c25243a710e42d10e46df, type: 3}
+  - {fileID: 2005126786876904744, guid: b39b6553a08be8947bb67355bf466665, type: 3}
+  - {fileID: 2005126786876904744, guid: d6782037c1cad6944916532d978591b2, type: 3}
+  - {fileID: 2005126786876904744, guid: 9af5dc6999aea8d42890727d248f144e, type: 3}
+  - {fileID: 2005126786876904744, guid: a4bb043ff4530f845823cc9e2e4f4a0c, type: 3}
+  - {fileID: 2005126786876904744, guid: 60953c8aaa8fb814ebcff2bce0d76ff4, type: 3}
   shopRoomNumberMin: 9
   shopRoomNumberMax: 11
+  nahebekuNumber: 0
   talismanRoomNumber: 5
   shrineRoomNumberMin: 3
   shrineRoomNumberMax: 4
@@ -31,4 +38,5 @@ MonoBehaviour:
   shopRoom: {fileID: 2005126786876904744, guid: 4ae85a1cb25b57444b52a59c54fd8f83, type: 3}
   shrineRoom: {fileID: 2005126786876904744, guid: 341f951a682f2a34ab06db2bd91f8b76, type: 3}
   talismanRoom: {fileID: 2005126786876904744, guid: 88d0a7f787c081e479c292c4c750d9e0, type: 3}
+  nahebekuRoom: {fileID: 0}
   roomsToGenerate: 12

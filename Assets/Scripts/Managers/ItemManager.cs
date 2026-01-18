@@ -10,7 +10,6 @@ namespace Managers
         void Awake()
         {
             ServiceLocator.Instance.Register(this);
-            Debug.Log(ServiceLocator.Instance.GetService<ItemManager>());
         }
 
         void Start()

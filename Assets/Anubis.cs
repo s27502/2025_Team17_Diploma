@@ -591,7 +591,6 @@ public class Anubis : Boss
     private void GoToCorner()
     {
         float distance = Vector2.Distance(transform.position, _cornerPositions[_currentCorner]);
-        Debug.Log(distance);
         
         if (distance > 0.1f)
         {

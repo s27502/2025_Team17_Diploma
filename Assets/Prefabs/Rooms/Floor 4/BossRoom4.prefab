@@ -2513,7 +2513,7 @@ GameObject:
   - component: {fileID: 2029954511351312599}
   - component: {fileID: 3748631607959699812}
   - component: {fileID: 6346293004016750913}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Spikes (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5001,7 +5001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 616653430154381168, guid: 8543dbde2714d7b41bccb2470e7d8362, type: 3}
   _enemies: {fileID: 809455380221301480}
-  areaSize: {x: 24, y: 20}
+  areaSize: {x: 24, y: 14}
   areaCenter: {fileID: 5380192010588835844}
   _enemyPrefab2: {fileID: 616653430154381168, guid: 4b8a654c41034a24c8b762392c075d3e, type: 3}
 --- !u!1 &2596769028153175930
@@ -5407,7 +5407,7 @@ GameObject:
   - component: {fileID: 6075857241549079541}
   - component: {fileID: 1539167892050418743}
   - component: {fileID: 2697209928847576656}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Spikes (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8047,7 +8047,7 @@ GameObject:
   - component: {fileID: 5658448716933684310}
   - component: {fileID: 7710430170198751800}
   - component: {fileID: 1734203362103342589}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Spikes (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10393,7 +10393,7 @@ GameObject:
   - component: {fileID: 5301223892134919175}
   - component: {fileID: 1651254038465929734}
   - component: {fileID: 6358329996711624629}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Spikes (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12974,7 +12974,7 @@ GameObject:
   - component: {fileID: 899387115355924579}
   - component: {fileID: 4991015396782396325}
   - component: {fileID: 5921011607053304123}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12990,7 +12990,7 @@ Transform:
   m_GameObject: {fileID: 6740372289266217270}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.055562794, y: 0.6390343, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

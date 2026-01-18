@@ -319,7 +319,7 @@ namespace Enemies
         {
             _animator.SetBool("isWalking",true);
             tag = "Untagged";
-            EnemyStats.SetMovementSpeed(_originalSpeed);
+            EnemyStats.SetMovementSpeed(_originalSpeed * 2);
             
             while (Vector2.Distance(transform.position, exit.transform.position) > 0.1f)
             {
