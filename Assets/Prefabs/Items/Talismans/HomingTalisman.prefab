@@ -147,7 +147,7 @@ MonoBehaviour:
   itemPrice: 50
   IsShop: 0
   stats:
-  - 0
+  - 1
   - 0
   - 0
   - 0
@@ -156,5 +156,5 @@ MonoBehaviour:
   _isPoisoning: 0
   _isBouncing: 0
   _isHoming: 0
-  _description: Grants additional projectile
+  _description: Grants additional projectile and damage
   pickUpSound: {fileID: 8300000, guid: 1b1db92b32b5d7d4984bd21ffaeb4172, type: 3}
