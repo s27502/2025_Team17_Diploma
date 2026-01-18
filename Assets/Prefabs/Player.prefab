@@ -622,6 +622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultProjectile: {fileID: 3424888137376225583, guid: 9a086db5cdeaba6479b690d0a789742f, type: 3}
+  AdditionalProjectileMult: 0.3
   playerShoot: {fileID: 8300000, guid: cd77895a4db326a4381021862a7df762, type: 3}
   EnemiesInRange: []
   _projectileOffset: 10

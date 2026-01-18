@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private GameObject _defaultProjectile;
+    [SerializeField] private float AdditionalProjectileMult = 0.3f;
     private GameObject _projectile;
     private IObjectPool _projectilePool;
     private IObjectFactory _factory;
@@ -86,7 +87,7 @@ public class PlayerAttack : MonoBehaviour
         _offsetStart = -(_projectileOffset * (count - 1) / 2f);
         
         Vector2 baseDir = (target.transform.position - transform.position).normalized;
-
+        
         for (int i = 0; i < count; i++)
         {
             IPoolableObject projectile = _projectilePool.GetObject();

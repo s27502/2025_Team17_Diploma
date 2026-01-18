@@ -43,6 +43,11 @@ public class PlayerProjectile : ProjectileBase
         _bounceNumber = 0;
     }
 
+    public override void SpecialSpawn(Vector2 spawnPos, Vector2 finalDir, float additionalProjectileMult)
+    {
+        base.SpecialSpawn(spawnPos, finalDir, additionalProjectileMult);
+        _bounceNumber = 0;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -56,7 +61,7 @@ public class PlayerProjectile : ProjectileBase
             var enemyStats = other.GetComponent<EnemyStats>();
             if (enemyStats != null)
             {
-                enemyStats.ModifyHp(-_playerStats.GetDmg());
+                enemyStats.ModifyHp(-(int)(_playerStats.GetDmg()*_mult));
                 ShowDamageText(other.transform.position);
 
                 if (_playerStats.GetPosion())
@@ -110,7 +115,7 @@ public class PlayerProjectile : ProjectileBase
             popupObj.Spawn(enemyPos + randomOffset, Vector2.zero);
 
             DamagePopup popup = popupObj as DamagePopup;
-            popup.Setup(_playerStats.GetDmg());
+            popup.Setup((int)(_playerStats.GetDmg() * _mult));
         }
     }
 
