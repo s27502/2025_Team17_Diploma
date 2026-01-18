@@ -151,10 +151,10 @@ MonoBehaviour:
   - 0
   - 1
   - 0
-  - 1
+  - 0
   _price: {fileID: 0}
   _isPoisoning: 0
   _isBouncing: 0
   _isHoming: 0
-  _description: Increases damage, luck and  projectile count
+  _description: Increases damage and luck
   pickUpSound: {fileID: 8300000, guid: 1b1db92b32b5d7d4984bd21ffaeb4172, type: 3}
