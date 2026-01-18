@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class BrimstoneTrigger : MonoBehaviour
 {
-    [SerializeField] private Enemy myEnemy;
-    private HieraFollower _follower;
+    [SerializeField] protected Enemy myEnemy;
+    protected HieraFollower _follower;
     
     [SerializeField] private bool shootRight;
     [SerializeField] private bool shootLeft;
@@ -19,13 +19,13 @@ public class BrimstoneTrigger : MonoBehaviour
 
     private MultiLaserSpawner.LaserDirection _myDirection;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _follower = myEnemy as HieraFollower;
         _myDirection = GetDir();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
