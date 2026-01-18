@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 public class FloorManager : SingletonDoNotDestroy<FloorManager>
 {
     [SerializeField] private AudioClip defaultMusic;
+    [SerializeField] private AudioClip bossMusic;
+    [SerializeField] private AudioClip shopMusic;
+    
     [SerializeField] private Animator transition;
     [SerializeField] private GameObject _thankScreen;
     private GameObject _thankScreenInstance;
@@ -76,12 +79,12 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
 
             if (_roomCounter == _shopNumber)
             {
-                //shopmusic
+                AudioManager.Instance.PlayMusic(shopMusic);
                 _currentRoom = Instantiate(_currentFloorData.shopRoom, Vector3.zero, Quaternion.identity);
             }
             else if (_currentFloor == _floorDatas.Count-1 && _roomCounter == _currentFloorData.nahebekuNumber)
             {
-                //bossmusic
+                AudioManager.Instance.PlayMusic(bossMusic);
                 _currentRoom = Instantiate(_currentFloorData.nahebekuRoom, Vector3.zero, Quaternion.identity);
             }
             else if (_roomCounter == _shrineNumber)
@@ -91,7 +94,7 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
             }
             else if (_roomCounter == _currentFloorData.roomsToGenerate)
             {
-                //bossmusic
+                AudioManager.Instance.PlayMusic(bossMusic);
                 _currentRoom = Instantiate(_currentFloorData.bossRoom, Vector3.zero, Quaternion.identity);
             }
             else if (_roomCounter == _currentFloorData.talismanRoomNumber)
