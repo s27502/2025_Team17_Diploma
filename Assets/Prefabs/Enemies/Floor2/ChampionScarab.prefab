@@ -325,7 +325,7 @@ MonoBehaviour:
   _maxHp: 15
   dmg: 1
   atkSpd: 1
-  fireRate: 1
+  fireRate: 2
   movementSpeed: 3
   OnHpChanged:
     m_PersistentCalls:
