@@ -13602,11 +13602,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4679941854178038005, guid: 15b375ffba19d0f4aaf31ffc48ab6f93, type: 3}
       propertyPath: _hp
-      value: 10
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4679941854178038005, guid: 15b375ffba19d0f4aaf31ffc48ab6f93, type: 3}
       propertyPath: _maxHp
-      value: 10
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6194789230073260496, guid: 15b375ffba19d0f4aaf31ffc48ab6f93, type: 3}
       propertyPath: m_LocalPosition.x
