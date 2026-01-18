@@ -3884,11 +3884,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4462782963953943871, guid: 86782023a9d7e5141a39c2cfb6996d1d, type: 3}
       propertyPath: _hp
-      value: 75
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4462782963953943871, guid: 86782023a9d7e5141a39c2cfb6996d1d, type: 3}
       propertyPath: _maxHp
-      value: 75
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4462782963953943871, guid: 86782023a9d7e5141a39c2cfb6996d1d, type: 3}
       propertyPath: movementSpeed

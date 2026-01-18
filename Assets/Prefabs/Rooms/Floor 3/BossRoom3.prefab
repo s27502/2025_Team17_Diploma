@@ -4183,11 +4183,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6253433852577516376, guid: 53ad0d1a4628be643bdb938881d2c8ae, type: 3}
       propertyPath: _hp
-      value: 200
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 6253433852577516376, guid: 53ad0d1a4628be643bdb938881d2c8ae, type: 3}
       propertyPath: _maxHp
-      value: 200
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 6253433852577516376, guid: 53ad0d1a4628be643bdb938881d2c8ae, type: 3}
       propertyPath: movementSpeed
