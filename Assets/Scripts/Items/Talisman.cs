@@ -71,6 +71,16 @@ namespace Items
                 _stats.SetHoming(_isHoming);
             if(!_stats.GetPosion())
                 _stats.SetPoison(_isPoisoning);
+
+            if (_isPoisoning)
+            {
+                _stats.SetPoisonFromTalisman(_isPoisoning);
+            }
+
+            if (_isBouncing)
+            {
+                _stats.SetBouncyFromTalisman(_isBouncing);
+            }
         }
 
         private void DeEquipStatChanges(Item item)

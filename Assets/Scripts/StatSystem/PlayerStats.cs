@@ -16,6 +16,9 @@ namespace Player
         [SerializeField] private int coins;
         [SerializeField] private int armorMax;
         [SerializeField] private int armor;
+
+        [SerializeField] private bool _bouncyFromTalisman;
+        [SerializeField] private bool _poisonFromTalisman;
         
         [SerializeField] private bool _isPoisoning = false;
         [SerializeField] private bool _isBouncing = false;
@@ -47,6 +50,28 @@ namespace Player
             _iFrames = GetComponent<PlayerIFrames>();
         }
 
+        public void SetPoisonFromTalisman(bool isPoisoning)
+        {
+            _poisonFromTalisman = isPoisoning;
+            _isPoisoning = _poisonFromTalisman;
+        }
+
+        public void SetBouncyFromTalisman(bool isBouncing)
+        {
+            _bouncyFromTalisman = isBouncing;
+            _isBouncing = _bouncyFromTalisman;
+        }
+
+        public bool GetPoisonFromTalisman()
+        {
+            return _poisonFromTalisman;
+        }
+
+        public bool GetBouncyFromTalisman()
+        {
+            return _bouncyFromTalisman;
+        }
+        
         public override void ModifyHp(int value)
         {
             

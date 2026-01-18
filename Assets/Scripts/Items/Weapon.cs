@@ -14,6 +14,9 @@ namespace Items
         private PlayerStats _stats;
         private Equipment _equipment;
 
+        private Talisman _rubberTalisman;
+        private Talisman _bouncyTalisman;
+
         private bool _isPoisonFromTalisman;
         private bool _isBouncingFromTalisman;
         private bool _isHomingFromTalisman;
@@ -81,6 +84,7 @@ namespace Items
             if (_stats.GetPosion())
             {
                 _isPoisonFromTalisman = true;
+                _stats.SetBounce(_isBouncingFromTalisman);
             }
             else
             {
@@ -90,26 +94,17 @@ namespace Items
             if (_stats.GetBounce())
             {
                 _isBouncingFromTalisman = true;
+                _stats.SetBounce(_isBouncingFromTalisman);
             }
             else
             {
                 _stats.SetBounce(_isBouncing);
                 _isBouncingFromTalisman = false;
             }
-            if (_stats.GetHoming())
-            {
-                _isHomingFromTalisman = true;
-            }
-            else
-            {
-                _stats.SetHoming(_isHoming);
-                _isHomingFromTalisman = false;
-            }
         }
 
         private void DeEquipStatChanges(Item item)
         {
-            Debug.Log("twoja matka");
             List<float> stats = item.GetStats();
             
             if (stats[0] != 0)
@@ -126,24 +121,28 @@ namespace Items
             {
                 _stats.SetPoison(!_isPoisoning);
                 _stats.SetBounce(_isBouncing);
-                _stats.SetHoming(_isHoming);
             } else if (!_isBouncingFromTalisman && _isBouncing)
             {
                 _stats.SetPoison(_isPoisoning);
                 _stats.SetBounce(!_isBouncing);
-                _stats.SetHoming(_isHoming);
-            } else if (!_isHomingFromTalisman && _isHoming)
-            {
-                _stats.SetPoison(_isPoisoning);
-                _stats.SetBounce(_isBouncing);
-                _stats.SetHoming(!_isHoming);
-            }
+               
+            } 
             else
             {
                 _stats.SetPoison(_isPoisoning);
                 _stats.SetBounce(_isBouncing);
-                _stats.SetHoming(_isHoming);
             }
+
+            if (_stats.GetBouncyFromTalisman())
+            {
+                _stats.SetBounce(true);
+            }
+
+            if (_stats.GetPoisonFromTalisman())
+            {
+                _stats.SetPoison(true);
+            }
+            
         }
         public GameObject GetProjectile()
         {
