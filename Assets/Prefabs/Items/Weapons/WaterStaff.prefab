@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Rain Staff
   itemPrice: 55
-  IsShop: 0
+  IsShop: 1
   stats:
   - 3
   - 0.6
