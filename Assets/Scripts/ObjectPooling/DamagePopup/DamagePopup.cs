@@ -16,6 +16,11 @@ public class DamagePopup : MonoBehaviour, IPoolableObject
         throw new System.NotImplementedException();
     }
 
+    public void SpecialSpawn(Vector2 spawnPos, Vector2 finalDir, float additionalProjectileMult)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void Spawn(Vector2 position, Vector2 direction)
     {
         transform.position = position;

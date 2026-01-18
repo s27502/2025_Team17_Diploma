@@ -7,6 +7,7 @@ public abstract class ProjectileBase : MonoBehaviour, IPoolableObject
     protected Rigidbody2D _rb;
     protected Vector2 _dir;
     [SerializeField] protected int damage = 1;
+    protected float _mult = 1f;
 
     protected virtual void Awake()
     {
@@ -21,6 +22,12 @@ public abstract class ProjectileBase : MonoBehaviour, IPoolableObject
         transform.SetParent(obj.transform);
     }
 
+    public virtual void SpecialSpawn(Vector2 spawnPos, Vector2 finalDir, float additionalProjectileMult)
+    {
+        Spawn(spawnPos,finalDir);
+        _mult = additionalProjectileMult;
+    }
+
     public virtual void Spawn(Vector2 position, Vector2 direction)
     {
         transform.position = position;
@@ -32,6 +39,7 @@ public abstract class ProjectileBase : MonoBehaviour, IPoolableObject
         transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
 
         _rb.velocity = _dir * speed;
+        _mult = 1f;
     }
 
 
