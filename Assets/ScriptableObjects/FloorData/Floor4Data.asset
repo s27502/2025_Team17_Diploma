@@ -16,6 +16,17 @@ MonoBehaviour:
   possibleRooms:
   - {fileID: 2005126786876904744, guid: e61a97c3f34823249aebcd83a656503d, type: 3}
   - {fileID: 2005126786876904744, guid: e24bb7cab75e16843bc1c04459926cb5, type: 3}
+  - {fileID: 2005126786876904744, guid: 0d435b1ee2d7d644e91073f381786c01, type: 3}
+  - {fileID: 2005126786876904744, guid: f8c76c505fb26bc44ab0c87267b6ccb7, type: 3}
+  - {fileID: 2005126786876904744, guid: 0c3f1d32beffff54fac63775f9a6332c, type: 3}
+  - {fileID: 2005126786876904744, guid: 6ecb9759a4dd58b4ba3e065341622dc0, type: 3}
+  - {fileID: 2005126786876904744, guid: 330fa69f1999bfa45b89ddea4e147b03, type: 3}
+  - {fileID: 2005126786876904744, guid: 01ecabb92adf39b4582c43adffb3266d, type: 3}
+  - {fileID: 2005126786876904744, guid: 492385d69c93a7445aa847dfaea16f28, type: 3}
+  - {fileID: 2005126786876904744, guid: 299a68f1797418249a8aa0d88d5d1bdd, type: 3}
+  - {fileID: 2005126786876904744, guid: ebfcc1af96d95fe49a87a389443e4c00, type: 3}
+  - {fileID: 2005126786876904744, guid: e035b1cf9ddc142468b7b4cd61c4fe32, type: 3}
+  - {fileID: 2005126786876904744, guid: 0ce0bb3927f028140a5b208e98aed412, type: 3}
   shopRoomNumberMin: 9
   shopRoomNumberMax: 11
   nahebekuNumber: 8
