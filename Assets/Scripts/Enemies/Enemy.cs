@@ -244,10 +244,13 @@ public class Enemy : MonoBehaviour
     private void OnCollisionStay2D(Collision2D other)
     {
         if (!other.gameObject.CompareTag("Player")) return;
+        if (!_dead)
+        {
+            other.gameObject
+                .GetComponent<PlayerStats>()
+                .ModifyHp(-EnemyStats.GetDmg());
+        }
 
-        other.gameObject
-            .GetComponent<PlayerStats>()
-            .ModifyHp(-EnemyStats.GetDmg());
     }
 
 
