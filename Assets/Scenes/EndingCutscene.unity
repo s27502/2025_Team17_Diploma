@@ -771,24 +771,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1399270716}
   lines:
-  - You die
-  - You suddenly see light
-  - Ancient egypt
-  - Land of egyptian gods
-  - And the most important one for you
-  - Anubis, the god of the dead
-  - 'Anubis: talking something'
-  - 'Anubis: talking something 2'
-  - 'Anubis: talking something 3'
-  - 'Anubis: Good luck'
+  - 'Anubis: As expected, you have succeed.'
+  - 'Anubis: Now you will go to the Field of Reeds, however the trials remain open
+    for other spirits to face them.'
+  - This is where your story ends...
+  - 
   textSpeed: 0.1
   _openingMusic: {fileID: 8300000, guid: 02cb6746a00c0e649ad498533e3fb109, type: 3}
   _transition: {fileID: 995820222}
   _imageObject: {fileID: 526765508}
   _images:
-  - {fileID: 11400000, guid: 1893254ff0cab37479b9493af24acd0a, type: 2}
-  - {fileID: 11400000, guid: 70c577b9ccb732e459316f876fee83f7, type: 2}
-  - {fileID: 11400000, guid: 92f3ee24209ccc145a92b25aba2f0640, type: 2}
+  - {fileID: 11400000, guid: 2748fdc616cf5dc46805053735126113, type: 2}
+  - {fileID: 11400000, guid: 84b4dec48474aef46a29350f7cc66c70, type: 2}
+  - {fileID: 11400000, guid: 1ae7ba2deb18f7d4cbd82b1e8ce78075, type: 2}
 --- !u!4 &2032941385
 Transform:
   m_ObjectHideFlags: 0

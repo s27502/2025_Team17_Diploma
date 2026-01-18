@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a4891c3896e4a87abd9d81c87bb9c0b, type: 3}
-  m_Name: Opening2
+  m_Name: Ending1
   m_EditorClassIdentifier: 
-  index: 3
-  sprite: {fileID: 21300000, guid: 90c34fe0bf6a05442b582243cd3757dc, type: 3}
+  index: 0
+  sprite: {fileID: 21300000, guid: e2fbc3b0d9eed6349ad793699d972426, type: 3}

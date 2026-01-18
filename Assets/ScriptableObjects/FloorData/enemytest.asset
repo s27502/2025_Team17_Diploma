@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorName: enemytest
   possibleRooms:
-  - {fileID: 2005126786876904744, guid: 27ea512f134f0f141ae8ad6fab27de13, type: 3}
+  - {fileID: 2005126786876904744, guid: 1bd3ff35d7ff3a0458fc51bc6032aacd, type: 3}
   shopRoomNumberMin: 0
   shopRoomNumberMax: 0
   nahebekuNumber: 0
