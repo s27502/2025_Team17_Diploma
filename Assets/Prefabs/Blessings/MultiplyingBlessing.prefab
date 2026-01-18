@@ -47,6 +47,8 @@ MonoBehaviour:
   _desc: Additional projectile but lower attack speed
   _coins: 0
   _dmgMult: 0
-  _atkSpdMult: -0.25
+  _atkSpdMult: -0.5
   _projCount: 1
   _hp: 0
+  _luck: 0
+  _hpcap: 0
