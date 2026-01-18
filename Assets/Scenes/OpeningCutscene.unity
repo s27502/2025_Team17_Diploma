@@ -785,6 +785,7 @@ MonoBehaviour:
     fail you will go to the underworld.'
   - 'Anubis: Don''t waste your last chance.'
   textSpeed: 0.1
+  letterSound: {fileID: 8300000, guid: da359ea791f4452448c75afc2be9f115, type: 3}
   _openingMusic: {fileID: 8300000, guid: 02cb6746a00c0e649ad498533e3fb109, type: 3}
   _transition: {fileID: 995820222}
   _imageObject: {fileID: 526765508}

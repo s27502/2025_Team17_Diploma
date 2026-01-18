@@ -144,10 +144,6 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
 
     public void GoToNextFloor()
     {
-        //END
-        //StartCoroutine(DeathCoroutine());
-        
-        //ENDLESS
         _newFloor = true;
         _currentFloor ++;
         if (_currentFloor == _floorDatas.Count)
@@ -162,10 +158,6 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
             _shrineNumber = RollShrineRoomNumber();
             StartCoroutine(GoToNextRoomCoroutine());
         }
-                                                    
-
-
-
     }
 
     private GameObject PickRandomRoom()

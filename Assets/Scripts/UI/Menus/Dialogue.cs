@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textComponent;
     [SerializeField] private List<string> lines; 
     [SerializeField] private float textSpeed;
+    [SerializeField] private AudioClip letterSound;
 
     protected int index;
     
@@ -45,6 +47,11 @@ public class Dialogue : MonoBehaviour
         foreach (char c in lines[index].ToCharArray())
         {
             textComponent.text += c;
+            if (c != ' ')
+            {
+                AudioManager.Instance.PlaySfx(letterSound);
+            }
+
             yield return new WaitForSeconds(textSpeed);
         }
     }
