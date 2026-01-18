@@ -69,7 +69,7 @@ public class PlayerProjectile : ProjectileBase
                     var status = other.GetComponent<StatusHandler>();
                     status.Poison(
                         _playerStats.GetPoisonDuration(),
-                        _playerStats.GetDmg()/2
+                        Math.Clamp((_playerStats.GetDmg()/2),1,999)
                     );
                 }
             }
@@ -115,7 +115,7 @@ public class PlayerProjectile : ProjectileBase
             popupObj.Spawn(enemyPos + randomOffset, Vector2.zero);
 
             DamagePopup popup = popupObj as DamagePopup;
-            popup.Setup((int)(_playerStats.GetDmg() * _mult));
+            popup.Setup(Math.Clamp((int)(_playerStats.GetDmg() * _mult),1,999));
         }
     }
 

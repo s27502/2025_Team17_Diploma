@@ -206,6 +206,10 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 999999
       objectReference: {fileID: 0}
+    - target: {fileID: 4825536196020048289, guid: 4c21e92b1fba5244fa5fa9e35ab92ba5, type: 3}
+      propertyPath: _projectileOffset
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
