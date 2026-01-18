@@ -26,7 +26,7 @@ public class ResolutionSettings : MonoBehaviour
             var tuple = (res.width, res.height);
             
             if (_excludedResolutions.Contains(tuple))
-                continue; // ❌ Skip it
+                continue;
             if (!seen.Contains(key))
             {
                 seen.Add(key);
