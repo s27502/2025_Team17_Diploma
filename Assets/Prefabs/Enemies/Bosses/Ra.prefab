@@ -81,8 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e192957331d31419df13c2ab346822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 600
-  _maxHp: 600
+  _hp: 800
+  _maxHp: 800
   dmg: 1
   atkSpd: 1
   fireRate: 1
