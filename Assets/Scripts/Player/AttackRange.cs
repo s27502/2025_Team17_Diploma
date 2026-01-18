@@ -19,7 +19,6 @@ public class AttackRange : MonoBehaviour
             if (!_playerAttack.EnemiesInRange.Contains(collision.gameObject))
             {
                 _playerAttack.EnemiesInRange.Add(collision.gameObject);
-                Debug.Log("Enemy entered range: " + collision.name);
             }
         }
     }
@@ -31,7 +30,6 @@ public class AttackRange : MonoBehaviour
             if (_playerAttack.EnemiesInRange.Contains(collision.gameObject))
             {
                 _playerAttack.EnemiesInRange.Remove(collision.gameObject);
-                Debug.Log("Enemy exited range: " + collision.name);
             }
         }
     }

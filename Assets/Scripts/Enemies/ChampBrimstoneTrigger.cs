@@ -15,7 +15,6 @@ namespace Enemies
         {
             if (other.CompareTag("Player"))
             {
-                Debug.Log("Collisoin");
                 _followerChamp.ActivateLaser();
             }
         }
