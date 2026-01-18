@@ -126,24 +126,23 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
         StartCoroutine(GoToNextRoomCoroutine());
     }
     
-    private IEnumerator DeathCoroutine()
+    private IEnumerator FinishCoroutine()
     {
-        Time.timeScale = 0;
-        Destroy(ServiceLocator.Instance.GetService<FloorManager>().GetCurrentRoom());
-            
-        _thankScreenInstance = Instantiate(_thankScreen);
-            
-        yield return new WaitForSecondsRealtime(5f);
 
+        transition.SetTrigger("Start");
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        Destroy(_currentRoom);
         Destroy(gameObject);
         ServiceLocator.Instance.Erase();
-        SceneManager.LoadScene("MainMenu");
+        
+        SceneManager.LoadScene("EndingCutscene");
 
-        Time.timeScale = 1;
+
     }
     
 
-    private void GoToNextFloor()
+    public void GoToNextFloor()
     {
         //END
         //StartCoroutine(DeathCoroutine());
@@ -151,13 +150,22 @@ public class FloorManager : SingletonDoNotDestroy<FloorManager>
         //ENDLESS
         _newFloor = true;
         _currentFloor ++;
-        if (_currentFloor == _floorDatas.Count) _currentFloor = 0;
-        _roomCounter = 0;
-        _currentFloorData = _floorDatas[_currentFloor];
-        _shopNumber = RollShopRoomNumber();
-        _shrineNumber = RollShrineRoomNumber();
+        if (_currentFloor == _floorDatas.Count)
+        {
+            StartCoroutine(FinishCoroutine());
+        }
+        else
+        {
+            _roomCounter = 0;
+            _currentFloorData = _floorDatas[_currentFloor];
+            _shopNumber = RollShopRoomNumber();
+            _shrineNumber = RollShrineRoomNumber();
+            StartCoroutine(GoToNextRoomCoroutine());
+        }
+                                                    
 
-        StartCoroutine(GoToNextRoomCoroutine());
+
+
     }
 
     private GameObject PickRandomRoom()

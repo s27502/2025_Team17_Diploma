@@ -766,5 +766,26 @@ public class Anubis : Boss
             Destroy(ankhSpawner);
     }
 
+    protected override IEnumerator ExitCoroutine()
+    {
+        _animator.SetBool("isWalking",true);
+        foreach (var spawner in laserSpawners)
+        {
+            spawner.SetActive(false);
+        }
+        tag = "Untagged";
+            
+        while (Vector2.Distance(transform.position, exit.transform.position) > 0.1f)
+        {
+            MoveTo(exit.transform.position);
+            yield return null;
+        }
 
+        _animator.SetBool("isWalking",false);
+        yield return new WaitForSeconds(1);
+        
+        ServiceLocator.Instance.GetService<FloorManager>().GoToNextFloor();
+        base.Die();
+
+    }
 }
