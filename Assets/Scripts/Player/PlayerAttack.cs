@@ -87,20 +87,8 @@ public class PlayerAttack : MonoBehaviour
         _offsetStart = -(_projectileOffset * (count - 1) / 2f);
         
         Vector2 baseDir = (target.transform.position - transform.position).normalized;
-
-        IPoolableObject projectile1 = _projectilePool.GetObject();
-
-        Vector2 rotatedDir1 = Rotate(baseDir, _offsetStart).normalized;
-
-        Vector2 spawnPos1 = (Vector2)transform.position + rotatedDir1 * 0.7f;
-            
-        Vector2 finalDir1 = (target.transform.position - (Vector3)spawnPos1).normalized;
-
-        projectile1.Spawn(spawnPos1, finalDir1);
-
-        _offsetStart += _projectileOffset;
         
-        for (int i = 1; i < count; i++)
+        for (int i = 0; i < count; i++)
         {
             IPoolableObject projectile = _projectilePool.GetObject();
             if (projectile == null) continue;
@@ -111,7 +99,7 @@ public class PlayerAttack : MonoBehaviour
             
             Vector2 finalDir = (target.transform.position - (Vector3)spawnPos).normalized;
 
-            projectile.SpecialSpawn(spawnPos, finalDir,AdditionalProjectileMult);
+            projectile.Spawn(spawnPos, finalDir);
 
             _offsetStart += _projectileOffset;
         }

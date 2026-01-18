@@ -121,7 +121,7 @@ namespace Player
 
         public void ModifyProjectileCount(int value)
         {
-            projectileCount = Mathf.Clamp(projectileCount + value, 1, 5);
+            projectileCount = Mathf.Clamp(projectileCount + value, 1, 3);
             onProjCountChanged?.Invoke(projectileCount);
         }
 
