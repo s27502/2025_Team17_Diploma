@@ -5001,7 +5001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 616653430154381168, guid: 8543dbde2714d7b41bccb2470e7d8362, type: 3}
   _enemies: {fileID: 809455380221301480}
-  areaSize: {x: 24, y: 20}
+  areaSize: {x: 24, y: 14}
   areaCenter: {fileID: 5380192010588835844}
   _enemyPrefab2: {fileID: 616653430154381168, guid: 4b8a654c41034a24c8b762392c075d3e, type: 3}
 --- !u!1 &2596769028153175930

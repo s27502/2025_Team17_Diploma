@@ -64,7 +64,7 @@ public class PlayerProjectile : ProjectileBase
                     var status = other.GetComponent<StatusHandler>();
                     status.Poison(
                         _playerStats.GetPoisonDuration(),
-                        _playerStats.GetPoisonDMG()
+                        _playerStats.GetDmg()/2
                     );
                 }
             }

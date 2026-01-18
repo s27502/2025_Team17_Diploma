@@ -108,7 +108,7 @@ namespace Player
         public void ModifyAttackSpeed(float value)
         {
             atkSpeed = Mathf.Clamp(atkSpeed + value, 0, 10);
-            atkSpeed = Mathf.Round(atkSpeed * 10f) / 10f;
+            atkSpeed = (float)Math.Round(atkSpeed, 2, MidpointRounding.AwayFromZero);
             onAtkSpdChanged?.Invoke(atkSpeed);
         }
 
@@ -151,6 +151,7 @@ namespace Player
         public void SetAtkSpd(float value)
         {
             atkSpeed = Mathf.Clamp(value, 0.5f, 10);
+            atkSpeed = (float)Math.Round(atkSpeed, 2, MidpointRounding.AwayFromZero);
             onAtkSpdChanged?.Invoke(atkSpeed);
         }
         
