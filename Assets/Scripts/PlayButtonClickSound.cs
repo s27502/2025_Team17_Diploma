@@ -13,7 +13,7 @@ public class PlayButtonClickSound : MonoBehaviour
         _audioManager = AudioManager.Instance;
     }
 
-    public void PlayShit()
+    public void PlayButtonSound()
     {
         _audioManager.PlaySfx(_clickSound);
     }
