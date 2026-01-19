@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -43,6 +44,8 @@ public class MummyPile : Enemy
 
     public override void Die()
     {
+        AudioManager.Instance.PlaySfx(enemyDie);
+        OnDeath?.Invoke(this);
         Destroy(motherMummy);
     }
 }
