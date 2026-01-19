@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected Animator _animator;
     [SerializeField] protected EnemyProjectileFactory projectileFactory;
     [SerializeField] private float startDelay = 1f;
-    [SerializeField] private AudioClip enemyDie;
+    [SerializeField] protected AudioClip enemyDie;
 
     [SerializeField] private float minCrossMoveDuration = 0.5f;
     [SerializeField] private float maxCrossMoveDuration = 1.5f;
