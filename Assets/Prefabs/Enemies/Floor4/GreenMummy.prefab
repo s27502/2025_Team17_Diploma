@@ -183,7 +183,7 @@ MonoBehaviour:
   _animator: {fileID: 0}
   projectileFactory: {fileID: 8796582525158296695}
   startDelay: 1
-  enemyDie: {fileID: 0}
+  enemyDie: {fileID: 8300000, guid: 6baaf62589bfd7a45b84810349ba4fe6, type: 3}
   minCrossMoveDuration: 0.5
   maxCrossMoveDuration: 1.5
   motherMummy: {fileID: 616653430154381168}
